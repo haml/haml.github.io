@@ -1,0 +1,614 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Module: Haml::Filters
+  
+    &mdash; Haml Documentation
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../';
+  framesUrl = "../frames.html#!Haml/Filters.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (F)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../Haml.html" title="Haml (module)">Haml</a></span></span>
+     &raquo; 
+    <span class="title">Filters</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="../method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="../file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Module: Haml::Filters
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+      <dt class="r1">Extended by:</dt>
+      <dd class="r1"><span class='object_link'><a href="" title="Haml::Filters (module)">Filters</a></span></dd>
+      
+    
+  
+    
+  
+  
+    <dt class="r2">Included in:</dt>
+    <dd class="r2"><span class='object_link'><a href="" title="Haml::Filters (module)">Filters</a></span></dd>
+    
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/haml/filters.rb<span class="defines">,<br />
+  lib/haml/sass_rails_filter.rb</span>
+</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>The module containing the default Haml filters, as well as the base module, <span class='object_link'><a href="Filters/Base.html" title="Haml::Filters::Base (module)">Base</a></span>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="Filters/Base.html" title="Haml::Filters::Base (module)">Base</a></span></li>
+    
+  </ul>
+
+</div><h2>Defined Under Namespace</h2>
+<p class="children">
+  
+    
+      <strong class="modules">Modules:</strong> <span class='object_link'><a href="Filters/Base.html" title="Haml::Filters::Base (module)">Base</a></span>, <span class='object_link'><a href="Filters/Cdata.html" title="Haml::Filters::Cdata (module)">Cdata</a></span>, <span class='object_link'><a href="Filters/Coffee.html" title="Haml::Filters::Coffee (module)">Coffee</a></span>, <span class='object_link'><a href="Filters/Css.html" title="Haml::Filters::Css (module)">Css</a></span>, <span class='object_link'><a href="Filters/Erb.html" title="Haml::Filters::Erb (module)">Erb</a></span>, <span class='object_link'><a href="Filters/Escaped.html" title="Haml::Filters::Escaped (module)">Escaped</a></span>, <span class='object_link'><a href="Filters/Javascript.html" title="Haml::Filters::Javascript (module)">Javascript</a></span>, <span class='object_link'><a href="Filters/Less.html" title="Haml::Filters::Less (module)">Less</a></span>, <span class='object_link'><a href="Filters/Markdown.html" title="Haml::Filters::Markdown (module)">Markdown</a></span>, <span class='object_link'><a href="Filters/Plain.html" title="Haml::Filters::Plain (module)">Plain</a></span>, <span class='object_link'><a href="Filters/Preserve.html" title="Haml::Filters::Preserve (module)">Preserve</a></span>, <span class='object_link'><a href="Filters/Ruby.html" title="Haml::Filters::Ruby (module)">Ruby</a></span>, <span class='object_link'><a href="Filters/Sass.html" title="Haml::Filters::Sass (module)">Sass</a></span>, <span class='object_link'><a href="Filters/Scss.html" title="Haml::Filters::Scss (module)">Scss</a></span>
+    
+  
+    
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Filters/SassRailsTemplate.html" title="Haml::Filters::SassRailsTemplate (class)">SassRailsTemplate</a></span>, <span class='object_link'><a href="Filters/ScssRailsTemplate.html" title="Haml::Filters::ScssRailsTemplate (class)">ScssRailsTemplate</a></span>
+    
+  
+</p>
+
+
+
+
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#defined-instance_method" title="#defined (instance method)">- ({String =&gt; Haml::Filters::Base}) <strong>defined</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>A hash mapping filter names to classes.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#register_tilt_filter-instance_method" title="#register_tilt_filter (instance method)">- (Module) <strong>register_tilt_filter</strong>(name, options = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Loads an external template engine from <a href="https://github.com/rtomayko/tilt">Tilt</a> as a filter.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#remove_filter-instance_method" title="#remove_filter (instance method)">- <strong>remove_filter</strong>(name) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Removes a filter from Haml.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id=""></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="defined-instance_method">
+  
+    - (<tt>{String =&gt; <span class='object_link'><a href="Filters/Base.html" title="Haml::Filters::Base (module)">Haml::Filters::Base</a></span>}</tt>) <strong>defined</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a hash mapping filter names to classes.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>{String =&gt; <span class='object_link'><a href="Filters/Base.html" title="Haml::Filters::Base (module)">Haml::Filters::Base</a></span>}</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>a hash mapping filter names to classes.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+14
+15
+16</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/haml/filters.rb', line 14</span>
+
+def defined
+  @defined
+end</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="register_tilt_filter-instance_method">
+  
+    - (<tt>Module</tt>) <strong>register_tilt_filter</strong>(name, options = {}) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Loads an external template engine from <a href="https://github.com/rtomayko/tilt">Tilt</a> as a filter. This method is used internally by Haml to set up filters for Sass, SCSS, Less, Coffeescript, and others. It’s left public to make it easy for developers to add their own Tilt-based filters if they choose.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>options</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Options for generating the filter module.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  
+    
+    
+    
+    
+    <p class="tag_title">Options Hash (<tt>options</tt>):</p>
+    <ul class="option">
+      
+        <li>
+          <span class="name">:precompiled</span>
+          <span class="type">(<tt>Boolean</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>Whether the filter should be precompiled. Erb, Nokogiri and Builder use this, for example.</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:template_class</span>
+          <span class="type">(<tt>Class</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>The Tilt template class to use, in the event it can’t be inferred from an extension.</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:extension</span>
+          <span class="type">(<tt>String</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>The extension associated with the content, for example “markdown”. This lets Tilt choose the preferred engine when there are more than one.</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:alias</span>
+          <span class="type">(<tt>String</tt>, <tt>Array&lt;String&gt;</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>Any aliases for the filter. For example, :coffee is also available as :coffeescript.</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:extend</span>
+          <span class="type">(<tt>String</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>The name of a module to extend when defining the filter. Defaults to “Plain”. This allows filters such as Coffee to “inherit” from Javascript, wrapping its output in script tags.</p>
+</div>
+          
+        </li>
+      
+    </ul>
+  
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Module</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The generated filter.</p>
+</div>
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Since:</p>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'>
+<p>4.0</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/haml/filters.rb', line 38</span>
+
+def register_tilt_filter(name, options = {})
+  if constants.map(&amp;:to_s).include?(name.to_s)
+    raise &quot;#{name} filter already defined&quot;
+  end
+
+  filter = const_set(name, Module.new)
+  filter.extend const_get(options[:extend] || &quot;Plain&quot;)
+  filter.extend TiltFilter
+  filter.extend PrecompiledTiltFilter if options.has_key? :precompiled
+
+  if options.has_key? :template_class
+    filter.template_class = options[:template_class]
+  else
+    filter.tilt_extension = options.fetch(:extension) { name.downcase }
+  end
+
+  # All &quot;:coffeescript&quot; as alias for &quot;:coffee&quot;, etc.
+  if options.has_key?(:alias)
+    [options[:alias]].flatten.each {|x| Filters.defined[x.to_s] = filter}
+  end
+  filter
+end</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="remove_filter-instance_method">
+  
+    - <strong>remove_filter</strong>(name) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Removes a filter from Haml. If the filter was removed, it returns the that was remove Module upon success, or nil on failure. If you try to redefine a filter, Haml will raise an error. Use this method first to explicitly remove the filter before redefining it.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        
+        <div class='inline'>
+<p>Module The filter module that has been removed</p>
+</div>
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Since:</p>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'>
+<p>4.0</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+67
+68
+69
+70
+71
+72</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/haml/filters.rb', line 67</span>
+
+def remove_filter(name)
+  defined.delete name.to_s.downcase
+  if constants.map(&amp;:to_s).include?(name.to_s)
+    remove_const name.to_sym
+  end
+end</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Sun Jan 25 08:23:20 2015 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.6 (ruby-2.2.0).
+</div>
+
+
+  <script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+  </script>
+  <script type="text/javascript">
+  try {
+  var pageTracker = _gat._getTracker("UA-3592613-6");
+  pageTracker._trackPageview();
+  } catch(err) {}</script>
+
+
+  </body>
+</html>

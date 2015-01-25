@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<!--[if lte IE 8]><html lang="en" class="ie"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+  <meta charset='utf-8'>
+  <meta content='width=device-width,initial-scale=1.0' name='viewport'>
+  <meta content='A Template Engine for Ruby on Rails' name='description'>
+  <meta content='Haml, HAML, haml, Rails, Ruby, Ruby on Rails, Template, Template Engine, HTML Abstraction Markup Language' name='keywords'>
+  <meta content='3zvYccFjus45bkqbIvoSzbVRlaQ3JBhHOcC/+DpAeoc=' name='verify-v1'>
+  <meta content='_HduvdWLa6WXLgvQNiBbFDb18ZqvHMp_4ocOTEz0Drc' name='google-site-verification'>
+  <title>Haml :: Tutorial</title>
+  <link href='/images/favicon.ico' rel='shortcut icon' type='image/x-icon'>
+  <link href="/stylesheets/application.css" media="all" rel="stylesheet" type="text/css"/>
+  <!--[if lte IE 8]>
+    <script src='../javascripts/modernizr.js'></script>
+  <![endif]-->
+</head>
+<body>
+  <header class='cell'>
+    <a class="logo" href="/"><img alt="Haml" src="images/haml.png"/></a>
+    <ul>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/tutorial.html">Tutorial</a></li>
+      <li><a href="/docs.html">Documentation</a></li>
+      <li><a href="http://haml.tumblr.com/">Blog</a></li>
+      <li><a href="/help.html">Help</a></li>
+    </ul>
+  </header>
+  <div class='cell'>
+    <div class='content'>
+      <h1>
+        <img alt="Tutorial" src="images/img-badge-tutorial.png"/>
+        Tutorial
+      </h1>
+      <ul class='subnav'>
+        <li><a href="/download.html">Download</a></li>
+        <li><a href="/editors.html">Editors</a></li>
+        <li><a href="/development.html">Development</a></li>
+      </ul>
+      
+      <p>Before we start this tutorial, I want to make one thing clear. After you look at this, go and convert one of your ERB files to Haml. Just try it. Just take the file and start hitting delete. You don’t have to keep the file if you don’t like it, but after you’re done with this tutorial, just try one file.</p>
+      
+      <p>Haml feels odd for the first 20 minutes, but then after that <strong>you will be faster</strong>.</p>
+      
+      <h2 id="getting_started">Getting Started</h2>
+      
+      <p>First, <a href="/download.html">get Haml</a> and <a href="/docs/yardoc/file.REFERENCE.html#using_haml">install the gem</a> (this tutorial assumes you’re using Rails — it should apply to other frameworks and standalone Haml just as well, though). Haml is a drop-in replacement for ERB. That means any file in your <code>app/views</code> folder can be switched over to Haml by simply changing the extension of the file.</p>
+      <pre>app/views/account/login.html.erb &rarr; app/views/account/login.html.haml</pre>
+      <p>Now, when you view that page, instead of ERB getting its hands on the template, it’s handled by Haml instead. You can mix up ERB and Haml and on the fly throughout your site.</p>
+      
+      <h2 id="how_to_convert">How to Convert</h2>
+      
+      <p>Let’s start off with some basic ERB that we want to convert.</p>
+      <h3>ERB</h3>
+      <pre>&lt;strong&gt;&lt;%= item.title %&gt;&lt;/strong&gt;</pre>
+      <h3>Haml</h3>
+      <pre class='haml'>%strong= item.title</pre>
+      
+      <p>In Haml, we write a tag by using the percent sign and then the name of the tag. This works for <code>%strong</code>, <code>%div</code>, <code>%body</code>, <code>%html</code>; any tag you want. Then, after the name of the tag is <code>=</code>, which tells Haml to evaluate Ruby code to the right and then print out the return value as the contents of the tag. Unlike the ERB above, Haml will automatically detect newlines in the return value and format the tag properly.</p>
+      
+      <h2 id="adding_attributes">Adding Attributes</h2>
+      
+      <p>Simple tags are all well and good, but what about adding attributes to tags?</p>
+      <h3>HTML</h3>
+      <pre class='html'>&lt;strong class=&quot;code&quot; id=&quot;message&quot;&gt;Hello, World!&lt;/strong&gt;</pre>
+      <h3>Haml</h3>
+      <pre class='haml'>%strong{:class =&gt; &quot;code&quot;, :id =&gt; &quot;message&quot;} Hello, World!</pre>
+      
+      <p>The attributes are just a standard Ruby hash. The <code>class</code> attribute is “code”, the <code>id</code> attribute is “message”. Notice that in this example, we didn’t use <code>=</code>, so “Hello, World!” is interpreted as a normal string, not Ruby code.</p>
+      
+      <p>There is an easier way to define this tag in Haml, since <code>class</code> and <code>id</code> are such common attributes and since most designers (and developers) are familiar with CSS, we can use similar notation to describe this tag.</p>
+      <h3>Haml</h3>
+      <pre class='haml'>%strong.code#message Hello, World!</pre>
+      
+      <p>Not only that, but since <code>div</code> tags are so common, you can leave off the tag definition and have it default to <code>%div</code>.</p>
+      <h3>Haml</h3>
+      <pre class='haml'>.content Hello, World!</pre>
+      <h3>HTML</h3>
+      <pre class='html'>&lt;div class=&#39;content&#39;&gt;Hello, World!&lt;/div&gt;</pre>
+      
+      <h2 id="upping_the_complexity">Upping the Complexity</h2>
+      
+      <p>Now what about something a little more complicated?</p>
+      <h3>ERB</h3>
+      <pre>&lt;div class=&#39;item&#39; id=&#39;item&lt;%= item.id %&gt;&#39;&gt;&#x000A;  &lt;%= item.body %&gt;&#x000A;&lt;/div&gt;</pre>
+      
+      <p>Pretty basic. This might be part of a partial or something. Let’s convert it to Haml.</p>
+      <h3>Haml</h3>
+      <pre class='haml'>.item{:id =&gt; &quot;item#{item.id}&quot;}= item.body</pre>
+      
+      <p>This stuff is fun! Now, nesting is taken care of in Haml via whitespace.</p>
+      <h3>ERB</h3>
+      <pre>&lt;div id=&#39;content&#39;&gt;&#x000A;  &lt;div class=&#39;left column&#39;&gt;&#x000A;    &lt;h2&gt;Welcome to our site!&lt;/h2&gt;&#x000A;    &lt;p&gt;&lt;%= print_information %&gt;&lt;/p&gt;&#x000A;  &lt;/div&gt;&#x000A;  &lt;div class=&quot;right column&quot;&gt;&#x000A;    &lt;%= render :partial =&gt; &quot;sidebar&quot; %&gt;&#x000A;  &lt;/div&gt;&#x000A;&lt;/div&gt;</pre>
+      <h3>Haml</h3>
+      <pre class='haml'>#content&#x000A;  .left.column&#x000A;    %h2 Welcome to our site!&#x000A;    %p= print_information&#x000A;  .right.column&#x000A;    = render :partial =&gt; &quot;sidebar&quot;</pre>
+      
+      <p>Look at that. Doesn’t that just make you smile?</p>
+      
+      <p>There is a lot more to learn, so I’d highly recommend checking out the <a href="/docs/yardoc/file.REFERENCE.html">reference</a>. It’s filled with awesome little tricks that we’ve added to Haml to make building sites even more fun.</p>
+    </div>
+  </div>
+  <footer>
+    <p>&copy; 2006-2015 <a href="about.html#the_haml_team">The Haml Team</a> and <a href="https://github.com/haml/haml/graphs/contributors">numerous contributors</a>. Haml is available for use and modification under the <a href="/docs/yardoc/file.MIT-LICENSE.html">MIT&nbsp;License</a>.</p>
+  </footer>
+  <script>
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-3592613-6']);
+    _gaq.push(['_trackPageview']);
+    
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+  </script>
+</body>

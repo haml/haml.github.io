@@ -1,0 +1,226 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>
+  File: README
+  
+    &mdash; Haml Documentation
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '';
+  framesUrl = "frames.html#!file.README.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index</a> &raquo; 
+    <span class="title">File: README</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><div id='filecontents'>
+<h1 id="haml">Haml</h1>
+
+<p><a href="http://travis-ci.org/haml/haml"><img src="https://secure.travis-ci.org/haml/haml.png?branch=master" alt="Build Status" /></a></p>
+
+<p>Haml is a templating engine for HTML. It’s designed to make it both easier and more pleasant to write HTML documents, by eliminating redundancy, reflecting the underlying structure that the document represents, and providing an elegant syntax that’s both powerful and easy to understand.</p>
+
+<h2 id="basic_usage">Basic Usage</h2>
+
+<p>Haml can be used from the command line or as part of a Ruby web framework. The first step is to install the gem:</p>
+
+<pre class="code ruby"><code class="ruby">gem install haml</code></pre>
+
+<p>After you write some Haml, you can run</p>
+
+<pre class="code ruby"><code class="ruby">haml document.haml</code></pre>
+
+<p>to compile it to HTML. For more information on these commands, check out</p>
+
+<pre class="code ruby"><code class="ruby">haml --help</code></pre>
+
+<p>To use Haml programatically, check out the <a href="http://haml.info/docs/yardoc/">YARD documentation</a>.</p>
+
+<h2 id="using_haml_with_rails">Using Haml with Rails</h2>
+
+<p>To use Haml with Rails, simply add Haml to your Gemfile and run <code>bundle</code>.</p>
+
+<p>If you’d like to replace Rails’s Erb-based generators with Haml, add <a href="https://github.com/indirect/haml-rails">haml-rails</a> to your Gemfile as well.</p>
+
+<h2 id="formatting">Formatting</h2>
+
+<p>The most basic element of Haml is a shorthand for creating HTML:</p>
+
+<pre class="code ruby"><code class="ruby">%tagname{:attr1 =&gt; &#39;value1&#39;, :attr2 =&gt; &#39;value2&#39;} Contents</code></pre>
+
+<p>No end-tag is needed; Haml handles that automatically. If you prefer HTML-style attributes, you can also use:</p>
+
+<pre class="code ruby"><code class="ruby">%tagname(attr1=&#39;value1&#39; attr2=&#39;value2&#39;) Contents</code></pre>
+
+<p>Adding <code>class</code> and <code>id</code> attributes is even easier. Haml uses the same syntax as the CSS that styles the document:</p>
+
+<pre class="code ruby"><code class="ruby">%tagname#id.class</code></pre>
+
+<p>In fact, when you’re using the <code>&lt;div&gt;</code> tag, it becomes <em>even easier</em>. Because <code>&lt;div&gt;</code> is such a common element, a tag without a name defaults to a div. So</p>
+
+<pre class="code ruby"><code class="ruby">#foo Hello!</code></pre>
+
+<p>becomes</p>
+
+<pre class="code ruby"><code class="ruby">&lt;div id=&#39;foo&#39;&gt;Hello!&lt;/div&gt;</code></pre>
+
+<p>Haml uses indentation to bring the individual elements to represent the HTML structure. A tag’s children are indented beneath than the parent tag. Again, a closing tag is automatically added. For example:</p>
+
+<pre class="code ruby"><code class="ruby">%ul
+  %li Salt
+  %li Pepper</code></pre>
+
+<p>becomes:</p>
+
+<pre class="code ruby"><code class="ruby">&lt;ul&gt;
+  &lt;li&gt;Salt&lt;/li&gt;
+  &lt;li&gt;Pepper&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+<p>You can also put plain text as a child of an element:</p>
+
+<pre class="code ruby"><code class="ruby">%p
+  Hello,
+  World!</code></pre>
+
+<p>It’s also possible to embed Ruby code into Haml documents. An equals sign, <code>=</code>, will output the result of the code. A hyphen, <code>-</code>, will run the code but not output the result. You can even use control statements like <code>if</code> and <code>while</code>:</p>
+
+<pre class="code ruby"><code class="ruby">%p
+  Date/Time:
+  - now = DateTime.now
+  %strong= now
+  - if now &gt; DateTime.parse(&quot;December 31, 2006&quot;)
+    = &quot;Happy new &quot; + &quot;year!&quot;</code></pre>
+
+<p>Haml provides far more tools than those presented here. Check out the <a href="http://haml.info/docs/yardoc/file.REFERENCE.html">reference documentation</a> for full details.</p>
+
+<h3 id="indentation">Indentation</h3>
+
+<p>Haml’s indentation can be made up of one or more tabs or spaces. However, indentation must be consistent within a given document. Hard tabs and spaces can’t be mixed, and the same number of tabs or spaces must be used throughout.</p>
+
+<h2 id="contributing">Contributing</h2>
+
+<p>Contributions are welcomed, but before you get started please read the <a href="http://haml.info/development.html#contributing">guidelines</a>.</p>
+
+<p>After forking and then cloning the repo locally, install Bundler and then use it to install the development gem dependecies:</p>
+
+<pre class="code ruby"><code class="ruby">gem install bundler
+bundle install</code></pre>
+
+<p>Once this is complete, you should be able to run the test suite:</p>
+
+<pre class="code ruby"><code class="ruby">rake</code></pre>
+
+<p>You’ll get a warning that you need to install haml-spec, so run this:</p>
+
+<pre class="code ruby"><code class="ruby">git submodule update --init</code></pre>
+
+<p>At this point <code>rake</code> should run without error or warning and you are ready to start working on your patch!</p>
+
+<p>Note that you can also run just one test out of the test suite if you’re working on a specific area:</p>
+
+<pre class="code ruby"><code class="ruby">ruby -Itest test/helper_test.rb -n test_buffer_access</code></pre>
+
+<p>Haml supports Ruby 1.8.7 and higher, so please make sure your changes run on both 1.9 and 1.8.</p>
+
+<h2 id="team">Team</h2>
+
+<h3 id="current_maintainers">Current Maintainers</h3>
+
+<ul>
+<li><a href="http://github.com/norman">Norman Clarke</a></li>
+
+<li><a href="http://github.com/mattwildig">Matt Wildig</a></li>
+
+<li><a href="https://github.com/amatsuda">Akira Matsuda</a></li>
+</ul>
+
+<h3 id="alumni">Alumni</h3>
+
+<p>Haml was created by <a href="http://hamptoncatlin.com">Hampton Catlin</a>, the author of the original implementation. Hampton is no longer involved in day-to-day coding, but still consults on language issues.</p>
+
+<p><a href="http://nex-3.com">Nathan Weizenbaum</a> was for many years the primary developer and architect of the “modern” Ruby implementation of Haml.</p>
+
+<h2 id="license">License</h2>
+
+<p>Some of Nathan’s work on Haml was supported by Unspace Interactive.</p>
+
+<p>Beyond that, the implementation is licensed under the MIT License.</p>
+
+<p>Copyright (c) 2006-2013 Hampton Catlin, Nathan Weizenbaum and the Haml team</p>
+
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+
+<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+
+<p>THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+</div></div>
+
+    <div id="footer">
+  Generated on Sun Jan 25 08:23:20 2015 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.6 (ruby-2.2.0).
+</div>
+
+
+  <script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+  </script>
+  <script type="text/javascript">
+  try {
+  var pageTracker = _gat._getTracker("UA-3592613-6");
+  pageTracker._trackPageview();
+  } catch(err) {}</script>
+
+
+  </body>
+</html>

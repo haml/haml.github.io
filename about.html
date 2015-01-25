@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<!--[if lte IE 8]><html lang="en" class="ie"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+  <meta charset='utf-8'>
+  <meta content='width=device-width,initial-scale=1.0' name='viewport'>
+  <meta content='A Template Engine for Ruby on Rails' name='description'>
+  <meta content='Haml, HAML, haml, Rails, Ruby, Ruby on Rails, Template, Template Engine, HTML Abstraction Markup Language' name='keywords'>
+  <meta content='3zvYccFjus45bkqbIvoSzbVRlaQ3JBhHOcC/+DpAeoc=' name='verify-v1'>
+  <meta content='_HduvdWLa6WXLgvQNiBbFDb18ZqvHMp_4ocOTEz0Drc' name='google-site-verification'>
+  <title>Haml :: About</title>
+  <link href='/images/favicon.ico' rel='shortcut icon' type='image/x-icon'>
+  <link href="/stylesheets/application.css" media="all" rel="stylesheet" type="text/css"/>
+  <!--[if lte IE 8]>
+    <script src='../javascripts/modernizr.js'></script>
+  <![endif]-->
+</head>
+<body>
+  <header class='cell'>
+    <a class="logo" href="/"><img alt="Haml" src="images/haml.png"/></a>
+    <ul>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/tutorial.html">Tutorial</a></li>
+      <li><a href="/docs.html">Documentation</a></li>
+      <li><a href="http://haml.tumblr.com/">Blog</a></li>
+      <li><a href="/help.html">Help</a></li>
+    </ul>
+  </header>
+  <div class='cell'>
+    <div class='content'>
+      <h1>
+        <img alt="About" src="images/img-badge-about.png"/>
+        About
+      </h1>
+      <ul class='subnav'>
+        <li><a href="/download.html">Download</a></li>
+        <li><a href="/editors.html">Editors</a></li>
+        <li><a href="/development.html">Development</a></li>
+      </ul>
+      
+      <p>Haml is a markup language that’s used to cleanly and simply describe the HTML of any web document without the use of inline code. Haml functions as a replacement for inline page templating systems such as PHP, ASP, and ERB, the templating language used in most Ruby on Rails applications. However, Haml avoids the need for explicitly coding HTML into the template, because it itself is a description of the HTML, with some code to generate dynamic content.</p>
+      
+      <h2 id="core_principles">Core Principles</h2>
+      
+      <p>Haml’s development as a language is based on adherence to several core principles. These are:</p>
+      
+      <ol>
+      <li>
+      <h3 id="markup_should_be_beautiful">Markup Should be Beautiful</h3>
+      
+      <p>Markup should not be used <strong>merely</strong> as a tool to get browsers to render a page how the author wants it rendered. The rendering isn’t the only thing people have to see; they have to see, modify, and <em>understand</em> the markup as well. Thus, the markup should be just as user-friendly and pleasant as the rendered result.</p>
+      </li>
+      
+      <li>
+      <h3 id="markup_should_be_">Markup Should be <abbr title='Don&apos;t Repeat Yourself'>DRY</abbr></h3>
+      
+      <p>HTML involves major repetition. Every element is named twice: once before its content and once after. ERB adds even more repetition and unnecessary characters. HAML avoids all of this by relying on indentation, not text, to determine where elements and blocks of code begin and end. Not only does this result in smaller templates, it makes the code much cleaner to look at.</p>
+      </li>
+      
+      <li>
+      <h3 id="markup_should_be_wellindented">Markup Should be Well-Indented</h3>
+      
+      <p>One of the major problems with ERB is that not only does it not encourage well-indented code, it actively makes it challenging, or even impossible, to write. This leads to confusing, unreadable HTML, when it should be well indented and reflecting the underlying structure of the document. Haml automatically properly formats all tags to that it does.</p>
+      </li>
+      
+      <li>
+      <h3 id="html_structure_should_be_clear">HTML Structure Should be Clear</h3>
+      
+      <p>XML and HTML are formats built upon the idea of a structured document. That structure is reflected in their markup, and it should likewise be reflected in meta-markup such as Haml Because Haml’s logic is based on indentation of child elements, this structure is naturally preserved, making the document much easier and more logical for mere humans to read.</p>
+      </li>
+      </ol>
+      
+      <h2 id="history">History</h2>
+      
+      <p>Haml was created because Hampton got really annoyed having to keep hand-typing out templates. So many advances have been made in web-development, but the template has remained the same. Time for something new.</p>
+      
+      <p>Based on those frustrations, Haml was born as an experiment. However, Haml quickly proved itself in several production-level websites created at <a href="http://www.unspace.ca">Unspace Interactive</a>. In fact, the entire company’s development team quickly shrugged off ERB completely and have gone entirely to Haml based development.</p>
+      
+      <p>Haml quickly proved itself to be a productivity boon. Also, designers love Haml for its similarities to CSS. Things are better in web development land since Haml arrived.</p>
+      
+      <h2 id="the_haml_team">The Haml Team</h2>
+      
+      <p>Haml was created by <a href="http://hamptoncatlin.com">Hampton Catlin</a>, the author of the original implementation. However, Hampton doesn’t even know his way around the code anymore and now just occasionally consults on the language issues.</p>
+      
+      <p><a href="http://nex-3.com">Natalie Weizenbaum</a> was for many years the primary developer and architect of the “modern” Ruby implementation of Haml. Her hard work endlessly answering forum posts, fixing bugs, refactoring, finding speed improvements, writing documentation, and implementing new features is what has kept the project alive.</p>
+      
+      <p><a href="http://github.com/norman">Norman Clarke</a>, the author of Haml Spec and the Haml implementation in Lua, took over as maintainer in April 2012.</p>
+      
+      <p>Haml’s branding and design were contributed by <a href="http://nick-walsh.com">Nick Walsh</a>.</p>
+      
+      <h2 id="license">License</h2>
+      
+      <p>The Haml implementation is available under the <a href="/docs/yardoc/file.MIT-LICENSE.html">MIT License</a>.</p>
+    </div>
+  </div>
+  <footer>
+    <p>&copy; 2006-2015 <a href="about.html#the_haml_team">The Haml Team</a> and <a href="https://github.com/haml/haml/graphs/contributors">numerous contributors</a>. Haml is available for use and modification under the <a href="/docs/yardoc/file.MIT-LICENSE.html">MIT&nbsp;License</a>.</p>
+  </footer>
+  <script>
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-3592613-6']);
+    _gaq.push(['_trackPageview']);
+    
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+  </script>
+</body>

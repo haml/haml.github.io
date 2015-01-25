@@ -1,0 +1,1227 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: Haml::Engine
+  
+    &mdash; Haml Documentation
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../';
+  framesUrl = "../frames.html#!Haml/Engine.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (E)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../Haml.html" title="Haml (module)">Haml</a></span></span>
+     &raquo; 
+    <span class="title">Engine</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="../method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="../file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Class: Haml::Engine
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><span class='object_link'>Object</span></span>
+      
+        <ul class="fullTree">
+          <li><span class='object_link'>Object</span></li>
+          
+            <li class="next">Haml::Engine</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+      <dt class="r2">Extended by:</dt>
+      <dd class="r2">Forwardable</dd>
+      
+    
+  
+    
+      <dt class="r1">Includes:</dt>
+      <dd class="r1"><span class='object_link'><a href="Util.html" title="Haml::Util (module)">Util</a></span></dd>
+      
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/haml/engine.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>This is the frontend for using Haml programmatically. It can be directly used by the user by creating a new instance and calling <span class='object_link'><a href="#render-instance_method" title="Haml::Engine#render (method)">#render</a></span> to render the template. For example:</p>
+
+<pre class="code ruby"><code class="ruby">template = File.read(&#39;templates/really_cool_template.haml&#39;)
+haml_engine = Haml::Engine.new(template)
+output = haml_engine.render
+puts output</code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+
+
+
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#compiler-instance_method" title="#compiler (instance method)">- <strong>compiler</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute compiler.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#indentation-instance_method" title="#indentation (instance method)">- (String) <strong>indentation</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The indentation used in the Haml document, or <code>nil</code> if the indentation is ambiguous (for example, for a single-level document).</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#options-instance_method" title="#options (instance method)">- <strong>options</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The Haml::Options instance.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#parser-instance_method" title="#parser (instance method)">- <strong>parser</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute parser.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#def_method-instance_method" title="#def_method (instance method)">- <strong>def_method</strong>(object, name, *local_names) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Defines a method on <code>object</code> with the given name that renders the template and returns the result as a string.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Engine) <strong>initialize</strong>(template, options = {}) </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Precompiles the Haml template.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#options_for_buffer-instance_method" title="#options_for_buffer (instance method)">- <strong>options_for_buffer</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#render-instance_method" title="#render (instance method)">- (String) <strong>render</strong>(scope = Object.new, locals = {}, &amp;block) </a>
+    
+
+    
+      (also: #to_html)
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Processes the template and returns the result as a string.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#render_proc-instance_method" title="#render_proc (instance method)">- (Proc) <strong>render_proc</strong>(scope = Object.new, *local_names) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns a proc that, when called, renders the template and returns the result as a string.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="Util.html" title="Haml::Util (module)">Util</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Util.html#av_template_class-instance_method" title="Haml::Util#av_template_class (method)">#av_template_class</a></span>, <span class='object_link'><a href="Util.html#balance-instance_method" title="Haml::Util#balance (method)">#balance</a></span>, <span class='object_link'><a href="Util.html#caller_info-instance_method" title="Haml::Util#caller_info (method)">#caller_info</a></span>, <span class='object_link'><a href="Util.html#check_encoding-instance_method" title="Haml::Util#check_encoding (method)">#check_encoding</a></span>, <span class='object_link'><a href="Util.html#check_haml_encoding-instance_method" title="Haml::Util#check_haml_encoding (method)">#check_haml_encoding</a></span>, <span class='object_link'><a href="Util.html#contains_interpolation%3F-instance_method" title="Haml::Util#contains_interpolation? (method)">#contains_interpolation?</a></span>, <span class='object_link'><a href="Util.html#def_static_method-instance_method" title="Haml::Util#def_static_method (method)">#def_static_method</a></span>, <span class='object_link'><a href="Util.html#handle_interpolation-instance_method" title="Haml::Util#handle_interpolation (method)">#handle_interpolation</a></span>, <span class='object_link'><a href="Util.html#html_safe-instance_method" title="Haml::Util#html_safe (method)">#html_safe</a></span>, <span class='object_link'><a href="Util.html#human_indentation-instance_method" title="Haml::Util#human_indentation (method)">#human_indentation</a></span>, <span class='object_link'><a href="Util.html#inspect_obj-instance_method" title="Haml::Util#inspect_obj (method)">#inspect_obj</a></span>, <span class='object_link'><a href="Util.html#powerset-instance_method" title="Haml::Util#powerset (method)">#powerset</a></span>, <span class='object_link'><a href="Util.html#rails_xss_safe%3F-instance_method" title="Haml::Util#rails_xss_safe? (method)">#rails_xss_safe?</a></span>, <span class='object_link'><a href="Util.html#silence_warnings-instance_method" title="Haml::Util#silence_warnings (method)">#silence_warnings</a></span>, <span class='object_link'><a href="Util.html#static_method_name-instance_method" title="Haml::Util#static_method_name (method)">#static_method_name</a></span>, <span class='object_link'><a href="Util.html#unescape_interpolation-instance_method" title="Haml::Util#unescape_interpolation (method)">#unescape_interpolation</a></span></p>
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="Haml::Engine (class)">Engine</a></span></tt>) <strong>initialize</strong>(template, options = {}) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Precompiles the Haml template.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>template</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The Haml template</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>options</span>
+      
+      
+        <span class='type'>(<tt>{Symbol =&gt; <span class='object_link'>Object</span>}</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>An options hash; see <a href="../file.REFERENCE.html#options" title="the Haml options documentation">the Haml options documentation</a></p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Error.html" title="Haml::Error (class)">Haml::Error</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>if there’s a Haml syntax error in the template</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/haml/engine.rb', line 54</span>
+
+def initialize(template, options = {})
+  @options = Options.new(options)
+
+  @template = check_haml_encoding(template) do |msg, line|
+    raise Haml::Error.new(msg, line)
+  end
+
+  initialize_encoding options[:encoding]
+
+  @parser   = @options.parser_class.new(@template, @options)
+  @compiler = @options.compiler_class.new(@options)
+
+  @compiler.compile(@parser.parse)
+end</pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id="compiler=-instance_method"></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="compiler-instance_method">
+  
+    - <strong>compiler</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute compiler</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+38
+39
+40</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/haml/engine.rb', line 38</span>
+
+def compiler
+  @compiler
+end</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="indentation=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="indentation-instance_method">
+  
+    - (<tt>String</tt>) <strong>indentation</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The indentation used in the Haml document, or <code>nil</code> if the indentation is ambiguous (for example, for a single-level document).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+36
+37
+38</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/haml/engine.rb', line 36</span>
+
+def indentation
+  @indentation
+end</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="options=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="options-instance_method">
+  
+    - <strong>options</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The Haml::Options instance. See <a href="../file.REFERENCE.html#options" title="the Haml options documentation">the Haml options documentation</a>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        
+        <div class='inline'>
+<p>Haml::Options</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+29
+30
+31</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/haml/engine.rb', line 29</span>
+
+def options
+  @options
+end</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="parser=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="parser-instance_method">
+  
+    - <strong>parser</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute parser</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+39
+40
+41</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/haml/engine.rb', line 39</span>
+
+def parser
+  @parser
+end</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="def_method-instance_method">
+  
+    - <strong>def_method</strong>(object, name, *local_names) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Defines a method on <code>object</code> with the given name that renders the template and returns the result as a string.</p>
+
+<p>If <code>object</code> is a class or module, the method will instead by defined as an instance method. For example:</p>
+
+<pre class="code ruby"><code class="ruby">t = Time.now
+Haml::Engine.new(&quot;%p\n  Today&#39;s date is\n  .date= self.to_s&quot;).def_method(t, :render)
+t.render #=&gt; &quot;&lt;p&gt;\n  Today&#39;s date is\n  &lt;div class=&#39;date&#39;&gt;Fri Nov 23 18:28:29 -0800 2007&lt;/div&gt;\n&lt;/p&gt;\n&quot;
+
+Haml::Engine.new(&quot;.upcased= upcase&quot;).def_method(String, :upcased_div)
+&quot;foobar&quot;.upcased_div #=&gt; &quot;&lt;div class=&#39;upcased&#39;&gt;FOOBAR&lt;/div&gt;\n&quot;</code></pre>
+
+<p>The first argument of the defined method is a hash of local variable names to values. However, due to an unfortunate Ruby quirk, the local variables which can be assigned must be pre-declared. This is done with the <code>local_names</code> argument. For example:</p>
+
+<pre class="code ruby"><code class="ruby"># This works
+obj = Object.new
+Haml::Engine.new(&quot;%p= foo&quot;).def_method(obj, :render, :foo)
+obj.render(:foo =&gt; &quot;Hello!&quot;) #=&gt; &quot;&lt;p&gt;Hello!&lt;/p&gt;&quot;
+
+# This doesn&#39;t
+obj = Object.new
+Haml::Engine.new(&quot;%p= foo&quot;).def_method(obj, :render)
+obj.render(:foo =&gt; &quot;Hello!&quot;) #=&gt; NameError: undefined local variable or method `foo&#39;</code></pre>
+
+<p>Note that Haml modifies the evaluation context (either the scope object or the <code>self</code> object of the scope binding). It extends <span class='object_link'><a href="Helpers.html" title="Haml::Helpers (module)">Helpers</a></span>, and various instance variables are set (all prefixed with <code>haml_</code>).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>object</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'>Object</span></tt>, <tt>Module</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The object on which to define the method</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt>String</tt>, <tt>Symbol</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The name of the method to define</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>local_names</span>
+      
+      
+        <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The names of the locals that can be passed to the proc</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+219
+220
+221
+222
+223
+224</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/haml/engine.rb', line 219</span>
+
+def def_method(object, name, *local_names)
+  method = object.is_a?(Module) ? :module_eval : :instance_eval
+
+  object.send(method, &quot;def #{name}(_haml_locals = {}); #{compiler.precompiled_with_ambles(local_names)}; end&quot;,
+              @options[:filename], @options[:line])
+end</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="options_for_buffer-instance_method">
+  
+    - <strong>options_for_buffer</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+44
+45
+46</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/haml/engine.rb', line 44</span>
+
+def options_for_buffer
+  @options.for_buffer
+end</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="render-instance_method">
+  
+    - (<tt>String</tt>) <strong>render</strong>(scope = Object.new, locals = {}, &amp;block) 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='to_html-instance_method'>to_html</span></span>
+    </span>
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Processes the template and returns the result as a string.</p>
+
+<p><code>scope</code> is the context in which the template is evaluated. If it’s a <code>Binding</code> or <code>Proc</code> object, Haml uses it as the second argument to <code>Kernel#eval</code>; otherwise, Haml just uses its <code>#instance_eval</code> context.</p>
+
+<p>Note that Haml modifies the evaluation context (either the scope object or the <code>self</code> object of the scope binding). It extends <span class='object_link'><a href="Helpers.html" title="Haml::Helpers (module)">Helpers</a></span>, and various instance variables are set (all prefixed with <code>haml_</code>). For example:</p>
+
+<pre class="code ruby"><code class="ruby">s = &quot;foobar&quot;
+Haml::Engine.new(&quot;%p= upcase&quot;).render(s) #=&gt; &quot;&lt;p&gt;FOOBAR&lt;/p&gt;&quot;
+
+# s now extends Haml::Helpers
+s.respond_to?(:html_attrs) #=&gt; true</code></pre>
+
+<p><code>locals</code> is a hash of local variables to make available to the template. For example:</p>
+
+<pre class="code ruby"><code class="ruby">Haml::Engine.new(&quot;%p= foo&quot;).render(Object.new, :foo =&gt; &quot;Hello, world!&quot;) #=&gt; &quot;&lt;p&gt;Hello, world!&lt;/p&gt;&quot;</code></pre>
+
+<p>If a block is passed to render, that block is run when <code>yield</code> is called within the template.</p>
+
+<p>Due to some Ruby quirks, if <code>scope</code> is a <code>Binding</code> or <code>Proc</code> object and a block is given, the evaluation context may not be quite what the user expects. In particular, it’s equivalent to passing <code>eval(&quot;self&quot;, scope)</code> as <code>scope</code>. This won’t have an effect in most cases, but if you’re relying on local variables defined in the context of <code>scope</code>, they won’t work.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>scope</span>
+      
+      
+        <span class='type'>(<tt>Binding</tt>, <tt>Proc</tt>, <tt><span class='object_link'>Object</span></tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>Object.new</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The context in which the template is evaluated</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>locals</span>
+      
+      
+        <span class='type'>(<tt>{Symbol =&gt; <span class='object_link'>Object</span>}</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Local variables that will be made available to the template</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>block</span>
+      
+      
+        <span class='type'>(<tt>#to_proc</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>A block that can be yielded to within the template</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The rendered template</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/haml/engine.rb', line 110</span>
+
+def render(scope = Object.new, locals = {}, &amp;block)
+  parent = scope.instance_variable_defined?(&#39;@haml_buffer&#39;) ? scope.instance_variable_get(&#39;@haml_buffer&#39;) : nil
+  buffer = Haml::Buffer.new(parent, @options.for_buffer)
+
+  if scope.is_a?(Binding) || scope.is_a?(Proc)
+    scope_object = eval(&quot;self&quot;, scope)
+    scope = scope_object.instance_eval{binding} if block_given?
+  else
+    scope_object = scope
+    scope = scope_object.instance_eval{binding}
+  end
+
+  set_locals(locals.merge(:_hamlout =&gt; buffer, :_erbout =&gt; buffer.buffer), scope, scope_object)
+
+  scope_object.instance_eval do
+    extend Haml::Helpers
+    @haml_buffer = buffer
+  end
+  begin
+    eval(@compiler.precompiled_with_return_value, scope, @options[:filename], @options[:line])
+  rescue ::SyntaxError =&gt; e
+    raise SyntaxError, e.message
+  end
+ensure
+  # Get rid of the current buffer
+  scope_object.instance_eval do
+    @haml_buffer = buffer.upper if buffer
+  end
+end</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="render_proc-instance_method">
+  
+    - (<tt>Proc</tt>) <strong>render_proc</strong>(scope = Object.new, *local_names) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a proc that, when called, renders the template and returns the result as a string.</p>
+
+<p><code>scope</code> works the same as it does for render.</p>
+
+<p>The first argument of the returned proc is a hash of local variable names to values. However, due to an unfortunate Ruby quirk, the local variables which can be assigned must be pre-declared. This is done with the <code>local_names</code> argument. For example:</p>
+
+<pre class="code ruby"><code class="ruby"># This works
+Haml::Engine.new(&quot;%p= foo&quot;).render_proc(Object.new, :foo).call :foo =&gt; &quot;Hello!&quot;
+  #=&gt; &quot;&lt;p&gt;Hello!&lt;/p&gt;&quot;
+
+# This doesn&#39;t
+Haml::Engine.new(&quot;%p= foo&quot;).render_proc.call :foo =&gt; &quot;Hello!&quot;
+  #=&gt; NameError: undefined local variable or method `foo&#39;</code></pre>
+
+<p>The proc doesn’t take a block; any yields in the template will fail.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>scope</span>
+      
+      
+        <span class='type'>(<tt>Binding</tt>, <tt>Proc</tt>, <tt><span class='object_link'>Object</span></tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>Object.new</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The context in which the template is evaluated</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>local_names</span>
+      
+      
+        <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The names of the locals that can be passed to the proc</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Proc</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The proc that will run the template</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/haml/engine.rb', line 165</span>
+
+def render_proc(scope = Object.new, *local_names)
+  if scope.is_a?(Binding) || scope.is_a?(Proc)
+    scope_object = eval(&quot;self&quot;, scope)
+  else
+    scope_object = scope
+    scope = scope_object.instance_eval{binding}
+  end
+
+  begin
+    eval(&quot;Proc.new { |*_haml_locals| _haml_locals = _haml_locals[0] || {};&quot; +
+         compiler.precompiled_with_ambles(local_names) + &quot;}\n&quot;, scope, @options[:filename], @options[:line])
+  rescue ::SyntaxError =&gt; e
+    raise SyntaxError, e.message
+  end
+end</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Sun Jan 25 08:23:21 2015 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.6 (ruby-2.2.0).
+</div>
+
+
+  <script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+  </script>
+  <script type="text/javascript">
+  try {
+  var pageTracker = _gat._getTracker("UA-3592613-6");
+  pageTracker._trackPageview();
+  } catch(err) {}</script>
+
+
+  </body>
+</html>

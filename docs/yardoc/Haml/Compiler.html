@@ -1,0 +1,694 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: Haml::Compiler
+  
+    &mdash; Haml Documentation
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../';
+  framesUrl = "../frames.html#!Haml/Compiler.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (C)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../Haml.html" title="Haml (module)">Haml</a></span></span>
+     &raquo; 
+    <span class="title">Compiler</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="../method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="../file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Class: Haml::Compiler
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><span class='object_link'>Object</span></span>
+      
+        <ul class="fullTree">
+          <li><span class='object_link'>Object</span></li>
+          
+            <li class="next">Haml::Compiler</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+      <dt class="r2">Includes:</dt>
+      <dd class="r2"><span class='object_link'><a href="Util.html" title="Haml::Util (module)">Util</a></span></dd>
+      
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/haml/template.rb<span class="defines">,<br />
+  lib/haml/compiler.rb</span>
+</dd>
+  
+</dl>
+<div class="clear"></div>
+
+
+
+
+
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#options-instance_method" title="#options (instance method)">- <strong>options</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute options.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#compile-instance_method" title="#compile (instance method)">- <strong>compile</strong>(node) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Compiler) <strong>initialize</strong>(options) </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of Compiler.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#precompiled-instance_method" title="#precompiled (instance method)">- <strong>precompiled</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#precompiled_method_return_value_with_haml_xss-instance_method" title="#precompiled_method_return_value_with_haml_xss (instance method)">- <strong>precompiled_method_return_value_with_haml_xss</strong> </a>
+    
+
+    
+      (also: #precompiled_method_return_value)
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#precompiled_method_return_value_without_haml_xss-instance_method" title="#precompiled_method_return_value_without_haml_xss (instance method)">- <strong>precompiled_method_return_value_without_haml_xss</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#precompiled_with_ambles-instance_method" title="#precompiled_with_ambles (instance method)">- <strong>precompiled_with_ambles</strong>(local_names) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the precompiled string with the preamble and postamble.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#precompiled_with_return_value-instance_method" title="#precompiled_with_return_value (instance method)">- <strong>precompiled_with_return_value</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="Util.html" title="Haml::Util (module)">Util</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Util.html#av_template_class-instance_method" title="Haml::Util#av_template_class (method)">#av_template_class</a></span>, <span class='object_link'><a href="Util.html#balance-instance_method" title="Haml::Util#balance (method)">#balance</a></span>, <span class='object_link'><a href="Util.html#caller_info-instance_method" title="Haml::Util#caller_info (method)">#caller_info</a></span>, <span class='object_link'><a href="Util.html#check_encoding-instance_method" title="Haml::Util#check_encoding (method)">#check_encoding</a></span>, <span class='object_link'><a href="Util.html#check_haml_encoding-instance_method" title="Haml::Util#check_haml_encoding (method)">#check_haml_encoding</a></span>, <span class='object_link'><a href="Util.html#contains_interpolation%3F-instance_method" title="Haml::Util#contains_interpolation? (method)">#contains_interpolation?</a></span>, <span class='object_link'><a href="Util.html#def_static_method-instance_method" title="Haml::Util#def_static_method (method)">#def_static_method</a></span>, <span class='object_link'><a href="Util.html#handle_interpolation-instance_method" title="Haml::Util#handle_interpolation (method)">#handle_interpolation</a></span>, <span class='object_link'><a href="Util.html#html_safe-instance_method" title="Haml::Util#html_safe (method)">#html_safe</a></span>, <span class='object_link'><a href="Util.html#human_indentation-instance_method" title="Haml::Util#human_indentation (method)">#human_indentation</a></span>, <span class='object_link'><a href="Util.html#inspect_obj-instance_method" title="Haml::Util#inspect_obj (method)">#inspect_obj</a></span>, <span class='object_link'><a href="Util.html#powerset-instance_method" title="Haml::Util#powerset (method)">#powerset</a></span>, <span class='object_link'><a href="Util.html#rails_xss_safe%3F-instance_method" title="Haml::Util#rails_xss_safe? (method)">#rails_xss_safe?</a></span>, <span class='object_link'><a href="Util.html#silence_warnings-instance_method" title="Haml::Util#silence_warnings (method)">#silence_warnings</a></span>, <span class='object_link'><a href="Util.html#static_method_name-instance_method" title="Haml::Util#static_method_name (method)">#static_method_name</a></span>, <span class='object_link'><a href="Util.html#unescape_interpolation-instance_method" title="Haml::Util#unescape_interpolation (method)">#unescape_interpolation</a></span></p>
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="Haml::Compiler (class)">Compiler</a></span></tt>) <strong>initialize</strong>(options) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a new instance of Compiler</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+9
+10
+11
+12
+13
+14</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/haml/compiler.rb', line 9</span>
+
+def initialize(options)
+  @options     = options
+  @output_tabs = 0
+  @to_merge    = []
+  @precompiled = &#39;&#39;
+end</pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id="options=-instance_method"></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="options-instance_method">
+  
+    - <strong>options</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute options</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+7
+8
+9</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/haml/compiler.rb', line 7</span>
+
+def options
+  @options
+end</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="compile-instance_method">
+  
+    - <strong>compile</strong>(node) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/haml/compiler.rb', line 16</span>
+
+def compile(node)
+  parent = instance_variable_defined?(&#39;@node&#39;) ? @node : nil
+  @node = node
+  if node.children.empty?
+    send(:&quot;compile_#{node.type}&quot;)
+  else
+    send(:&quot;compile_#{node.type}&quot;) {node.children.each {|c| compile c}}
+  end
+ensure
+  @node = parent
+end</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="precompiled-instance_method">
+  
+    - <strong>precompiled</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+35
+36
+37</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/haml/compiler.rb', line 35</span>
+
+def precompiled
+  @precompiled
+end</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="precompiled_method_return_value_with_haml_xss-instance_method">
+  
+    - <strong>precompiled_method_return_value_with_haml_xss</strong> 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='precompiled_method_return_value-instance_method'>precompiled_method_return_value</span></span>
+    </span>
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+10
+11
+12</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/haml/template.rb', line 10</span>
+
+def precompiled_method_return_value_with_haml_xss
+  &quot;::Haml::Util.html_safe(#{precompiled_method_return_value_without_haml_xss})&quot;
+end</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="precompiled_method_return_value_without_haml_xss-instance_method">
+  
+    - <strong>precompiled_method_return_value_without_haml_xss</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+13</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/haml/template.rb', line 13</span>
+
+alias_method :precompiled_method_return_value_without_haml_xss, :precompiled_method_return_value</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="precompiled_with_ambles-instance_method">
+  
+    - <strong>precompiled_with_ambles</strong>(local_names) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the precompiled string with the preamble and postamble.</p>
+
+<p>Initializes to ActionView::OutputBuffer when available; this is necessary to avoid ordering issues with partial layouts in Rails. If not available, initializes to nil.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/haml/compiler.rb', line 55</span>
+
+def precompiled_with_ambles(local_names)
+  preamble = &lt;&lt;END.gsub(&quot;\n&quot;, &quot;;&quot;)
+begin
+extend Haml::Helpers
+_hamlout = @haml_buffer = Haml::Buffer.new(haml_buffer, #{options.for_buffer.inspect})
+_erbout = _hamlout.buffer
+@output_buffer = output_buffer ||= ActionView::OutputBuffer.new rescue nil
+END
+  postamble = &lt;&lt;END.gsub(&quot;\n&quot;, &quot;;&quot;)
+#{precompiled_method_return_value}
+ensure
+@haml_buffer = @haml_buffer.upper if @haml_buffer
+end
+END
+  preamble + locals_code(local_names) + precompiled + postamble
+end</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="precompiled_with_return_value-instance_method">
+  
+    - <strong>precompiled_with_return_value</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+46
+47
+48</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/haml/compiler.rb', line 46</span>
+
+def precompiled_with_return_value
+  precompiled + &quot;;&quot; + precompiled_method_return_value
+end</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Sun Jan 25 08:23:21 2015 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.6 (ruby-2.2.0).
+</div>
+
+
+  <script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+  </script>
+  <script type="text/javascript">
+  try {
+  var pageTracker = _gat._getTracker("UA-3592613-6");
+  pageTracker._trackPageview();
+  } catch(err) {}</script>
+
+
+  </body>
+</html>

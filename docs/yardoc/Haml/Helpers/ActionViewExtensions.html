@@ -1,0 +1,354 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Module: Haml::Helpers::ActionViewExtensions
+  
+    &mdash; Haml Documentation
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../../';
+  framesUrl = "../../frames.html#!Haml/Helpers/ActionViewExtensions.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../_index.html">Index (A)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../Haml.html" title="Haml (module)">Haml</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Helpers.html" title="Haml::Helpers (module)">Helpers</a></span></span>
+     &raquo; 
+    <span class="title">ActionViewExtensions</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="../../method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="../../file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Module: Haml::Helpers::ActionViewExtensions
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+  
+    
+  
+  
+    <dt class="r1">Included in:</dt>
+    <dd class="r1"><span class='object_link'><a href="../Helpers.html" title="Haml::Helpers (module)">Haml::Helpers</a></span></dd>
+    
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/haml/helpers/action_view_extensions.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>This module contains various useful helper methods that either tie into ActionView or the rest of the ActionPack stack, or are only useful in that context. Thus, the methods defined here are only available if ActionView is installed.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#page_class-instance_method" title="#page_class (instance method)">- (String) <strong>page_class</strong> </a>
+    
+
+    
+      (also: #generate_content_class_names)
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns a value for the “class” attribute unique to this controller/action pair.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#with_raw_haml_concat-instance_method" title="#with_raw_haml_concat (instance method)">- <strong>with_raw_haml_concat</strong> { ... }</a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Treats all input to <span class='object_link'><a href="../Helpers.html#haml_concat-instance_method" title="Haml::Helpers#haml_concat (method)">#haml_concat</a></span> within the block as being HTML safe for Rails’ XSS protection.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="page_class-instance_method">
+  
+    - (<tt>String</tt>) <strong>page_class</strong> 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='generate_content_class_names-instance_method'>generate_content_class_names</span></span>
+    </span>
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a value for the “class” attribute unique to this controller/action pair. This can be used to target styles specifically at this action or controller. For example, if the current action were <code>EntryController#show</code>,</p>
+
+<pre class="code ruby"><code class="ruby">%div{:class =&gt; page_class} My Div</code></pre>
+
+<p>would become</p>
+
+<pre class="code ruby"><code class="ruby">&lt;div class=&quot;entry show&quot;&gt;My Div&lt;/div&gt;</code></pre>
+
+<p>Then, in a stylesheet (shown here as <a href="http://sass-lang.com">Sass</a>), you could refer to this specific action:</p>
+
+<pre class="code ruby"><code class="ruby">.entry.show
+  font-weight: bold</code></pre>
+
+<p>or to all actions in the entry controller:</p>
+
+<pre class="code ruby"><code class="ruby">.entry
+  color: #00f</code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The class name for the current page</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+34
+35
+36</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/haml/helpers/action_view_extensions.rb', line 34</span>
+
+def page_class
+  controller.controller_name + &quot; &quot; + controller.action_name
+end</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="with_raw_haml_concat-instance_method">
+  
+    - <strong>with_raw_haml_concat</strong> { ... }
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Treats all input to <span class='object_link'><a href="../Helpers.html#haml_concat-instance_method" title="Haml::Helpers#haml_concat (method)">Haml::Helpers#haml_concat</a></span> within the block as being HTML safe for Rails’ XSS protection. This is useful for wrapping blocks of code that concatenate HTML en masse.</p>
+
+<p>This has no effect if Rails’ XSS protection isn’t enabled.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Yields:</p>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        
+        <div class='inline'>
+<p>A block in which all input to <code>#haml_concat</code> is treated as raw.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="../Util.html#rails_xss_safe%3F-instance_method" title="Haml::Util#rails_xss_safe? (method)">Util#rails_xss_safe?</a></span></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+47
+48
+49
+50
+51
+52
+53</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/haml/helpers/action_view_extensions.rb', line 47</span>
+
+def with_raw_haml_concat
+  old = instance_variable_defined?(&#39;@_haml_concat_raw&#39;) ? @_haml_concat_raw : false
+  @_haml_concat_raw = true
+  yield
+ensure
+  @_haml_concat_raw = old
+end</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Sun Jan 25 08:23:21 2015 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.6 (ruby-2.2.0).
+</div>
+
+
+  <script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+  </script>
+  <script type="text/javascript">
+  try {
+  var pageTracker = _gat._getTracker("UA-3592613-6");
+  pageTracker._trackPageview();
+  } catch(err) {}</script>
+
+
+  </body>
+</html>

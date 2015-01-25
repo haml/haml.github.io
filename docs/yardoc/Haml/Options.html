@@ -1,0 +1,2325 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: Haml::Options
+  
+    &mdash; Haml Documentation
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../';
+  framesUrl = "../frames.html#!Haml/Options.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (O)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../Haml.html" title="Haml (module)">Haml</a></span></span>
+     &raquo; 
+    <span class="title">Options</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="../method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="../file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Class: Haml::Options
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><span class='object_link'>Object</span></span>
+      
+        <ul class="fullTree">
+          <li><span class='object_link'>Object</span></li>
+          
+            <li class="next">Haml::Options</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/haml/options.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>This class encapsulates all of the configuration options that Haml understands. Please see the <a href="../file.REFERENCE.html#options" title="Haml Reference">Haml Reference</a> to learn how to set the options.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+
+
+
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#attr_wrapper-instance_method" title="#attr_wrapper (instance method)">- <strong>attr_wrapper</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The character that should wrap element attributes.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#autoclose-instance_method" title="#autoclose (instance method)">- <strong>autoclose</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>A list of tag names that should be automatically self-closed if they have no content.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#cdata-instance_method" title="#cdata (instance method)">- <strong>cdata</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Whether to include CDATA sections around javascript and css blocks when using the <code>:javascript</code> or <code>:css</code> filters.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#compiler_class-instance_method" title="#compiler_class (instance method)">- <strong>compiler_class</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The compiler class to use.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#encoding-instance_method" title="#encoding (instance method)">- <strong>encoding</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The encoding to use for the HTML output.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#escape_attrs-instance_method" title="#escape_attrs (instance method)">- <strong>escape_attrs</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Sets whether or not to escape HTML-sensitive characters in attributes.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#escape_html-instance_method" title="#escape_html (instance method)">- <strong>escape_html</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Sets whether or not to escape HTML-sensitive characters in script.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#filename-instance_method" title="#filename (instance method)">- <strong>filename</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The name of the Haml file being parsed.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#format-instance_method" title="#format (instance method)">- <strong>format</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Determines the output format.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#hyphenate_data_attrs-instance_method" title="#hyphenate_data_attrs (instance method)">- <strong>hyphenate_data_attrs</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>If set to <code>true</code>, Haml will convert underscores to hyphens in all <a href="../file.REFERENCE.html#html5_custom_data_attributes" title="Custom Data Attributes">Custom Data Attributes</a> As of Haml 4.0, this defaults to <code>true</code>.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#line-instance_method" title="#line (instance method)">- <strong>line</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The line offset of the Haml template being parsed.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#mime_type-instance_method" title="#mime_type (instance method)">- <strong>mime_type</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The mime type that the rendered document will be served with.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#parser_class-instance_method" title="#parser_class (instance method)">- <strong>parser_class</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The parser class to use.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#preserve-instance_method" title="#preserve (instance method)">- <strong>preserve</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>A list of tag names that should automatically have their newlines preserved using the <span class='object_link'><a href="Helpers.html#preserve-instance_method" title="Haml::Helpers#preserve (method)">Helpers#preserve</a></span> helper.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#remove_whitespace-instance_method" title="#remove_whitespace (instance method)">- <strong>remove_whitespace</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>If set to <code>true</code>, all tags are treated as if both <a href="../file.REFERENCE.html#whitespace_removal__and_" title="whitespace removal">whitespace removal</a> options were present.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#suppress_eval-instance_method" title="#suppress_eval (instance method)">- <strong>suppress_eval</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Whether or not attribute hashes and Ruby scripts designated by <code>=</code> or <code>~</code> should be evaluated.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#ugly-instance_method" title="#ugly (instance method)">- <strong>ugly</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>If set to <code>true</code>, Haml makes no attempt to properly indent or format the HTML output.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#buffer_option_keys-class_method" title="buffer_option_keys (class method)">+ <strong>buffer_option_keys</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>An array of keys that will be used to provide a hash of options to <span class='object_link'><a href="Buffer.html" title="Haml::Buffer (class)">Buffer</a></span>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#defaults-class_method" title="defaults (class method)">+ <strong>defaults</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The default option values.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#valid_formats-class_method" title="valid_formats (class method)">+ <strong>valid_formats</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>An array of valid values for the <code>:format</code> option.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#%5B%5D-instance_method" title="#[] (instance method)">- <strong>[]</strong>(key) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Retrieve an option value.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#%5B%5D%3D-instance_method" title="#[]= (instance method)">- <strong>[]=</strong>(key, value) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Set an option value.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#for_buffer-instance_method" title="#for_buffer (instance method)">- ({Symbol =&gt; Object}) <strong>for_buffer</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns a subset of options: those that <span class='object_link'><a href="Buffer.html" title="Haml::Buffer (class)">Buffer</a></span> cares about.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#html4%3F-instance_method" title="#html4? (instance method)">- (Boolean) <strong>html4?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Whether or not the format is HTML4.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#html5%3F-instance_method" title="#html5? (instance method)">- (Boolean) <strong>html5?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Whether or not the format is HTML5.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#html%3F-instance_method" title="#html? (instance method)">- (Boolean) <strong>html?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Whether or not the format is any flavor of HTML.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Options) <strong>initialize</strong>(values = {}, &amp;block) </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of Options.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#xhtml%3F-instance_method" title="#xhtml? (instance method)">- (Boolean) <strong>xhtml?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Whether or not the format is XHTML.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="Haml::Options (class)">Options</a></span></tt>) <strong>initialize</strong>(values = {}, &amp;block) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a new instance of Options</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+172
+173
+174
+175
+176</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 172</span>
+
+def initialize(values = {}, &amp;block)
+  defaults.each {|k, v| instance_variable_set :&quot;@#{k}&quot;, v}
+  values.reject {|k, v| !defaults.has_key?(k) || v.nil?}.each {|k, v| send(&quot;#{k}=&quot;, v)}
+  yield if block_given?
+end</pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id="attr_wrapper=-instance_method"></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="attr_wrapper-instance_method">
+  
+    - <strong>attr_wrapper</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The character that should wrap element attributes. This defaults to <code>&#39;</code> (an apostrophe). Characters of this type within the attributes will be escaped (e.g. by replacing them with <code>&amp;apos;</code>) if the character is an apostrophe or a quotation mark.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+57
+58
+59</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 57</span>
+
+def attr_wrapper
+  @attr_wrapper
+end</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="autoclose=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="autoclose-instance_method">
+  
+    - <strong>autoclose</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>A list of tag names that should be automatically self-closed if they have no content. This can also contain regular expressions that match tag names (or any object which responds to <code>#===</code>). Defaults to <code>[&#39;meta&#39;, &#39;img&#39;,
+&#39;link&#39;, &#39;br&#39;, &#39;hr&#39;, &#39;input&#39;, &#39;area&#39;, &#39;param&#39;, &#39;col&#39;, &#39;base&#39;]</code>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+63
+64
+65</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 63</span>
+
+def autoclose
+  @autoclose
+end</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="cdata=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="cdata-instance_method">
+  
+    - <strong>cdata</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Whether to include CDATA sections around javascript and css blocks when using the <code>:javascript</code> or <code>:css</code> filters.</p>
+
+<p>This option also affects the <code>:sass</code>, <code>:scss</code>, <code>:less</code> and <code>:coffeescript</code> filters.</p>
+
+<p>Defaults to <code>false</code> for html, <code>true</code> for xhtml. Cannot be changed when using xhtml.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+164
+165
+166</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 164</span>
+
+def cdata
+  @cdata
+end</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="compiler_class=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="compiler_class-instance_method">
+  
+    - <strong>compiler_class</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The compiler class to use. Defaults to Haml::Compiler.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+170
+171
+172</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 170</span>
+
+def compiler_class
+  @compiler_class
+end</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="encoding=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="encoding-instance_method">
+  
+    - <strong>encoding</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The encoding to use for the HTML output. Only available on Ruby 1.9 or higher. This can be a string or an <code>Encoding</code> Object. Note that Haml <strong>does not</strong> automatically re-encode Ruby values; any strings coming from outside the application should be converted before being passed into the Haml template. Defaults to <code>Encoding.default_internal</code>; if that’s not set, defaults to the encoding of the Haml template; if that’s <code>US-ASCII</code>, defaults to <code>&quot;UTF-8&quot;</code>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+73
+74
+75</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 73</span>
+
+def encoding
+  @encoding
+end</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="escape_attrs=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="escape_attrs-instance_method">
+  
+    - <strong>escape_attrs</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Sets whether or not to escape HTML-sensitive characters in attributes. If this is true, all HTML-sensitive characters in attributes are escaped. If it’s set to false, no HTML-sensitive characters in attributes are escaped. If it’s set to <code>:once</code>, existing HTML escape sequences are preserved, but other HTML-sensitive characters are escaped.</p>
+
+<p>Defaults to <code>true</code>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+82
+83
+84</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 82</span>
+
+def escape_attrs
+  @escape_attrs
+end</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="escape_html=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="escape_html-instance_method">
+  
+    - <strong>escape_html</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Sets whether or not to escape HTML-sensitive characters in script. If this is true, <code>=</code> behaves like <a href="../file.REFERENCE.html#escaping_html" title="&lt;code&gt;&amp;amp;=&lt;/code&gt;"><code>&amp;=</code></a>; otherwise, it behaves like <a href="../file.REFERENCE.html#unescaping_html" title="&lt;code&gt;!=&lt;/code&gt;"><code>!=</code></a>. Note that if this is set, <code>!=</code> should be used for yielding to subtemplates and rendering partials. See also <a href="../file.REFERENCE.html#escaping_html" title="Escaping HTML">Escaping HTML</a> and <a href="../file.REFERENCE.html#unescaping_html" title="Unescaping HTML">Unescaping HTML</a>.</p>
+
+<p>Defaults to false.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+92
+93
+94</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 92</span>
+
+def escape_html
+  @escape_html
+end</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="filename=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="filename-instance_method">
+  
+    - <strong>filename</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The name of the Haml file being parsed. This is only used as information when exceptions are raised. This is automatically assigned when working through ActionView, so it’s really only useful for the user to assign when dealing with Haml programatically.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+98
+99
+100</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 98</span>
+
+def filename
+  @filename
+end</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="format=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="format-instance_method">
+  
+    - <strong>format</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Determines the output format. The default is <code>:html5</code>. The other options are <code>:html4</code> and <code>:xhtml</code>. If the output is set to XHTML, then Haml automatically generates self-closing tags and wraps the output of the Javascript and CSS-like filters inside CDATA. When the output is set to <code>:html5</code> or <code>:html4</code>, XML prologs are ignored. In all cases, an appropriate doctype is generated from <code>!!!</code>.</p>
+
+<p>If the mime_type of the template being rendered is <code>text/xml</code> then a format of <code>:xhtml</code> will be used even if the global output format is set to <code>:html4</code> or <code>:html5</code>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+119
+120
+121</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 119</span>
+
+def format
+  @format
+end</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="hyphenate_data_attrs=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="hyphenate_data_attrs-instance_method">
+  
+    - <strong>hyphenate_data_attrs</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>If set to <code>true</code>, Haml will convert underscores to hyphens in all <a href="../file.REFERENCE.html#html5_custom_data_attributes" title="Custom Data Attributes">Custom Data Attributes</a> As of Haml 4.0, this defaults to <code>true</code>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+103
+104
+105</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 103</span>
+
+def hyphenate_data_attrs
+  @hyphenate_data_attrs
+end</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="line=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="line-instance_method">
+  
+    - <strong>line</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The line offset of the Haml template being parsed. This is useful for inline templates, similar to the last argument to <code>Kernel#eval</code>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+107
+108
+109</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 107</span>
+
+def line
+  @line
+end</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="mime_type=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="mime_type-instance_method">
+  
+    - <strong>mime_type</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The mime type that the rendered document will be served with. If this is set to <code>text/xml</code> then the format will be overridden to <code>:xhtml</code> even if it has set to <code>:html4</code> or <code>:html5</code>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+124
+125
+126</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 124</span>
+
+def mime_type
+  @mime_type
+end</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="parser_class=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="parser_class-instance_method">
+  
+    - <strong>parser_class</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The parser class to use. Defaults to Haml::Parser.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+167
+168
+169</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 167</span>
+
+def parser_class
+  @parser_class
+end</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="preserve=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="preserve-instance_method">
+  
+    - <strong>preserve</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>A list of tag names that should automatically have their newlines preserved using the <span class='object_link'><a href="Helpers.html#preserve-instance_method" title="Haml::Helpers#preserve (method)">Helpers#preserve</a></span> helper. This means that any content given on the same line as the tag will be preserved. For example, <code>%textarea= &quot;Foo\nBar&quot;</code> compiles to <code>&lt;textarea&gt;Foo&amp;#x000A;Bar&lt;/textarea&gt;</code>. Defaults to <code>[&#39;textarea&#39;, &#39;pre&#39;]</code>. See also <a href="../file.REFERENCE.html#whitespace_preservation" title="Whitespace Preservation">Whitespace Preservation</a>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+132
+133
+134</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 132</span>
+
+def preserve
+  @preserve
+end</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="remove_whitespace=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="remove_whitespace-instance_method">
+  
+    - <strong>remove_whitespace</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>If set to <code>true</code>, all tags are treated as if both <a href="../file.REFERENCE.html#whitespace_removal__and_" title="whitespace removal">whitespace removal</a> options were present. Use with caution as this may cause whitespace-related formatting errors.</p>
+
+<p>Defaults to <code>false</code>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+140
+141
+142</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 140</span>
+
+def remove_whitespace
+  @remove_whitespace
+end</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="suppress_eval=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="suppress_eval-instance_method">
+  
+    - <strong>suppress_eval</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Whether or not attribute hashes and Ruby scripts designated by <code>=</code> or <code>~</code> should be evaluated. If this is <code>true</code>, said scripts are rendered as empty strings.</p>
+
+<p>Defaults to <code>false</code>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+147
+148
+149</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 147</span>
+
+def suppress_eval
+  @suppress_eval
+end</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="ugly=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="ugly-instance_method">
+  
+    - <strong>ugly</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>If set to <code>true</code>, Haml makes no attempt to properly indent or format the HTML output. This significantly improves rendering performance but makes viewing the source unpleasant.</p>
+
+<p>Defaults to <code>true</code> in Rails production mode, and <code>false</code> everywhere else.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+154
+155
+156</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 154</span>
+
+def ugly
+  @ugly
+end</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="buffer_option_keys-class_method">
+  
+    + <strong>buffer_option_keys</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>An array of keys that will be used to provide a hash of options to <span class='object_link'><a href="Buffer.html" title="Haml::Buffer (class)">Buffer</a></span>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        
+        <div class='inline'>
+<p>Hash</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+49
+50
+51</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 49</span>
+
+def self.buffer_option_keys
+  @buffer_option_keys
+end</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="defaults-class_method">
+  
+    + <strong>defaults</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The default option values.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        
+        <div class='inline'>
+<p>Hash</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+36
+37
+38</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 36</span>
+
+def self.defaults
+  @defaults
+end</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="valid_formats-class_method">
+  
+    + <strong>valid_formats</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>An array of valid values for the <code>:format</code> option.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        
+        <div class='inline'>
+<p>Array</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+42
+43
+44</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 42</span>
+
+def self.valid_formats
+  @valid_formats
+end</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="[]-instance_method">
+  
+    - <strong>[]</strong>(key) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Retrieve an option value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>key</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The value to retrieve.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+180
+181
+182</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 180</span>
+
+def [](key)
+  send key
+end</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="[]=-instance_method">
+  
+    - <strong>[]=</strong>(key, value) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Set an option value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>key</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The key to set.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>value</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The value to set for the key.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+187
+188
+189</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 187</span>
+
+def []=(key, value)
+  send &quot;#{key}=&quot;, value
+end</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="for_buffer-instance_method">
+  
+    - (<tt>{Symbol =&gt; <span class='object_link'>Object</span>}</tt>) <strong>for_buffer</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>All of the values here are such that when <code>#inspect</code> is called on the hash, it can be <code>Kernel#eval</code>ed to get the same result back.</p>
+
+<p>See <a href="../file.REFERENCE.html#options" title="the Haml options documentation">the Haml options documentation</a>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>{Symbol =&gt; <span class='object_link'>Object</span>}</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The options hash</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+265
+266
+267
+268
+269
+270</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 265</span>
+
+def for_buffer
+  self.class.buffer_option_keys.inject({}) do |hash, key|
+    hash[key] = send(key)
+    hash
+  end
+end</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="html4?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>html4?</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns Whether or not the format is HTML4.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Whether or not the format is HTML4.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+211
+212
+213</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 211</span>
+
+def html4?
+  format == :html4
+end</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="html5?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>html5?</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns Whether or not the format is HTML5.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Whether or not the format is HTML5.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+216
+217
+218</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 216</span>
+
+def html5?
+  format == :html5
+end</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="html?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>html?</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns Whether or not the format is any flavor of HTML.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Whether or not the format is any flavor of HTML.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+206
+207
+208</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 206</span>
+
+def html?
+  html4? or html5?
+end</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="xhtml?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>xhtml?</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns Whether or not the format is XHTML.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Whether or not the format is XHTML.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+201
+202
+203</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 201</span>
+
+def xhtml?
+  not html?
+end</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Sun Jan 25 08:23:21 2015 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.6 (ruby-2.2.0).
+</div>
+
+
+  <script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+  </script>
+  <script type="text/javascript">
+  try {
+  var pageTracker = _gat._getTracker("UA-3592613-6");
+  pageTracker._trackPageview();
+  } catch(err) {}</script>
+
+
+  </body>
+</html>
