@@ -1,8 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html>
+<html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
   Module: Haml::Filters::Base
   
@@ -15,9 +15,8 @@
   <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
-  hasFrames = window.top.frames.main ? true : false;
+  pathId = "Haml::Filters::Base";
   relpath = '../../';
-  framesUrl = "../../frames.html#!Haml/Filters/Base.html";
 </script>
 
 
@@ -28,72 +27,79 @@
 
   </head>
   <body>
-    <div id="header">
-      <div id="menu">
+    <div class="nav_wrap">
+      <iframe id="nav" src="../../class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
   
     <a href="../../_index.html">Index (B)</a> &raquo;
     <span class='title'><span class='object_link'><a href="../../Haml.html" title="Haml (module)">Haml</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Filters.html" title="Haml::Filters (module)">Filters</a></span></span>
      &raquo; 
     <span class="title">Base</span>
   
-
-  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
 </div>
 
-      <div id="search">
+        <div id="search">
   
     <a class="full_list_link" id="class_list_link"
         href="../../class_list.html">
-      Class List
-    </a>
-  
-    <a class="full_list_link" id="method_list_link"
-        href="../../method_list.html">
-      Method List
-    </a>
-  
-    <a class="full_list_link" id="file_list_link"
-        href="../../file_list.html">
-      File List
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
     </a>
   
 </div>
-      <div class="clear"></div>
-    </div>
+        <div class="clear"></div>
+      </div>
 
-    <iframe id="search_frame"></iframe>
-
-    <div id="content"><h1>Module: Haml::Filters::Base
+      <div id="content"><h1>Module: Haml::Filters::Base
   
   
   
 </h1>
+<div class="box_info">
+  
 
-<dl class="box">
   
   
-    
-  
-    
   
   
-    <dt class="r1">Included in:</dt>
-    <dd class="r1"><span class='object_link'><a href="Cdata.html" title="Haml::Filters::Cdata (module)">Cdata</a></span>, <span class='object_link'><a href="Css.html" title="Haml::Filters::Css (module)">Css</a></span>, <span class='object_link'><a href="Escaped.html" title="Haml::Filters::Escaped (module)">Escaped</a></span>, <span class='object_link'><a href="Javascript.html" title="Haml::Filters::Javascript (module)">Javascript</a></span>, <span class='object_link'><a href="Plain.html" title="Haml::Filters::Plain (module)">Plain</a></span>, <span class='object_link'><a href="Preserve.html" title="Haml::Filters::Preserve (module)">Preserve</a></span>, <span class='object_link'><a href="Ruby.html" title="Haml::Filters::Ruby (module)">Ruby</a></span></dd>
-    
   
+
   
-    <dt class="r2 last">Defined in:</dt>
-    <dd class="r2 last">lib/haml/filters.rb</dd>
+  <dl>
+    <dt>Included in:</dt>
+    <dd><span class='object_link'><a href="Cdata.html" title="Haml::Filters::Cdata (module)">Cdata</a></span>, <span class='object_link'><a href="Css.html" title="Haml::Filters::Css (module)">Css</a></span>, <span class='object_link'><a href="Escaped.html" title="Haml::Filters::Escaped (module)">Escaped</a></span>, <span class='object_link'><a href="Javascript.html" title="Haml::Filters::Javascript (module)">Javascript</a></span>, <span class='object_link'><a href="Plain.html" title="Haml::Filters::Plain (module)">Plain</a></span>, <span class='object_link'><a href="Preserve.html" title="Haml::Filters::Preserve (module)">Preserve</a></span>, <span class='object_link'><a href="Ruby.html" title="Haml::Filters::Ruby (module)">Ruby</a></span></dd>
+  </dl>
   
-</dl>
-<div class="clear"></div>
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>lib/haml/filters.rb</dd>
+  </dl>
+  
+</div>
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>The base module for Haml filters. User-defined filters should be modules including this module. The name of the filter is taken by downcasing the module name. For instance, if the module is named <code>FooBar</code>, the filter will be <code>:foobar</code>.</p>
+    <p>The base module for Haml filters.
+User-defined filters should be modules including this module.
+The name of the filter is taken by downcasing the module name.
+For instance, if the module is named <code>FooBar</code>, the filter will be <code>:foobar</code>.</p>
 
-<p>A user-defined filter should override either <span class='object_link'><a href="#render-instance_method" title="Haml::Filters::Base#render (method)">#render</a></span> or <span class='object_link'><a href="#compile-instance_method" title="Haml::Filters::Base#compile (method)">#compile</a></span>. <span class='object_link'><a href="#render-instance_method" title="Haml::Filters::Base#render (method)">#render</a></span> is the most common. It takes a string, the filter source, and returns another string, the result of the filter. For example, the following will define a filter named <code>:sass</code>:</p>
+<p>A user-defined filter should override either <span class='object_link'><a href="#render-instance_method" title="Haml::Filters::Base#render (method)">#render</a></span> or <span class='object_link'><a href="#compile-instance_method" title="Haml::Filters::Base#compile (method)">#compile</a></span>.
+<span class='object_link'><a href="#render-instance_method" title="Haml::Filters::Base#render (method)">#render</a></span> is the most common.
+It takes a string, the filter source,
+and returns another string, the result of the filter.
+For example, the following will define a filter named <code>:sass</code>:</p>
 
 <pre class="code ruby"><code class="ruby">module Haml::Filters::Sass
   include Haml::Filters::Base
@@ -101,11 +107,15 @@
   def render(text)
     ::Sass::Engine.new(text).render
   end
-end</code></pre>
+end
+</code></pre>
 
 <p>For details on overriding <span class='object_link'><a href="#compile-instance_method" title="Haml::Filters::Base#compile (method)">#compile</a></span>, see its documentation.</p>
 
-<p>Note that filters overriding <span class='object_link'><a href="#render-instance_method" title="Haml::Filters::Base#render (method)">#render</a></span> automatically support <code>#{}</code> for interpolating Ruby code. Those overriding <span class='object_link'><a href="#compile-instance_method" title="Haml::Filters::Base#compile (method)">#compile</a></span> will need to add such support manually if it’s desired.</p>
+<p>Note that filters overriding <span class='object_link'><a href="#render-instance_method" title="Haml::Filters::Base#render (method)">#render</a></span> automatically support <code>#{}</code>
+for interpolating Ruby code.
+Those overriding <span class='object_link'><a href="#compile-instance_method" title="Haml::Filters::Base#compile (method)">#compile</a></span> will need to add such support manually
+if it’s desired.</p>
 
 
   </div>
@@ -123,7 +133,7 @@ end</code></pre>
   
     <h2>
       Class Method Summary
-      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+      <small><a href="#" class="summary_toggle">collapse</a></small>
     </h2>
 
     <ul class="summary">
@@ -131,7 +141,7 @@ end</code></pre>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#included-class_method" title="included (class method)">+ <strong>included</strong>(base) </a>
+      <a href="#included-class_method" title="included (class method)">.<strong>included</strong>(base)  </a>
     
 
     
@@ -145,8 +155,7 @@ end</code></pre>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>This method is automatically called when <span class='object_link'><a href="" title="Haml::Filters::Base (module)">Base</a></span> is included in a module.</p>
+    <span class="summary_desc"><div class='inline'><p>This method is automatically called when <span class='object_link'><a href="" title="Haml::Filters::Base (module)">Base</a></span> is included in a module.</p>
 </div></span>
   
 </li>
@@ -156,7 +165,7 @@ end</code></pre>
   
     <h2>
       Instance Method Summary
-      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+      <small><a href="#" class="summary_toggle">collapse</a></small>
     </h2>
 
     <ul class="summary">
@@ -164,7 +173,7 @@ end</code></pre>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#compile-instance_method" title="#compile (instance method)">- <strong>compile</strong>(compiler, text) </a>
+      <a href="#compile-instance_method" title="#compile (instance method)">#<strong>compile</strong>(compiler, text)  </a>
     
 
     
@@ -178,8 +187,7 @@ end</code></pre>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>This should be overridden when a filter needs to have access to the Haml evaluation context.</p>
+    <span class="summary_desc"><div class='inline'><p>This should be overridden when a filter needs to have access to the Haml evaluation context.</p>
 </div></span>
   
 </li>
@@ -188,7 +196,7 @@ end</code></pre>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#internal_compile-instance_method" title="#internal_compile (instance method)">- <strong>internal_compile</strong>(*args) </a>
+      <a href="#internal_compile-instance_method" title="#internal_compile (instance method)">#<strong>internal_compile</strong>(*args)  </a>
     
 
     
@@ -202,8 +210,7 @@ end</code></pre>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Same as <span class='object_link'><a href="#compile-instance_method" title="Haml::Filters::Base#compile (method)">#compile</a></span>, but requires the necessary files first.</p>
+    <span class="summary_desc"><div class='inline'><p>Same as <span class='object_link'><a href="#compile-instance_method" title="Haml::Filters::Base#compile (method)">#compile</a></span>, but requires the necessary files first.</p>
 </div></span>
   
 </li>
@@ -212,7 +219,7 @@ end</code></pre>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#render-instance_method" title="#render (instance method)">- (String) <strong>render</strong>(text) </a>
+      <a href="#render-instance_method" title="#render (instance method)">#<strong>render</strong>(text)  &#x21d2; String </a>
     
 
     
@@ -226,8 +233,7 @@ end</code></pre>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Takes the source text that should be passed to the filter and returns the result of running the filter on that string.</p>
+    <span class="summary_desc"><div class='inline'><p>Takes the source text that should be passed to the filter and returns the result of running the filter on that string.</p>
 </div></span>
   
 </li>
@@ -236,7 +242,7 @@ end</code></pre>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#render_with_options-instance_method" title="#render_with_options (instance method)">- (String) <strong>render_with_options</strong>(text, options) </a>
+      <a href="#render_with_options-instance_method" title="#render_with_options (instance method)">#<strong>render_with_options</strong>(text, options)  &#x21d2; String </a>
     
 
     
@@ -250,8 +256,7 @@ end</code></pre>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Same as <span class='object_link'><a href="#render-instance_method" title="Haml::Filters::Base#render (method)">#render</a></span>, but takes a <span class='object_link'><a href="../Engine.html" title="Haml::Engine (class)">Engine</a></span> options hash as well.</p>
+    <span class="summary_desc"><div class='inline'><p>Same as <span class='object_link'><a href="#render-instance_method" title="Haml::Filters::Base#render (method)">#render</a></span>, but takes a <span class='object_link'><a href="../Engine.html" title="Haml::Engine (class)">Engine</a></span> options hash as well.</p>
 </div></span>
   
 </li>
@@ -269,7 +274,7 @@ end</code></pre>
       <div class="method_details first">
   <h3 class="signature first" id="included-class_method">
   
-    + <strong>included</strong>(base) 
+    .<strong>included</strong>(base)  
   
 
   
@@ -277,8 +282,10 @@ end</code></pre>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>This method is automatically called when <span class='object_link'><a href="" title="Haml::Filters::Base (module)">Haml::Filters::Base</a></span> is included in a module. It automatically defines a filter with the downcased name of that module. For example, if the module is named <code>FooBar</code>, the filter will be <code>:foobar</code>.</p>
+    <p>This method is automatically called when <span class='object_link'><a href="" title="Haml::Filters::Base (module)">Haml::Filters::Base</a></span> is included in a module.
+It automatically defines a filter
+with the downcased name of that module.
+For example, if the module is named <code>FooBar</code>, the filter will be <code>:foobar</code>.</p>
 
 
   </div>
@@ -297,8 +304,7 @@ end</code></pre>
       
       
         &mdash;
-        <div class='inline'>
-<p>The module that this is included in</p>
+        <div class='inline'><p>The module that this is included in</p>
 </div>
       
     </li>
@@ -338,7 +344,7 @@ end</pre>
       <div class="method_details first">
   <h3 class="signature first" id="compile-instance_method">
   
-    - <strong>compile</strong>(compiler, text) 
+    #<strong>compile</strong>(compiler, text)  
   
 
   
@@ -346,10 +352,17 @@ end</pre>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>This should be overridden when a filter needs to have access to the Haml evaluation context. Rather than applying a filter to a string at compile-time, <span class='object_link'><a href="#compile-instance_method" title="Haml::Filters::Base#compile (method)">#compile</a></span> uses the <span class='object_link'><a href="../Compiler.html" title="Haml::Compiler (class)">Compiler</a></span> instance to compile the string to Ruby code that will be executed in the context of the active Haml template.</p>
+    <p>This should be overridden when a filter needs to have access to the Haml
+evaluation context. Rather than applying a filter to a string at
+compile-time, <span class='object_link'><a href="#compile-instance_method" title="Haml::Filters::Base#compile (method)">#compile</a></span> uses the <span class='object_link'><a href="../Compiler.html" title="Haml::Compiler (class)">Compiler</a></span> instance to compile
+the string to Ruby code that will be executed in the context of the
+active Haml template.</p>
 
-<p>Warning: the <span class='object_link'><a href="../Compiler.html" title="Haml::Compiler (class)">Compiler</a></span> interface is neither well-documented nor guaranteed to be stable. If you want to make use of it, you’ll probably need to look at the source code and should test your filter when upgrading to new Haml versions.</p>
+<p>Warning: the <span class='object_link'><a href="../Compiler.html" title="Haml::Compiler (class)">Compiler</a></span> interface is neither well-documented
+nor guaranteed to be stable.
+If you want to make use of it, you’ll probably need to look at the
+source code and should test your filter when upgrading to new Haml
+versions.</p>
 
 
   </div>
@@ -368,8 +381,7 @@ end</pre>
       
       
         &mdash;
-        <div class='inline'>
-<p>The compiler instance</p>
+        <div class='inline'><p>The compiler instance</p>
 </div>
       
     </li>
@@ -384,8 +396,7 @@ end</pre>
       
       
         &mdash;
-        <div class='inline'>
-<p>The text of the filter</p>
+        <div class='inline'><p>The text of the filter</p>
 </div>
       
     </li>
@@ -403,8 +414,8 @@ end</pre>
       
       
         &mdash;
-        <div class='inline'>
-<p>if none of <span class='object_link'><a href="#compile-instance_method" title="Haml::Filters::Base#compile (method)">#compile</a></span>, <span class='object_link'><a href="#render-instance_method" title="Haml::Filters::Base#render (method)">#render</a></span>, and <span class='object_link'><a href="#render_with_options-instance_method" title="Haml::Filters::Base#render_with_options (method)">#render_with_options</a></span> are overridden</p>
+        <div class='inline'><p>if none of <span class='object_link'><a href="#compile-instance_method" title="Haml::Filters::Base#compile (method)">#compile</a></span>, <span class='object_link'><a href="#render-instance_method" title="Haml::Filters::Base#render (method)">#render</a></span>, and
+<span class='object_link'><a href="#render_with_options-instance_method" title="Haml::Filters::Base#render_with_options (method)">#render_with_options</a></span> are overridden</p>
 </div>
       
     </li>
@@ -495,7 +506,7 @@ end</pre>
       <div class="method_details ">
   <h3 class="signature " id="internal_compile-instance_method">
   
-    - <strong>internal_compile</strong>(*args) 
+    #<strong>internal_compile</strong>(*args)  
   
 
   
@@ -503,8 +514,8 @@ end</pre>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Same as <span class='object_link'><a href="#compile-instance_method" title="Haml::Filters::Base#compile (method)">#compile</a></span>, but requires the necessary files first. <em>This is used by <span class='object_link'><a href="../Engine.html" title="Haml::Engine (class)">Engine</a></span> and is not intended to be overridden or used elsewhere.</em></p>
+    <p>Same as <span class='object_link'><a href="#compile-instance_method" title="Haml::Filters::Base#compile (method)">#compile</a></span>, but requires the necessary files first.
+<em>This is used by <span class='object_link'><a href="../Engine.html" title="Haml::Engine (class)">Engine</a></span> and is not intended to be overridden or used elsewhere.</em></p>
 
 
   </div>
@@ -543,7 +554,7 @@ end</pre>
       <div class="method_details ">
   <h3 class="signature " id="render-instance_method">
   
-    - (<tt>String</tt>) <strong>render</strong>(text) 
+    #<strong>render</strong>(text)  &#x21d2; <tt>String</tt> 
   
 
   
@@ -551,10 +562,12 @@ end</pre>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Takes the source text that should be passed to the filter and returns the result of running the filter on that string.</p>
+    <p>Takes the source text that should be passed to the filter
+and returns the result of running the filter on that string.</p>
 
-<p>This should be overridden in most individual filter modules to render text with the given filter. If <span class='object_link'><a href="#compile-instance_method" title="Haml::Filters::Base#compile (method)">#compile</a></span> is overridden, however, <span class='object_link'><a href="#render-instance_method" title="Haml::Filters::Base#render (method)">#render</a></span> doesn’t need to be.</p>
+<p>This should be overridden in most individual filter modules
+to render text with the given filter.
+If <span class='object_link'><a href="#compile-instance_method" title="Haml::Filters::Base#compile (method)">#compile</a></span> is overridden, however, <span class='object_link'><a href="#render-instance_method" title="Haml::Filters::Base#render (method)">#render</a></span> doesn’t need to be.</p>
 
 
   </div>
@@ -573,8 +586,7 @@ end</pre>
       
       
         &mdash;
-        <div class='inline'>
-<p>The source text for the filter to process</p>
+        <div class='inline'><p>The source text for the filter to process</p>
 </div>
       
     </li>
@@ -592,8 +604,7 @@ end</pre>
       
       
         &mdash;
-        <div class='inline'>
-<p>The filtered result</p>
+        <div class='inline'><p>The filtered result</p>
 </div>
       
     </li>
@@ -610,8 +621,7 @@ end</pre>
       
       
         &mdash;
-        <div class='inline'>
-<p>if it’s not overridden</p>
+        <div class='inline'><p>if it’s not overridden</p>
 </div>
       
     </li>
@@ -642,7 +652,7 @@ end</pre>
       <div class="method_details ">
   <h3 class="signature " id="render_with_options-instance_method">
   
-    - (<tt>String</tt>) <strong>render_with_options</strong>(text, options) 
+    #<strong>render_with_options</strong>(text, options)  &#x21d2; <tt>String</tt> 
   
 
   
@@ -650,8 +660,8 @@ end</pre>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Same as <span class='object_link'><a href="#render-instance_method" title="Haml::Filters::Base#render (method)">#render</a></span>, but takes a <span class='object_link'><a href="../Engine.html" title="Haml::Engine (class)">Engine</a></span> options hash as well. It’s only safe to rely on options made available in <span class='object_link'><a href="../Engine.html#options_for_buffer-instance_method" title="Haml::Engine#options_for_buffer (method)">Engine#options_for_buffer</a></span>.</p>
+    <p>Same as <span class='object_link'><a href="#render-instance_method" title="Haml::Filters::Base#render (method)">#render</a></span>, but takes a <span class='object_link'><a href="../Engine.html" title="Haml::Engine (class)">Engine</a></span> options hash as well.
+It’s only safe to rely on options made available in <span class='object_link'><a href="../Engine.html#options_for_buffer-instance_method" title="Haml::Engine#options_for_buffer (method)">Engine#options_for_buffer</a></span>.</p>
 
 
   </div>
@@ -670,8 +680,7 @@ end</pre>
       
       
         &mdash;
-        <div class='inline'>
-<p>The source text for the filter to process</p>
+        <div class='inline'><p>The source text for the filter to process</p>
 </div>
       
     </li>
@@ -689,8 +698,7 @@ end</pre>
       
       
         &mdash;
-        <div class='inline'>
-<p>The filtered result</p>
+        <div class='inline'><p>The filtered result</p>
 </div>
       
     </li>
@@ -707,8 +715,7 @@ end</pre>
       
       
         &mdash;
-        <div class='inline'>
-<p>if it or <span class='object_link'><a href="#render-instance_method" title="Haml::Filters::Base#render (method)">#render</a></span> isn’t overridden</p>
+        <div class='inline'><p>if it or <span class='object_link'><a href="#render-instance_method" title="Haml::Filters::Base#render (method)">#render</a></span> isn’t overridden</p>
 </div>
       
     </li>
@@ -747,10 +754,10 @@ end</pre>
 
 </div>
 
-    <div id="footer">
-  Generated on Mon Aug 10 12:09:07 2015 by
+      <div id="footer">
+  Generated on Thu Apr 27 20:24:00 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.1.3).
+  0.9.9 (ruby-2.5.0).
 </div>
 
 
@@ -765,5 +772,6 @@ end</pre>
   } catch(err) {}</script>
 
 
+    </div>
   </body>
 </html>

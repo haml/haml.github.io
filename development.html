@@ -4,93 +4,96 @@
 <html lang="en">
 <!--<![endif]-->
 <head>
-  <meta charset='utf-8'>
-  <meta content='width=device-width,initial-scale=1.0' name='viewport'>
-  <meta content='A Template Engine for Ruby on Rails' name='description'>
-  <meta content='Haml, HAML, haml, Rails, Ruby, Ruby on Rails, Template, Template Engine, HTML Abstraction Markup Language' name='keywords'>
-  <meta content='3zvYccFjus45bkqbIvoSzbVRlaQ3JBhHOcC/+DpAeoc=' name='verify-v1'>
-  <meta content='_HduvdWLa6WXLgvQNiBbFDb18ZqvHMp_4ocOTEz0Drc' name='google-site-verification'>
-  <title>Haml :: Development</title>
-  <link href='/images/favicon.ico' rel='shortcut icon' type='image/x-icon'>
-  <link href="/stylesheets/application.css" media="all" rel="stylesheet" type="text/css"/>
-  <!--[if lte IE 8]>
-    <script src='../javascripts/modernizr.js'></script>
-  <![endif]-->
+<meta charset='utf-8'>
+<meta content='width=device-width,initial-scale=1.0' name='viewport'>
+<meta content='A Template Engine for Ruby on Rails' name='description'>
+<meta content='Haml, HAML, haml, Rails, Ruby, Ruby on Rails, Template, Template Engine, HTML Abstraction Markup Language' name='keywords'>
+<meta content='3zvYccFjus45bkqbIvoSzbVRlaQ3JBhHOcC/+DpAeoc=' name='verify-v1'>
+<meta content='_HduvdWLa6WXLgvQNiBbFDb18ZqvHMp_4ocOTEz0Drc' name='google-site-verification'>
+<title>Haml :: Development</title>
+<link href='/images/favicon.ico' rel='shortcut icon' type='image/x-icon'>
+<link href="/stylesheets/application.css" media="all" rel="stylesheet" type="text/css"/>
+<!--[if lte IE 8]>
+<script src='../javascripts/modernizr.js'></script>
+<![endif]-->
 </head>
 <body>
-  <header class='cell'>
-    <a class="logo" href="/"><img alt="Haml" src="images/haml.png"/></a>
-    <ul>
-      <li><a href="/about.html">About</a></li>
-      <li><a href="/tutorial.html">Tutorial</a></li>
-      <li><a href="/docs.html">Documentation</a></li>
-      <li><a href="http://haml.tumblr.com/">Blog</a></li>
-      <li><a href="/help.html">Help</a></li>
-    </ul>
-  </header>
-  <div class='cell'>
-    <div class='content'>
-      <h1>
-        <img alt="Development" src="images/img-badge-development.png"/>
-        Development
-      </h1>
-      <ul class='subnav'>
-        <li><a href="/download.html">Download</a></li>
-        <li><a href="/editors.html">Editors</a></li>
-        <li><a href="/development.html">Development</a></li>
-      </ul>
-      
-      <p>Haml is maintained by me, <a href="http://njclarke.com">Norman Clarke</a>, and I greatly appreciate any help I can get. The official repository is on <a href="http://github.com/haml/haml">GitHub</a> and most development discussion happens on the <a href="http://groups.google.com/group/haml">mailing list</a>.</p>
-      
-      <h2 id="bugs_and_features">Bugs and Features</h2>
-      
-      <p>If you’ve found a Haml bug, or you have something you’d like to see in the language, by all means speak up! Report it on the <a href="http://github.com/haml/haml/issues">issue tracker</a> and I’ll try to follow up with you as soon as I can. Please include the following information in your report:</p>
-      
-      <ul>
-      <li>What version of Haml you’re using (run <code>haml --version</code> on the command line)</li>
-      
-      <li>If the issue has to do with Rails, what version of Rails you’re using (<code>rails --version</code>)</li>
-      
-      <li>If possible, a simple Haml template that displays the bug — preferably one that can be run with the command line <code>haml</code> tool</li>
-      </ul>
-      
-      <p><strong>The more information you can provide, the faster it’ll be to fix your bug!</strong></p>
-      
-      <h2 id="contributing">Contributing</h2>
-      
-      <p>While bug reports and feature requests are great, actual code fixing the bugs or implementing the features is even better. If you’ve got some code to contribute, first read the information below, then fork the <a href="http://github.com/haml/haml">Haml repository</a> and send a pull request. I’ll do a code review of your patch, and then chances are good I’ll merge it right in.</p>
-      
-      <p>Haml has two primary branches. <a href="http://github.com/haml/haml/tree/stable">stable</a> is where the development of the released version (currently 4.1.0.beta.1) takes place. This is where most bug fixes should go. <a href="http://github.com/haml/haml/tree/master">Master</a>, on the other hand, is where the next version of Haml is being developed. This is the place for new features. <strong>Please submit your changes to the appropriate branch.</strong></p>
-      
-      <h2 id="when_making_a_patch_please">When Making a Patch, Please:</h2>
-      
-      <ul>
-      <li>Make sure your commit message is properly capitalized and punctuated</li>
-      
-      <li>Make sure the first line of your commit message is a (short) full sentence</li>
-      
-      <li>Add unit tests</li>
-      
-      <li>Add a note to the changelog (<code>CHANGELOG.md</code>) describing your change. Feel free to add <code>(thanks [Your Name](Your Website))</code> at the end</li>
-      
-      <li>Make sure your commits don’t add any new whitespace (use <code>git diff --check</code>)</li>
-      
-      <li>If you’re implementing a user-visible change, add it to the reference (<code>REFERENCE.md</code>)</li>
-      </ul>
-    </div>
-  </div>
-  <footer>
-    <p>&copy; 2006-2015 <a href="about.html#the_haml_team">The Haml Team</a> and <a href="https://github.com/haml/haml/graphs/contributors">numerous contributors</a>. Haml is available for use and modification under the <a href="/docs/yardoc/file.MIT-LICENSE.html">MIT&nbsp;License</a>.</p>
-  </footer>
-  <script>
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-3592613-6']);
-    _gaq.push(['_trackPageview']);
-    
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-  </script>
+<header class='cell'>
+<a class="logo" href="/"><img alt="Haml" src="images/haml.png"/></a>
+<ul>
+<li><a href="/about.html">About</a></li>
+<li><a href="/tutorial.html">Tutorial</a></li>
+<li><a href="/docs.html">Documentation</a></li>
+<li><a href="http://haml.tumblr.com/">Blog</a></li>
+<li><a href="/help.html">Help</a></li>
+</ul>
+</header>
+
+<div class='cell'><div class='content'>
+<h1>
+<img alt="Development" src="images/img-badge-development.png"/>
+Development
+</h1>
+<ul class='subnav'>
+<li><a href="/download.html">Download</a></li>
+<li><a href="/editors.html">Editors</a></li>
+<li><a href="/development.html">Development</a></li>
+</ul>
+
+
+<p>Haml is maintained by me, <a href="http://njclarke.com">Norman Clarke</a>, and I greatly appreciate any help I can get. The official repository is on <a href="http://github.com/haml/haml">GitHub</a> and most development discussion happens on the <a href="http://groups.google.com/group/haml">mailing list</a>.</p>
+
+<h2 id="bugs_and_features">Bugs and Features</h2>
+
+<p>If you’ve found a Haml bug, or you have something you’d like to see in the language, by all means speak up! Report it on the <a href="http://github.com/haml/haml/issues">issue tracker</a> and I’ll try to follow up with you as soon as I can. Please include the following information in your report:</p>
+
+<ul>
+<li>What version of Haml you’re using (run <code>haml --version</code> on the command line)</li>
+
+<li>If the issue has to do with Rails, what version of Rails you’re using (<code>rails --version</code>)</li>
+
+<li>If possible, a simple Haml template that displays the bug — preferably one that can be run with the command line <code>haml</code> tool</li>
+</ul>
+
+<p><strong>The more information you can provide, the faster it’ll be to fix your bug!</strong></p>
+
+<h2 id="contributing">Contributing</h2>
+
+<p>While bug reports and feature requests are great, actual code fixing the bugs or implementing the features is even better. If you’ve got some code to contribute, first read the information below, then fork the <a href="http://github.com/haml/haml">Haml repository</a> and send a pull request. I’ll do a code review of your patch, and then chances are good I’ll merge it right in.</p>
+
+<p>Haml has two primary branches. <a href="http://github.com/haml/haml/tree/stable">stable</a> is where the development of the released version (currently 5.0.0) takes place. This is where most bug fixes should go. <a href="http://github.com/haml/haml/tree/master">Master</a>, on the other hand, is where the next version of Haml is being developed. This is the place for new features. <strong>Please submit your changes to the appropriate branch.</strong></p>
+
+<h2 id="when_making_a_patch_please">When Making a Patch, Please:</h2>
+
+<ul>
+<li>Make sure your commit message is properly capitalized and punctuated</li>
+
+<li>Make sure the first line of your commit message is a (short) full sentence</li>
+
+<li>Add unit tests</li>
+
+<li>Add a note to the changelog (<code>CHANGELOG.md</code>) describing your change. Feel free to add <code>(thanks [Your Name](Your Website))</code> at the end</li>
+
+<li>Make sure your commits don’t add any new whitespace (use <code>git diff --check</code>)</li>
+
+<li>If you’re implementing a user-visible change, add it to the reference (<code>REFERENCE.md</code>)</li>
+</ul>
+
+</div>
+</div>
+<footer>
+<p>&copy; 2006-2017 <a href="about.html#the_haml_team">The Haml Team</a> and <a href="https://github.com/haml/haml/graphs/contributors">numerous contributors</a>. Haml is available for use and modification under the <a href="/docs/yardoc/file.MIT-LICENSE.html">MIT&nbsp;License</a>.</p>
+</footer>
+
+<script>
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-3592613-6']);
+  _gaq.push(['_trackPageview']);
+  
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>
 </body>

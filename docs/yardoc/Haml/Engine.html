@@ -1,8 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html>
+<html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
   Class: Haml::Engine
   
@@ -15,9 +15,8 @@
   <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
-  hasFrames = window.top.frames.main ? true : false;
+  pathId = "Haml::Engine";
   relpath = '../';
-  framesUrl = "../frames.html#!Haml/Engine.html";
 </script>
 
 
@@ -28,51 +27,48 @@
 
   </head>
   <body>
-    <div id="header">
-      <div id="menu">
+    <div class="nav_wrap">
+      <iframe id="nav" src="../class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
   
     <a href="../_index.html">Index (E)</a> &raquo;
     <span class='title'><span class='object_link'><a href="../Haml.html" title="Haml (module)">Haml</a></span></span>
      &raquo; 
     <span class="title">Engine</span>
   
-
-  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
 </div>
 
-      <div id="search">
+        <div id="search">
   
     <a class="full_list_link" id="class_list_link"
         href="../class_list.html">
-      Class List
-    </a>
-  
-    <a class="full_list_link" id="method_list_link"
-        href="../method_list.html">
-      Method List
-    </a>
-  
-    <a class="full_list_link" id="file_list_link"
-        href="../file_list.html">
-      File List
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
     </a>
   
 </div>
-      <div class="clear"></div>
-    </div>
+        <div class="clear"></div>
+      </div>
 
-    <iframe id="search_frame"></iframe>
-
-    <div id="content"><h1>Class: Haml::Engine
+      <div id="content"><h1>Class: Haml::Engine
   
   
   
 </h1>
-
-<dl class="box">
+<div class="box_info">
   
-    <dt class="r1">Inherits:</dt>
-    <dd class="r1">
+  <dl>
+    <dt>Inherits:</dt>
+    <dd>
       <span class="inheritName"><span class='object_link'>Object</span></span>
       
         <ul class="fullTree">
@@ -83,39 +79,48 @@
         </ul>
         <a href="#" class="inheritanceTree">show all</a>
       
-      </dd>
-    
+    </dd>
+  </dl>
+  
+
   
   
-    
-      <dt class="r2">Extended by:</dt>
-      <dd class="r2">Forwardable</dd>
-      
-    
-  
-    
-      <dt class="r1">Includes:</dt>
-      <dd class="r1"><span class='object_link'><a href="Util.html" title="Haml::Util (module)">Util</a></span></dd>
-      
-    
+  <dl>
+      <dt>Extended by:</dt>
+      <dd>Forwardable</dd>
+  </dl>
   
   
   
-    <dt class="r2 last">Defined in:</dt>
-    <dd class="r2 last">lib/haml/engine.rb</dd>
+  <dl>
+      <dt>Includes:</dt>
+      <dd><span class='object_link'><a href="Util.html" title="Haml::Util (module)">Util</a></span></dd>
+  </dl>
   
-</dl>
-<div class="clear"></div>
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>lib/haml/engine.rb</dd>
+  </dl>
+  
+</div>
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>This is the frontend for using Haml programmatically. It can be directly used by the user by creating a new instance and calling <span class='object_link'><a href="#render-instance_method" title="Haml::Engine#render (method)">#render</a></span> to render the template. For example:</p>
+    <p>This is the frontend for using Haml programmatically.
+It can be directly used by the user by creating a
+new instance and calling <span class='object_link'><a href="#render-instance_method" title="Haml::Engine#render (method)">#render</a></span> to render the template.
+For example:</p>
 
-<pre class="code ruby"><code class="ruby">template = File.read(&#39;templates/really_cool_template.haml&#39;)
+<pre class="code ruby"><code class="ruby">template = File.read('templates/really_cool_template.haml')
 haml_engine = Haml::Engine.new(template)
 output = haml_engine.render
-puts output</code></pre>
+puts output
+</code></pre>
 
 
   </div>
@@ -127,13 +132,13 @@ puts output</code></pre>
 
 
 
-  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <h2>Instance Attribute Summary <small><a href="#" class="summary_toggle">collapse</a></small></h2>
   <ul class="summary">
     
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#compiler-instance_method" title="#compiler (instance method)">- <strong>compiler</strong> </a>
+      <a href="#compiler-instance_method" title="#compiler (instance method)">#<strong>compiler</strong>  </a>
     
 
     
@@ -150,8 +155,7 @@ puts output</code></pre>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Returns the value of attribute compiler.</p>
+    <span class="summary_desc"><div class='inline'><p>Returns the value of attribute compiler.</p>
 </div></span>
   
 </li>
@@ -160,7 +164,7 @@ puts output</code></pre>
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#indentation-instance_method" title="#indentation (instance method)">- (String) <strong>indentation</strong> </a>
+      <a href="#indentation-instance_method" title="#indentation (instance method)">#<strong>indentation</strong>  &#x21d2; String </a>
     
 
     
@@ -177,8 +181,7 @@ puts output</code></pre>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>The indentation used in the Haml document, or <code>nil</code> if the indentation is ambiguous (for example, for a single-level document).</p>
+    <span class="summary_desc"><div class='inline'><p>The indentation used in the Haml document, or <code>nil</code> if the indentation is ambiguous (for example, for a single-level document).</p>
 </div></span>
   
 </li>
@@ -187,7 +190,7 @@ puts output</code></pre>
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#options-instance_method" title="#options (instance method)">- <strong>options</strong> </a>
+      <a href="#options-instance_method" title="#options (instance method)">#<strong>options</strong>  </a>
     
 
     
@@ -204,8 +207,7 @@ puts output</code></pre>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>The Haml::Options instance.</p>
+    <span class="summary_desc"><div class='inline'><p>The Haml::Options instance.</p>
 </div></span>
   
 </li>
@@ -214,7 +216,7 @@ puts output</code></pre>
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#parser-instance_method" title="#parser (instance method)">- <strong>parser</strong> </a>
+      <a href="#parser-instance_method" title="#parser (instance method)">#<strong>parser</strong>  </a>
     
 
     
@@ -231,8 +233,7 @@ puts output</code></pre>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Returns the value of attribute parser.</p>
+    <span class="summary_desc"><div class='inline'><p>Returns the value of attribute parser.</p>
 </div></span>
   
 </li>
@@ -246,7 +247,7 @@ puts output</code></pre>
   
     <h2>
       Instance Method Summary
-      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+      <small><a href="#" class="summary_toggle">collapse</a></small>
     </h2>
 
     <ul class="summary">
@@ -254,7 +255,7 @@ puts output</code></pre>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#def_method-instance_method" title="#def_method (instance method)">- <strong>def_method</strong>(object, name, *local_names) </a>
+      <a href="#def_method-instance_method" title="#def_method (instance method)">#<strong>def_method</strong>(object, name, *local_names)  </a>
     
 
     
@@ -268,8 +269,7 @@ puts output</code></pre>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Defines a method on <code>object</code> with the given name that renders the template and returns the result as a string.</p>
+    <span class="summary_desc"><div class='inline'><p>Defines a method on <code>object</code> with the given name that renders the template and returns the result as a string.</p>
 </div></span>
   
 </li>
@@ -278,7 +278,7 @@ puts output</code></pre>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Engine) <strong>initialize</strong>(template, options = {}) </a>
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(template, options = {})  &#x21d2; Engine </a>
     
 
     
@@ -294,8 +294,7 @@ puts output</code></pre>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Precompiles the Haml template.</p>
+    <span class="summary_desc"><div class='inline'><p>Precompiles the Haml template.</p>
 </div></span>
   
 </li>
@@ -304,7 +303,7 @@ puts output</code></pre>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#options_for_buffer-instance_method" title="#options_for_buffer (instance method)">- <strong>options_for_buffer</strong> </a>
+      <a href="#options_for_buffer-instance_method" title="#options_for_buffer (instance method)">#<strong>options_for_buffer</strong>  </a>
     
 
     
@@ -318,7 +317,8 @@ puts output</code></pre>
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+</div></span>
   
 </li>
 
@@ -326,7 +326,7 @@ puts output</code></pre>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#render-instance_method" title="#render (instance method)">- (String) <strong>render</strong>(scope = Object.new, locals = {}, &amp;block) </a>
+      <a href="#render-instance_method" title="#render (instance method)">#<strong>render</strong>(scope = Object.new, locals = {}, &amp;block)  &#x21d2; String </a>
     
 
     
@@ -342,8 +342,7 @@ puts output</code></pre>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Processes the template and returns the result as a string.</p>
+    <span class="summary_desc"><div class='inline'><p>Processes the template and returns the result as a string.</p>
 </div></span>
   
 </li>
@@ -352,7 +351,7 @@ puts output</code></pre>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#render_proc-instance_method" title="#render_proc (instance method)">- (Proc) <strong>render_proc</strong>(scope = Object.new, *local_names) </a>
+      <a href="#render_proc-instance_method" title="#render_proc (instance method)">#<strong>render_proc</strong>(scope = Object.new, *local_names)  &#x21d2; Proc </a>
     
 
     
@@ -366,8 +365,7 @@ puts output</code></pre>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Returns a proc that, when called, renders the template and returns the result as a string.</p>
+    <span class="summary_desc"><div class='inline'><p>Returns a proc that, when called, renders the template and returns the result as a string.</p>
 </div></span>
   
 </li>
@@ -394,7 +392,7 @@ puts output</code></pre>
     <div class="method_details first">
   <h3 class="signature first" id="initialize-instance_method">
   
-    - (<tt><span class='object_link'><a href="" title="Haml::Engine (class)">Engine</a></span></tt>) <strong>initialize</strong>(template, options = {}) 
+    #<strong>initialize</strong>(template, options = {})  &#x21d2; <tt><span class='object_link'><a href="" title="Haml::Engine (class)">Engine</a></span></tt> 
   
 
   
@@ -402,8 +400,7 @@ puts output</code></pre>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Precompiles the Haml template.</p>
+    <p>Precompiles the Haml template.</p>
 
 
   </div>
@@ -422,8 +419,7 @@ puts output</code></pre>
       
       
         &mdash;
-        <div class='inline'>
-<p>The Haml template</p>
+        <div class='inline'><p>The Haml template</p>
 </div>
       
     </li>
@@ -440,8 +436,8 @@ puts output</code></pre>
       
       
         &mdash;
-        <div class='inline'>
-<p>An options hash; see <a href="../file.REFERENCE.html#options" title="the Haml options documentation">the Haml options documentation</a></p>
+        <div class='inline'><p>An options hash;
+see <a href="../file.REFERENCE.html#options" title="the Haml options documentation">the Haml options documentation</a></p>
 </div>
       
     </li>
@@ -459,8 +455,7 @@ puts output</code></pre>
       
       
         &mdash;
-        <div class='inline'>
-<p>if there’s a Haml syntax error in the template</p>
+        <div class='inline'><p>if there’s a Haml syntax error in the template</p>
 </div>
       
     </li>
@@ -520,7 +515,7 @@ end</pre>
       <div class="method_details first">
   <h3 class="signature first" id="compiler-instance_method">
   
-    - <strong>compiler</strong> 
+    #<strong>compiler</strong>  
   
 
   
@@ -528,8 +523,7 @@ end</pre>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns the value of attribute compiler</p>
+    <p>Returns the value of attribute compiler</p>
 
 
   </div>
@@ -563,7 +557,7 @@ end</pre>
       <div class="method_details ">
   <h3 class="signature " id="indentation-instance_method">
   
-    - (<tt>String</tt>) <strong>indentation</strong> 
+    #<strong>indentation</strong>  &#x21d2; <tt>String</tt> 
   
 
   
@@ -571,8 +565,9 @@ end</pre>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>The indentation used in the Haml document, or <code>nil</code> if the indentation is ambiguous (for example, for a single-level document).</p>
+    <p>The indentation used in the Haml document,
+or <code>nil</code> if the indentation is ambiguous
+(for example, for a single-level document).</p>
 
 
   </div>
@@ -619,7 +614,7 @@ end</pre>
       <div class="method_details ">
   <h3 class="signature " id="options-instance_method">
   
-    - <strong>options</strong> 
+    #<strong>options</strong>  
   
 
   
@@ -627,8 +622,8 @@ end</pre>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>The Haml::Options instance. See <a href="../file.REFERENCE.html#options" title="the Haml options documentation">the Haml options documentation</a>.</p>
+    <p>The Haml::Options instance.
+See <a href="../file.REFERENCE.html#options" title="the Haml options documentation">the Haml options documentation</a>.</p>
 
 
   </div>
@@ -646,8 +641,7 @@ end</pre>
       
       
         
-        <div class='inline'>
-<p>Haml::Options</p>
+        <div class='inline'><p>Haml::Options</p>
 </div>
       
     </li>
@@ -680,7 +674,7 @@ end</pre>
       <div class="method_details ">
   <h3 class="signature " id="parser-instance_method">
   
-    - <strong>parser</strong> 
+    #<strong>parser</strong>  
   
 
   
@@ -688,8 +682,7 @@ end</pre>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns the value of attribute parser</p>
+    <p>Returns the value of attribute parser</p>
 
 
   </div>
@@ -728,7 +721,7 @@ end</pre>
       <div class="method_details first">
   <h3 class="signature first" id="def_method-instance_method">
   
-    - <strong>def_method</strong>(object, name, *local_names) 
+    #<strong>def_method</strong>(object, name, *local_names)  
   
 
   
@@ -736,31 +729,42 @@ end</pre>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Defines a method on <code>object</code> with the given name that renders the template and returns the result as a string.</p>
+    <p>Defines a method on <code>object</code> with the given name
+that renders the template and returns the result as a string.</p>
 
-<p>If <code>object</code> is a class or module, the method will instead by defined as an instance method. For example:</p>
+<p>If <code>object</code> is a class or module,
+the method will instead by defined as an instance method.
+For example:</p>
 
 <pre class="code ruby"><code class="ruby">t = Time.now
-Haml::Engine.new(&quot;%p\n  Today&#39;s date is\n  .date= self.to_s&quot;).def_method(t, :render)
-t.render #=&gt; &quot;&lt;p&gt;\n  Today&#39;s date is\n  &lt;div class=&#39;date&#39;&gt;Fri Nov 23 18:28:29 -0800 2007&lt;/div&gt;\n&lt;/p&gt;\n&quot;
+Haml::Engine.new("%p\n  Today's date is\n  .date= self.to_s").def_method(t, :render)
+t.render #=&gt; "&lt;p&gt;\n  Today's date is\n  &lt;div class='date'&gt;Fri Nov 23 18:28:29 -0800 2007&lt;/div&gt;\n&lt;/p&gt;\n"
 
-Haml::Engine.new(&quot;.upcased= upcase&quot;).def_method(String, :upcased_div)
-&quot;foobar&quot;.upcased_div #=&gt; &quot;&lt;div class=&#39;upcased&#39;&gt;FOOBAR&lt;/div&gt;\n&quot;</code></pre>
+Haml::Engine.new(".upcased= upcase").def_method(String, :upcased_div)
+"foobar".upcased_div #=&gt; "&lt;div class='upcased'&gt;FOOBAR&lt;/div&gt;\n"
+</code></pre>
 
-<p>The first argument of the defined method is a hash of local variable names to values. However, due to an unfortunate Ruby quirk, the local variables which can be assigned must be pre-declared. This is done with the <code>local_names</code> argument. For example:</p>
+<p>The first argument of the defined method is a hash of local variable names to values.
+However, due to an unfortunate Ruby quirk,
+the local variables which can be assigned must be pre-declared.
+This is done with the <code>local_names</code> argument.
+For example:</p>
 
 <pre class="code ruby"><code class="ruby"># This works
 obj = Object.new
-Haml::Engine.new(&quot;%p= foo&quot;).def_method(obj, :render, :foo)
-obj.render(:foo =&gt; &quot;Hello!&quot;) #=&gt; &quot;&lt;p&gt;Hello!&lt;/p&gt;&quot;
+Haml::Engine.new("%p= foo").def_method(obj, :render, :foo)
+obj.render(:foo =&gt; "Hello!") #=&gt; "&lt;p&gt;Hello!&lt;/p&gt;"
 
-# This doesn&#39;t
+# This doesn't
 obj = Object.new
-Haml::Engine.new(&quot;%p= foo&quot;).def_method(obj, :render)
-obj.render(:foo =&gt; &quot;Hello!&quot;) #=&gt; NameError: undefined local variable or method `foo&#39;</code></pre>
+Haml::Engine.new("%p= foo").def_method(obj, :render)
+obj.render(:foo =&gt; "Hello!") #=&gt; NameError: undefined local variable or method `foo'
+</code></pre>
 
-<p>Note that Haml modifies the evaluation context (either the scope object or the <code>self</code> object of the scope binding). It extends <span class='object_link'><a href="Helpers.html" title="Haml::Helpers (module)">Helpers</a></span>, and various instance variables are set (all prefixed with <code>haml_</code>).</p>
+<p>Note that Haml modifies the evaluation context
+(either the scope object or the <code>self</code> object of the scope binding).
+It extends <span class='object_link'><a href="Helpers.html" title="Haml::Helpers (module)">Helpers</a></span>, and various instance variables are set
+(all prefixed with <code>haml_</code>).</p>
 
 
   </div>
@@ -779,8 +783,7 @@ obj.render(:foo =&gt; &quot;Hello!&quot;) #=&gt; NameError: undefined local vari
       
       
         &mdash;
-        <div class='inline'>
-<p>The object on which to define the method</p>
+        <div class='inline'><p>The object on which to define the method</p>
 </div>
       
     </li>
@@ -795,8 +798,7 @@ obj.render(:foo =&gt; &quot;Hello!&quot;) #=&gt; NameError: undefined local vari
       
       
         &mdash;
-        <div class='inline'>
-<p>The name of the method to define</p>
+        <div class='inline'><p>The name of the method to define</p>
 </div>
       
     </li>
@@ -811,8 +813,7 @@ obj.render(:foo =&gt; &quot;Hello!&quot;) #=&gt; NameError: undefined local vari
       
       
         &mdash;
-        <div class='inline'>
-<p>The names of the locals that can be passed to the proc</p>
+        <div class='inline'><p>The names of the locals that can be passed to the proc</p>
 </div>
       
     </li>
@@ -850,7 +851,7 @@ end</pre>
       <div class="method_details ">
   <h3 class="signature " id="options_for_buffer-instance_method">
   
-    - <strong>options_for_buffer</strong> 
+    #<strong>options_for_buffer</strong>  
   
 
   
@@ -880,7 +881,7 @@ end</pre>
       <div class="method_details ">
   <h3 class="signature " id="render-instance_method">
   
-    - (<tt>String</tt>) <strong>render</strong>(scope = Object.new, locals = {}, &amp;block) 
+    #<strong>render</strong>(scope = Object.new, locals = {}, &amp;block)  &#x21d2; <tt>String</tt> 
   
 
   
@@ -892,26 +893,43 @@ end</pre>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Processes the template and returns the result as a string.</p>
+    <p>Processes the template and returns the result as a string.</p>
 
-<p><code>scope</code> is the context in which the template is evaluated. If it’s a <code>Binding</code> or <code>Proc</code> object, Haml uses it as the second argument to <code>Kernel#eval</code>; otherwise, Haml just uses its <code>#instance_eval</code> context.</p>
+<p><code>scope</code> is the context in which the template is evaluated.
+If it’s a <code>Binding</code> or <code>Proc</code> object,
+Haml uses it as the second argument to <code>Kernel#eval</code>;
+otherwise, Haml just uses its <code>#instance_eval</code> context.</p>
 
-<p>Note that Haml modifies the evaluation context (either the scope object or the <code>self</code> object of the scope binding). It extends <span class='object_link'><a href="Helpers.html" title="Haml::Helpers (module)">Helpers</a></span>, and various instance variables are set (all prefixed with <code>haml_</code>). For example:</p>
+<p>Note that Haml modifies the evaluation context
+(either the scope object or the <code>self</code> object of the scope binding).
+It extends <span class='object_link'><a href="Helpers.html" title="Haml::Helpers (module)">Helpers</a></span>, and various instance variables are set
+(all prefixed with <code>haml_</code>).
+For example:</p>
 
-<pre class="code ruby"><code class="ruby">s = &quot;foobar&quot;
-Haml::Engine.new(&quot;%p= upcase&quot;).render(s) #=&gt; &quot;&lt;p&gt;FOOBAR&lt;/p&gt;&quot;
+<pre class="code ruby"><code class="ruby">s = "foobar"
+Haml::Engine.new("%p= upcase").render(s) #=&gt; "&lt;p&gt;FOOBAR&lt;/p&gt;"
 
 # s now extends Haml::Helpers
-s.respond_to?(:html_attrs) #=&gt; true</code></pre>
+s.respond_to?(:html_attrs) #=&gt; true
+</code></pre>
 
-<p><code>locals</code> is a hash of local variables to make available to the template. For example:</p>
+<p><code>locals</code> is a hash of local variables to make available to the template.
+For example:</p>
 
-<pre class="code ruby"><code class="ruby">Haml::Engine.new(&quot;%p= foo&quot;).render(Object.new, :foo =&gt; &quot;Hello, world!&quot;) #=&gt; &quot;&lt;p&gt;Hello, world!&lt;/p&gt;&quot;</code></pre>
+<pre class="code ruby"><code class="ruby">Haml::Engine.new("%p= foo").render(Object.new, :foo =&gt; "Hello, world!") #=&gt; "&lt;p&gt;Hello, world!&lt;/p&gt;"
+</code></pre>
 
-<p>If a block is passed to render, that block is run when <code>yield</code> is called within the template.</p>
+<p>If a block is passed to render,
+that block is run when <code>yield</code> is called
+within the template.</p>
 
-<p>Due to some Ruby quirks, if <code>scope</code> is a <code>Binding</code> or <code>Proc</code> object and a block is given, the evaluation context may not be quite what the user expects. In particular, it’s equivalent to passing <code>eval(&quot;self&quot;, scope)</code> as <code>scope</code>. This won’t have an effect in most cases, but if you’re relying on local variables defined in the context of <code>scope</code>, they won’t work.</p>
+<p>Due to some Ruby quirks,
+if <code>scope</code> is a <code>Binding</code> or <code>Proc</code> object and a block is given,
+the evaluation context may not be quite what the user expects.
+In particular, it’s equivalent to passing <code>eval("self", scope)</code> as <code>scope</code>.
+This won’t have an effect in most cases,
+but if you’re relying on local variables defined in the context of <code>scope</code>,
+they won’t work.</p>
 
 
   </div>
@@ -932,8 +950,7 @@ s.respond_to?(:html_attrs) #=&gt; true</code></pre>
       
       
         &mdash;
-        <div class='inline'>
-<p>The context in which the template is evaluated</p>
+        <div class='inline'><p>The context in which the template is evaluated</p>
 </div>
       
     </li>
@@ -950,8 +967,8 @@ s.respond_to?(:html_attrs) #=&gt; true</code></pre>
       
       
         &mdash;
-        <div class='inline'>
-<p>Local variables that will be made available to the template</p>
+        <div class='inline'><p>Local variables that will be made available
+to the template</p>
 </div>
       
     </li>
@@ -966,8 +983,7 @@ s.respond_to?(:html_attrs) #=&gt; true</code></pre>
       
       
         &mdash;
-        <div class='inline'>
-<p>A block that can be yielded to within the template</p>
+        <div class='inline'><p>A block that can be yielded to within the template</p>
 </div>
       
     </li>
@@ -985,8 +1001,7 @@ s.respond_to?(:html_attrs) #=&gt; true</code></pre>
       
       
         &mdash;
-        <div class='inline'>
-<p>The rendered template</p>
+        <div class='inline'><p>The rendered template</p>
 </div>
       
     </li>
@@ -1069,7 +1084,7 @@ end</pre>
       <div class="method_details ">
   <h3 class="signature " id="render_proc-instance_method">
   
-    - (<tt>Proc</tt>) <strong>render_proc</strong>(scope = Object.new, *local_names) 
+    #<strong>render_proc</strong>(scope = Object.new, *local_names)  &#x21d2; <tt>Proc</tt> 
   
 
   
@@ -1077,20 +1092,25 @@ end</pre>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns a proc that, when called, renders the template and returns the result as a string.</p>
+    <p>Returns a proc that, when called,
+renders the template and returns the result as a string.</p>
 
 <p><code>scope</code> works the same as it does for render.</p>
 
-<p>The first argument of the returned proc is a hash of local variable names to values. However, due to an unfortunate Ruby quirk, the local variables which can be assigned must be pre-declared. This is done with the <code>local_names</code> argument. For example:</p>
+<p>The first argument of the returned proc is a hash of local variable names to values.
+However, due to an unfortunate Ruby quirk,
+the local variables which can be assigned must be pre-declared.
+This is done with the <code>local_names</code> argument.
+For example:</p>
 
 <pre class="code ruby"><code class="ruby"># This works
-Haml::Engine.new(&quot;%p= foo&quot;).render_proc(Object.new, :foo).call :foo =&gt; &quot;Hello!&quot;
-  #=&gt; &quot;&lt;p&gt;Hello!&lt;/p&gt;&quot;
+Haml::Engine.new("%p= foo").render_proc(Object.new, :foo).call :foo =&gt; "Hello!"
+  #=&gt; "&lt;p&gt;Hello!&lt;/p&gt;"
 
-# This doesn&#39;t
-Haml::Engine.new(&quot;%p= foo&quot;).render_proc.call :foo =&gt; &quot;Hello!&quot;
-  #=&gt; NameError: undefined local variable or method `foo&#39;</code></pre>
+# This doesn't
+Haml::Engine.new("%p= foo").render_proc.call :foo =&gt; "Hello!"
+  #=&gt; NameError: undefined local variable or method `foo'
+</code></pre>
 
 <p>The proc doesn’t take a block; any yields in the template will fail.</p>
 
@@ -1113,8 +1133,7 @@ Haml::Engine.new(&quot;%p= foo&quot;).render_proc.call :foo =&gt; &quot;Hello!&q
       
       
         &mdash;
-        <div class='inline'>
-<p>The context in which the template is evaluated</p>
+        <div class='inline'><p>The context in which the template is evaluated</p>
 </div>
       
     </li>
@@ -1129,8 +1148,7 @@ Haml::Engine.new(&quot;%p= foo&quot;).render_proc.call :foo =&gt; &quot;Hello!&q
       
       
         &mdash;
-        <div class='inline'>
-<p>The names of the locals that can be passed to the proc</p>
+        <div class='inline'><p>The names of the locals that can be passed to the proc</p>
 </div>
       
     </li>
@@ -1148,8 +1166,7 @@ Haml::Engine.new(&quot;%p= foo&quot;).render_proc.call :foo =&gt; &quot;Hello!&q
       
       
         &mdash;
-        <div class='inline'>
-<p>The proc that will run the template</p>
+        <div class='inline'><p>The proc that will run the template</p>
 </div>
       
     </li>
@@ -1205,10 +1222,10 @@ end</pre>
 
 </div>
 
-    <div id="footer">
-  Generated on Mon Aug 10 12:09:07 2015 by
+      <div id="footer">
+  Generated on Thu Apr 27 20:24:01 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.1.3).
+  0.9.9 (ruby-2.5.0).
 </div>
 
 
@@ -1223,5 +1240,6 @@ end</pre>
   } catch(err) {}</script>
 
 
+    </div>
   </body>
 </html>

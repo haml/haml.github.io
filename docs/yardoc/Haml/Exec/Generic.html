@@ -1,8 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html>
+<html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
   Class: Haml::Exec::Generic
   
@@ -15,9 +15,8 @@
   <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
-  hasFrames = window.top.frames.main ? true : false;
+  pathId = "Haml::Exec::Generic";
   relpath = '../../';
-  framesUrl = "../../frames.html#!Haml/Exec/Generic.html";
 </script>
 
 
@@ -28,51 +27,48 @@
 
   </head>
   <body>
-    <div id="header">
-      <div id="menu">
+    <div class="nav_wrap">
+      <iframe id="nav" src="../../class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
   
     <a href="../../_index.html">Index (G)</a> &raquo;
     <span class='title'><span class='object_link'><a href="../../Haml.html" title="Haml (module)">Haml</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Exec.html" title="Haml::Exec (module)">Exec</a></span></span>
      &raquo; 
     <span class="title">Generic</span>
   
-
-  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
 </div>
 
-      <div id="search">
+        <div id="search">
   
     <a class="full_list_link" id="class_list_link"
         href="../../class_list.html">
-      Class List
-    </a>
-  
-    <a class="full_list_link" id="method_list_link"
-        href="../../method_list.html">
-      Method List
-    </a>
-  
-    <a class="full_list_link" id="file_list_link"
-        href="../../file_list.html">
-      File List
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
     </a>
   
 </div>
-      <div class="clear"></div>
-    </div>
+        <div class="clear"></div>
+      </div>
 
-    <iframe id="search_frame"></iframe>
-
-    <div id="content"><h1>Class: Haml::Exec::Generic
+      <div id="content"><h1>Class: Haml::Exec::Generic
   
   
   
 </h1>
-
-<dl class="box">
+<div class="box_info">
   
-    <dt class="r1">Inherits:</dt>
-    <dd class="r1">
+  <dl>
+    <dt>Inherits:</dt>
+    <dd>
       <span class="inheritName"><span class='object_link'>Object</span></span>
       
         <ul class="fullTree">
@@ -83,26 +79,29 @@
         </ul>
         <a href="#" class="inheritanceTree">show all</a>
       
-      </dd>
-    
+    </dd>
+  </dl>
   
-  
-    
-  
-    
+
   
   
   
-    <dt class="r2 last">Defined in:</dt>
-    <dd class="r2 last">lib/haml/exec.rb</dd>
   
-</dl>
-<div class="clear"></div>
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>lib/haml/exec.rb</dd>
+  </dl>
+  
+</div>
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>An abstract class that encapsulates the executable code for all three executables.</p>
+    <p>An abstract class that encapsulates the executable code for all three executables.</p>
 
 
   </div>
@@ -115,9 +114,6 @@
   <p class="children"><span class='object_link'><a href="Haml.html" title="Haml::Exec::Haml (class)">Haml</a></span></p>
 </div>
 
-  <h2>Constant Summary</h2>
-  
-
 
 
 
@@ -127,7 +123,7 @@
   
     <h2>
       Instance Method Summary
-      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+      <small><a href="#" class="summary_toggle">collapse</a></small>
     </h2>
 
     <ul class="summary">
@@ -135,7 +131,7 @@
         <li class="protected ">
   <span class="summary_signature">
     
-      <a href="#color-instance_method" title="#color (instance method)">- (String) <strong>color</strong>(color, str) </a>
+      <a href="#color-instance_method" title="#color (instance method)">#<strong>color</strong>(color, str)  &#x21d2; String </a>
     
 
     
@@ -149,8 +145,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Wraps the given string in terminal escapes causing it to have the given color.</p>
+    <span class="summary_desc"><div class='inline'><p>Wraps the given string in terminal escapes causing it to have the given color.</p>
 </div></span>
   
 </li>
@@ -159,7 +154,7 @@
         <li class="protected ">
   <span class="summary_signature">
     
-      <a href="#get_line-instance_method" title="#get_line (instance method)">- (String) <strong>get_line</strong>(exception) </a>
+      <a href="#get_line-instance_method" title="#get_line (instance method)">#<strong>get_line</strong>(exception)  &#x21d2; String </a>
     
 
     
@@ -173,8 +168,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Finds the line of the source template on which an exception was raised.</p>
+    <span class="summary_desc"><div class='inline'><p>Finds the line of the source template on which an exception was raised.</p>
 </div></span>
   
 </li>
@@ -183,7 +177,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Generic) <strong>initialize</strong>(args) </a>
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(args)  &#x21d2; Generic </a>
     
 
     
@@ -199,8 +193,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>A new instance of Generic.</p>
+    <span class="summary_desc"><div class='inline'><p>A new instance of Generic.</p>
 </div></span>
   
 </li>
@@ -209,7 +202,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#parse-instance_method" title="#parse (instance method)">- <strong>parse</strong> </a>
+      <a href="#parse-instance_method" title="#parse (instance method)">#<strong>parse</strong>  </a>
     
 
     
@@ -223,8 +216,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Parses the command-line arguments and runs the executable.</p>
+    <span class="summary_desc"><div class='inline'><p>Parses the command-line arguments and runs the executable.</p>
 </div></span>
   
 </li>
@@ -233,7 +225,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#parse%21-instance_method" title="#parse! (instance method)">- <strong>parse!</strong> </a>
+      <a href="#parse!-instance_method" title="#parse! (instance method)">#<strong>parse!</strong>  </a>
     
 
     
@@ -247,8 +239,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Parses the command-line arguments and runs the executable.</p>
+    <span class="summary_desc"><div class='inline'><p>Parses the command-line arguments and runs the executable.</p>
 </div></span>
   
 </li>
@@ -257,7 +248,7 @@
         <li class="protected ">
   <span class="summary_signature">
     
-      <a href="#process_result-instance_method" title="#process_result (instance method)">- <strong>process_result</strong> </a>
+      <a href="#process_result-instance_method" title="#process_result (instance method)">#<strong>process_result</strong>  </a>
     
 
     
@@ -271,8 +262,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Processes the options set by the command-line arguments.</p>
+    <span class="summary_desc"><div class='inline'><p>Processes the options set by the command-line arguments.</p>
 </div></span>
   
 </li>
@@ -281,7 +271,7 @@
         <li class="protected ">
   <span class="summary_signature">
     
-      <a href="#puts-instance_method" title="#puts (instance method)">- <strong>puts</strong>(*args) </a>
+      <a href="#puts-instance_method" title="#puts (instance method)">#<strong>puts</strong>(*args)  </a>
     
 
     
@@ -295,8 +285,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Same as <code>Kernel.puts</code>, but doesn’t print anything if the <code>--quiet</code> option is set.</p>
+    <span class="summary_desc"><div class='inline'><p>Same as <code>Kernel.puts</code>, but doesn’t print anything if the <code>--quiet</code> option is set.</p>
 </div></span>
   
 </li>
@@ -305,7 +294,7 @@
         <li class="protected ">
   <span class="summary_signature">
     
-      <a href="#puts_action-instance_method" title="#puts_action (instance method)">- <strong>puts_action</strong>(name, color, arg) </a>
+      <a href="#puts_action-instance_method" title="#puts_action (instance method)">#<strong>puts_action</strong>(name, color, arg)  </a>
     
 
     
@@ -319,8 +308,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Prints a status message about performing the given action, colored using the given color (via terminal escapes) if possible.</p>
+    <span class="summary_desc"><div class='inline'><p>Prints a status message about performing the given action, colored using the given color (via terminal escapes) if possible.</p>
 </div></span>
   
 </li>
@@ -329,7 +317,7 @@
         <li class="protected ">
   <span class="summary_signature">
     
-      <a href="#set_opts-instance_method" title="#set_opts (instance method)">- <strong>set_opts</strong>(opts) </a>
+      <a href="#set_opts-instance_method" title="#set_opts (instance method)">#<strong>set_opts</strong>(opts)  </a>
     
 
     
@@ -343,8 +331,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Tells optparse how to parse the arguments available for all executables.</p>
+    <span class="summary_desc"><div class='inline'><p>Tells optparse how to parse the arguments available for all executables.</p>
 </div></span>
   
 </li>
@@ -353,7 +340,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#to_s-instance_method" title="#to_s (instance method)">- (String) <strong>to_s</strong> </a>
+      <a href="#to_s-instance_method" title="#to_s (instance method)">#<strong>to_s</strong>  &#x21d2; String </a>
     
 
     
@@ -367,8 +354,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>A description of the executable.</p>
+    <span class="summary_desc"><div class='inline'><p>A description of the executable.</p>
 </div></span>
   
 </li>
@@ -383,7 +369,7 @@
     <div class="method_details first">
   <h3 class="signature first" id="initialize-instance_method">
   
-    - (<tt><span class='object_link'><a href="" title="Haml::Exec::Generic (class)">Generic</a></span></tt>) <strong>initialize</strong>(args) 
+    #<strong>initialize</strong>(args)  &#x21d2; <tt><span class='object_link'><a href="" title="Haml::Exec::Generic (class)">Generic</a></span></tt> 
   
 
   
@@ -391,8 +377,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns a new instance of Generic</p>
+    <p>Returns a new instance of Generic</p>
 
 
   </div>
@@ -411,8 +396,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>The command-line arguments</p>
+        <div class='inline'><p>The command-line arguments</p>
 </div>
       
     </li>
@@ -453,7 +437,7 @@ end</pre>
       <div class="method_details first">
   <h3 class="signature first" id="color-instance_method">
   
-    - (<tt>String</tt>) <strong>color</strong>(color, str)  <span class="extras">(protected)</span>
+    #<strong>color</strong>(color, str)  &#x21d2; <tt>String</tt>  <span class="extras">(protected)</span>
   
 
   
@@ -461,8 +445,10 @@ end</pre>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Wraps the given string in terminal escapes causing it to have the given color. If terminal esapes aren’t supported on this platform, just returns the string instead.</p>
+    <p>Wraps the given string in terminal escapes
+causing it to have the given color.
+If terminal esapes aren’t supported on this platform,
+just returns the string instead.</p>
 
 
   </div>
@@ -481,8 +467,8 @@ end</pre>
       
       
         &mdash;
-        <div class='inline'>
-<p>The name of the color to use. Can be <code>:red</code>, <code>:green</code>, or <code>:yellow</code>.</p>
+        <div class='inline'><p>The name of the color to use.
+Can be <code>:red</code>, <code>:green</code>, or <code>:yellow</code>.</p>
 </div>
       
     </li>
@@ -497,8 +483,7 @@ end</pre>
       
       
         &mdash;
-        <div class='inline'>
-<p>The string to wrap in the given color.</p>
+        <div class='inline'><p>The string to wrap in the given color.</p>
 </div>
       
     </li>
@@ -516,8 +501,7 @@ end</pre>
       
       
         &mdash;
-        <div class='inline'>
-<p>The wrapped string.</p>
+        <div class='inline'><p>The wrapped string.</p>
 </div>
       
     </li>
@@ -560,7 +544,7 @@ end</pre>
       <div class="method_details ">
   <h3 class="signature " id="get_line-instance_method">
   
-    - (<tt>String</tt>) <strong>get_line</strong>(exception)  <span class="extras">(protected)</span>
+    #<strong>get_line</strong>(exception)  &#x21d2; <tt>String</tt>  <span class="extras">(protected)</span>
   
 
   
@@ -568,8 +552,8 @@ end</pre>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Finds the line of the source template on which an exception was raised.</p>
+    <p>Finds the line of the source template
+on which an exception was raised.</p>
 
 
   </div>
@@ -588,8 +572,7 @@ end</pre>
       
       
         &mdash;
-        <div class='inline'>
-<p>The exception</p>
+        <div class='inline'><p>The exception</p>
 </div>
       
     </li>
@@ -607,8 +590,7 @@ end</pre>
       
       
         &mdash;
-        <div class='inline'>
-<p>The line number</p>
+        <div class='inline'><p>The line number</p>
 </div>
       
     </li>
@@ -647,7 +629,7 @@ end</pre>
       <div class="method_details ">
   <h3 class="signature " id="parse-instance_method">
   
-    - <strong>parse</strong> 
+    #<strong>parse</strong>  
   
 
   
@@ -655,8 +637,8 @@ end</pre>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Parses the command-line arguments and runs the executable. This does not handle exceptions or exit the program.</p>
+    <p>Parses the command-line arguments and runs the executable.
+This does not handle exceptions or exit the program.</p>
 
 
   </div>
@@ -667,7 +649,7 @@ end</pre>
   <p class="tag_title">See Also:</p>
   <ul class="see">
     
-      <li><span class='object_link'><a href="#parse%21-instance_method" title="Haml::Exec::Generic#parse! (method)">#parse!</a></span></li>
+      <li><span class='object_link'><a href="#parse!-instance_method" title="Haml::Exec::Generic#parse! (method)">#parse!</a></span></li>
     
   </ul>
 
@@ -705,7 +687,7 @@ end</pre>
       <div class="method_details ">
   <h3 class="signature " id="parse!-instance_method">
   
-    - <strong>parse!</strong> 
+    #<strong>parse!</strong>  
   
 
   
@@ -713,8 +695,8 @@ end</pre>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Parses the command-line arguments and runs the executable. Calls <code>Kernel#exit</code> at the end, so it never returns.</p>
+    <p>Parses the command-line arguments and runs the executable.
+Calls <code>Kernel#exit</code> at the end, so it never returns.</p>
 
 
   </div>
@@ -773,7 +755,7 @@ end</pre>
       <div class="method_details ">
   <h3 class="signature " id="process_result-instance_method">
   
-    - <strong>process_result</strong>  <span class="extras">(protected)</span>
+    #<strong>process_result</strong>   <span class="extras">(protected)</span>
   
 
   
@@ -781,10 +763,12 @@ end</pre>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Processes the options set by the command-line arguments. In particular, sets <code>@options[:input]</code> and <code>@options[:output]</code> to appropriate IO streams.</p>
+    <p>Processes the options set by the command-line arguments.
+In particular, sets <code>@options[:input]</code> and <code>@options[:output]</code>
+to appropriate IO streams.</p>
 
-<p>This is meant to be overridden by subclasses so they can run their respective programs.</p>
+<p>This is meant to be overridden by subclasses
+so they can run their respective programs.</p>
 
 
   </div>
@@ -836,7 +820,7 @@ end</pre>
       <div class="method_details ">
   <h3 class="signature " id="puts-instance_method">
   
-    - <strong>puts</strong>(*args)  <span class="extras">(protected)</span>
+    #<strong>puts</strong>(*args)   <span class="extras">(protected)</span>
   
 
   
@@ -844,8 +828,7 @@ end</pre>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Same as <code>Kernel.puts</code>, but doesn’t print anything if the <code>--quiet</code> option is set.</p>
+    <p>Same as <code>Kernel.puts</code>, but doesn’t print anything if the <code>--quiet</code> option is set.</p>
 
 
   </div>
@@ -864,8 +847,7 @@ end</pre>
       
       
         &mdash;
-        <div class='inline'>
-<p>Passed on to <code>Kernel.puts</code></p>
+        <div class='inline'><p>Passed on to <code>Kernel.puts</code></p>
 </div>
       
     </li>
@@ -899,7 +881,7 @@ end</pre>
       <div class="method_details ">
   <h3 class="signature " id="puts_action-instance_method">
   
-    - <strong>puts_action</strong>(name, color, arg)  <span class="extras">(protected)</span>
+    #<strong>puts_action</strong>(name, color, arg)   <span class="extras">(protected)</span>
   
 
   
@@ -907,8 +889,8 @@ end</pre>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Prints a status message about performing the given action, colored using the given color (via terminal escapes) if possible.</p>
+    <p>Prints a status message about performing the given action,
+colored using the given color (via terminal escapes) if possible.</p>
 
 
   </div>
@@ -922,13 +904,13 @@ end</pre>
         <span class='name'>name</span>
       
       
-        <span class='type'>(<tt>#to_s</tt>)</span>
+        <span class='type'>(<tt>#<span class='object_link'><a href="#to_s-instance_method" title="Haml::Exec::Generic#to_s (method)">to_s</a></span></tt>)</span>
       
       
       
         &mdash;
-        <div class='inline'>
-<p>A short name for the action being performed. Shouldn’t be longer than 11 characters.</p>
+        <div class='inline'><p>A short name for the action being performed.
+Shouldn’t be longer than 11 characters.</p>
 </div>
       
     </li>
@@ -943,8 +925,8 @@ end</pre>
       
       
         &mdash;
-        <div class='inline'>
-<p>The name of the color to use for this action. Can be <code>:red</code>, <code>:green</code>, or <code>:yellow</code>.</p>
+        <div class='inline'><p>The name of the color to use for this action.
+Can be <code>:red</code>, <code>:green</code>, or <code>:yellow</code>.</p>
 </div>
       
     </li>
@@ -978,7 +960,7 @@ end</pre>
       <div class="method_details ">
   <h3 class="signature " id="set_opts-instance_method">
   
-    - <strong>set_opts</strong>(opts)  <span class="extras">(protected)</span>
+    #<strong>set_opts</strong>(opts)   <span class="extras">(protected)</span>
   
 
   
@@ -986,10 +968,11 @@ end</pre>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Tells optparse how to parse the arguments available for all executables.</p>
+    <p>Tells optparse how to parse the arguments
+available for all executables.</p>
 
-<p>This is meant to be overridden by subclasses so they can add their own options.</p>
+<p>This is meant to be overridden by subclasses
+so they can add their own options.</p>
 
 
   </div>
@@ -1084,7 +1067,7 @@ end</pre>
       <div class="method_details ">
   <h3 class="signature " id="to_s-instance_method">
   
-    - (<tt>String</tt>) <strong>to_s</strong> 
+    #<strong>to_s</strong>  &#x21d2; <tt>String</tt> 
   
 
   
@@ -1092,8 +1075,7 @@ end</pre>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns A description of the executable</p>
+    <p>Returns A description of the executable</p>
 
 
   </div>
@@ -1111,8 +1093,7 @@ end</pre>
       
       
         &mdash;
-        <div class='inline'>
-<p>A description of the executable</p>
+        <div class='inline'><p>A description of the executable</p>
 </div>
       
     </li>
@@ -1144,10 +1125,10 @@ end</pre>
 
 </div>
 
-    <div id="footer">
-  Generated on Mon Aug 10 12:09:07 2015 by
+      <div id="footer">
+  Generated on Thu Apr 27 20:24:01 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.1.3).
+  0.9.9 (ruby-2.5.0).
 </div>
 
 
@@ -1162,5 +1143,6 @@ end</pre>
   } catch(err) {}</script>
 
 
+    </div>
   </body>
 </html>

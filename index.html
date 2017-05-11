@@ -4,97 +4,98 @@
 <html lang="en">
 <!--<![endif]-->
 <head>
-  <meta charset='utf-8'>
-  <meta content='width=device-width,initial-scale=1.0' name='viewport'>
-  <meta content='A Template Engine for Ruby on Rails' name='description'>
-  <meta content='Haml, HAML, haml, Rails, Ruby, Ruby on Rails, Template, Template Engine, HTML Abstraction Markup Language' name='keywords'>
-  <meta content='3zvYccFjus45bkqbIvoSzbVRlaQ3JBhHOcC/+DpAeoc=' name='verify-v1'>
-  <meta content='_HduvdWLa6WXLgvQNiBbFDb18ZqvHMp_4ocOTEz0Drc' name='google-site-verification'>
-  <title>Haml</title>
-  <link href='/images/favicon.ico' rel='shortcut icon' type='image/x-icon'>
-  <link href="/stylesheets/application.css" media="all" rel="stylesheet" type="text/css"/>
-  <!--[if lte IE 8]>
-    <script src='../javascripts/modernizr.js'></script>
-  <![endif]-->
+<meta charset='utf-8'>
+<meta content='width=device-width,initial-scale=1.0' name='viewport'>
+<meta content='A Template Engine for Ruby on Rails' name='description'>
+<meta content='Haml, HAML, haml, Rails, Ruby, Ruby on Rails, Template, Template Engine, HTML Abstraction Markup Language' name='keywords'>
+<meta content='3zvYccFjus45bkqbIvoSzbVRlaQ3JBhHOcC/+DpAeoc=' name='verify-v1'>
+<meta content='_HduvdWLa6WXLgvQNiBbFDb18ZqvHMp_4ocOTEz0Drc' name='google-site-verification'>
+<title>Haml</title>
+<link href='/images/favicon.ico' rel='shortcut icon' type='image/x-icon'>
+<link href="/stylesheets/application.css" media="all" rel="stylesheet" type="text/css"/>
+<!--[if lte IE 8]>
+<script src='../javascripts/modernizr.js'></script>
+<![endif]-->
 </head>
 <body>
-  <header class='cell'>
-    <a class="logo" href="/"><img alt="Haml" src="images/haml.png"/></a>
-    <ul>
-      <li><a href="/about.html">About</a></li>
-      <li><a href="/tutorial.html">Tutorial</a></li>
-      <li><a href="/docs.html">Documentation</a></li>
-      <li><a href="http://haml.tumblr.com/">Blog</a></li>
-      <li><a href="/help.html">Help</a></li>
-    </ul>
-  </header>
-  <div class='cell'>
-    <div class='hero'>
-      <div class='box boat'>
-        <img alt="Haml" src="images/img-hero.png"/>
-        <img alt="Templating Haiku" class="boat-img" src="images/img-hero-boat.png"/>
-      </div>
-      <div class='box'>
-        <h1>
-          Beautiful, DRY,<br />
-          well-indented, clear markup:<br />
-          <strong>templating haiku.</strong>
-        </h1>
-        <p>
-          <a class="btn" href="/download.html">Download Haml</a>
-          <b>
-            Latest: <strong>4.1.0.beta.1</strong> -
-            <strong><a href="/docs/yardoc/file.CHANGELOG.html">What's New?</a></strong>
-          </b>
-        </p>
-      </div>
-    </div>
-    <div class='sample'>
-      <div class='box'>
-        <h2 class='sample-erb'>.erb</h2>
-        <pre>&lt;<b class="tag">section</b> class<b class="pun">=”</b>container<b class="pun">”</b>&gt;&#x000A;  &lt;<b class="tag">h1</b>&gt;&lt;<b class="pun">%= post.title %</b>&gt;&lt;/<b class="tag">h1</b>&gt;&#x000A;  &lt;<b class="tag">h2</b>&gt;&lt;<b class="pun">%= post.subtitle %</b>&gt;&lt;/<b class="tag">h2</b>&gt;&#x000A;  &lt;<b class="tag">div</b> class<b class="pun">=”</b>content<b class="pun">”</b>&gt;&#x000A;    &lt;<b class="pun">%= post.content %</b>&gt;&#x000A;  &lt;/<b class="tag">div</b>&gt;&#x000A;&lt;/<b class="tag">section</b>&gt;</pre>
-      </div>
-      <div class='box'>
-        <h2 class='sample-haml'>.haml</h2>
-        <pre>%<b class="tag">section</b>.<b class="tag">container</b>&#x000A;  %<b class="tag">h1</b><b class="pun">=</b> post.title&#x000A;  %<b class="tag">h2</b><b class="pun">=</b> post.subtitle&#x000A;  .<b class="tag">content</b>&#x000A;    <b class="pun">=</b> post.content&#x000A;</pre>
-      </div>
-    </div>
-    <div class='content about'>
-      <div class='box'>
-        <h2>What is it?</h2>
-        <p>Haml (HTML abstraction markup language) is based on one primary principle: <em>markup should be beautiful</em>. It’s not just beauty for beauty’s sake either; Haml accelerates and simplifies template creation down to veritable haiku.</p>
-        <p><a href="http://www.unspace.ca">Unspace Interactive</a> and several other professional Rails shops use Haml exclusively for their projects, valuing its focus on cleanliness, readability, and production speed.</p>
-        <p>Give yourself 5 minutes to read the <a href="/tutorial.html">tutorial</a> and then convert one of your ERB templates to Haml. Simplify. Enjoy. Laugh. 20 minutes later, you will never go back.</p>
-      </div>
-      <img alt="About Haml" src="images/img-about.png"/>
-    </div>
-    <ul class='quotes'>
-      <li>
-        <blockquote>Emotions when returning to haml (after erb): 1. This code looks pretty... 2. This is madness! 3. Hey, I remember how it's done. 4. Marry&nbsp;me?</blockquote>
-        <a href="http://twitter.com/eishe">@eishe</a>
-      </li>
-      <li class='alt'>
-        <blockquote>We have used Haml in every web project for the past 2 years and it has saved us an inestimable amount of time. Just&nbsp;brilliant.</blockquote>
-        <a href="http://twitter.com/edenspiekermann">@edenspiekermann</a>
-      </li>
-      <li>
-        <blockquote>The world would be a much better place if you used more HAML and less ERB. Stop being lazy and learn it today. #ruby takes over my&nbsp;brain.</blockquote>
-        <a href="http://twitter.com/tobrien">@tobrien</a>
-      </li>
-    </ul>
-  </div>
-  <footer>
-    <p>&copy; 2006-2015 <a href="about.html#the_haml_team">The Haml Team</a> and <a href="https://github.com/haml/haml/graphs/contributors">numerous contributors</a>. Haml is available for use and modification under the <a href="/docs/yardoc/file.MIT-LICENSE.html">MIT&nbsp;License</a>.</p>
-  </footer>
-  <script>
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-3592613-6']);
-    _gaq.push(['_trackPageview']);
-    
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-  </script>
+<header class='cell'>
+<a class="logo" href="/"><img alt="Haml" src="images/haml.png"/></a>
+<ul>
+<li><a href="/about.html">About</a></li>
+<li><a href="/tutorial.html">Tutorial</a></li>
+<li><a href="/docs.html">Documentation</a></li>
+<li><a href="http://haml.tumblr.com/">Blog</a></li>
+<li><a href="/help.html">Help</a></li>
+</ul>
+</header>
+
+<div class='cell'><div class='hero'>
+<div class='box boat'>
+<img alt="Haml" src="images/img-hero.png"/>
+<img alt="Templating Haiku" class="boat-img" src="images/img-hero-boat.png"/>
+</div>
+<div class='box'>
+<h1>
+Beautiful, DRY,<br />
+well-indented, clear markup:<br />
+<strong>templating haiku.</strong>
+</h1>
+<p>
+<a class="btn" href="/download.html">Download Haml</a>
+<b>
+Latest: <strong>5.0.0</strong> -
+<strong><a href="/docs/yardoc/file.CHANGELOG.html">What's New?</a></strong>
+</b>
+</p>
+</div>
+</div>
+<div class='sample'>
+<div class='box'>
+<h2 class='sample-erb'>.erb</h2>
+<pre>&lt;<b class="tag">section</b> class<b class="pun">=”</b>container<b class="pun">”</b>&gt;&#x000A;  &lt;<b class="tag">h1</b>&gt;&lt;<b class="pun">%= post.title %</b>&gt;&lt;/<b class="tag">h1</b>&gt;&#x000A;  &lt;<b class="tag">h2</b>&gt;&lt;<b class="pun">%= post.subtitle %</b>&gt;&lt;/<b class="tag">h2</b>&gt;&#x000A;  &lt;<b class="tag">div</b> class<b class="pun">=”</b>content<b class="pun">”</b>&gt;&#x000A;    &lt;<b class="pun">%= post.content %</b>&gt;&#x000A;  &lt;/<b class="tag">div</b>&gt;&#x000A;&lt;/<b class="tag">section</b>&gt;</pre>
+</div>
+<div class='box'>
+<h2 class='sample-haml'>.haml</h2>
+<pre>%<b class="tag">section</b>.<b class="tag">container</b>&#x000A;  %<b class="tag">h1</b><b class="pun">=</b> post.title&#x000A;  %<b class="tag">h2</b><b class="pun">=</b> post.subtitle&#x000A;  .<b class="tag">content</b>&#x000A;    <b class="pun">=</b> post.content&#x000A;</pre>
+</div>
+</div>
+<div class='content about'>
+<div class='box'>
+<h2>What is it?</h2>
+<p>Haml (HTML abstraction markup language) is based on one primary principle: <em>markup should be beautiful</em>. It’s not just beauty for beauty’s sake either; Haml accelerates and simplifies template creation down to veritable haiku.</p>
+<p><a href="http://www.unspace.ca">Unspace Interactive</a> and several other professional Rails shops use Haml exclusively for their projects, valuing its focus on cleanliness, readability, and production speed.</p>
+<p>Give yourself 5 minutes to read the <a href="/tutorial.html">tutorial</a> and then convert one of your ERB templates to Haml. Simplify. Enjoy. Laugh. 20 minutes later, you will never go back.</p>
+</div>
+<img alt="About Haml" src="images/img-about.png"/>
+</div>
+<ul class='quotes'>
+<li>
+<blockquote>Emotions when returning to haml (after erb): 1. This code looks pretty... 2. This is madness! 3. Hey, I remember how it's done. 4. Marry&nbsp;me?</blockquote>
+<a href="http://twitter.com/eishe">@eishe</a>
+</li>
+<li class='alt'>
+<blockquote>We have used Haml in every web project for the past 2 years and it has saved us an inestimable amount of time. Just&nbsp;brilliant.</blockquote>
+<a href="http://twitter.com/edenspiekermann">@edenspiekermann</a>
+</li>
+<li>
+<blockquote>The world would be a much better place if you used more HAML and less ERB. Stop being lazy and learn it today. #ruby takes over my&nbsp;brain.</blockquote>
+<a href="http://twitter.com/tobrien">@tobrien</a>
+</li>
+</ul>
+</div>
+<footer>
+<p>&copy; 2006-2017 <a href="about.html#the_haml_team">The Haml Team</a> and <a href="https://github.com/haml/haml/graphs/contributors">numerous contributors</a>. Haml is available for use and modification under the <a href="/docs/yardoc/file.MIT-LICENSE.html">MIT&nbsp;License</a>.</p>
+</footer>
+
+<script>
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-3592613-6']);
+  _gaq.push(['_trackPageview']);
+  
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>
 </body>

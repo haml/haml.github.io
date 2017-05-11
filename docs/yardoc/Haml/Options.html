@@ -1,8 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html>
+<html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
   Class: Haml::Options
   
@@ -15,9 +15,8 @@
   <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
-  hasFrames = window.top.frames.main ? true : false;
+  pathId = "Haml::Options";
   relpath = '../';
-  framesUrl = "../frames.html#!Haml/Options.html";
 </script>
 
 
@@ -28,51 +27,48 @@
 
   </head>
   <body>
-    <div id="header">
-      <div id="menu">
+    <div class="nav_wrap">
+      <iframe id="nav" src="../class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
   
     <a href="../_index.html">Index (O)</a> &raquo;
     <span class='title'><span class='object_link'><a href="../Haml.html" title="Haml (module)">Haml</a></span></span>
      &raquo; 
     <span class="title">Options</span>
   
-
-  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
 </div>
 
-      <div id="search">
+        <div id="search">
   
     <a class="full_list_link" id="class_list_link"
         href="../class_list.html">
-      Class List
-    </a>
-  
-    <a class="full_list_link" id="method_list_link"
-        href="../method_list.html">
-      Method List
-    </a>
-  
-    <a class="full_list_link" id="file_list_link"
-        href="../file_list.html">
-      File List
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
     </a>
   
 </div>
-      <div class="clear"></div>
-    </div>
+        <div class="clear"></div>
+      </div>
 
-    <iframe id="search_frame"></iframe>
-
-    <div id="content"><h1>Class: Haml::Options
+      <div id="content"><h1>Class: Haml::Options
   
   
   
 </h1>
-
-<dl class="box">
+<div class="box_info">
   
-    <dt class="r1">Inherits:</dt>
-    <dd class="r1">
+  <dl>
+    <dt>Inherits:</dt>
+    <dd>
       <span class="inheritName"><span class='object_link'>Object</span></span>
       
         <ul class="fullTree">
@@ -83,26 +79,31 @@
         </ul>
         <a href="#" class="inheritanceTree">show all</a>
       
-      </dd>
-    
+    </dd>
+  </dl>
   
-  
-    
-  
-    
+
   
   
   
-    <dt class="r2 last">Defined in:</dt>
-    <dd class="r2 last">lib/haml/options.rb</dd>
   
-</dl>
-<div class="clear"></div>
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>lib/haml/options.rb</dd>
+  </dl>
+  
+</div>
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>This class encapsulates all of the configuration options that Haml understands. Please see the <a href="../file.REFERENCE.html#options" title="Haml Reference">Haml Reference</a> to learn how to set the options.</p>
+    <p>This class encapsulates all of the configuration options that Haml
+understands. Please see the <a href="../file.REFERENCE.html#options" title="Haml Reference">Haml Reference</a> to
+learn how to set the options.</p>
 
 
   </div>
@@ -114,13 +115,13 @@
 
 
 
-  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <h2>Instance Attribute Summary <small><a href="#" class="summary_toggle">collapse</a></small></h2>
   <ul class="summary">
     
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#attr_wrapper-instance_method" title="#attr_wrapper (instance method)">- <strong>attr_wrapper</strong> </a>
+      <a href="#attr_wrapper-instance_method" title="#attr_wrapper (instance method)">#<strong>attr_wrapper</strong>  </a>
     
 
     
@@ -137,8 +138,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>The character that should wrap element attributes.</p>
+    <span class="summary_desc"><div class='inline'><p>The character that should wrap element attributes.</p>
 </div></span>
   
 </li>
@@ -147,7 +147,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#autoclose-instance_method" title="#autoclose (instance method)">- <strong>autoclose</strong> </a>
+      <a href="#autoclose-instance_method" title="#autoclose (instance method)">#<strong>autoclose</strong>  </a>
     
 
     
@@ -164,8 +164,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>A list of tag names that should be automatically self-closed if they have no content.</p>
+    <span class="summary_desc"><div class='inline'><p>A list of tag names that should be automatically self-closed if they have no content.</p>
 </div></span>
   
 </li>
@@ -174,7 +173,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#cdata-instance_method" title="#cdata (instance method)">- <strong>cdata</strong> </a>
+      <a href="#cdata-instance_method" title="#cdata (instance method)">#<strong>cdata</strong>  </a>
     
 
     
@@ -191,8 +190,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Whether to include CDATA sections around javascript and css blocks when using the <code>:javascript</code> or <code>:css</code> filters.</p>
+    <span class="summary_desc"><div class='inline'><p>Whether to include CDATA sections around javascript and css blocks when using the <code>:javascript</code> or <code>:css</code> filters.</p>
 </div></span>
   
 </li>
@@ -201,7 +199,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#compiler_class-instance_method" title="#compiler_class (instance method)">- <strong>compiler_class</strong> </a>
+      <a href="#compiler_class-instance_method" title="#compiler_class (instance method)">#<strong>compiler_class</strong>  </a>
     
 
     
@@ -218,8 +216,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>The compiler class to use.</p>
+    <span class="summary_desc"><div class='inline'><p>The compiler class to use.</p>
 </div></span>
   
 </li>
@@ -228,7 +225,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#encoding-instance_method" title="#encoding (instance method)">- <strong>encoding</strong> </a>
+      <a href="#encoding-instance_method" title="#encoding (instance method)">#<strong>encoding</strong>  </a>
     
 
     
@@ -245,8 +242,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>The encoding to use for the HTML output.</p>
+    <span class="summary_desc"><div class='inline'><p>The encoding to use for the HTML output.</p>
 </div></span>
   
 </li>
@@ -255,7 +251,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#escape_attrs-instance_method" title="#escape_attrs (instance method)">- <strong>escape_attrs</strong> </a>
+      <a href="#escape_attrs-instance_method" title="#escape_attrs (instance method)">#<strong>escape_attrs</strong>  </a>
     
 
     
@@ -272,8 +268,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Sets whether or not to escape HTML-sensitive characters in attributes.</p>
+    <span class="summary_desc"><div class='inline'><p>Sets whether or not to escape HTML-sensitive characters in attributes.</p>
 </div></span>
   
 </li>
@@ -282,7 +277,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#escape_html-instance_method" title="#escape_html (instance method)">- <strong>escape_html</strong> </a>
+      <a href="#escape_html-instance_method" title="#escape_html (instance method)">#<strong>escape_html</strong>  </a>
     
 
     
@@ -299,8 +294,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Sets whether or not to escape HTML-sensitive characters in script.</p>
+    <span class="summary_desc"><div class='inline'><p>Sets whether or not to escape HTML-sensitive characters in script.</p>
 </div></span>
   
 </li>
@@ -309,7 +303,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#filename-instance_method" title="#filename (instance method)">- <strong>filename</strong> </a>
+      <a href="#filename-instance_method" title="#filename (instance method)">#<strong>filename</strong>  </a>
     
 
     
@@ -326,8 +320,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>The name of the Haml file being parsed.</p>
+    <span class="summary_desc"><div class='inline'><p>The name of the Haml file being parsed.</p>
 </div></span>
   
 </li>
@@ -336,7 +329,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#format-instance_method" title="#format (instance method)">- <strong>format</strong> </a>
+      <a href="#format-instance_method" title="#format (instance method)">#<strong>format</strong>  </a>
     
 
     
@@ -353,8 +346,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Determines the output format.</p>
+    <span class="summary_desc"><div class='inline'><p>Determines the output format.</p>
 </div></span>
   
 </li>
@@ -363,7 +355,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#hyphenate_data_attrs-instance_method" title="#hyphenate_data_attrs (instance method)">- <strong>hyphenate_data_attrs</strong> </a>
+      <a href="#hyphenate_data_attrs-instance_method" title="#hyphenate_data_attrs (instance method)">#<strong>hyphenate_data_attrs</strong>  </a>
     
 
     
@@ -380,8 +372,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>If set to <code>true</code>, Haml will convert underscores to hyphens in all <a href="../file.REFERENCE.html#html5_custom_data_attributes" title="Custom Data Attributes">Custom Data Attributes</a> As of Haml 4.0, this defaults to <code>true</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>If set to <code>true</code>, Haml will convert underscores to hyphens in all <a href="../file.REFERENCE.html#html5_custom_data_attributes" title="Custom Data Attributes">Custom Data Attributes</a> As of Haml 4.0, this defaults to <code>true</code>.</p>
 </div></span>
   
 </li>
@@ -390,7 +381,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#line-instance_method" title="#line (instance method)">- <strong>line</strong> </a>
+      <a href="#line-instance_method" title="#line (instance method)">#<strong>line</strong>  </a>
     
 
     
@@ -407,8 +398,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>The line offset of the Haml template being parsed.</p>
+    <span class="summary_desc"><div class='inline'><p>The line offset of the Haml template being parsed.</p>
 </div></span>
   
 </li>
@@ -417,7 +407,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#mime_type-instance_method" title="#mime_type (instance method)">- <strong>mime_type</strong> </a>
+      <a href="#mime_type-instance_method" title="#mime_type (instance method)">#<strong>mime_type</strong>  </a>
     
 
     
@@ -434,8 +424,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>The mime type that the rendered document will be served with.</p>
+    <span class="summary_desc"><div class='inline'><p>The mime type that the rendered document will be served with.</p>
 </div></span>
   
 </li>
@@ -444,7 +433,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#parser_class-instance_method" title="#parser_class (instance method)">- <strong>parser_class</strong> </a>
+      <a href="#parser_class-instance_method" title="#parser_class (instance method)">#<strong>parser_class</strong>  </a>
     
 
     
@@ -461,8 +450,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>The parser class to use.</p>
+    <span class="summary_desc"><div class='inline'><p>The parser class to use.</p>
 </div></span>
   
 </li>
@@ -471,7 +459,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#preserve-instance_method" title="#preserve (instance method)">- <strong>preserve</strong> </a>
+      <a href="#preserve-instance_method" title="#preserve (instance method)">#<strong>preserve</strong>  </a>
     
 
     
@@ -488,8 +476,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>A list of tag names that should automatically have their newlines preserved using the <span class='object_link'><a href="Helpers.html#preserve-instance_method" title="Haml::Helpers#preserve (method)">Helpers#preserve</a></span> helper.</p>
+    <span class="summary_desc"><div class='inline'><p>A list of tag names that should automatically have their newlines preserved using the <span class='object_link'><a href="Helpers.html#preserve-instance_method" title="Haml::Helpers#preserve (method)">Helpers#preserve</a></span> helper.</p>
 </div></span>
   
 </li>
@@ -498,7 +485,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#remove_whitespace-instance_method" title="#remove_whitespace (instance method)">- <strong>remove_whitespace</strong> </a>
+      <a href="#remove_whitespace-instance_method" title="#remove_whitespace (instance method)">#<strong>remove_whitespace</strong>  </a>
     
 
     
@@ -515,8 +502,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>If set to <code>true</code>, all tags are treated as if both <a href="../file.REFERENCE.html#whitespace_removal__and_" title="whitespace removal">whitespace removal</a> options were present.</p>
+    <span class="summary_desc"><div class='inline'><p>If set to <code>true</code>, all tags are treated as if both <a href="../file.REFERENCE.html#whitespace_removal__and_" title="whitespace removal">whitespace removal</a> options were present.</p>
 </div></span>
   
 </li>
@@ -525,7 +511,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#suppress_eval-instance_method" title="#suppress_eval (instance method)">- <strong>suppress_eval</strong> </a>
+      <a href="#suppress_eval-instance_method" title="#suppress_eval (instance method)">#<strong>suppress_eval</strong>  </a>
     
 
     
@@ -542,8 +528,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Whether or not attribute hashes and Ruby scripts designated by <code>=</code> or <code>~</code> should be evaluated.</p>
+    <span class="summary_desc"><div class='inline'><p>Whether or not attribute hashes and Ruby scripts designated by <code>=</code> or <code>~</code> should be evaluated.</p>
 </div></span>
   
 </li>
@@ -552,7 +537,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#ugly-instance_method" title="#ugly (instance method)">- <strong>ugly</strong> </a>
+      <a href="#ugly-instance_method" title="#ugly (instance method)">#<strong>ugly</strong>  </a>
     
 
     
@@ -569,8 +554,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>If set to <code>true</code>, Haml makes no attempt to properly indent or format the HTML output.</p>
+    <span class="summary_desc"><div class='inline'><p>If set to <code>true</code>, Haml makes no attempt to properly indent or format the HTML output.</p>
 </div></span>
   
 </li>
@@ -584,7 +568,7 @@
   
     <h2>
       Class Method Summary
-      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+      <small><a href="#" class="summary_toggle">collapse</a></small>
     </h2>
 
     <ul class="summary">
@@ -592,7 +576,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#buffer_option_keys-class_method" title="buffer_option_keys (class method)">+ <strong>buffer_option_keys</strong> </a>
+      <a href="#buffer_option_keys-class_method" title="buffer_option_keys (class method)">.<strong>buffer_option_keys</strong>  </a>
     
 
     
@@ -606,8 +590,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>An array of keys that will be used to provide a hash of options to <span class='object_link'><a href="Buffer.html" title="Haml::Buffer (class)">Buffer</a></span>.</p>
+    <span class="summary_desc"><div class='inline'><p>An array of keys that will be used to provide a hash of options to <span class='object_link'><a href="Buffer.html" title="Haml::Buffer (class)">Buffer</a></span>.</p>
 </div></span>
   
 </li>
@@ -616,7 +599,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#defaults-class_method" title="defaults (class method)">+ <strong>defaults</strong> </a>
+      <a href="#defaults-class_method" title="defaults (class method)">.<strong>defaults</strong>  </a>
     
 
     
@@ -630,8 +613,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>The default option values.</p>
+    <span class="summary_desc"><div class='inline'><p>The default option values.</p>
 </div></span>
   
 </li>
@@ -640,7 +622,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#valid_formats-class_method" title="valid_formats (class method)">+ <strong>valid_formats</strong> </a>
+      <a href="#valid_formats-class_method" title="valid_formats (class method)">.<strong>valid_formats</strong>  </a>
     
 
     
@@ -654,8 +636,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>An array of valid values for the <code>:format</code> option.</p>
+    <span class="summary_desc"><div class='inline'><p>An array of valid values for the <code>:format</code> option.</p>
 </div></span>
   
 </li>
@@ -665,7 +646,7 @@
   
     <h2>
       Instance Method Summary
-      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+      <small><a href="#" class="summary_toggle">collapse</a></small>
     </h2>
 
     <ul class="summary">
@@ -673,7 +654,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#%5B%5D-instance_method" title="#[] (instance method)">- <strong>[]</strong>(key) </a>
+      <a href="#[]-instance_method" title="#[] (instance method)">#<strong>[]</strong>(key)  </a>
     
 
     
@@ -687,8 +668,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Retrieve an option value.</p>
+    <span class="summary_desc"><div class='inline'><p>Retrieve an option value.</p>
 </div></span>
   
 </li>
@@ -697,7 +677,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#%5B%5D%3D-instance_method" title="#[]= (instance method)">- <strong>[]=</strong>(key, value) </a>
+      <a href="#[]=-instance_method" title="#[]= (instance method)">#<strong>[]=</strong>(key, value)  </a>
     
 
     
@@ -711,8 +691,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Set an option value.</p>
+    <span class="summary_desc"><div class='inline'><p>Set an option value.</p>
 </div></span>
   
 </li>
@@ -721,7 +700,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#for_buffer-instance_method" title="#for_buffer (instance method)">- ({Symbol =&gt; Object}) <strong>for_buffer</strong> </a>
+      <a href="#for_buffer-instance_method" title="#for_buffer (instance method)">#<strong>for_buffer</strong>  &#x21d2; {Symbol =&gt; Object} </a>
     
 
     
@@ -735,8 +714,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Returns a subset of options: those that <span class='object_link'><a href="Buffer.html" title="Haml::Buffer (class)">Buffer</a></span> cares about.</p>
+    <span class="summary_desc"><div class='inline'><p>Returns a subset of options: those that <span class='object_link'><a href="Buffer.html" title="Haml::Buffer (class)">Buffer</a></span> cares about.</p>
 </div></span>
   
 </li>
@@ -745,7 +723,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#html4%3F-instance_method" title="#html4? (instance method)">- (Boolean) <strong>html4?</strong> </a>
+      <a href="#html4%3F-instance_method" title="#html4? (instance method)">#<strong>html4?</strong>  &#x21d2; Boolean </a>
     
 
     
@@ -759,8 +737,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Whether or not the format is HTML4.</p>
+    <span class="summary_desc"><div class='inline'><p>Whether or not the format is HTML4.</p>
 </div></span>
   
 </li>
@@ -769,7 +746,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#html5%3F-instance_method" title="#html5? (instance method)">- (Boolean) <strong>html5?</strong> </a>
+      <a href="#html5%3F-instance_method" title="#html5? (instance method)">#<strong>html5?</strong>  &#x21d2; Boolean </a>
     
 
     
@@ -783,8 +760,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Whether or not the format is HTML5.</p>
+    <span class="summary_desc"><div class='inline'><p>Whether or not the format is HTML5.</p>
 </div></span>
   
 </li>
@@ -793,7 +769,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#html%3F-instance_method" title="#html? (instance method)">- (Boolean) <strong>html?</strong> </a>
+      <a href="#html%3F-instance_method" title="#html? (instance method)">#<strong>html?</strong>  &#x21d2; Boolean </a>
     
 
     
@@ -807,8 +783,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Whether or not the format is any flavor of HTML.</p>
+    <span class="summary_desc"><div class='inline'><p>Whether or not the format is any flavor of HTML.</p>
 </div></span>
   
 </li>
@@ -817,7 +792,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Options) <strong>initialize</strong>(values = {}, &amp;block) </a>
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(values = {}, &amp;block)  &#x21d2; Options </a>
     
 
     
@@ -833,8 +808,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>A new instance of Options.</p>
+    <span class="summary_desc"><div class='inline'><p>A new instance of Options.</p>
 </div></span>
   
 </li>
@@ -843,7 +817,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#xhtml%3F-instance_method" title="#xhtml? (instance method)">- (Boolean) <strong>xhtml?</strong> </a>
+      <a href="#xhtml%3F-instance_method" title="#xhtml? (instance method)">#<strong>xhtml?</strong>  &#x21d2; Boolean </a>
     
 
     
@@ -857,8 +831,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Whether or not the format is XHTML.</p>
+    <span class="summary_desc"><div class='inline'><p>Whether or not the format is XHTML.</p>
 </div></span>
   
 </li>
@@ -873,7 +846,7 @@
     <div class="method_details first">
   <h3 class="signature first" id="initialize-instance_method">
   
-    - (<tt><span class='object_link'><a href="" title="Haml::Options (class)">Options</a></span></tt>) <strong>initialize</strong>(values = {}, &amp;block) 
+    #<strong>initialize</strong>(values = {}, &amp;block)  &#x21d2; <tt><span class='object_link'><a href="" title="Haml::Options (class)">Options</a></span></tt> 
   
 
   
@@ -881,8 +854,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns a new instance of Options</p>
+    <p>Returns a new instance of Options</p>
 
 
   </div>
@@ -925,7 +897,7 @@ end</pre>
       <div class="method_details first">
   <h3 class="signature first" id="attr_wrapper-instance_method">
   
-    - <strong>attr_wrapper</strong> 
+    #<strong>attr_wrapper</strong>  
   
 
   
@@ -933,8 +905,10 @@ end</pre>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>The character that should wrap element attributes. This defaults to <code>&#39;</code> (an apostrophe). Characters of this type within the attributes will be escaped (e.g. by replacing them with <code>&amp;apos;</code>) if the character is an apostrophe or a quotation mark.</p>
+    <p>The character that should wrap element attributes. This defaults to <code>'</code>
+(an apostrophe). Characters of this type within the attributes will be
+escaped (e.g. by replacing them with <code>&amp;apos;</code>) if the character is an
+apostrophe or a quotation mark.</p>
 
 
   </div>
@@ -968,7 +942,7 @@ end</pre>
       <div class="method_details ">
   <h3 class="signature " id="autoclose-instance_method">
   
-    - <strong>autoclose</strong> 
+    #<strong>autoclose</strong>  
   
 
   
@@ -976,9 +950,10 @@ end</pre>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>A list of tag names that should be automatically self-closed if they have no content. This can also contain regular expressions that match tag names (or any object which responds to <code>#===</code>). Defaults to <code>[&#39;meta&#39;, &#39;img&#39;,
-&#39;link&#39;, &#39;br&#39;, &#39;hr&#39;, &#39;input&#39;, &#39;area&#39;, &#39;param&#39;, &#39;col&#39;, &#39;base&#39;]</code>.</p>
+    <p>A list of tag names that should be automatically self-closed if they have
+no content. This can also contain regular expressions that match tag names
+(or any object which responds to <code>#===</code>). Defaults to <code>['meta', 'img',
+'link', 'br', 'hr', 'input', 'area', 'param', 'col', 'base']</code>.</p>
 
 
   </div>
@@ -1012,7 +987,7 @@ end</pre>
       <div class="method_details ">
   <h3 class="signature " id="cdata-instance_method">
   
-    - <strong>cdata</strong> 
+    #<strong>cdata</strong>  
   
 
   
@@ -1020,12 +995,14 @@ end</pre>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Whether to include CDATA sections around javascript and css blocks when using the <code>:javascript</code> or <code>:css</code> filters.</p>
+    <p>Whether to include CDATA sections around javascript and css blocks when
+using the <code>:javascript</code> or <code>:css</code> filters.</p>
 
-<p>This option also affects the <code>:sass</code>, <code>:scss</code>, <code>:less</code> and <code>:coffeescript</code> filters.</p>
+<p>This option also affects the <code>:sass</code>, <code>:scss</code>, <code>:less</code> and <code>:coffeescript</code>
+filters.</p>
 
-<p>Defaults to <code>false</code> for html, <code>true</code> for xhtml. Cannot be changed when using xhtml.</p>
+<p>Defaults to <code>false</code> for html, <code>true</code> for xhtml. Cannot be changed when using
+xhtml.</p>
 
 
   </div>
@@ -1059,7 +1036,7 @@ end</pre>
       <div class="method_details ">
   <h3 class="signature " id="compiler_class-instance_method">
   
-    - <strong>compiler_class</strong> 
+    #<strong>compiler_class</strong>  
   
 
   
@@ -1067,8 +1044,7 @@ end</pre>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>The compiler class to use. Defaults to Haml::Compiler.</p>
+    <p>The compiler class to use. Defaults to Haml::Compiler.</p>
 
 
   </div>
@@ -1102,7 +1078,7 @@ end</pre>
       <div class="method_details ">
   <h3 class="signature " id="encoding-instance_method">
   
-    - <strong>encoding</strong> 
+    #<strong>encoding</strong>  
   
 
   
@@ -1110,8 +1086,14 @@ end</pre>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>The encoding to use for the HTML output. Only available on Ruby 1.9 or higher. This can be a string or an <code>Encoding</code> Object. Note that Haml <strong>does not</strong> automatically re-encode Ruby values; any strings coming from outside the application should be converted before being passed into the Haml template. Defaults to <code>Encoding.default_internal</code>; if that’s not set, defaults to the encoding of the Haml template; if that’s <code>US-ASCII</code>, defaults to <code>&quot;UTF-8&quot;</code>.</p>
+    <p>The encoding to use for the HTML output.
+Only available on Ruby 1.9 or higher.
+This can be a string or an <code>Encoding</code> Object. Note that Haml <strong>does not</strong>
+automatically re-encode Ruby values; any strings coming from outside the
+application should be converted before being passed into the Haml
+template. Defaults to <code>Encoding.default_internal</code>; if that’s not set,
+defaults to the encoding of the Haml template; if that’s <code>US-ASCII</code>,
+defaults to <code>"UTF-8"</code>.</p>
 
 
   </div>
@@ -1145,7 +1127,7 @@ end</pre>
       <div class="method_details ">
   <h3 class="signature " id="escape_attrs-instance_method">
   
-    - <strong>escape_attrs</strong> 
+    #<strong>escape_attrs</strong>  
   
 
   
@@ -1153,8 +1135,11 @@ end</pre>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Sets whether or not to escape HTML-sensitive characters in attributes. If this is true, all HTML-sensitive characters in attributes are escaped. If it’s set to false, no HTML-sensitive characters in attributes are escaped. If it’s set to <code>:once</code>, existing HTML escape sequences are preserved, but other HTML-sensitive characters are escaped.</p>
+    <p>Sets whether or not to escape HTML-sensitive characters in attributes. If
+this is true, all HTML-sensitive characters in attributes are escaped. If
+it’s set to false, no HTML-sensitive characters in attributes are escaped.
+If it’s set to <code>:once</code>, existing HTML escape sequences are preserved, but
+other HTML-sensitive characters are escaped.</p>
 
 <p>Defaults to <code>true</code>.</p>
 
@@ -1190,7 +1175,7 @@ end</pre>
       <div class="method_details ">
   <h3 class="signature " id="escape_html-instance_method">
   
-    - <strong>escape_html</strong> 
+    #<strong>escape_html</strong>  
   
 
   
@@ -1198,8 +1183,12 @@ end</pre>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Sets whether or not to escape HTML-sensitive characters in script. If this is true, <code>=</code> behaves like <a href="../file.REFERENCE.html#escaping_html" title="&lt;code&gt;&amp;amp;=&lt;/code&gt;"><code>&amp;=</code></a>; otherwise, it behaves like <a href="../file.REFERENCE.html#unescaping_html" title="&lt;code&gt;!=&lt;/code&gt;"><code>!=</code></a>. Note that if this is set, <code>!=</code> should be used for yielding to subtemplates and rendering partials. See also <a href="../file.REFERENCE.html#escaping_html" title="Escaping HTML">Escaping HTML</a> and <a href="../file.REFERENCE.html#unescaping_html" title="Unescaping HTML">Unescaping HTML</a>.</p>
+    <p>Sets whether or not to escape HTML-sensitive characters in script. If this
+is true, <code>=</code> behaves like <a href="../file.REFERENCE.html#escaping_html" title="&lt;code&gt;&amp;amp;=&lt;/code&gt;"><code>&amp;=</code></a>;
+otherwise, it behaves like <a href="../file.REFERENCE.html#unescaping_html" title="&lt;code&gt;!=&lt;/code&gt;"><code>!=</code></a>. Note
+that if this is set, <code>!=</code> should be used for yielding to subtemplates and
+rendering partials. See also <a href="../file.REFERENCE.html#escaping_html" title="Escaping HTML">Escaping HTML</a> and
+<a href="../file.REFERENCE.html#unescaping_html" title="Unescaping HTML">Unescaping HTML</a>.</p>
 
 <p>Defaults to false.</p>
 
@@ -1235,7 +1224,7 @@ end</pre>
       <div class="method_details ">
   <h3 class="signature " id="filename-instance_method">
   
-    - <strong>filename</strong> 
+    #<strong>filename</strong>  
   
 
   
@@ -1243,8 +1232,10 @@ end</pre>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>The name of the Haml file being parsed. This is only used as information when exceptions are raised. This is automatically assigned when working through ActionView, so it’s really only useful for the user to assign when dealing with Haml programatically.</p>
+    <p>The name of the Haml file being parsed.
+This is only used as information when exceptions are raised. This is
+automatically assigned when working through ActionView, so it’s really
+only useful for the user to assign when dealing with Haml programatically.</p>
 
 
   </div>
@@ -1278,7 +1269,7 @@ end</pre>
       <div class="method_details ">
   <h3 class="signature " id="format-instance_method">
   
-    - <strong>format</strong> 
+    #<strong>format</strong>  
   
 
   
@@ -1286,10 +1277,16 @@ end</pre>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Determines the output format. The default is <code>:html5</code>. The other options are <code>:html4</code> and <code>:xhtml</code>. If the output is set to XHTML, then Haml automatically generates self-closing tags and wraps the output of the Javascript and CSS-like filters inside CDATA. When the output is set to <code>:html5</code> or <code>:html4</code>, XML prologs are ignored. In all cases, an appropriate doctype is generated from <code>!!!</code>.</p>
+    <p>Determines the output format. The default is <code>:html5</code>. The other options
+are <code>:html4</code> and <code>:xhtml</code>. If the output is set to XHTML, then Haml
+automatically generates self-closing tags and wraps the output of the
+Javascript and CSS-like filters inside CDATA. When the output is set to
+<code>:html5</code> or <code>:html4</code>, XML prologs are ignored. In all cases, an appropriate
+doctype is generated from <code>!!!</code>.</p>
 
-<p>If the mime_type of the template being rendered is <code>text/xml</code> then a format of <code>:xhtml</code> will be used even if the global output format is set to <code>:html4</code> or <code>:html5</code>.</p>
+<p>If the mime_type of the template being rendered is <code>text/xml</code> then a
+format of <code>:xhtml</code> will be used even if the global output format is set to
+<code>:html4</code> or <code>:html5</code>.</p>
 
 
   </div>
@@ -1323,7 +1320,7 @@ end</pre>
       <div class="method_details ">
   <h3 class="signature " id="hyphenate_data_attrs-instance_method">
   
-    - <strong>hyphenate_data_attrs</strong> 
+    #<strong>hyphenate_data_attrs</strong>  
   
 
   
@@ -1331,8 +1328,9 @@ end</pre>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>If set to <code>true</code>, Haml will convert underscores to hyphens in all <a href="../file.REFERENCE.html#html5_custom_data_attributes" title="Custom Data Attributes">Custom Data Attributes</a> As of Haml 4.0, this defaults to <code>true</code>.</p>
+    <p>If set to <code>true</code>, Haml will convert underscores to hyphens in all
+<a href="../file.REFERENCE.html#html5_custom_data_attributes" title="Custom Data Attributes">Custom Data Attributes</a> As
+of Haml 4.0, this defaults to <code>true</code>.</p>
 
 
   </div>
@@ -1366,7 +1364,7 @@ end</pre>
       <div class="method_details ">
   <h3 class="signature " id="line-instance_method">
   
-    - <strong>line</strong> 
+    #<strong>line</strong>  
   
 
   
@@ -1374,8 +1372,8 @@ end</pre>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>The line offset of the Haml template being parsed. This is useful for inline templates, similar to the last argument to <code>Kernel#eval</code>.</p>
+    <p>The line offset of the Haml template being parsed. This is useful for
+inline templates, similar to the last argument to <code>Kernel#eval</code>.</p>
 
 
   </div>
@@ -1409,7 +1407,7 @@ end</pre>
       <div class="method_details ">
   <h3 class="signature " id="mime_type-instance_method">
   
-    - <strong>mime_type</strong> 
+    #<strong>mime_type</strong>  
   
 
   
@@ -1417,8 +1415,9 @@ end</pre>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>The mime type that the rendered document will be served with. If this is set to <code>text/xml</code> then the format will be overridden to <code>:xhtml</code> even if it has set to <code>:html4</code> or <code>:html5</code>.</p>
+    <p>The mime type that the rendered document will be served with. If this is
+set to <code>text/xml</code> then the format will be overridden to <code>:xhtml</code> even if
+it has set to <code>:html4</code> or <code>:html5</code>.</p>
 
 
   </div>
@@ -1452,7 +1451,7 @@ end</pre>
       <div class="method_details ">
   <h3 class="signature " id="parser_class-instance_method">
   
-    - <strong>parser_class</strong> 
+    #<strong>parser_class</strong>  
   
 
   
@@ -1460,8 +1459,7 @@ end</pre>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>The parser class to use. Defaults to Haml::Parser.</p>
+    <p>The parser class to use. Defaults to Haml::Parser.</p>
 
 
   </div>
@@ -1495,7 +1493,7 @@ end</pre>
       <div class="method_details ">
   <h3 class="signature " id="preserve-instance_method">
   
-    - <strong>preserve</strong> 
+    #<strong>preserve</strong>  
   
 
   
@@ -1503,8 +1501,12 @@ end</pre>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>A list of tag names that should automatically have their newlines preserved using the <span class='object_link'><a href="Helpers.html#preserve-instance_method" title="Haml::Helpers#preserve (method)">Helpers#preserve</a></span> helper. This means that any content given on the same line as the tag will be preserved. For example, <code>%textarea= &quot;Foo\nBar&quot;</code> compiles to <code>&lt;textarea&gt;Foo&amp;#x000A;Bar&lt;/textarea&gt;</code>. Defaults to <code>[&#39;textarea&#39;, &#39;pre&#39;]</code>. See also <a href="../file.REFERENCE.html#whitespace_preservation" title="Whitespace Preservation">Whitespace Preservation</a>.</p>
+    <p>A list of tag names that should automatically have their newlines
+preserved using the <span class='object_link'><a href="Helpers.html#preserve-instance_method" title="Haml::Helpers#preserve (method)">Helpers#preserve</a></span> helper. This means that any
+content given on the same line as the tag will be preserved. For example,
+<code>%textarea= "Foo\nBar"</code> compiles to <code>&lt;textarea&gt;Foo&amp;#x000A;Bar&lt;/textarea&gt;</code>.
+Defaults to <code>['textarea', 'pre']</code>. See also
+<a href="../file.REFERENCE.html#whitespace_preservation" title="Whitespace Preservation">Whitespace Preservation</a>.</p>
 
 
   </div>
@@ -1538,7 +1540,7 @@ end</pre>
       <div class="method_details ">
   <h3 class="signature " id="remove_whitespace-instance_method">
   
-    - <strong>remove_whitespace</strong> 
+    #<strong>remove_whitespace</strong>  
   
 
   
@@ -1546,8 +1548,10 @@ end</pre>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>If set to <code>true</code>, all tags are treated as if both <a href="../file.REFERENCE.html#whitespace_removal__and_" title="whitespace removal">whitespace removal</a> options were present. Use with caution as this may cause whitespace-related formatting errors.</p>
+    <p>If set to <code>true</code>, all tags are treated as if both
+<a href="../file.REFERENCE.html#whitespace_removal__and_" title="whitespace removal">whitespace removal</a> options
+were present. Use with caution as this may cause whitespace-related
+formatting errors.</p>
 
 <p>Defaults to <code>false</code>.</p>
 
@@ -1583,7 +1587,7 @@ end</pre>
       <div class="method_details ">
   <h3 class="signature " id="suppress_eval-instance_method">
   
-    - <strong>suppress_eval</strong> 
+    #<strong>suppress_eval</strong>  
   
 
   
@@ -1591,8 +1595,9 @@ end</pre>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Whether or not attribute hashes and Ruby scripts designated by <code>=</code> or <code>~</code> should be evaluated. If this is <code>true</code>, said scripts are rendered as empty strings.</p>
+    <p>Whether or not attribute hashes and Ruby scripts designated by <code>=</code> or <code>~</code>
+should be evaluated. If this is <code>true</code>, said scripts are rendered as empty
+strings.</p>
 
 <p>Defaults to <code>false</code>.</p>
 
@@ -1628,7 +1633,7 @@ end</pre>
       <div class="method_details ">
   <h3 class="signature " id="ugly-instance_method">
   
-    - <strong>ugly</strong> 
+    #<strong>ugly</strong>  
   
 
   
@@ -1636,10 +1641,11 @@ end</pre>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>If set to <code>true</code>, Haml makes no attempt to properly indent or format the HTML output. This significantly improves rendering performance but makes viewing the source unpleasant.</p>
+    <p>If set to <code>true</code>, Haml makes no attempt to properly indent or format the
+HTML output. This significantly improves rendering performance but makes
+viewing the source unpleasant.</p>
 
-<p>Defaults to <code>true</code> in Rails production mode, and <code>false</code> everywhere else.</p>
+<p>Defaults to <code>true</code> in Rails production  mode, and <code>false</code> everywhere else.</p>
 
 
   </div>
@@ -1678,7 +1684,7 @@ end</pre>
       <div class="method_details first">
   <h3 class="signature first" id="buffer_option_keys-class_method">
   
-    + <strong>buffer_option_keys</strong> 
+    .<strong>buffer_option_keys</strong>  
   
 
   
@@ -1686,8 +1692,8 @@ end</pre>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>An array of keys that will be used to provide a hash of options to <span class='object_link'><a href="Buffer.html" title="Haml::Buffer (class)">Buffer</a></span>.</p>
+    <p>An array of keys that will be used to provide a hash of options to
+<span class='object_link'><a href="Buffer.html" title="Haml::Buffer (class)">Buffer</a></span>.</p>
 
 
   </div>
@@ -1705,8 +1711,7 @@ end</pre>
       
       
         
-        <div class='inline'>
-<p>Hash</p>
+        <div class='inline'><p>Hash</p>
 </div>
       
     </li>
@@ -1737,7 +1742,7 @@ end</pre>
       <div class="method_details ">
   <h3 class="signature " id="defaults-class_method">
   
-    + <strong>defaults</strong> 
+    .<strong>defaults</strong>  
   
 
   
@@ -1745,8 +1750,7 @@ end</pre>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>The default option values.</p>
+    <p>The default option values.</p>
 
 
   </div>
@@ -1764,8 +1768,7 @@ end</pre>
       
       
         
-        <div class='inline'>
-<p>Hash</p>
+        <div class='inline'><p>Hash</p>
 </div>
       
     </li>
@@ -1796,7 +1799,7 @@ end</pre>
       <div class="method_details ">
   <h3 class="signature " id="valid_formats-class_method">
   
-    + <strong>valid_formats</strong> 
+    .<strong>valid_formats</strong>  
   
 
   
@@ -1804,8 +1807,7 @@ end</pre>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>An array of valid values for the <code>:format</code> option.</p>
+    <p>An array of valid values for the <code>:format</code> option.</p>
 
 
   </div>
@@ -1823,8 +1825,7 @@ end</pre>
       
       
         
-        <div class='inline'>
-<p>Array</p>
+        <div class='inline'><p>Array</p>
 </div>
       
     </li>
@@ -1861,7 +1862,7 @@ end</pre>
       <div class="method_details first">
   <h3 class="signature first" id="[]-instance_method">
   
-    - <strong>[]</strong>(key) 
+    #<strong>[]</strong>(key)  
   
 
   
@@ -1869,8 +1870,7 @@ end</pre>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Retrieve an option value.</p>
+    <p>Retrieve an option value.</p>
 
 
   </div>
@@ -1889,8 +1889,7 @@ end</pre>
       
       
         &mdash;
-        <div class='inline'>
-<p>The value to retrieve.</p>
+        <div class='inline'><p>The value to retrieve.</p>
 </div>
       
     </li>
@@ -1922,7 +1921,7 @@ end</pre>
       <div class="method_details ">
   <h3 class="signature " id="[]=-instance_method">
   
-    - <strong>[]=</strong>(key, value) 
+    #<strong>[]=</strong>(key, value)  
   
 
   
@@ -1930,8 +1929,7 @@ end</pre>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Set an option value.</p>
+    <p>Set an option value.</p>
 
 
   </div>
@@ -1950,8 +1948,7 @@ end</pre>
       
       
         &mdash;
-        <div class='inline'>
-<p>The key to set.</p>
+        <div class='inline'><p>The key to set.</p>
 </div>
       
     </li>
@@ -1966,8 +1963,7 @@ end</pre>
       
       
         &mdash;
-        <div class='inline'>
-<p>The value to set for the key.</p>
+        <div class='inline'><p>The value to set for the key.</p>
 </div>
       
     </li>
@@ -1999,7 +1995,7 @@ end</pre>
       <div class="method_details ">
   <h3 class="signature " id="for_buffer-instance_method">
   
-    - (<tt>{Symbol =&gt; <span class='object_link'>Object</span>}</tt>) <strong>for_buffer</strong> 
+    #<strong>for_buffer</strong>  &#x21d2; <tt>{Symbol =&gt; <span class='object_link'>Object</span>}</tt> 
   
 
   
@@ -2007,8 +2003,9 @@ end</pre>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>All of the values here are such that when <code>#inspect</code> is called on the hash, it can be <code>Kernel#eval</code>ed to get the same result back.</p>
+    <p>Returns a subset of options: those that <span class='object_link'><a href="Buffer.html" title="Haml::Buffer (class)">Buffer</a></span> cares about.
+All of the values here are such that when <code>#inspect</code> is called on the hash,
+it can be <code>Kernel#eval</code>ed to get the same result back.</p>
 
 <p>See <a href="../file.REFERENCE.html#options" title="the Haml options documentation">the Haml options documentation</a>.</p>
 
@@ -2028,8 +2025,7 @@ end</pre>
       
       
         &mdash;
-        <div class='inline'>
-<p>The options hash</p>
+        <div class='inline'><p>The options hash</p>
 </div>
       
     </li>
@@ -2066,7 +2062,7 @@ end</pre>
       <div class="method_details ">
   <h3 class="signature " id="html4?-instance_method">
   
-    - (<tt>Boolean</tt>) <strong>html4?</strong> 
+    #<strong>html4?</strong>  &#x21d2; <tt>Boolean</tt> 
   
 
   
@@ -2074,8 +2070,7 @@ end</pre>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns Whether or not the format is HTML4.</p>
+    <p>Returns Whether or not the format is HTML4.</p>
 
 
   </div>
@@ -2093,8 +2088,7 @@ end</pre>
       
       
         &mdash;
-        <div class='inline'>
-<p>Whether or not the format is HTML4.</p>
+        <div class='inline'><p>Whether or not the format is HTML4.</p>
 </div>
       
     </li>
@@ -2125,7 +2119,7 @@ end</pre>
       <div class="method_details ">
   <h3 class="signature " id="html5?-instance_method">
   
-    - (<tt>Boolean</tt>) <strong>html5?</strong> 
+    #<strong>html5?</strong>  &#x21d2; <tt>Boolean</tt> 
   
 
   
@@ -2133,8 +2127,7 @@ end</pre>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns Whether or not the format is HTML5.</p>
+    <p>Returns Whether or not the format is HTML5.</p>
 
 
   </div>
@@ -2152,8 +2145,7 @@ end</pre>
       
       
         &mdash;
-        <div class='inline'>
-<p>Whether or not the format is HTML5.</p>
+        <div class='inline'><p>Whether or not the format is HTML5.</p>
 </div>
       
     </li>
@@ -2184,7 +2176,7 @@ end</pre>
       <div class="method_details ">
   <h3 class="signature " id="html?-instance_method">
   
-    - (<tt>Boolean</tt>) <strong>html?</strong> 
+    #<strong>html?</strong>  &#x21d2; <tt>Boolean</tt> 
   
 
   
@@ -2192,8 +2184,7 @@ end</pre>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns Whether or not the format is any flavor of HTML.</p>
+    <p>Returns Whether or not the format is any flavor of HTML.</p>
 
 
   </div>
@@ -2211,8 +2202,7 @@ end</pre>
       
       
         &mdash;
-        <div class='inline'>
-<p>Whether or not the format is any flavor of HTML.</p>
+        <div class='inline'><p>Whether or not the format is any flavor of HTML.</p>
 </div>
       
     </li>
@@ -2243,7 +2233,7 @@ end</pre>
       <div class="method_details ">
   <h3 class="signature " id="xhtml?-instance_method">
   
-    - (<tt>Boolean</tt>) <strong>xhtml?</strong> 
+    #<strong>xhtml?</strong>  &#x21d2; <tt>Boolean</tt> 
   
 
   
@@ -2251,8 +2241,7 @@ end</pre>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns Whether or not the format is XHTML.</p>
+    <p>Returns Whether or not the format is XHTML.</p>
 
 
   </div>
@@ -2270,8 +2259,7 @@ end</pre>
       
       
         &mdash;
-        <div class='inline'>
-<p>Whether or not the format is XHTML.</p>
+        <div class='inline'><p>Whether or not the format is XHTML.</p>
 </div>
       
     </li>
@@ -2303,10 +2291,10 @@ end</pre>
 
 </div>
 
-    <div id="footer">
-  Generated on Mon Aug 10 12:09:07 2015 by
+      <div id="footer">
+  Generated on Thu Apr 27 20:24:01 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.1.3).
+  0.9.9 (ruby-2.5.0).
 </div>
 
 
@@ -2321,5 +2309,6 @@ end</pre>
   } catch(err) {}</script>
 
 
+    </div>
   </body>
 </html>
