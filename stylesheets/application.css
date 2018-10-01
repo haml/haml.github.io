@@ -82,58 +82,58 @@ blockquote:before, blockquote:after {
 @-webkit-keyframes bob {
   /* line 78, /Users/a_matsuda/src/haml-site/src/stylesheets/_settings.sass */
   from {
-    top: 0;
+    -webkit-transform: translateY(0);
   }
 
   /* line 80, /Users/a_matsuda/src/haml-site/src/stylesheets/_settings.sass */
   to {
-    top: 3px;
+    -webkit-transform: translateY(3px);
   }
 }
 
 @-moz-keyframes bob {
   /* line 83, /Users/a_matsuda/src/haml-site/src/stylesheets/_settings.sass */
   from {
-    top: 0;
+    -moz-transform: translateY(0);
   }
 
   /* line 85, /Users/a_matsuda/src/haml-site/src/stylesheets/_settings.sass */
   to {
-    top: 3px;
+    -moz-transform: translateY(3px);
   }
 }
 
 @-o-keyframes bob {
   /* line 88, /Users/a_matsuda/src/haml-site/src/stylesheets/_settings.sass */
   from {
-    top: 0;
+    -o-transform: translateY(0);
   }
 
   /* line 90, /Users/a_matsuda/src/haml-site/src/stylesheets/_settings.sass */
   to {
-    top: 3px;
+    -o-transform: translateY(3px);
   }
 }
 
 @keyframes bob {
   /* line 93, /Users/a_matsuda/src/haml-site/src/stylesheets/_settings.sass */
   from {
-    top: 0;
+    transform: translateY(0);
   }
 
   /* line 95, /Users/a_matsuda/src/haml-site/src/stylesheets/_settings.sass */
   to {
-    top: 3px;
+    transform: translateY(3px);
   }
 }
 
-/* line 53, /Users/a_matsuda/.rbenv/versions/2.5.0-dev/lib/ruby/gems/2.5.0/gems/compass-0.11.7/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
+/* line 53, /Users/a_matsuda/.rbenv/versions/2.6.0-dev/lib/ruby/gems/2.6.0/gems/compass-0.11.7/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
 body {
   font-size: 100%;
   line-height: 1.5em;
 }
 
-/* line 57, /Users/a_matsuda/.rbenv/versions/2.5.0-dev/lib/ruby/gems/2.5.0/gems/compass-0.11.7/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
+/* line 57, /Users/a_matsuda/.rbenv/versions/2.6.0-dev/lib/ruby/gems/2.6.0/gems/compass-0.11.7/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
 html > body {
   font-size: 16px;
 }
