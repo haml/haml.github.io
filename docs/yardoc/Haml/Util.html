@@ -105,17 +105,7 @@
 <div class="tags">
   
 
-</div><h2>Defined Under Namespace</h2>
-<p class="children">
-  
-    
-  
-    
-      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Util/StaticConditionalContext.html" title="Haml::Util::StaticConditionalContext (class)">StaticConditionalContext</a></span>
-    
-  
-</p>
-
+</div>
 
 
 
@@ -129,29 +119,6 @@
     </h2>
 
     <ul class="summary">
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#av_template_class-instance_method" title="#av_template_class (instance method)">#<strong>av_template_class</strong>(name)  </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>Returns an ActionView::Template* class.</p>
-</div></span>
-  
-</li>
-
       
         <li class="public ">
   <span class="summary_signature">
@@ -179,7 +146,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#caller_info-instance_method" title="#caller_info (instance method)">#<strong>caller_info</strong>(entry = caller[1])  &#x21d2; [String, Fixnum, (String, nil)] </a>
+      <a href="#check_encoding-instance_method" title="#check_encoding (instance method)">#<strong>check_encoding</strong>(str) {|msg| ... } &#x21d2; String </a>
     
 
     
@@ -193,30 +160,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Returns information about the caller of the previous method.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#check_encoding-instance_method" title="#check_encoding (instance method)">#<strong>check_encoding</strong>(str)  </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
+    <span class="summary_desc"><div class='inline'><p>Checks that the encoding of a string is valid and cleans up potential encoding gotchas like the UTF-8 BOM.</p>
 </div></span>
   
 </li>
@@ -263,29 +207,6 @@
 
   
     <span class="summary_desc"><div class='inline'>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#def_static_method-instance_method" title="#def_static_method (instance method)">#<strong>def_static_method</strong>(klass, name, args, *vars, erb)  </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>This is used for methods in <span class='object_link'><a href="Buffer.html" title="Haml::Buffer (class)">Buffer</a></span> that need to be very fast, and take a lot of boolean parameters that are known at compile-time.</p>
 </div></span>
   
 </li>
@@ -377,30 +298,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Like <code>Object#inspect</code>, but preserves non-ASCII characters rather than escaping them under Ruby 1.9.2.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#powerset-instance_method" title="#powerset (instance method)">#<strong>powerset</strong>(arr)  &#x21d2; Set&lt;Set&gt; </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>Computes the powerset of the given array.</p>
+    <span class="summary_desc"><div class='inline'><p>Like <code>Object#inspect</code>, but preserves non-ASCII characters rather than escaping them.</p>
 </div></span>
   
 </li>
@@ -455,29 +353,6 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#static_method_name-instance_method" title="#static_method_name (instance method)">#<strong>static_method_name</strong>(name, *vars)  &#x21d2; String </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>Computes the name for a method defined via <span class='object_link'><a href="#def_static_method-instance_method" title="Haml::Util#def_static_method (method)">#def_static_method</a></span>.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
       <a href="#unescape_interpolation-instance_method" title="#unescape_interpolation (instance method)">#<strong>unescape_interpolation</strong>(str, escape_html = nil)  </a>
     
 
@@ -508,73 +383,7 @@
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="av_template_class-instance_method">
-  
-    #<strong>av_template_class</strong>(name)  
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <p>Returns an ActionView::Template* class.
-In pre-3.0 versions of Rails, most of these classes
-were of the form <code>ActionView::TemplateFoo</code>,
-while afterwards they were of the form <code>ActionView;:Template::Foo</code>.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>name</span>
-      
-      
-        <span class='type'>(<tt>#to_s</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><p>The name of the class to get.
-For example, <code>:Error</code> will return <code>ActionView::TemplateError</code>
-or <code>ActionView::Template::Error</code>.</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-65
-66
-67
-68</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/util.rb', line 65</span>
-
-def av_template_class(name)
-  return ActionView.const_get(&quot;Template#{name}&quot;) if ActionView.const_defined?(&quot;Template#{name}&quot;)
-  return ActionView::Template.const_get(name.to_s)
-end</pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="balance-instance_method">
+  <h3 class="signature first" id="balance-instance_method">
   
     #<strong>balance</strong>(scanner, start, finish, count = 0)  &#x21d2; <tt>(String, String)</tt> 
   
@@ -619,13 +428,12 @@ from                    to
         <span class='name'>start</span>
       
       
-        <span class='type'>(<tt>Character</tt>)</span>
+        <span class='type'>(<tt>String</tt>)</span>
       
       
       
         &mdash;
-        <div class='inline'><p>The character opening the balanced pair.
-A <code>Fixnum</code> in 1.8, a <code>String</code> in 1.9</p>
+        <div class='inline'><p>The character opening the balanced pair.</p>
 </div>
       
     </li>
@@ -635,13 +443,12 @@ A <code>Fixnum</code> in 1.8, a <code>String</code> in 1.9</p>
         <span class='name'>finish</span>
       
       
-        <span class='type'>(<tt>Character</tt>)</span>
+        <span class='type'>(<tt>String</tt>)</span>
       
       
       
         &mdash;
-        <div class='inline'><p>The character closing the balanced pair.
-A <code>Fixnum</code> in 1.8, a <code>String</code> in 1.9</p>
+        <div class='inline'><p>The character closing the balanced pair.</p>
 </div>
       
     </li>
@@ -692,23 +499,23 @@ and the rest of the string.
       <pre class="lines">
 
 
-296
-297
-298
-299
-300
-301
-302
-303
-304
-305
-306</pre>
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/util.rb', line 296</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/util.rb', line 168</span>
 
 def balance(scanner, start, finish, count = 0)
-  str = &#39;&#39;
+  str = &#39;&#39;.dup
   scanner = StringScanner.new(scanner) unless scanner.is_a? StringScanner
   regexp = Regexp.new(&quot;(.*?)[\\#{start.chr}\\#{finish.chr}]&quot;, Regexp::MULTILINE)
   while scanner.scan(regexp)
@@ -724,9 +531,9 @@ end</pre>
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="caller_info-instance_method">
+  <h3 class="signature " id="check_encoding-instance_method">
   
-    #<strong>caller_info</strong>(entry = caller[1])  &#x21d2; <tt>[String, Fixnum, (String, nil)]</tt> 
+    #<strong>check_encoding</strong>(str) {|msg| ... } &#x21d2; <tt>String</tt> 
   
 
   
@@ -734,7 +541,10 @@ end</pre>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns information about the caller of the previous method.</p>
+    <p>Checks that the encoding of a string is valid
+and cleans up potential encoding gotchas like the UTF-8 BOM.
+If it’s not, yields an error string describing the invalid character
+and the line on which it occurs.</p>
 
 
   </div>
@@ -745,36 +555,70 @@ end</pre>
   
     <li>
       
-        <span class='name'>entry</span>
+        <span class='name'>str</span>
       
       
         <span class='type'>(<tt>String</tt>)</span>
       
       
-        <em class="default">(defaults to: <tt>caller[1]</tt>)</em>
-      
       
         &mdash;
-        <div class='inline'><p>An entry in the <code>#caller</code> list, or a similarly formatted string</p>
+        <div class='inline'><p>The string of which to check the encoding</p>
 </div>
       
     </li>
   
 </ul>
 
+<p class="tag_title">Yields:</p>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>msg</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>A block in which an encoding error can be raised.
+Only yields if there is an encoding error</p>
+</div>
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Yield Parameters:</p>
+<ul class="yieldparam">
+  
+    <li>
+      
+        <span class='name'>msg</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The error message to be raised</p>
+</div>
+      
+    </li>
+  
+</ul>
 <p class="tag_title">Returns:</p>
 <ul class="return">
   
     <li>
       
       
-        <span class='type'>(<tt>[String, Fixnum, (String, nil)]</tt>)</span>
+        <span class='type'>(<tt>String</tt>)</span>
       
       
       
         &mdash;
-        <div class='inline'><p>An array containing the filename, line, and method name of the caller.
-The method name may be nil</p>
+        <div class='inline'><p><code>str</code>, potentially with encoding gotchas like BOMs removed</p>
 </div>
       
     </li>
@@ -787,53 +631,61 @@ The method name may be nil</p>
       <pre class="lines">
 
 
-39
-40
-41
-42
-43
-44
-45</pre>
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/util.rb', line 39</span>
-
-def caller_info(entry = caller[1])
-  info = entry.scan(/^(.*?):(-?.*?)(?::.*`(.+)&#39;)?$/).first
-  info[1] = info[1].to_i
-  # This is added by Rubinius to designate a block, but we don&#39;t care about it.
-  info[2].sub!(/ \{\}\Z/, &#39;&#39;) if info[2]
-  info
-end</pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="check_encoding-instance_method">
-  
-    #<strong>check_encoding</strong>(str)  
-  
-
-  
-
-  
-</h3><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-103
-104
-105</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/util.rb', line 103</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/util.rb', line 62</span>
 
 def check_encoding(str)
-  str.gsub(/\A\xEF\xBB\xBF/, &#39;&#39;) # Get rid of the UTF-8 BOM
+  if str.valid_encoding?
+    # Get rid of the Unicode BOM if possible
+    # Shortcut for UTF-8 which might be the majority case
+    if str.encoding == Encoding::UTF_8
+      return str.gsub(/\A\uFEFF/, &#39;&#39;)
+    elsif str.encoding.name =~ /^UTF-(16|32)(BE|LE)?$/
+      return str.gsub(Regexp.new(&quot;\\A\uFEFF&quot;.encode(str.encoding)), &#39;&#39;)
+    else
+      return str
+    end
+  end
+
+  encoding = str.encoding
+  newlines = Regexp.new(&quot;\r\n|\r|\n&quot;.encode(encoding).force_encoding(Encoding::ASCII_8BIT))
+  str.force_encoding(Encoding::ASCII_8BIT).split(newlines).each_with_index do |line, i|
+    begin
+      line.encode(encoding)
+    rescue Encoding::UndefinedConversionError =&gt; e
+      yield &lt;&lt;MSG.rstrip, i + 1
+Invalid #{encoding.name} character #{e.error_char.dump}
+MSG
+    end
+  end
+  return str
 end</pre>
     </td>
   </tr>
@@ -967,15 +819,29 @@ Only yields if there is an encoding error</p>
       <pre class="lines">
 
 
-154
-155
-156</pre>
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/util.rb', line 154</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/util.rb', line 109</span>
 
 def check_haml_encoding(str, &amp;block)
-  check_encoding(str, &amp;block)
+  str = str.dup if str.frozen?
+
+  bom, encoding = parse_haml_magic_comment(str)
+  if encoding; str.force_encoding(encoding)
+  elsif bom; str.force_encoding(Encoding::UTF_8)
+  end
+
+  return check_encoding(str, &amp;block)
 end</pre>
     </td>
   </tr>
@@ -1020,170 +886,15 @@ end</pre>
       <pre class="lines">
 
 
-325
-326
-327</pre>
+197
+198
+199</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/util.rb', line 325</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/util.rb', line 197</span>
 
 def contains_interpolation?(str)
-  str.include?(&#39;#{&#39;)
-end</pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="def_static_method-instance_method">
-  
-    #<strong>def_static_method</strong>(klass, name, args, *vars, erb)  
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <p>This is used for methods in <span class='object_link'><a href="Buffer.html" title="Haml::Buffer (class)">Buffer</a></span> that need to be very fast,
-and take a lot of boolean parameters
-that are known at compile-time.
-Instead of passing the parameters in normally,
-a separate method is defined for every possible combination of those parameters;
-these are then called using <span class='object_link'><a href="#static_method_name-instance_method" title="Haml::Util#static_method_name (method)">#static_method_name</a></span>.</p>
-
-<p>To define a static method, an ERB template for the method is provided.
-All conditionals based on the static parameters
-are done as embedded Ruby within this template.
-For example:</p>
-
-<pre class="code ruby"><code class="ruby">def_static_method(Foo, :my_static_method, [:foo, :bar], :baz, :bang, &lt;&lt;RUBY)
-  &lt;% if baz &amp;&amp; bang %&gt;
-    return foo + bar
-  &lt;% elsif baz || bang %&gt;
-    return foo - bar
-  &lt;% else %&gt;
-    return 17
-  &lt;% end %&gt;
-RUBY
-</code></pre>
-
-<p><span class='object_link'><a href="#static_method_name-instance_method" title="Haml::Util#static_method_name (method)">#static_method_name</a></span> can be used to call static methods.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-  
-<p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>klass</span>
-      
-      
-        <span class='type'>(<tt>Module</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><p>The class on which to define the static method</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>name</span>
-      
-      
-        <span class='type'>(<tt>#to_s</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><p>The (base) name of the static method</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>args</span>
-      
-      
-        <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><p>The names of the arguments to the defined methods
-(<strong>not</strong> to the ERB template)</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>vars</span>
-      
-      
-        <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><p>The names of the static boolean variables
-to be made available to the ERB template</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-238
-239
-240
-241
-242
-243
-244
-245
-246
-247
-248
-249
-250
-251
-252</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/util.rb', line 238</span>
-
-def def_static_method(klass, name, args, *vars)
-  erb = vars.pop
-  info = caller_info
-  erb_object = (defined?(Erubis::TinyEruby) &amp;&amp; Erubis::TinyEruby || ERB).new(erb)
-  powerset(vars).each do |set|
-    context = StaticConditionalContext.new(set).instance_eval {binding}
-    method_content = erb_object.result(context)
-
-    klass.class_eval(&lt;&lt;METHOD, info[0], info[1])
-      def #{static_method_name(name, *vars.map {|v| set.include?(v)})}(#{args.join(&#39;, &#39;)})
-        #{method_content}
-      end
-METHOD
-  end
+  /#[\{$@]/ === str
 end</pre>
     </td>
   </tr>
@@ -1257,18 +968,18 @@ and the text prior to that as the first (<code>scan[1]</code>).</p>
       <pre class="lines">
 
 
-273
-274
-275
-276
-277</pre>
+147
+148
+149
+150
+151</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/util.rb', line 273</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/util.rb', line 147</span>
 
 def handle_interpolation(str)
   scan = StringScanner.new(str)
-  yield scan while scan.scan(/(.*?)(\\*)\#\{/)
+  yield scan while scan.scan(/(.*?)(\\*)#([\{@$])/)
   scan.rest
 end</pre>
     </td>
@@ -1290,6 +1001,9 @@ end</pre>
     <p>Returns the given text, marked as being HTML-safe.
 With older versions of the Rails XSS-safety mechanism,
 this destructively modifies the HTML-safety of <code>text</code>.</p>
+
+<p>It only works if you are using ActiveSupport or the parameter <code>text</code>
+implements the #html_safe method.</p>
 
 
   </div>
@@ -1335,13 +1049,13 @@ this destructively modifies the HTML-safety of <code>text</code>.</p>
       <pre class="lines">
 
 
-87
-88
-89
-90</pre>
+47
+48
+49
+50</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/util.rb', line 87</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/util.rb', line 47</span>
 
 def html_safe(text)
   return unless text
@@ -1413,21 +1127,21 @@ end</pre>
       <pre class="lines">
 
 
-312
-313
-314
-315
-316
-317
-318
-319
-320
-321
-322
-323</pre>
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/util.rb', line 312</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/util.rb', line 184</span>
 
 def human_indentation(indentation)
   if !indentation.include?(?\t)
@@ -1457,7 +1171,7 @@ end</pre>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Like <code>Object#inspect</code>, but preserves non-ASCII characters rather than escaping them under Ruby 1.9.2.
+    <p>Like <code>Object#inspect</code>, but preserves non-ASCII characters rather than escaping them.
 This is necessary so that the precompiled Haml template can be <code>#encode</code>d into <code>@options[:encoding]</code>
 before being evaluated.</p>
 
@@ -1501,110 +1215,28 @@ before being evaluated.</p>
       <pre class="lines">
 
 
-181
-182
-183</pre>
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/util.rb', line 181</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/util.rb', line 126</span>
 
 def inspect_obj(obj)
-  return obj.inspect
-end</pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="powerset-instance_method">
-  
-    #<strong>powerset</strong>(arr)  &#x21d2; <tt>Set&lt;Set&gt;</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <p>Computes the powerset of the given array.
-This is the set of all subsets of the array.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-  <div class="examples">
-    <p class="tag_title">Examples:</p>
-    
-      
-      <pre class="example code"><code>powerset([1, 2, 3]) #=&gt;
-  Set[Set[], Set[1], Set[2], Set[3], Set[1, 2], Set[2, 3], Set[1, 3], Set[1, 2, 3]]</code></pre>
-    
-  </div>
-<p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>arr</span>
-      
-      
-        <span class='type'>(<tt>Enumerable</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>Set&lt;Set&gt;</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><p>The subsets of <code>arr</code></p>
-</div>
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/util.rb', line 23</span>
-
-def powerset(arr)
-  arr.inject([Set.new].to_set) do |powerset, el|
-    new_powerset = Set.new
-    powerset.each do |subset|
-      new_powerset &lt;&lt; subset
-      new_powerset &lt;&lt; subset + [el]
-    end
-    new_powerset
+  case obj
+  when String
+    %Q!&quot;#{obj.gsub(/[\x00-\x7F]+/) {|s| s.dump[1...-1]}}&quot;!
+  when Symbol
+    &quot;:#{inspect_obj(obj.to_s)}&quot;
+  else
+    obj.inspect
   end
 end</pre>
     </td>
@@ -1652,12 +1284,12 @@ Overridden in haml/template.rb if this is the case.</p>
       <pre class="lines">
 
 
-77
-78
-79</pre>
+34
+35
+36</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/util.rb', line 77</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/util.rb', line 34</span>
 
 def rails_xss_safe?
   false
@@ -1709,112 +1341,21 @@ end</pre>
       <pre class="lines">
 
 
-50
-51
-52
-53
-54
-55</pre>
+20
+21
+22
+23
+24
+25</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/util.rb', line 50</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/util.rb', line 20</span>
 
 def silence_warnings
   the_real_stderr, $stderr = $stderr, StringIO.new
   yield
 ensure
   $stderr = the_real_stderr
-end</pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="static_method_name-instance_method">
-  
-    #<strong>static_method_name</strong>(name, *vars)  &#x21d2; <tt>String</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <p>Computes the name for a method defined via <span class='object_link'><a href="#def_static_method-instance_method" title="Haml::Util#def_static_method (method)">#def_static_method</a></span>.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>name</span>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><p>The base name of the static method</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>vars</span>
-      
-      
-        <span class='type'>(<tt>Array&lt;Boolean&gt;</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><p>The static variable assignment</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><p>The real name of the static method</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-259
-260
-261</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/util.rb', line 259</span>
-
-def static_method_name(name, *vars)
-  :&quot;#{name}_#{vars.map {|v| !!v}.join(&#39;_&#39;)}&quot;
 end</pre>
     </td>
   </tr>
@@ -1836,36 +1377,52 @@ end</pre>
       <pre class="lines">
 
 
-329
-330
-331
-332
-333
-334
-335
-336
-337
-338
-339
-340
-341
-342
-343</pre>
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/util.rb', line 329</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/util.rb', line 201</span>
 
 def unescape_interpolation(str, escape_html = nil)
-  res = &#39;&#39;
+  res = &#39;&#39;.dup
   rest = Haml::Util.handle_interpolation str.dump do |scan|
     escapes = (scan[2].size - 1) / 2
+    char = scan[3] # &#39;{&#39;, &#39;@&#39; or &#39;$&#39;
     res &lt;&lt; scan.matched[0...-3 - escapes]
     if escapes % 2 == 1
-      res &lt;&lt; &#39;#{&#39;
+      res &lt;&lt; &quot;\##{char}&quot;
     else
-      content = eval(&#39;&quot;&#39; + balance(scan, ?{, ?}, 1)[0][0...-1] + &#39;&quot;&#39;)
+      interpolated = if char == &#39;{&#39;
+        balance(scan, ?{, ?}, 1)[0][0...-1]
+      else
+        scan.scan(/\w+/)
+      end
+      content = eval(&quot;\&quot;#{interpolated}\&quot;&quot;)
+      content.prepend(char) if char == &#39;@&#39; || char == &#39;$&#39;
       content = &quot;Haml::Helpers.html_escape((#{content}))&quot; if escape_html
-      res &lt;&lt; &#39;#{&#39; + content + &quot;}&quot;# Use eval to get rid of string escapes
+
+      res &lt;&lt; &quot;\#{#{content}}&quot;
     end
   end
   res + rest
@@ -1880,7 +1437,7 @@ end</pre>
 </div>
 
       <div id="footer">
-  Generated on Mon Oct  1 09:55:06 2018 by
+  Generated on Wed Oct  3 20:56:01 2018 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.16 (ruby-2.6.0).
 </div>

@@ -272,12 +272,12 @@ classes.</p>
       <pre class="lines">
 
 
-14
 15
-16</pre>
+16
+17</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/filters.rb', line 14</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/filters.rb', line 15</span>
 
 def defined
   @defined
@@ -454,7 +454,6 @@ Coffee to “inherit” from Javascript, wrapping its output in script tags.</p>
       <pre class="lines">
 
 
-38
 39
 40
 41
@@ -475,10 +474,11 @@ Coffee to “inherit” from Javascript, wrapping its output in script tags.</p>
 56
 57
 58
-59</pre>
+59
+60</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/filters.rb', line 38</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/filters.rb', line 39</span>
 
 def register_tilt_filter(name, options = {})
   if constants.map(&amp;:to_s).include?(name.to_s)
@@ -519,7 +519,7 @@ end</pre>
 </h3><div class="docstring">
   <div class="discussion">
     <p>Removes a filter from Haml. If the filter was removed, it returns
-the that was remove Module upon success, or nil on failure. If you try
+the Module that was removed upon success, or nil on failure. If you try
 to redefine a filter, Haml will raise an error. Use this method first to
 explicitly remove the filter before redefining it.</p>
 
@@ -567,15 +567,15 @@ explicitly remove the filter before redefining it.</p>
       <pre class="lines">
 
 
-67
 68
 69
 70
 71
-72</pre>
+72
+73</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/filters.rb', line 67</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/filters.rb', line 68</span>
 
 def remove_filter(name)
   defined.delete name.to_s.downcase
@@ -593,7 +593,7 @@ end</pre>
 </div>
 
       <div id="footer">
-  Generated on Mon Oct  1 09:55:06 2018 by
+  Generated on Wed Oct  3 20:56:01 2018 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.16 (ruby-2.6.0).
 </div>

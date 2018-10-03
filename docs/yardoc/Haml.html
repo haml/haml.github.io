@@ -79,7 +79,7 @@
   <dl>
     <dt>Defined in:</dt>
     <dd>lib/haml.rb<span class="defines">,<br />
-  lib/haml/exec.rb,<br /> lib/haml/util.rb,<br /> lib/haml/error.rb,<br /> lib/haml/buffer.rb,<br /> lib/haml/engine.rb,<br /> lib/haml/parser.rb,<br /> lib/haml/filters.rb,<br /> lib/haml/helpers.rb,<br /> lib/haml/options.rb,<br /> lib/haml/version.rb,<br /> lib/haml/compiler.rb,<br /> lib/haml/template.rb,<br /> lib/haml/template/options.rb,<br /> lib/haml/sass_rails_filter.rb,<br /> lib/haml/helpers/safe_erubis_template.rb,<br /> lib/haml/helpers/action_view_extensions.rb</span>
+  lib/haml/exec.rb,<br /> lib/haml/util.rb,<br /> lib/haml/error.rb,<br /> lib/haml/buffer.rb,<br /> lib/haml/engine.rb,<br /> lib/haml/parser.rb,<br /> lib/haml/filters.rb,<br /> lib/haml/helpers.rb,<br /> lib/haml/options.rb,<br /> lib/haml/version.rb,<br /> lib/haml/compiler.rb,<br /> lib/haml/template.rb,<br /> lib/haml/escapable.rb,<br /> lib/haml/generator.rb,<br /> lib/haml/temple_engine.rb,<br /> lib/haml/attribute_parser.rb,<br /> lib/haml/template/options.rb,<br /> lib/haml/attribute_builder.rb,<br /> lib/haml/sass_rails_filter.rb,<br /> lib/haml/attribute_compiler.rb,<br /> lib/haml/temple_line_counter.rb,<br /> lib/haml/helpers/safe_erubi_template.rb,<br /> lib/haml/helpers/safe_erubis_template.rb,<br /> lib/haml/helpers/action_view_extensions.rb</span>
 </dd>
   </dl>
   
@@ -101,11 +101,11 @@ where the full template stuff is lazy-loaded.</p>
 <p class="children">
   
     
-      <strong class="modules">Modules:</strong> <span class='object_link'><a href="Haml/Exec.html" title="Haml::Exec (module)">Exec</a></span>, <span class='object_link'><a href="Haml/Filters.html" title="Haml::Filters (module)">Filters</a></span>, <span class='object_link'><a href="Haml/Helpers.html" title="Haml::Helpers (module)">Helpers</a></span>, <span class='object_link'><a href="Haml/Template.html" title="Haml::Template (module)">Template</a></span>, <span class='object_link'><a href="Haml/Util.html" title="Haml::Util (module)">Util</a></span>
+      <strong class="modules">Modules:</strong> <span class='object_link'><a href="Haml/AttributeBuilder.html" title="Haml::AttributeBuilder (module)">AttributeBuilder</a></span>, <span class='object_link'><a href="Haml/AttributeParser.html" title="Haml::AttributeParser (module)">AttributeParser</a></span>, <span class='object_link'><a href="Haml/Exec.html" title="Haml::Exec (module)">Exec</a></span>, <span class='object_link'><a href="Haml/Filters.html" title="Haml::Filters (module)">Filters</a></span>, <span class='object_link'><a href="Haml/Helpers.html" title="Haml::Helpers (module)">Helpers</a></span>, <span class='object_link'><a href="Haml/Template.html" title="Haml::Template (module)">Template</a></span>, <span class='object_link'><a href="Haml/TempleLineCounter.html" title="Haml::TempleLineCounter (module)">TempleLineCounter</a></span>, <span class='object_link'><a href="Haml/Util.html" title="Haml::Util (module)">Util</a></span>
     
   
     
-      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Haml/Buffer.html" title="Haml::Buffer (class)">Buffer</a></span>, <span class='object_link'><a href="Haml/Compiler.html" title="Haml::Compiler (class)">Compiler</a></span>, <span class='object_link'><a href="Haml/Engine.html" title="Haml::Engine (class)">Engine</a></span>, <span class='object_link'><a href="Haml/Error.html" title="Haml::Error (class)">Error</a></span>, <span class='object_link'><a href="Haml/ErubisTemplateHandler.html" title="Haml::ErubisTemplateHandler (class)">ErubisTemplateHandler</a></span>, <span class='object_link'><a href="Haml/Options.html" title="Haml::Options (class)">Options</a></span>, <span class='object_link'><a href="Haml/Parser.html" title="Haml::Parser (class)">Parser</a></span>, <span class='object_link'><a href="Haml/SafeErubisTemplate.html" title="Haml::SafeErubisTemplate (class)">SafeErubisTemplate</a></span>, <span class='object_link'><a href="Haml/SyntaxError.html" title="Haml::SyntaxError (class)">SyntaxError</a></span>
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Haml/AttributeCompiler.html" title="Haml::AttributeCompiler (class)">AttributeCompiler</a></span>, <span class='object_link'><a href="Haml/Buffer.html" title="Haml::Buffer (class)">Buffer</a></span>, <span class='object_link'><a href="Haml/Compiler.html" title="Haml::Compiler (class)">Compiler</a></span>, <span class='object_link'><a href="Haml/Engine.html" title="Haml::Engine (class)">Engine</a></span>, <span class='object_link'><a href="Haml/Error.html" title="Haml::Error (class)">Error</a></span>, <span class='object_link'><a href="Haml/ErubiTemplateHandler.html" title="Haml::ErubiTemplateHandler (class)">ErubiTemplateHandler</a></span>, <span class='object_link'><a href="Haml/ErubisTemplateHandler.html" title="Haml::ErubisTemplateHandler (class)">ErubisTemplateHandler</a></span>, <span class='object_link'><a href="Haml/Escapable.html" title="Haml::Escapable (class)">Escapable</a></span>, <span class='object_link'><a href="Haml/Generator.html" title="Haml::Generator (class)">Generator</a></span>, <span class='object_link'><a href="Haml/InvalidAttributeNameError.html" title="Haml::InvalidAttributeNameError (class)">InvalidAttributeNameError</a></span>, <span class='object_link'><a href="Haml/Options.html" title="Haml::Options (class)">Options</a></span>, <span class='object_link'><a href="Haml/Parser.html" title="Haml::Parser (class)">Parser</a></span>, <span class='object_link'><a href="Haml/SafeErubiTemplate.html" title="Haml::SafeErubiTemplate (class)">SafeErubiTemplate</a></span>, <span class='object_link'><a href="Haml/SafeErubisTemplate.html" title="Haml::SafeErubisTemplate (class)">SafeErubisTemplate</a></span>, <span class='object_link'><a href="Haml/SyntaxError.html" title="Haml::SyntaxError (class)">SyntaxError</a></span>, <span class='object_link'><a href="Haml/TempleEngine.html" title="Haml::TempleEngine (class)">TempleEngine</a></span>
     
   
 </p>
@@ -171,13 +171,13 @@ where the full template stuff is lazy-loaded.</p>
       <pre class="lines">
 
 
-14
 15
 16
-17</pre>
+17
+18</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml.rb', line 14</span>
+      <pre class="code"><span class="info file"># File 'lib/haml.rb', line 15</span>
 
 def self.init_rails(*args)
   # Maintain this as a no-op for any libraries that may be depending on the
@@ -193,7 +193,7 @@ end</pre>
 </div>
 
       <div id="footer">
-  Generated on Mon Oct  1 09:55:06 2018 by
+  Generated on Wed Oct  3 20:56:01 2018 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.16 (ruby-2.6.0).
 </div>

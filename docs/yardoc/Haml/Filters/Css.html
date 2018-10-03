@@ -189,25 +189,22 @@ including inline CSS.</p>
       <pre class="lines">
 
 
+228
+229
+230
+231
+232
+233
+234
 235
 236
 237
 238
 239
-240
-241
-242
-243
-244
-245
-246
-247
-248
-249
-250</pre>
+240</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/filters.rb', line 235</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/filters.rb', line 228</span>
 
 def render_with_options(text, options)
   indent = options[:cdata] ? &#39;    &#39; : &#39;  &#39; # 4 or 2 spaces
@@ -217,13 +214,10 @@ def render_with_options(text, options)
     type = &quot; type=#{options[:attr_wrapper]}text/css#{options[:attr_wrapper]}&quot;
   end
 
-  str = &quot;&lt;style#{type}&gt;\n&quot;
-  str &lt;&lt; &quot;  /*&lt;![CDATA[*/\n&quot; if options[:cdata]
-  str &lt;&lt; &quot;#{indent}#{text.rstrip.gsub(&quot;\n&quot;, &quot;\n#{indent}&quot;)}\n&quot;
-  str &lt;&lt; &quot;  /*]]&gt;*/\n&quot; if options[:cdata]
-  str &lt;&lt; &quot;&lt;/style&gt;&quot;
+  text = text.rstrip
+  text.gsub!(&quot;\n&quot;, &quot;\n#{indent}&quot;)
 
-  str
+  %(&lt;style#{type}&gt;\n#{&quot;  /*&lt;![CDATA[*/\n&quot; if options[:cdata]}#{indent}#{text}\n#{&quot;  /*]]&gt;*/\n&quot; if options[:cdata]}&lt;/style&gt;)
 end</pre>
     </td>
   </tr>
@@ -235,7 +229,7 @@ end</pre>
 </div>
 
       <div id="footer">
-  Generated on Mon Oct  1 09:55:06 2018 by
+  Generated on Wed Oct  3 20:56:01 2018 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.16 (ruby-2.6.0).
 </div>

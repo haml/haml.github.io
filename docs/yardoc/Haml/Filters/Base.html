@@ -318,13 +318,13 @@ For example, if the module is named <code>FooBar</code>, the filter will be <cod
       <pre class="lines">
 
 
-106
 107
 108
-109</pre>
+109
+110</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/filters.rb', line 106</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/filters.rb', line 107</span>
 
 def self.included(base)
   Filters.defined[base.name.split(&quot;::&quot;).last.downcase] = base
@@ -428,7 +428,6 @@ versions.</p>
       <pre class="lines">
 
 
-160
 161
 162
 163
@@ -456,14 +455,10 @@ versions.</p>
 185
 186
 187
-188
-189
-190
-191
-192</pre>
+188</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/filters.rb', line 160</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/filters.rb', line 161</span>
 
 def compile(compiler, text)
   filter = self
@@ -471,10 +466,10 @@ def compile(compiler, text)
     if contains_interpolation?(text)
       return if options[:suppress_eval]
 
-      text = unescape_interpolation(text).gsub(/(\\+)n/) do |s|
+      text = unescape_interpolation(text, options[:escape_html]).gsub(/(\\+)n/) do |s|
         escapes = $1.size
         next s if escapes % 2 == 0
-        (&quot;\\&quot; * (escapes - 1)) + &quot;\n&quot;
+        &quot;#{&#39;\\&#39; * (escapes - 1)}\n&quot;
       end
       # We need to add a newline at the beginning to get the
       # filter lines to line up (since the Haml filter contains
@@ -482,20 +477,15 @@ def compile(compiler, text)
       # filter name). Then we need to escape the trailing
       # newline so that the whole filter block doesn&#39;t take up
       # too many.
-      text = &quot;\n&quot; + text.sub(/\n&quot;\Z/, &quot;\\n\&quot;&quot;)
+      text = %[\n#{text.sub(/\n&quot;\Z/, &quot;\\n\&quot;&quot;)}]
       push_script &lt;&lt;RUBY.rstrip, :escape_html =&gt; false
 find_and_preserve(#{filter.inspect}.render_with_options(#{text}, _hamlout.options))
 RUBY
       return
     end
 
-    rendered = Haml::Helpers::find_and_preserve(filter.render_with_options(text, compiler.options), compiler.options[:preserve])
-
-    if options[:ugly]
-      push_text(rendered.rstrip)
-    else
-      push_text(rendered.rstrip.gsub(&quot;\n&quot;, &quot;\n#{&#39;  &#39; * @output_tabs}&quot;))
-    end
+    rendered = Haml::Helpers::find_and_preserve(filter.render_with_options(text.to_s, compiler.options), compiler.options[:preserve])
+    push_text(&quot;#{rendered.rstrip}\n&quot;)
   end
 end</pre>
     </td>
@@ -536,12 +526,12 @@ end</pre>
       <pre class="lines">
 
 
-140
 141
-142</pre>
+142
+143</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/filters.rb', line 140</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/filters.rb', line 141</span>
 
 def internal_compile(*args)
   compile(*args)
@@ -634,12 +624,12 @@ If <span class='object_link'><a href="#compile-instance_method" title="Haml::Fil
       <pre class="lines">
 
 
-121
 122
-123</pre>
+123
+124</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/filters.rb', line 121</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/filters.rb', line 122</span>
 
 def render(text)
   raise Error.new(&quot;#{self.inspect}#render not defined!&quot;)
@@ -735,12 +725,12 @@ It’s only safe to rely on options made available in <span class='object_link'>
       <pre class="lines">
 
 
-132
 133
-134</pre>
+134
+135</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/filters.rb', line 132</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/filters.rb', line 133</span>
 
 def render_with_options(text, options)
   render(text)
@@ -755,7 +745,7 @@ end</pre>
 </div>
 
       <div id="footer">
-  Generated on Mon Oct  1 09:55:06 2018 by
+  Generated on Wed Oct  3 20:56:01 2018 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.16 (ruby-2.6.0).
 </div>

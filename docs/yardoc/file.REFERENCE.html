@@ -193,7 +193,7 @@ see <span class='object_link'><a href="Haml/Options.html" title="Haml::Options (
 
 <h3 id="encodings">Encodings</h3>
 
-<p>When using Ruby 1.9 or later, Haml supports the same sorts of
+<p>Haml supports the same sorts of
 encoding-declaration comments that Ruby does. Although both Ruby and Haml
 support several different styles, the easiest it just to add <code>-# coding:
 encoding-name</code> at the beginning of the Haml template (it must come before all
@@ -318,7 +318,6 @@ For example:</p>
 </code></pre>
 
 <h4 id="class-and-id-attributes"><code>:class</code> and <code>:id</code> Attributes</h4>
-<p>#class-and-id-attributes</p>
 
 <p>The <code>:class</code> and <code>:id</code> attributes can also be specified as a Ruby array whose
 elements will be joined together. A <code>:class</code> array is joined with <code>" "</code> and an
@@ -402,7 +401,7 @@ hash-style attributes:</p>
 
 <h4 id="ruby-19-style-hashes">Ruby 1.9-style Hashes</h4>
 
-<p>On Ruby 1.9, Haml also supports Ruby’s new hash syntax:</p>
+<p>Haml also supports Ruby’s new hash syntax:</p>
 
 <pre class="code ruby"><code class="ruby">%a{title: @title, href: href} Stuff
 </code></pre>
@@ -499,21 +498,33 @@ both XHTML and HTML,</p>
 <pre class="code ruby"><code class="ruby">%input(selected=true)
 </code></pre>
 
-<h4 id="html5-custom-data-attributes">HTML5 Custom Data Attributes</h4>
+<!-- The title to the next section (Prefixed Attributes) has changed. This
+<a> tag is so old links to here still work. -->
+<p><a id="html5_custom_data_attributes" style="border:0;"></a></p>
 
-<p>HTML5 allows for adding <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/elements.html#embedding-custom-non-visible-data">custom non-visible data
-attributes</a>
-to elements using attribute names beginning with <code>data-</code>. Custom data attributes
-can be used in Haml by using the key <code>:data</code> with a Hash value in an attribute
-hash. Each of the key/value pairs in the Hash will be transformed into a custom
-data attribute. For example:</p>
+<h4 id="prefixed-attributes">Prefixed Attributes</h4>
 
-<pre class="code ruby"><code class="ruby">%a{:href=&gt;"/posts", :data =&gt; {:author_id =&gt; 123}} Posts By Author
+<p>HTML5 allows for adding
+<a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/elements.html#embedding-custom-non-visible-data-with-the-data-*-attributes">custom non-visible data attributes</a>
+to elements using attribute names beginning with <code>data-</code>. The
+<a href="http://www.w3.org/WAI/intro/aria">Accessible Rich Internet Applications</a>
+specification makes use of attributes beginning with <code>aria-</code>. There are also
+frameworks that use non-standard attributes with a common prefix.</p>
+
+<p>Haml can help generate collections of attributes that share a prefix like
+these. Any entry in an attribute hash that has a Hash as its value is expanded
+into a series of attributes, one for each key/value pair in the hash, with the
+attribute name formed by joining the “parent” key name to the key name with a
+hyphen.</p>
+
+<p>For example:</p>
+
+<pre class="code ruby"><code class="ruby">%a{:href=&gt;"/posts", :data =&gt; {:author_id =&gt; 123, :category =&gt; 7}} Posts By Author
 </code></pre>
 
 <p>will render as:</p>
 
-<pre class="code ruby"><code class="ruby">&lt;a data-author-id='123' href='/posts'&gt;Posts By Author&lt;/a&gt;
+<pre class="code ruby"><code class="ruby">&lt;a data-author-id='123' data-category='7' href='/posts'&gt;Posts By Author&lt;/a&gt;
 </code></pre>
 
 <p>Notice that the underscore in <code>author_id</code> was replaced by a hyphen. If you wish
@@ -521,7 +532,19 @@ to suppress this behavior, you can set Haml’s
 <span class='object_link'><a href="Haml/Options.html#hyphenate_data_attrs-instance_method" title="Haml::Options#hyphenate_data_attrs (method)"><code>:hyphenate_data_attrs</code> option</a></span> to <code>false</code>,
 and the output will be rendered as:</p>
 
-<pre class="code ruby"><code class="ruby">&lt;a data-author_id='123' href='/posts'&gt;Posts By Author&lt;/a&gt;
+<pre class="code ruby"><code class="ruby">&lt;a data-author_id='123' data-category='7' href='/posts'&gt;Posts By Author&lt;/a&gt;
+</code></pre>
+
+<p>This expansion of hashes is recursive – any value of the child hash that is
+itself a hash will create an attribute for each entry, with the attribute name
+prefixed with all ancestor keys. For example:</p>
+
+<pre class="code ruby"><code class="ruby">.book-info{:data =&gt; {:book =&gt; {:id =&gt; 123, :genre =&gt; 'programming'}, :category =&gt; 7}}
+</code></pre>
+
+<p>will render as:</p>
+
+<pre class="code ruby"><code class="ruby">&lt;div class='book-info' data-book-genre='programming' data-book-id='123' data-category='7'&gt;&lt;/div&gt;
 </code></pre>
 
 <h3 id="class-and-id--and-">Class and ID: <code>.</code> and <code>#</code></h3>
@@ -619,25 +642,25 @@ a class and/or id using <code>.</code> or <code>#</code>, a div is automatically
 <p>The forward slash character, when placed at the end of a tag definition, causes
 Haml to treat it as being an empty (or void) element. Depending on the format,
 the tag will be rendered either without a closing tag (<code>:html4</code> or <code>:html5</code>), or
-as a self-closing tag (<code>:xhtml</code>). For example:</p>
+as a self-closing tag (<code>:xhtml</code>).</p>
+
+<p>Taking the following as an example:</p>
 
 <pre class="code ruby"><code class="ruby">%br/
 %meta{'http-equiv' =&gt; 'Content-Type', :content =&gt; 'text/html'}/
 </code></pre>
 
-<p>is compiled to:</p>
+<p>When the format is <code>:html4</code> or <code>:html5</code> this is compiled to:</p>
 
 <pre class="code ruby"><code class="ruby">&lt;br&gt;
 &lt;meta content='text/html' http-equiv='Content-Type'&gt;
 </code></pre>
 
-<p>when the format is <code>:html4</code> or <code>:html5</code>, and to</p>
+<p>and when the format is <code>:xhtml</code> it is compiled to:</p>
 
 <pre class="code ruby"><code class="ruby">&lt;br /&gt;
 &lt;meta content='text/html' http-equiv='Content-Type' /&gt;
 </code></pre>
-
-<p>when the format is <code>:xhtml</code>.</p>
 
 <p>Some tags are automatically treated as being empty, as long as they have no
 content in the Haml source. <code>meta</code>, <code>img</code>, <code>link</code>, <code>br</code>, <code>hr</code>, <code>input</code>,
@@ -923,6 +946,23 @@ in square brackets after the <code>/</code>. For example:</p>
 &lt;![endif]--&gt;
 </code></pre>
 
+<p>To generate “downlevel-revealed” conditional comments, where the content is
+hidden from IE but not other browsers,  add a <code>!</code> before the brackets: <code>/![]</code>.
+Haml will produce valid HTML when generating this kind of conditional comment.</p>
+
+<p>For example:</p>
+
+<pre class="code ruby"><code class="ruby">/![if !IE]
+  You are not using Internet Explorer, or are using version 10+.
+</code></pre>
+
+<p>is compiled to:</p>
+
+<pre class="code ruby"><code class="ruby">&lt;!--[if !IE]&gt;&lt;!--&gt;
+  You are not using Internet Explorer, or are using version 10+.
+&lt;!--&lt;![endif]--&gt;
+</code></pre>
+
 <h3 id="haml-comments--">Haml Comments: <code>-#</code></h3>
 
 <p>The hyphen followed immediately by the pound sign signifies a silent comment.
@@ -1157,6 +1197,22 @@ anywhere else in the string. For example:</p>
 &lt;/script&gt;
 </code></pre>
 
+<h4 id="gotchas">Gotchas</h4>
+
+<p>Haml uses an overly simplistic regular expression to identify string
+interpolation rather than a full-blown Ruby parser. This is fast and works for
+most code but you may have errors with code like the following:</p>
+
+<pre class="code ruby"><code class="ruby">%span #{'{'}
+</code></pre>
+
+<p>This code will generate a syntax error, complaining about unbalanced brackets.
+In cases like this, the recommended workaround is output the code as a Ruby
+string to force Haml to parse the code with Ruby.</p>
+
+<pre class="code ruby"><code class="ruby">%span= "#{'{'}"
+</code></pre>
+
 <h3 id="escaping_html">Escaping HTML: <code>&amp;=</code></h3>
 
 <p>An ampersand followed by one or two equals characters evaluates Ruby code just
@@ -1253,8 +1309,8 @@ For example:</p>
 &lt;/div&gt;
 </code></pre>
 
-<p>Currently, filters ignore the <span class='object_link'><a href="Haml/Options.html#escape_html-instance_method" title="Haml::Options#escape_html (method)"><code>:escape_html</code></a></span> option.
-This means that <code>#{}</code> interpolation within filters is never HTML-escaped.</p>
+<p>Note that <code>#{}</code> interpolation within filters is HTML-escaped if you specify
+<span class='object_link'><a href="Haml/Options.html#escape_html-instance_method" title="Haml::Options#escape_html (method)"><code>:escape_html</code></a></span> option.</p>
 
 <p>The functionality of some filters such as Markdown can be provided by many
 different libraries. Usually you don’t have to worry about this - you can just
@@ -1272,53 +1328,53 @@ more info.</p>
 
 <p>Haml comes with the following filters defined:</p>
 
-<p>#cdata-filter
-### <code>:cdata</code>
-Surrounds the filtered text with CDATA tags.</p>
+<h3 id="cdata-filter"><code>:cdata</code></h3>
 
-<p>#coffee-filter
-### <code>:coffee</code>
-Compiles the filtered text to Javascript using Cofeescript. You can also
-reference this filter as <code>:coffeescript</code>. This filter is implemented using
-Tilt.</p>
+<p>Surrounds the filtered text with CDATA tags.</p>
 
-<p>#css-filter
-### <code>:css</code>
-Surrounds the filtered text with <code>&lt;style&gt;</code> and (optionally) CDATA tags. Useful
+<h3 id="coffee-filter"><code>:coffee</code></h3>
+
+<p>Compiles the filtered text to JavaScript in <code>&lt;script&gt;</code> tag using CoffeeScript.
+You can also reference this filter as <code>:coffeescript</code>. This filter is
+implemented using Tilt.</p>
+
+<h3 id="css-filter"><code>:css</code></h3>
+
+<p>Surrounds the filtered text with <code>&lt;style&gt;</code> and (optionally) CDATA tags. Useful
 for including inline CSS. Use the <span class='object_link'><a href="Haml/Options.html#cdata-instance_method" title="Haml::Options#cdata (method)"><code>:cdata</code> option</a></span> to
 control when CDATA tags are added.</p>
 
-<p>#erb-filter
-### <code>:erb</code>
-Parses the filtered text with ERb, like an RHTML template. Not available if the
+<h3 id="erb-filter"><code>:erb</code></h3>
+
+<p>Parses the filtered text with ERB, like an RHTML template. Not available if the
 <span class='object_link'><a href="Haml/Options.html#suppress_eval-instance_method" title="Haml::Options#suppress_eval (method)"><code>:suppress_eval</code></a></span> option is set to true. Embedded
 Ruby code is evaluated in the same context as the Haml template. This filter is
 implemented using Tilt.</p>
 
-<p>#escaped-filter
-### <code>:escaped</code>
-Works the same as plain, but HTML-escapes the text
+<h3 id="escaped-filter"><code>:escaped</code></h3>
+
+<p>Works the same as plain, but HTML-escapes the text
 before placing it in the document.</p>
 
-<p>#javascript-filter
-### <code>:javascript</code>
-Surrounds the filtered text with <code>&lt;script&gt;</code> and (optionally) CDATA tags.
+<h3 id="javascript-filter"><code>:javascript</code></h3>
+
+<p>Surrounds the filtered text with <code>&lt;script&gt;</code> and (optionally) CDATA tags.
 Useful for including inline Javascript. Use the <span class='object_link'><a href="Haml/Options.html#cdata-instance_method" title="Haml::Options#cdata (method)"><code>:cdata</code> option</a></span> to control when CDATA tags are added.</p>
 
-<p>#less-filter
-### <code>:less</code>
-Parses the filtered text with <a href="http://lesscss.org/">Less</a> to produce CSS output.
+<h3 id="less-filter"><code>:less</code></h3>
+
+<p>Parses the filtered text with <a href="http://lesscss.org/">Less</a> to produce CSS output in <code>&lt;style&gt;</code> tag.
 This filter is implemented using Tilt.</p>
 
-<p>#markdown-filter
-### <code>:markdown</code>
-Parses the filtered text with
+<h3 id="markdown-filter"><code>:markdown</code></h3>
+
+<p>Parses the filtered text with
 <a href="http://daringfireball.net/projects/markdown">Markdown</a>. This filter is
 implemented using Tilt.</p>
 
-<p>#maruku-filter
-### <code>:maruku</code>
-Parses the filtered text with <a href="https://github.com/nex3/maruku">Maruku</a>, which
+<h3 id="maruku-filter"><code>:maruku</code></h3>
+
+<p>Parses the filtered text with <a href="https://github.com/nex3/maruku">Maruku</a>, which
 has some non-standard extensions to Markdown.</p>
 
 <p>As of Haml 4.0, this filter is defined in <a href="https://github.com/haml/haml-contrib">Haml
@@ -1326,40 +1382,41 @@ contrib</a> but is loaded automatically for
 historical reasons. In future versions of Haml it will likely not be loaded by
 default. This filter is implemented using Tilt.</p>
 
-<p>#plain-filter
-### <code>:plain</code>
-Does not parse the filtered text. This is useful for large blocks of text
+<h3 id="plain-filter"><code>:plain</code></h3>
+
+<p>Does not parse the filtered text. This is useful for large blocks of text
 without HTML tags, when you don’t want lines starting with <code>.</code> or <code>-</code> to be
 parsed.</p>
 
-<p>#preserve-filter
-### <code>:preserve</code>
-Inserts the filtered text into the template with whitespace preserved.
+<h3 id="preserve-filter"><code>:preserve</code></h3>
+
+<p>Inserts the filtered text into the template with whitespace preserved.
 <code>preserve</code>d blocks of text aren’t indented, and newlines are replaced with the
 HTML escape code for newlines, to preserve nice-looking output. See also
 <a href="#whitespace_preservation">Whitespace Preservation</a>.</p>
 
-<p>#ruby-filter
-### <code>:ruby</code>
-Parses the filtered text with the normal Ruby interpreter. Creates an <code>IO</code>
+<h3 id="ruby-filter"><code>:ruby</code></h3>
+
+<p>Parses the filtered text with the normal Ruby interpreter. Creates an <code>IO</code>
 object named <code>haml_io</code>, anything written to it is output into the Haml document.
 Not available if the <span class='object_link'><a href="Haml/Options.html#suppress_eval-instance_method" title="Haml::Options#suppress_eval (method)"><code>:suppress_eval</code></a></span> option is
 set to true. The Ruby code is evaluated in the same context as the Haml
 template.</p>
 
-<p>#sass-filter
-### <code>:sass</code>
-Parses the filtered text with <a href="http://sass-lang.com/">Sass</a> to produce CSS
-output. This filter is implemented using Tilt.</p>
+<h3 id="sass-filter"><code>:sass</code></h3>
 
-<p>#scss-filter
-### <code>:scss</code>
-Parses the filtered text with Sass like the <code>:sass</code> filter, but uses the newer
-SCSS syntax to produce CSS output. This filter is implemented using Tilt.</p>
+<p>Parses the filtered text with <a href="http://sass-lang.com/">Sass</a> to produce CSS
+output in <code>&lt;style&gt;</code> tag. This filter is implemented using Tilt.</p>
 
-<p>#textile-filter
-### <code>:textile</code>
-Parses the filtered text with <a href="http://www.textism.com/tools/textile">Textile</a>.
+<h3 id="scss-filter"><code>:scss</code></h3>
+
+<p>Parses the filtered text with Sass like the <code>:sass</code> filter, but uses the newer
+SCSS syntax to produce CSS output in <code>&lt;style&gt;</code> tag. This filter is implemented
+using Tilt.</p>
+
+<h3 id="textile-filter"><code>:textile</code></h3>
+
+<p>Parses the filtered text with <a href="http://www.textism.com/tools/textile">Textile</a>.
 Only works if <a href="http://redcloth.org">RedCloth</a> is installed.</p>
 
 <p>As of Haml 4.0, this filter is defined in <a href="https://github.com/haml/haml-contrib">Haml
@@ -1378,9 +1435,9 @@ the whitespace removal methods allow. There are a few helper methods that are
 useful when dealing with inline content. All these methods take a Haml block to
 modify.</p>
 
-<p>#surround
-### surround
-Surrounds a Haml block with text. Expects 1 or 2 string arguments used to
+<h3 id="surround">surround</h3>
+
+<p>Surrounds a Haml block with text. Expects 1 or 2 string arguments used to
 surround the Haml block. If a second argument is not provided, the first
 argument is used as the second.</p>
 
@@ -1388,17 +1445,17 @@ argument is used as the second.</p>
   = link_to "learn more", "#"
 </code></pre>
 
-<p>#precede
-### precede
-Prepends a Haml block with text. Expects 1 argument.</p>
+<h3 id="precede">precede</h3>
+
+<p>Prepends a Haml block with text. Expects 1 argument.</p>
 
 <pre class="code ruby"><code class="ruby">= precede "*" do
   %span Required
 </code></pre>
 
-<p>#succeed
-### succeed
-Appends a Haml block with text. Expects 1 argument.</p>
+<h3 id="succeed">succeed</h3>
+
+<p>Appends a Haml block with text. Expects 1 argument.</p>
 
 <pre class="code ruby"><code class="ruby">Begin by
 = succeed "," do
@@ -1484,7 +1541,7 @@ useful things. The helpers are all documented in the <span class='object_link'><
 </div></div>
 
       <div id="footer">
-  Generated on Mon Oct  1 09:55:06 2018 by
+  Generated on Wed Oct  3 20:56:01 2018 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.16 (ruby-2.6.0).
 </div>

@@ -329,6 +329,32 @@ learn how to set the options.</p>
       <li class="public ">
   <span class="summary_signature">
     
+      <a href="#filters-instance_method" title="#filters (instance method)">#<strong>filters</strong>  </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Key is filter name in String and value is Class to use.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#format-instance_method" title="#format (instance method)">#<strong>format</strong>  </a>
     
 
@@ -537,7 +563,7 @@ learn how to set the options.</p>
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#ugly-instance_method" title="#ugly (instance method)">#<strong>ugly</strong>  </a>
+      <a href="#trace-instance_method" title="#trace (instance method)">#<strong>trace</strong>  </a>
     
 
     
@@ -554,7 +580,7 @@ learn how to set the options.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>If set to <code>true</code>, Haml makes no attempt to properly indent or format the HTML output.</p>
+    <span class="summary_desc"><div class='inline'><p>Enable template tracing.</p>
 </div></span>
   
 </li>
@@ -572,6 +598,29 @@ learn how to set the options.</p>
     </h2>
 
     <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#buffer_defaults-class_method" title="buffer_defaults (class method)">.<strong>buffer_defaults</strong>  &#x21d2; {Symbol =&gt; Object} </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Returns a subset of defaults: those that <span class='object_link'><a href="Buffer.html" title="Haml::Buffer (class)">Buffer</a></span> cares about.</p>
+</div></span>
+  
+</li>
+
       
         <li class="public ">
   <span class="summary_signature">
@@ -637,6 +686,29 @@ learn how to set the options.</p>
 
   
     <span class="summary_desc"><div class='inline'><p>An array of valid values for the <code>:format</code> option.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#wrap-class_method" title="wrap (class method)">.<strong>wrap</strong>(options)  </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
 </div></span>
   
 </li>
@@ -714,7 +786,7 @@ learn how to set the options.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Returns a subset of options: those that <span class='object_link'><a href="Buffer.html" title="Haml::Buffer (class)">Buffer</a></span> cares about.</p>
+    <span class="summary_desc"><div class='inline'><p>Returns a non-default subset of options: those that <span class='object_link'><a href="Buffer.html" title="Haml::Buffer (class)">Buffer</a></span> cares about.</p>
 </div></span>
   
 </li>
@@ -868,18 +940,18 @@ learn how to set the options.</p>
       <pre class="lines">
 
 
+170
+171
 172
 173
-174
-175
-176</pre>
+174</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 172</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 170</span>
 
 def initialize(values = {}, &amp;block)
   defaults.each {|k, v| instance_variable_set :&quot;@#{k}&quot;, v}
-  values.reject {|k, v| !defaults.has_key?(k) || v.nil?}.each {|k, v| send(&quot;#{k}=&quot;, v)}
+  values.each {|k, v| send(&quot;#{k}=&quot;, v) if defaults.has_key?(k) &amp;&amp; !v.nil?}
   yield if block_given?
 end</pre>
     </td>
@@ -922,12 +994,12 @@ apostrophe or a quotation mark.</p>
       <pre class="lines">
 
 
-57
-58
-59</pre>
+52
+53
+54</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 57</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 52</span>
 
 def attr_wrapper
   @attr_wrapper
@@ -967,12 +1039,12 @@ no content. This can also contain regular expressions that match tag names
       <pre class="lines">
 
 
-63
-64
-65</pre>
+58
+59
+60</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 63</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 58</span>
 
 def autoclose
   @autoclose
@@ -1016,12 +1088,12 @@ xhtml.</p>
       <pre class="lines">
 
 
-164
-165
-166</pre>
+151
+152
+153</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 164</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 151</span>
 
 def cdata
   @cdata
@@ -1058,12 +1130,12 @@ end</pre>
       <pre class="lines">
 
 
-170
-171
-172</pre>
+157
+158
+159</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 170</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 157</span>
 
 def compiler_class
   @compiler_class
@@ -1087,7 +1159,6 @@ end</pre>
 </h3><div class="docstring">
   <div class="discussion">
     <p>The encoding to use for the HTML output.
-Only available on Ruby 1.9 or higher.
 This can be a string or an <code>Encoding</code> Object. Note that Haml <strong>does not</strong>
 automatically re-encode Ruby values; any strings coming from outside the
 application should be converted before being passed into the Haml
@@ -1107,12 +1178,12 @@ defaults to <code>"UTF-8"</code>.</p>
       <pre class="lines">
 
 
-73
-74
-75</pre>
+67
+68
+69</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 73</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 67</span>
 
 def encoding
   @encoding
@@ -1155,12 +1226,12 @@ other HTML-sensitive characters are escaped.</p>
       <pre class="lines">
 
 
-82
-83
-84</pre>
+76
+77
+78</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 82</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 76</span>
 
 def escape_attrs
   @escape_attrs
@@ -1204,12 +1275,12 @@ rendering partials. See also <a href="../file.REFERENCE.html#escaping_html" titl
       <pre class="lines">
 
 
-92
-93
-94</pre>
+86
+87
+88</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 92</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 86</span>
 
 def escape_html
   @escape_html
@@ -1249,15 +1320,57 @@ only useful for the user to assign when dealing with Haml programatically.</p>
       <pre class="lines">
 
 
-98
-99
-100</pre>
+92
+93
+94</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 98</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 92</span>
 
 def filename
   @filename
+end</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="filters=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="filters-instance_method">
+  
+    #<strong>filters</strong>  
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Key is filter name in String and value is Class to use. Defaults to {}.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+168
+169
+170</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 168</span>
+
+def filters
+  @filters
 end</pre>
     </td>
   </tr>
@@ -1300,12 +1413,12 @@ format of <code>:xhtml</code> will be used even if the global output format is s
       <pre class="lines">
 
 
-119
-120
-121</pre>
+113
+114
+115</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 119</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 113</span>
 
 def format
   @format
@@ -1344,12 +1457,12 @@ of Haml 4.0, this defaults to <code>true</code>.</p>
       <pre class="lines">
 
 
-103
-104
-105</pre>
+97
+98
+99</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 103</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 97</span>
 
 def hyphenate_data_attrs
   @hyphenate_data_attrs
@@ -1387,12 +1500,12 @@ inline templates, similar to the last argument to <code>Kernel#eval</code>.</p>
       <pre class="lines">
 
 
-107
-108
-109</pre>
+101
+102
+103</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 107</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 101</span>
 
 def line
   @line
@@ -1431,12 +1544,12 @@ it has set to <code>:html4</code> or <code>:html5</code>.</p>
       <pre class="lines">
 
 
-124
-125
-126</pre>
+118
+119
+120</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 124</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 118</span>
 
 def mime_type
   @mime_type
@@ -1473,12 +1586,12 @@ end</pre>
       <pre class="lines">
 
 
-167
-168
-169</pre>
+154
+155
+156</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 167</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 154</span>
 
 def parser_class
   @parser_class
@@ -1520,12 +1633,12 @@ Defaults to <code>['textarea', 'pre']</code>. See also
       <pre class="lines">
 
 
-132
-133
-134</pre>
+126
+127
+128</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 132</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 126</span>
 
 def preserve
   @preserve
@@ -1567,12 +1680,12 @@ formatting errors.</p>
       <pre class="lines">
 
 
-140
-141
-142</pre>
+134
+135
+136</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 140</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 134</span>
 
 def remove_whitespace
   @remove_whitespace
@@ -1613,12 +1726,12 @@ strings.</p>
       <pre class="lines">
 
 
-147
-148
-149</pre>
+141
+142
+143</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 147</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 141</span>
 
 def suppress_eval
   @suppress_eval
@@ -1629,11 +1742,11 @@ end</pre>
 </div>
     
       
-      <span id="ugly=-instance_method"></span>
+      <span id="trace=-instance_method"></span>
       <div class="method_details ">
-  <h3 class="signature " id="ugly-instance_method">
+  <h3 class="signature " id="trace-instance_method">
   
-    #<strong>ugly</strong>  
+    #<strong>trace</strong>  
   
 
   
@@ -1641,11 +1754,12 @@ end</pre>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>If set to <code>true</code>, Haml makes no attempt to properly indent or format the
-HTML output. This significantly improves rendering performance but makes
-viewing the source unpleasant.</p>
-
-<p>Defaults to <code>true</code> in Rails production  mode, and <code>false</code> everywhere else.</p>
+    <p>Enable template tracing. If true, it will add a ‘data-trace’ attribute to
+each tag generated by Haml. The value of the attribute will be the
+source template name and the line number from which the tag was generated,
+separated by a colon. On Rails applications, the path given will be a
+relative path as from the views directory. On non-Rails applications,
+the path will be the full path.</p>
 
 
   </div>
@@ -1659,15 +1773,15 @@ viewing the source unpleasant.</p>
       <pre class="lines">
 
 
-154
-155
-156</pre>
+165
+166
+167</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 154</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 165</span>
 
-def ugly
-  @ugly
+def trace
+  @trace
 end</pre>
     </td>
   </tr>
@@ -1682,7 +1796,68 @@ end</pre>
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="buffer_option_keys-class_method">
+  <h3 class="signature first" id="buffer_defaults-class_method">
+  
+    .<strong>buffer_defaults</strong>  &#x21d2; <tt>{Symbol =&gt; <span class='object_link'>Object</span>}</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns a subset of defaults: those that <span class='object_link'><a href="Buffer.html" title="Haml::Buffer (class)">Buffer</a></span> cares about.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>{Symbol =&gt; <span class='object_link'>Object</span>}</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The options hash</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+34
+35
+36
+37
+38</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 34</span>
+
+def self.buffer_defaults
+  @buffer_defaults ||= buffer_option_keys.inject({}) do |hash, key|
+    hash.merge(key =&gt; defaults[key])
+  end
+end</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="buffer_option_keys-class_method">
   
     .<strong>buffer_option_keys</strong>  
   
@@ -1724,12 +1899,12 @@ end</pre>
       <pre class="lines">
 
 
-49
-50
-51</pre>
+28
+29
+30</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 49</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 28</span>
 
 def self.buffer_option_keys
   @buffer_option_keys
@@ -1781,15 +1956,15 @@ end</pre>
       <pre class="lines">
 
 
-36
-37
-38</pre>
+15
+16
+17</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 36</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 15</span>
 
 def self.defaults
-  @defaults
+  @defaults ||= Haml::TempleEngine.options.to_hash.merge(encoding: &#39;UTF-8&#39;)
 end</pre>
     </td>
   </tr>
@@ -1838,15 +2013,53 @@ end</pre>
       <pre class="lines">
 
 
-42
-43
-44</pre>
+21
+22
+23</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 42</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 21</span>
 
 def self.valid_formats
   @valid_formats
+end</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="wrap-class_method">
+  
+    .<strong>wrap</strong>(options)  
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+40
+41
+42
+43
+44
+45
+46</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 40</span>
+
+def self.wrap(options)
+  if options.is_a?(Options)
+    options
+  else
+    Options.new(options)
+  end
 end</pre>
     </td>
   </tr>
@@ -1903,12 +2116,12 @@ end</pre>
       <pre class="lines">
 
 
-180
-181
-182</pre>
+178
+179
+180</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 180</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 178</span>
 
 def [](key)
   send key
@@ -1977,12 +2190,12 @@ end</pre>
       <pre class="lines">
 
 
-187
-188
-189</pre>
+185
+186
+187</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 187</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 185</span>
 
 def []=(key, value)
   send &quot;#{key}=&quot;, value
@@ -2003,7 +2216,7 @@ end</pre>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns a subset of options: those that <span class='object_link'><a href="Buffer.html" title="Haml::Buffer (class)">Buffer</a></span> cares about.
+    <p>Returns a non-default subset of options: those that <span class='object_link'><a href="Buffer.html" title="Haml::Buffer (class)">Buffer</a></span> cares about.
 All of the values here are such that when <code>#inspect</code> is called on the hash,
 it can be <code>Kernel#eval</code>ed to get the same result back.</p>
 
@@ -2038,19 +2251,25 @@ it can be <code>Kernel#eval</code>ed to get the same result back.</p>
       <pre class="lines">
 
 
-265
-266
-267
-268
-269
-270</pre>
+257
+258
+259
+260
+261
+262
+263
+264
+265</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 265</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 257</span>
 
 def for_buffer
   self.class.buffer_option_keys.inject({}) do |hash, key|
-    hash[key] = send(key)
+    value = public_send(key)
+    if self.class.buffer_defaults[key] != value
+      hash[key] = value
+    end
     hash
   end
 end</pre>
@@ -2101,12 +2320,12 @@ end</pre>
       <pre class="lines">
 
 
-211
-212
-213</pre>
+208
+209
+210</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 211</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 208</span>
 
 def html4?
   format == :html4
@@ -2158,12 +2377,12 @@ end</pre>
       <pre class="lines">
 
 
-216
-217
-218</pre>
+213
+214
+215</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 216</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 213</span>
 
 def html5?
   format == :html5
@@ -2215,12 +2434,12 @@ end</pre>
       <pre class="lines">
 
 
-206
-207
-208</pre>
+203
+204
+205</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 206</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 203</span>
 
 def html?
   html4? or html5?
@@ -2272,12 +2491,12 @@ end</pre>
       <pre class="lines">
 
 
-201
-202
-203</pre>
+198
+199
+200</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 201</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/options.rb', line 198</span>
 
 def xhtml?
   not html?
@@ -2292,7 +2511,7 @@ end</pre>
 </div>
 
       <div id="footer">
-  Generated on Mon Oct  1 09:55:08 2018 by
+  Generated on Wed Oct  3 20:56:02 2018 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.16 (ruby-2.6.0).
 </div>

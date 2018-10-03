@@ -202,16 +202,26 @@ Rails’s asset helpers to be used inside Haml Sass filter.</p>
       <pre class="lines">
 
 
-6
-7
 8
-9</pre>
+9
+10
+11
+12
+13
+14
+15
+16</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/sass_rails_filter.rb', line 6</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/sass_rails_filter.rb', line 8</span>
 
 def render(scope=Object.new, locals={}, &amp;block)
-  scope = ::Rails.application.assets.context_class.new(::Rails.application.assets, &quot;/&quot;, &quot;/&quot;)
+  environment = ::Sprockets::Railtie.build_environment(::Rails.application)
+  scope = environment.context_class.new(
+    environment: environment,
+    filename: &quot;/&quot;,
+    metadata: {}
+  )
   super
 end</pre>
     </td>
@@ -234,14 +244,14 @@ end</pre>
       <pre class="lines">
 
 
-11
-12
-13
-14
-15</pre>
+24
+25
+26
+27
+28</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/sass_rails_filter.rb', line 11</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/sass_rails_filter.rb', line 24</span>
 
 def sass_options(scope)
   options = super
@@ -258,7 +268,7 @@ end</pre>
 </div>
 
       <div id="footer">
-  Generated on Mon Oct  1 09:55:08 2018 by
+  Generated on Wed Oct  3 20:56:02 2018 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.16 (ruby-2.6.0).
 </div>

@@ -197,6 +197,29 @@
 </li>
 
       
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#validate_ruby-instance_method" title="#validate_ruby (instance method)">#<strong>validate_ruby</strong>(code)  </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
     </ul>
   
 
@@ -312,6 +335,8 @@ and runs the Haml compiler appropriately.</p>
       <pre class="lines">
 
 
+281
+282
 283
 284
 285
@@ -355,10 +380,21 @@ and runs the Haml compiler appropriately.</p>
 323
 324
 325
-326</pre>
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/exec.rb', line 283</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/exec.rb', line 281</span>
 
 def process_result
   super
@@ -374,20 +410,33 @@ def process_result
 
   begin
 
-    engine = ::Haml::Engine.new(template, @options[:for_engine])
-    if @options[:check_syntax]
-      puts &quot;Syntax OK&quot;
+    if @options[:parse]
+      parser = ::Haml::Parser.new(::Haml::Options.new(@options))
+      pp parser.call(template)
       return
     end
 
-    if @options[:parse]
-      pp engine.parser.root
+    engine = ::Haml::Engine.new(template, @options[:for_engine])
+
+    if @options[:check_syntax]
+      error = validate_ruby(engine.precompiled)
+      if error
+        puts error.message.split(&quot;\n&quot;).first
+        exit 1
+      end
+      puts &quot;Syntax OK&quot;
       return
     end
 
     if @options[:debug]
       puts engine.precompiled
-      puts &#39;=&#39; * 100
+      error = validate_ruby(engine.precompiled)
+      if error
+        puts &#39;=&#39; * 100
+        puts error.message.split(&quot;\n&quot;)[0]
+        exit 1
+      end
+      return
     end
 
     result = engine.to_html
@@ -529,9 +578,7 @@ end</pre>
 274
 275
 276
-277
-278
-279</pre>
+277</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/haml/exec.rb', line 197</span>
@@ -554,11 +601,6 @@ END
     @options[:output] = StringIO.new
   end
 
-  opts.on(&#39;-t&#39;, &#39;--style NAME&#39;,
-          &#39;Output style. Can be indented (default) or ugly.&#39;) do |name|
-    @options[:for_engine][:ugly] = true if name.to_sym == :ugly
-  end
-
   opts.on(&#39;-f&#39;, &#39;--format NAME&#39;,
           &#39;Output format. Can be html5 (default), xhtml, or html4.&#39;) do |name|
     @options[:for_engine][:format] = name.to_sym
@@ -577,6 +619,11 @@ END
   opts.on(&#39;-q&#39;, &#39;--double-quote-attributes&#39;,
           &#39;Set attribute wrapper to double-quotes (default is single).&#39;) do
     @options[:for_engine][:attr_wrapper] = &#39;&quot;&#39;
+  end
+
+  opts.on(&#39;--remove-whitespace&#39;,
+          &#39;Remove whitespace surrounding and within tags&#39;) do
+    @options[:for_engine][:remove_whitespace] = true
   end
 
   opts.on(&#39;--cdata&#39;,
@@ -602,15 +649,13 @@ END
     @options[:load_paths] &lt;&lt; path
   end
 
-  unless RUBY_VERSION &lt; &quot;1.9&quot;
-    opts.on(&#39;-E ex[:in]&#39;, &#39;Specify the default external and internal character encodings.&#39;) do |encoding|
-      external, internal = encoding.split(&#39;:&#39;)
-      Encoding.default_external = external if external &amp;&amp; !external.empty?
-      Encoding.default_internal = internal if internal &amp;&amp; !internal.empty?
-    end
+  opts.on(&#39;-E ex[:in]&#39;, &#39;Specify the default external and internal character encodings.&#39;) do |encoding|
+    external, internal = encoding.split(&#39;:&#39;)
+    Encoding.default_external = external if external &amp;&amp; !external.empty?
+    Encoding.default_internal = internal if internal &amp;&amp; !internal.empty?
   end
 
-  opts.on(&#39;-d&#39;, &#39;--debug&#39;, &quot;Print out the precompiled Ruby source.&quot;) do
+  opts.on(&#39;-d&#39;, &#39;--debug&#39;, &quot;Print out the precompiled Ruby source, and show syntax errors in the Ruby code.&quot;) do
     @options[:debug] = true
   end
 
@@ -624,12 +669,50 @@ end</pre>
 </table>
 </div>
     
+      <div class="method_details ">
+  <h3 class="signature " id="validate_ruby-instance_method">
+  
+    #<strong>validate_ruby</strong>(code)  
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+339
+340
+341
+342
+343
+344
+345</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/haml/exec.rb', line 339</span>
+
+def validate_ruby(code)
+  begin
+    eval(&quot;BEGIN {return nil}; #{code}&quot;, binding, @options[:filename] || &quot;&quot;)
+  rescue ::SyntaxError # Not to be confused with Haml::SyntaxError
+    $!
+  end
+end</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
   </div>
 
 </div>
 
       <div id="footer">
-  Generated on Mon Oct  1 09:55:07 2018 by
+  Generated on Wed Oct  3 20:56:01 2018 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.16 (ruby-2.6.0).
 </div>

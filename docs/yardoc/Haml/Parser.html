@@ -104,6 +104,16 @@
   
 </div>
 
+<h2>Defined Under Namespace</h2>
+<p class="children">
+  
+    
+  
+    
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Parser/DynamicAttributes.html" title="Haml::Parser::DynamicAttributes (class)">DynamicAttributes</a></span>
+    
+  
+</p>
 
 
 
@@ -155,7 +165,53 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(template, options)  &#x21d2; Parser </a>
+      <a href="#call-instance_method" title="#call (instance method)">#<strong>call</strong>(template)  </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#compute_tabs-instance_method" title="#compute_tabs (instance method)">#<strong>compute_tabs</strong>(line)  </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(options)  &#x21d2; Parser </a>
     
 
     
@@ -177,29 +233,6 @@
 </li>
 
       
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#parse-instance_method" title="#parse (instance method)">#<strong>parse</strong>  </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-</div></span>
-  
-</li>
-
-      
     </ul>
   
 
@@ -213,14 +246,14 @@
   
   
   <h3 class="inherited">Methods included from <span class='object_link'><a href="Util.html" title="Haml::Util (module)">Util</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="Util.html#av_template_class-instance_method" title="Haml::Util#av_template_class (method)">#av_template_class</a></span>, <span class='object_link'><a href="Util.html#caller_info-instance_method" title="Haml::Util#caller_info (method)">#caller_info</a></span>, <span class='object_link'><a href="Util.html#check_encoding-instance_method" title="Haml::Util#check_encoding (method)">#check_encoding</a></span>, <span class='object_link'><a href="Util.html#check_haml_encoding-instance_method" title="Haml::Util#check_haml_encoding (method)">#check_haml_encoding</a></span>, <span class='object_link'><a href="Util.html#contains_interpolation%3F-instance_method" title="Haml::Util#contains_interpolation? (method)">#contains_interpolation?</a></span>, <span class='object_link'><a href="Util.html#def_static_method-instance_method" title="Haml::Util#def_static_method (method)">#def_static_method</a></span>, <span class='object_link'><a href="Util.html#handle_interpolation-instance_method" title="Haml::Util#handle_interpolation (method)">#handle_interpolation</a></span>, <span class='object_link'><a href="Util.html#html_safe-instance_method" title="Haml::Util#html_safe (method)">#html_safe</a></span>, <span class='object_link'><a href="Util.html#human_indentation-instance_method" title="Haml::Util#human_indentation (method)">#human_indentation</a></span>, <span class='object_link'><a href="Util.html#inspect_obj-instance_method" title="Haml::Util#inspect_obj (method)">#inspect_obj</a></span>, <span class='object_link'><a href="Util.html#powerset-instance_method" title="Haml::Util#powerset (method)">#powerset</a></span>, <span class='object_link'><a href="Util.html#rails_xss_safe%3F-instance_method" title="Haml::Util#rails_xss_safe? (method)">#rails_xss_safe?</a></span>, <span class='object_link'><a href="Util.html#silence_warnings-instance_method" title="Haml::Util#silence_warnings (method)">#silence_warnings</a></span>, <span class='object_link'><a href="Util.html#static_method_name-instance_method" title="Haml::Util#static_method_name (method)">#static_method_name</a></span>, <span class='object_link'><a href="Util.html#unescape_interpolation-instance_method" title="Haml::Util#unescape_interpolation (method)">#unescape_interpolation</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="Util.html#check_encoding-instance_method" title="Haml::Util#check_encoding (method)">#check_encoding</a></span>, <span class='object_link'><a href="Util.html#check_haml_encoding-instance_method" title="Haml::Util#check_haml_encoding (method)">#check_haml_encoding</a></span>, <span class='object_link'><a href="Util.html#contains_interpolation%3F-instance_method" title="Haml::Util#contains_interpolation? (method)">#contains_interpolation?</a></span>, <span class='object_link'><a href="Util.html#handle_interpolation-instance_method" title="Haml::Util#handle_interpolation (method)">#handle_interpolation</a></span>, <span class='object_link'><a href="Util.html#html_safe-instance_method" title="Haml::Util#html_safe (method)">#html_safe</a></span>, <span class='object_link'><a href="Util.html#human_indentation-instance_method" title="Haml::Util#human_indentation (method)">#human_indentation</a></span>, <span class='object_link'><a href="Util.html#inspect_obj-instance_method" title="Haml::Util#inspect_obj (method)">#inspect_obj</a></span>, <span class='object_link'><a href="Util.html#rails_xss_safe%3F-instance_method" title="Haml::Util#rails_xss_safe? (method)">#rails_xss_safe?</a></span>, <span class='object_link'><a href="Util.html#silence_warnings-instance_method" title="Haml::Util#silence_warnings (method)">#silence_warnings</a></span>, <span class='object_link'><a href="Util.html#unescape_interpolation-instance_method" title="Haml::Util#unescape_interpolation (method)">#unescape_interpolation</a></span></p>
 <div id="constructor_details" class="method_details_list">
   <h2>Constructor Details</h2>
   
     <div class="method_details first">
   <h3 class="signature first" id="initialize-instance_method">
   
-    #<strong>initialize</strong>(template, options)  &#x21d2; <tt><span class='object_link'><a href="" title="Haml::Parser (class)">Parser</a></span></tt> 
+    #<strong>initialize</strong>(options)  &#x21d2; <tt><span class='object_link'><a href="" title="Haml::Parser (class)">Parser</a></span></tt> 
   
 
   
@@ -242,10 +275,6 @@
       <pre class="lines">
 
 
-88
-89
-90
-91
 92
 93
 94
@@ -256,14 +285,10 @@
 99</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/parser.rb', line 88</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/parser.rb', line 92</span>
 
-def initialize(template, options)
-  # :eod is a special end-of-document marker
-  @template           = (template.rstrip).split(/\r\n|\r|\n/) + [:eod, :eod]
-  @options            = options
-  @flat               = false
-  @index              = 0
+def initialize(options)
+  @options = Options.wrap(options)
   # Record the indent levels of &quot;if&quot; statements to validate the subsequent
   # elsif and else statements are indented at the appropriate level.
   @script_level_stack = []
@@ -307,12 +332,12 @@ end</pre>
       <pre class="lines">
 
 
-7
 8
-9</pre>
+9
+10</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/parser.rb', line 7</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/parser.rb', line 8</span>
 
 def root
   @root
@@ -330,9 +355,9 @@ end</pre>
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="parse-instance_method">
+  <h3 class="signature first" id="call-instance_method">
   
-    #<strong>parse</strong>  
+    #<strong>call</strong>(template)  
   
 
   
@@ -383,20 +408,43 @@ end</pre>
 137
 138
 139
-140</pre>
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/haml/parser.rb', line 101</span>
 
-def parse
+def call(template)
+  match = template.rstrip.scan(/(([ \t]+)?(.*?))(?:\Z|\r\n|\r|\n)/m)
+  # discard the last match which is always blank
+  match.pop
+  @template = match.each_with_index.map do |(full, whitespace, text), index|
+    Line.new(whitespace, text.rstrip, full, index, self, false)
+  end
+  # Append special end-of-document marker
+  @template &lt;&lt; Line.new(nil, &#39;-#&#39;, &#39;-#&#39;, @template.size, self, true)
+
   @root = @parent = ParseNode.new(:root)
-  @haml_comment = false
+  @flat = false
+  @filter_buffer = nil
   @indentation = nil
   @line = next_line
 
   raise SyntaxError.new(Error.message(:indenting_at_start), @line.index) if @line.tabs != 0
 
-  while next_line
+  loop do
+    next_line
+
     process_indent(@line) unless @line.text.empty?
 
     if flat?
@@ -408,25 +456,119 @@ def parse
     end
 
     @tab_up = nil
-    process_line(@line.text, @line.index) unless @line.text.empty? || @haml_comment
-    if @parent.type != :haml_comment &amp;&amp; (block_opened? || @tab_up)
+    process_line(@line) unless @line.text.empty?
+    if block_opened? || @tab_up
       @template_tabs += 1
       @parent = @parent.children.last
     end
 
-    if !@haml_comment &amp;&amp; !flat? &amp;&amp; @next_line.tabs - @line.tabs &gt; 1
+    if !flat? &amp;&amp; @next_line.tabs - @line.tabs &gt; 1
       raise SyntaxError.new(Error.message(:deeper_indenting, @next_line.tabs - @line.tabs), @next_line.index)
     end
 
     @line = @next_line
   end
-
   # Close all the open tags
   close until @parent.type == :root
   @root
 rescue Haml::Error =&gt; e
-  e.backtrace.unshift &quot;#{@options[:filename]}:#{(e.line ? e.line + 1 : @index) + @options[:line] - 1}&quot;
+  e.backtrace.unshift &quot;#{@options.filename}:#{(e.line ? e.line + 1 : @line.index + 1) + @options.line - 1}&quot;
   raise
+end</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="compute_tabs-instance_method">
+  
+    #<strong>compute_tabs</strong>(line)  
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="SyntaxError.html" title="Haml::SyntaxError (class)">SyntaxError</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/haml/parser.rb', line 153</span>
+
+def compute_tabs(line)
+  return 0 if line.text.empty? || !line.whitespace
+
+  if @indentation.nil?
+    @indentation = line.whitespace
+
+    if @indentation.include?(?\s) &amp;&amp; @indentation.include?(?\t)
+      raise SyntaxError.new(Error.message(:cant_use_tabs_and_spaces), line.index)
+    end
+
+    @flat_spaces = @indentation * (@template_tabs+1) if flat?
+    return 1
+  end
+
+  tabs = line.whitespace.length / @indentation.length
+  return tabs if line.whitespace == @indentation * tabs
+  return @template_tabs + 1 if flat? &amp;&amp; line.whitespace =~ /^#{@flat_spaces}/
+
+  message = Error.message(:inconsistent_indentation,
+    human_indentation(line.whitespace),
+    human_indentation(@indentation)
+  )
+  raise SyntaxError.new(message, line.index)
 end</pre>
     </td>
   </tr>
@@ -438,7 +580,7 @@ end</pre>
 </div>
 
       <div id="footer">
-  Generated on Mon Oct  1 09:55:08 2018 by
+  Generated on Wed Oct  3 20:56:02 2018 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.16 (ruby-2.6.0).
 </div>

@@ -61,14 +61,7 @@
 
 <h2 id="haml">Haml</h2>
 
-<h3 id="why-is-my-markup-indented-properly-in-development-mode-but-not-in-production">Why is my markup indented properly in development mode, but not in production?</h3>
-<p>#q-indentation-in-production</p>
-
-<p>To improve performance, Haml defaults to <span class='object_link'><a href="Haml/Options.html#ugly-instance_method" title="Haml::Options#ugly (method)">“ugly” mode</a></span> in
-Rails apps running in production.</p>
-
-<h3 id="how-do-i-put-a-punctuation-mark-after-an-element-like-i-like-strongcakestrong">How do I put a punctuation mark after an element, like “<code>I like &lt;strong&gt;cake&lt;/strong&gt;!</code>”?</h3>
-<p>#q-punctuation</p>
+<h3 id="q-punctuation">How do I put a punctuation mark after an element, like “<code>I like &lt;strong&gt;cake&lt;/strong&gt;!</code>”?</h3>
 
 <p>Expressing the structure of a document
 and expressing inline formatting are two very different problems.
@@ -100,8 +93,7 @@ then it’s even easier:</p>
 <pre class="code ruby"><code class="ruby">%p== I like #{link_to 'chocolate', 'http://franschocolates.com'}!
 </code></pre>
 
-<h3 id="how-do-i-stop-haml-from-indenting-the-contents-of-my-pre-and-textarea-tags">How do I stop Haml from indenting the contents of my <code>pre</code> and <code>textarea</code> tags?</h3>
-<p>#q-preserve</p>
+<h3 id="q-preserve">How do I stop Haml from indenting the contents of my <code>pre</code> and <code>textarea</code> tags?</h3>
 
 <p>Because Haml automatically indents the HTML source code,
 the contents of whitespace-sensitive tags like <code>pre</code> and <code>textarea</code>
@@ -146,8 +138,7 @@ For example:</p>
 <pre class="code ruby"><code class="ruby">&lt;p&gt;&lt;textarea&gt;Foo&amp;#x000A;Bar&lt;/textarea&gt;&lt;/p&gt;
 </code></pre>
 
-<h3 id="how-do-i-make-my-long-lines-of-ruby-code-look-nicer-in-my-haml-document">How do I make my long lines of Ruby code look nicer in my Haml document?</h3>
-<p>#q-multiline</p>
+<h3 id="q-multiline">How do I make my long lines of Ruby code look nicer in my Haml document?</h3>
 
 <p>Put them in a helper or your model.</p>
 
@@ -197,8 +188,7 @@ Just like in ERB, you have to do</p>
   ...
 </code></pre>
 
-<h3 id="i-have-haml-installed-why-is-rails-only-looking-for-htmlerb-files--rendering-haml-files-as-plain-text--rendering-haml-files-as-blank-pages">I have Haml installed. Why is Rails (only looking for <code>.html.erb</code> files | rendering Haml files as plain text | rendering Haml files as blank pages)?</h3>
-<p>#q-blank-page</p>
+<h3 id="q-blank-page">I have Haml installed. Why is Rails (only looking for <code>.html.erb</code> files | rendering Haml files as plain text | rendering Haml files as blank pages)?</h3>
 
 <p>There are several reasons these things might be happening.
 First of all, make sure that Haml really is installed;
@@ -232,7 +222,7 @@ or send an email to the <a href="http://groups.google.com/group/haml">mailing li
 </div></div>
 
       <div id="footer">
-  Generated on Mon Oct  1 09:55:04 2018 by
+  Generated on Wed Oct  3 20:56:01 2018 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.16 (ruby-2.6.0).
 </div>

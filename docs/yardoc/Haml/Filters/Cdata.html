@@ -188,15 +188,15 @@
       <pre class="lines">
 
 
-258
-259
-260</pre>
+248
+249
+250</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/filters.rb', line 258</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/filters.rb', line 248</span>
 
 def render(text)
-  &quot;&lt;![CDATA[#{(&quot;\n&quot; + text).rstrip.gsub(&quot;\n&quot;, &quot;\n    &quot;)}\n]]&gt;&quot;
+  &quot;&lt;![CDATA[#{&quot;\n#{text.rstrip}&quot;.gsub(&quot;\n&quot;, &quot;\n    &quot;)}\n]]&gt;&quot;
 end</pre>
     </td>
   </tr>
@@ -208,7 +208,7 @@ end</pre>
 </div>
 
       <div id="footer">
-  Generated on Mon Oct  1 09:55:06 2018 by
+  Generated on Wed Oct  3 20:56:01 2018 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.16 (ruby-2.6.0).
 </div>

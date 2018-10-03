@@ -228,16 +228,16 @@ when it shouldn’t be.</p>
       <pre class="lines">
 
 
-11
-12
-13
 14
 15
 16
-17</pre>
+17
+18
+19
+20</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/helpers.rb', line 11</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/helpers.rb', line 14</span>
 
 def initialize(method)
   @message = &lt;&lt;MESSAGE
@@ -300,12 +300,12 @@ end</pre>
       <pre class="lines">
 
 
-42
-43
-44</pre>
+45
+46
+47</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/helpers.rb', line 42</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/helpers.rb', line 45</span>
 
 def inspect
   &quot;Haml::Helpers::ErrorReturn(#{@message.inspect})&quot;
@@ -357,9 +357,6 @@ end</pre>
       <pre class="lines">
 
 
-22
-23
-24
 25
 26
 27
@@ -374,10 +371,13 @@ end</pre>
 36
 37
 38
-39</pre>
+39
+40
+41
+42</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/helpers.rb', line 22</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/helpers.rb', line 25</span>
 
 def to_s
   raise Haml::Error.new(@message)
@@ -407,7 +407,7 @@ end</pre>
 </div>
 
       <div id="footer">
-  Generated on Mon Oct  1 09:55:08 2018 by
+  Generated on Wed Oct  3 20:56:02 2018 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.16 (ruby-2.6.0).
 </div>
