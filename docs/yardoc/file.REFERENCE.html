@@ -187,6 +187,11 @@ Haml::Options.defaults:</p>
 <pre class="code ruby"><code class="ruby">Haml::Options.defaults[:format] = :html5
 </code></pre>
 
+<p>In sinatra, you can set them in the <a href='http://sinatrarb.com/configuration.html'>global configuration</a> with:</p>
+
+<pre class="code ruby"><code class="ruby">set :haml, { escape_html: true }
+</code></pre>
+
 <p>Finally, you can also set them by passing an options hash to
 <span class='object_link'><a href="Haml/Engine.html#initialize-instance_method" title="Haml::Engine#initialize (method)">Haml::Engine#initialize</a></span>. For the complete list of available options, please
 see <span class='object_link'><a href="Haml/Options.html" title="Haml::Options (class)">Haml::Options</a></span>.</p>
