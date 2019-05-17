@@ -275,17 +275,17 @@
       <pre class="lines">
 
 
-92
 93
 94
 95
 96
 97
 98
-99</pre>
+99
+100</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/parser.rb', line 92</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/parser.rb', line 93</span>
 
 def initialize(options)
   @options = Options.wrap(options)
@@ -332,12 +332,12 @@ end</pre>
       <pre class="lines">
 
 
-8
 9
-10</pre>
+10
+11</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/parser.rb', line 8</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/parser.rb', line 9</span>
 
 def root
   @root
@@ -369,7 +369,6 @@ end</pre>
       <pre class="lines">
 
 
-101
 102
 103
 104
@@ -419,10 +418,11 @@ end</pre>
 148
 149
 150
-151</pre>
+151
+152</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/parser.rb', line 101</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/parser.rb', line 102</span>
 
 def call(template)
   match = template.rstrip.scan(/(([ \t]+)?(.*?))(?:\Z|\r\n|\r|\n)/m)
@@ -518,7 +518,6 @@ end</pre>
       <pre class="lines">
 
 
-153
 154
 155
 156
@@ -541,10 +540,11 @@ end</pre>
 173
 174
 175
-176</pre>
+176
+177</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/parser.rb', line 153</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/parser.rb', line 154</span>
 
 def compute_tabs(line)
   return 0 if line.text.empty? || !line.whitespace
@@ -580,9 +580,9 @@ end</pre>
 </div>
 
       <div id="footer">
-  Generated on Wed Oct  3 20:56:02 2018 by
+  Generated on Fri May 17 11:30:11 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.16 (ruby-2.6.0).
+  0.9.19 (ruby-2.7.0).
 </div>
 
 

@@ -272,12 +272,12 @@ classes.</p>
       <pre class="lines">
 
 
-15
 16
-17</pre>
+17
+18</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/filters.rb', line 15</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/filters.rb', line 16</span>
 
 def defined
   @defined
@@ -454,7 +454,6 @@ Coffee to “inherit” from Javascript, wrapping its output in script tags.</p>
       <pre class="lines">
 
 
-39
 40
 41
 42
@@ -475,10 +474,11 @@ Coffee to “inherit” from Javascript, wrapping its output in script tags.</p>
 57
 58
 59
-60</pre>
+60
+61</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/filters.rb', line 39</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/filters.rb', line 40</span>
 
 def register_tilt_filter(name, options = {})
   if constants.map(&amp;:to_s).include?(name.to_s)
@@ -567,15 +567,15 @@ explicitly remove the filter before redefining it.</p>
       <pre class="lines">
 
 
-68
 69
 70
 71
 72
-73</pre>
+73
+74</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/filters.rb', line 68</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/filters.rb', line 69</span>
 
 def remove_filter(name)
   defined.delete name.to_s.downcase
@@ -593,9 +593,9 @@ end</pre>
 </div>
 
       <div id="footer">
-  Generated on Wed Oct  3 20:56:01 2018 by
+  Generated on Fri May 17 11:30:10 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.16 (ruby-2.6.0).
+  0.9.19 (ruby-2.7.0).
 </div>
 
 

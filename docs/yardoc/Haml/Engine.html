@@ -439,7 +439,6 @@ see <a href="../file.REFERENCE.html#options" title="the Haml options documentati
       <pre class="lines">
 
 
-53
 54
 55
 56
@@ -448,12 +447,19 @@ see <a href="../file.REFERENCE.html#options" title="the Haml options documentati
 59
 60
 61
-62</pre>
+62
+63
+64
+65
+66</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/engine.rb', line 53</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/engine.rb', line 54</span>
 
 def initialize(template, options = {})
+  # Reflect changes of `Haml::Options.defaults` to `Haml::TempleEngine` options, but `#initialize_encoding`
+  # should be run against the arguemnt `options[:encoding]` for backward compatibility with old `Haml::Engine`.
+  options = Options.defaults.dup.tap { |o| o.delete(:encoding) }.merge!(options)
   @options = Options.new(options)
 
   @template = check_haml_encoding(template) do |msg, line|
@@ -515,12 +521,12 @@ or <code>nil</code> if the indentation is ambiguous
       <pre class="lines">
 
 
-38
 39
-40</pre>
+40
+41</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/engine.rb', line 38</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/engine.rb', line 39</span>
 
 def indentation
   @indentation
@@ -575,12 +581,12 @@ See <a href="../file.REFERENCE.html#options" title="the Haml options documentati
       <pre class="lines">
 
 
-31
 32
-33</pre>
+33
+34</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/engine.rb', line 31</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/engine.rb', line 32</span>
 
 def options
   @options
@@ -622,12 +628,12 @@ end</pre>
       <pre class="lines">
 
 
-65
-66
-67</pre>
+69
+70
+71</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/engine.rb', line 65</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/engine.rb', line 69</span>
 
 def compiler
   @temple_engine
@@ -746,15 +752,15 @@ It extends <span class='object_link'><a href="Helpers.html" title="Haml::Helpers
       <pre class="lines">
 
 
-219
-220
-221
-222
 223
-224</pre>
+224
+225
+226
+227
+228</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/engine.rb', line 219</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/engine.rb', line 223</span>
 
 def def_method(object, name, *local_names)
   method = object.is_a?(Module) ? :module_eval : :instance_eval
@@ -782,12 +788,12 @@ end</pre>
       <pre class="lines">
 
 
-43
 44
-45</pre>
+45
+46</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/engine.rb', line 43</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/engine.rb', line 44</span>
 
 def options_for_buffer
   @options.for_buffer
@@ -932,10 +938,6 @@ to the template</p>
       <pre class="lines">
 
 
-109
-110
-111
-112
 113
 114
 115
@@ -956,10 +958,14 @@ to the template</p>
 130
 131
 132
-133</pre>
+133
+134
+135
+136
+137</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/engine.rb', line 109</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/engine.rb', line 113</span>
 
 def render(scope = Object.new, locals = {}, &amp;block)
   parent = scope.instance_variable_defined?(:@haml_buffer) ? scope.instance_variable_get(:@haml_buffer) : nil
@@ -1089,10 +1095,6 @@ Haml::Engine.new("%p= foo").render_proc.call :foo =&gt; "Hello!"
       <pre class="lines">
 
 
-160
-161
-162
-163
 164
 165
 166
@@ -1108,10 +1110,14 @@ Haml::Engine.new("%p= foo").render_proc.call :foo =&gt; "Hello!"
 176
 177
 178
-179</pre>
+179
+180
+181
+182
+183</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/engine.rb', line 160</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/engine.rb', line 164</span>
 
 def render_proc(scope = Object.new, *local_names)
   if scope.is_a?(Binding)
@@ -1143,9 +1149,9 @@ end</pre>
 </div>
 
       <div id="footer">
-  Generated on Wed Oct  3 20:56:02 2018 by
+  Generated on Fri May 17 11:30:11 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.16 (ruby-2.6.0).
+  0.9.19 (ruby-2.7.0).
 </div>
 
 

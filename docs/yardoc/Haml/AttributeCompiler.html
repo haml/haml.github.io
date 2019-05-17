@@ -250,15 +250,15 @@
       <pre class="lines">
 
 
-32
 33
 34
 35
 36
-37</pre>
+37
+38</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/attribute_compiler.rb', line 32</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/attribute_compiler.rb', line 33</span>
 
 def initialize(options)
   @is_html = [:html4, :html5].include?(options[:format])
@@ -357,12 +357,12 @@ end</pre>
       <pre class="lines">
 
 
-27
 28
-29</pre>
+29
+30</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/attribute_compiler.rb', line 27</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/attribute_compiler.rb', line 28</span>
 
 def self.runtime_build(attributes, object_ref, dynamic_attributes)
   &quot;_hamlout.attributes(#{Haml::Util.inspect_obj(attributes)}, #{object_ref},#{dynamic_attributes.to_literal})&quot;
@@ -457,7 +457,6 @@ end</pre>
       <pre class="lines">
 
 
-45
 46
 47
 48
@@ -474,10 +473,11 @@ end</pre>
 59
 60
 61
-62</pre>
+62
+63</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/attribute_compiler.rb', line 45</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/attribute_compiler.rb', line 46</span>
 
 def compile(attributes, object_ref, dynamic_attributes)
   if object_ref != :nil || !AttributeParser.available?
@@ -507,9 +507,9 @@ end</pre>
 </div>
 
       <div id="footer">
-  Generated on Wed Oct  3 20:56:02 2018 by
+  Generated on Fri May 17 11:30:12 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.16 (ruby-2.6.0).
+  0.9.19 (ruby-2.7.0).
 </div>
 
 

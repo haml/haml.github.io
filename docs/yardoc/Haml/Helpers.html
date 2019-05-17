@@ -720,12 +720,12 @@ disposal from within the template.</p>
       <pre class="lines">
 
 
-55
 56
-57</pre>
+57
+58</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/helpers.rb', line 55</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/helpers.rb', line 56</span>
 
 def self.action_view?
   @@action_view_defined
@@ -802,12 +802,12 @@ end</pre>
       <pre class="lines">
 
 
-639
 640
-641</pre>
+641
+642</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/helpers.rb', line 639</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/helpers.rb', line 640</span>
 
 def block_is_haml?(block)
   eval(&#39;!!defined?(_hamlout)&#39;, block.binding)
@@ -907,7 +907,6 @@ For example, after the following,</p>
       <pre class="lines">
 
 
-372
 373
 374
 375
@@ -925,10 +924,11 @@ For example, after the following,</p>
 387
 388
 389
-390</pre>
+390
+391</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/helpers.rb', line 372</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/helpers.rb', line 373</span>
 
 def capture_haml(*args, &amp;block)
   buffer = eval(&#39;if defined? _hamlout then _hamlout else nil end&#39;, block.binding) || haml_buffer
@@ -1016,13 +1016,13 @@ that is already part of an escaped entity.</p>
       <pre class="lines">
 
 
-619
 620
 621
-622</pre>
+622
+623</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/helpers.rb', line 619</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/helpers.rb', line 620</span>
 
 def escape_once(text)
   text = text.to_s
@@ -1157,7 +1157,6 @@ into the HTML entities for endlines.</p>
       <pre class="lines">
 
 
-110
 111
 112
 113
@@ -1165,10 +1164,11 @@ into the HTML entities for endlines.</p>
 115
 116
 117
-118</pre>
+118
+119</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/helpers.rb', line 110</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/helpers.rb', line 111</span>
 
 def find_and_preserve(input = nil, tags = haml_buffer.options[:preserve], &amp;block)
   return find_and_preserve(capture_haml(&amp;block), input || tags) if block
@@ -1230,13 +1230,13 @@ end</pre>
       <pre class="lines">
 
 
-395
 396
 397
-398</pre>
+398
+399</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/helpers.rb', line 395</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/helpers.rb', line 396</span>
 
 def haml_concat(text = &quot;&quot;)
   haml_internal_concat text
@@ -1289,12 +1289,12 @@ end</pre>
       <pre class="lines">
 
 
-426
 427
-428</pre>
+428
+429</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/helpers.rb', line 426</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/helpers.rb', line 427</span>
 
 def haml_indent
   &#39;  &#39; * haml_buffer.tabulation
@@ -1490,7 +1490,6 @@ end
       <pre class="lines">
 
 
-487
 488
 489
 490
@@ -1552,10 +1551,11 @@ end
 546
 547
 548
-549</pre>
+549
+550</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/helpers.rb', line 487</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/helpers.rb', line 488</span>
 
 def haml_tag(name, *rest, &amp;block)
   ret = ErrorReturn.new(&quot;haml_tag&quot;)
@@ -1717,17 +1717,17 @@ the enclosing tag</p>
       <pre class="lines">
 
 
-585
 586
 587
 588
 589
 590
 591
-592</pre>
+592
+593</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/helpers.rb', line 585</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/helpers.rb', line 586</span>
 
 def haml_tag_if(condition, *tag)
   if condition
@@ -1815,16 +1815,16 @@ For example,</p>
       <pre class="lines">
 
 
-227
 228
 229
 230
 231
 232
-233</pre>
+233
+234</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/helpers.rb', line 227</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/helpers.rb', line 228</span>
 
 def html_attrs(lang = &#39;en-US&#39;)
   if haml_buffer.options[:format] == :xhtml
@@ -1904,12 +1904,12 @@ this won’t escape text declared as “safe”.</p>
       <pre class="lines">
 
 
-608
 609
-610</pre>
+610
+611</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/helpers.rb', line 608</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/helpers.rb', line 609</span>
 
 def html_escape(text)
   ERB::Util.html_escape(text)
@@ -1959,13 +1959,13 @@ context.haml_tag :p, "Stuff"
       <pre class="lines">
 
 
-75
 76
 77
-78</pre>
+78
+79</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/helpers.rb', line 75</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/helpers.rb', line 76</span>
 
 def init_haml_helpers
   @haml_buffer = Haml::Buffer.new(haml_buffer, Options.new.for_buffer)
@@ -2022,12 +2022,12 @@ where it will always return false.</p>
       <pre class="lines">
 
 
-631
 632
-633</pre>
+633
+634</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/helpers.rb', line 631</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/helpers.rb', line 632</span>
 
 def is_haml?
   !@haml_buffer.nil? &amp;&amp; @haml_buffer.active?
@@ -2192,7 +2192,6 @@ For example:</p>
       <pre class="lines">
 
 
-199
 200
 201
 202
@@ -2206,10 +2205,11 @@ For example:</p>
 210
 211
 212
-213</pre>
+213
+214</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/helpers.rb', line 199</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/helpers.rb', line 200</span>
 
 def list_of(enum, opts={}, &amp;block)
   opts_attributes = opts.map { |k, v| &quot; #{k}=&#39;#{v}&#39;&quot; }.join
@@ -2279,16 +2279,16 @@ particularly where helpers may behave differently when run from Haml.</p>
       <pre class="lines">
 
 
-89
 90
 91
 92
 93
 94
-95</pre>
+95
+96</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/helpers.rb', line 89</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/helpers.rb', line 90</span>
 
 def non_haml
   was_active = @haml_buffer.active?
@@ -2374,12 +2374,12 @@ For example:</p>
       <pre class="lines">
 
 
-335
 336
-337</pre>
+337
+338</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/helpers.rb', line 335</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/helpers.rb', line 336</span>
 
 def precede(str, &amp;block)
   &quot;#{str}#{capture_haml(&amp;block).chomp}\n&quot;
@@ -2497,16 +2497,16 @@ whitespace-sensitive tags without screwing up the indentation.</p>
       <pre class="lines">
 
 
-132
 133
 134
 135
 136
 137
-138</pre>
+138
+139</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/helpers.rb', line 132</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/helpers.rb', line 133</span>
 
 def preserve(input = nil, &amp;block)
   return preserve(capture_haml(&amp;block)) if block
@@ -2594,12 +2594,12 @@ For example:</p>
       <pre class="lines">
 
 
-354
 355
-356</pre>
+356
+357</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/helpers.rb', line 354</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/helpers.rb', line 355</span>
 
 def succeed(str, &amp;block)
   &quot;#{capture_haml(&amp;block).chomp}#{str}\n&quot;
@@ -2709,14 +2709,14 @@ For example:</p>
       <pre class="lines">
 
 
-316
 317
 318
 319
-320</pre>
+320
+321</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/helpers.rb', line 316</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/helpers.rb', line 317</span>
 
 def surround(front, back = front, &amp;block)
   output = capture_haml(&amp;block)
@@ -2782,12 +2782,12 @@ to the lines of the template.</p>
       <pre class="lines">
 
 
-262
 263
-264</pre>
+264
+265</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/helpers.rb', line 262</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/helpers.rb', line 263</span>
 
 def tab_down(i = 1)
   haml_buffer.tabulation -= i
@@ -2866,12 +2866,12 @@ For example:</p>
       <pre class="lines">
 
 
-253
 254
-255</pre>
+255
+256</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/helpers.rb', line 253</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/helpers.rb', line 254</span>
 
 def tab_up(i = 1)
   haml_buffer.tabulation += i
@@ -2958,16 +2958,16 @@ For example:</p>
       <pre class="lines">
 
 
-285
 286
 287
 288
 289
 290
-291</pre>
+291
+292</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/helpers.rb', line 285</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/helpers.rb', line 286</span>
 
 def with_tabs(i)
   old_tabs = haml_buffer.tabulation
@@ -2986,9 +2986,9 @@ end</pre>
 </div>
 
       <div id="footer">
-  Generated on Wed Oct  3 20:56:01 2018 by
+  Generated on Fri May 17 11:30:10 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.16 (ruby-2.6.0).
+  0.9.19 (ruby-2.7.0).
 </div>
 
 

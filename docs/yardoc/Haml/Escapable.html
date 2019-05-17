@@ -253,17 +253,17 @@ Haml::Herlpers.html_escape and Haml::Herlpers.escape_once.</p>
       <pre class="lines">
 
 
-6
 7
 8
 9
 10
 11
 12
-13</pre>
+13
+14</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/escapable.rb', line 6</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/escapable.rb', line 7</span>
 
 def initialize(*)
   super
@@ -310,7 +310,6 @@ end</pre>
       <pre class="lines">
 
 
-37
 38
 39
 40
@@ -320,10 +319,11 @@ end</pre>
 44
 45
 46
-47</pre>
+47
+48</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/escapable.rb', line 37</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/escapable.rb', line 38</span>
 
 def on_dynamic(value)
   [:dynamic,
@@ -356,16 +356,16 @@ end</pre>
       <pre class="lines">
 
 
-15
 16
 17
 18
 19
 20
-21</pre>
+21
+22</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/escapable.rb', line 15</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/escapable.rb', line 16</span>
 
 def on_escape(flag, exp)
   old = @escape
@@ -404,7 +404,6 @@ end</pre>
       <pre class="lines">
 
 
-24
 25
 26
 27
@@ -414,10 +413,11 @@ end</pre>
 31
 32
 33
-34</pre>
+34
+35</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/escapable.rb', line 24</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/escapable.rb', line 25</span>
 
 def on_static(value)
   [:static,
@@ -440,9 +440,9 @@ end</pre>
 </div>
 
       <div id="footer">
-  Generated on Wed Oct  3 20:56:02 2018 by
+  Generated on Fri May 17 11:30:12 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.16 (ruby-2.6.0).
+  0.9.19 (ruby-2.7.0).
 </div>
 
 

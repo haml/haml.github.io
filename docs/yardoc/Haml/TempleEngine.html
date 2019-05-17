@@ -283,13 +283,13 @@
       <pre class="lines">
 
 
-39
-40
 41
-42</pre>
+42
+43
+44</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/temple_engine.rb', line 39</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/temple_engine.rb', line 41</span>
 
 def compile(template)
   initialize_encoding(template, options[:encoding])
@@ -341,14 +341,14 @@ end</pre>
       <pre class="lines">
 
 
-50
-51
 52
 53
-54</pre>
+54
+55
+56</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/temple_engine.rb', line 50</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/temple_engine.rb', line 52</span>
 
 def precompiled
   encoding = Encoding.find(@encoding || &#39;&#39;)
@@ -379,12 +379,12 @@ end</pre>
       <pre class="lines">
 
 
-17
 18
-19</pre>
+19
+20</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/template.rb', line 17</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/template.rb', line 18</span>
 
 def precompiled_method_return_value_with_haml_xss
   &quot;::Haml::Util.html_safe(#{precompiled_method_return_value_without_haml_xss})&quot;
@@ -409,10 +409,10 @@ end</pre>
       <pre class="lines">
 
 
-20</pre>
+21</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/template.rb', line 20</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/template.rb', line 21</span>
 
 alias_method :precompiled_method_return_value_without_haml_xss, :precompiled_method_return_value</pre>
     </td>
@@ -461,8 +461,6 @@ alias_method :precompiled_method_return_value_without_haml_xss, :precompiled_met
       <pre class="lines">
 
 
-66
-67
 68
 69
 70
@@ -476,10 +474,12 @@ alias_method :precompiled_method_return_value_without_haml_xss, :precompiled_met
 78
 79
 80
-81</pre>
+81
+82
+83</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/temple_engine.rb', line 66</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/temple_engine.rb', line 68</span>
 
 def precompiled_with_ambles(local_names, after_preamble: &#39;&#39;)
   preamble = &lt;&lt;END.tr(&quot;\n&quot;, &#39;;&#39;)
@@ -517,12 +517,12 @@ end</pre>
       <pre class="lines">
 
 
-56
-57
-58</pre>
+58
+59
+60</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/temple_engine.rb', line 56</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/temple_engine.rb', line 58</span>
 
 def precompiled_with_return_value
   &quot;#{precompiled};#{precompiled_method_return_value}&quot;.dup
@@ -537,9 +537,9 @@ end</pre>
 </div>
 
       <div id="footer">
-  Generated on Wed Oct  3 20:56:02 2018 by
+  Generated on Fri May 17 11:30:12 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.16 (ruby-2.6.0).
+  0.9.19 (ruby-2.7.0).
 </div>
 
 

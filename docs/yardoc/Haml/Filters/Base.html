@@ -318,13 +318,13 @@ For example, if the module is named <code>FooBar</code>, the filter will be <cod
       <pre class="lines">
 
 
-107
 108
 109
-110</pre>
+110
+111</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/filters.rb', line 107</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/filters.rb', line 108</span>
 
 def self.included(base)
   Filters.defined[base.name.split(&quot;::&quot;).last.downcase] = base
@@ -428,7 +428,6 @@ versions.</p>
       <pre class="lines">
 
 
-161
 162
 163
 164
@@ -455,10 +454,15 @@ versions.</p>
 185
 186
 187
-188</pre>
+188
+189
+190
+191
+192
+193</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/filters.rb', line 161</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/filters.rb', line 162</span>
 
 def compile(compiler, text)
   filter = self
@@ -466,7 +470,11 @@ def compile(compiler, text)
     if contains_interpolation?(text)
       return if options[:suppress_eval]
 
-      text = unescape_interpolation(text, options[:escape_html]).gsub(/(\\+)n/) do |s|
+      escape = options[:escape_filter_interpolations]
+      # `escape_filter_interpolations` defaults to `escape_html` if unset.
+      escape = options[:escape_html] if escape.nil?
+
+      text = unescape_interpolation(text, escape).gsub(/(\\+)n/) do |s|
         escapes = $1.size
         next s if escapes % 2 == 0
         &quot;#{&#39;\\&#39; * (escapes - 1)}\n&quot;
@@ -526,12 +534,12 @@ end</pre>
       <pre class="lines">
 
 
-141
 142
-143</pre>
+143
+144</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/filters.rb', line 141</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/filters.rb', line 142</span>
 
 def internal_compile(*args)
   compile(*args)
@@ -624,12 +632,12 @@ If <span class='object_link'><a href="#compile-instance_method" title="Haml::Fil
       <pre class="lines">
 
 
-122
 123
-124</pre>
+124
+125</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/filters.rb', line 122</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/filters.rb', line 123</span>
 
 def render(text)
   raise Error.new(&quot;#{self.inspect}#render not defined!&quot;)
@@ -725,12 +733,12 @@ It’s only safe to rely on options made available in <span class='object_link'>
       <pre class="lines">
 
 
-133
 134
-135</pre>
+135
+136</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/filters.rb', line 133</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/filters.rb', line 134</span>
 
 def render_with_options(text, options)
   render(text)
@@ -745,9 +753,9 @@ end</pre>
 </div>
 
       <div id="footer">
-  Generated on Wed Oct  3 20:56:01 2018 by
+  Generated on Fri May 17 11:30:10 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.16 (ruby-2.6.0).
+  0.9.19 (ruby-2.7.0).
 </div>
 
 

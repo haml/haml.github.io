@@ -294,12 +294,12 @@ Limit methods since Haml doesn’t need most of them.</p>
       <pre class="lines">
 
 
-11
 12
-13</pre>
+13
+14</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/generator.rb', line 11</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/generator.rb', line 12</span>
 
 def call(exp)
   compile(exp)
@@ -324,12 +324,12 @@ end</pre>
       <pre class="lines">
 
 
-27
 28
-29</pre>
+29
+30</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/generator.rb', line 27</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/generator.rb', line 28</span>
 
 def on_code(exp)
   exp
@@ -354,12 +354,12 @@ end</pre>
       <pre class="lines">
 
 
-23
 24
-25</pre>
+25
+26</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/generator.rb', line 23</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/generator.rb', line 24</span>
 
 def on_dynamic(code)
   concat(code)
@@ -384,12 +384,12 @@ end</pre>
       <pre class="lines">
 
 
-15
 16
-17</pre>
+17
+18</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/generator.rb', line 15</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/generator.rb', line 16</span>
 
 def on_multi(*exp)
   exp.map { |e| compile(e) }.join(&#39;; &#39;)
@@ -414,12 +414,12 @@ end</pre>
       <pre class="lines">
 
 
-31
 32
-33</pre>
+33
+34</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/generator.rb', line 31</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/generator.rb', line 32</span>
 
 def on_newline
   &quot;\n&quot;
@@ -444,12 +444,12 @@ end</pre>
       <pre class="lines">
 
 
-19
 20
-21</pre>
+21
+22</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/generator.rb', line 19</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/generator.rb', line 20</span>
 
 def on_static(text)
   concat(options[:freeze_static] ? &quot;#{Util.inspect_obj(text)}.freeze&quot; : Util.inspect_obj(text))
@@ -464,9 +464,9 @@ end</pre>
 </div>
 
       <div id="footer">
-  Generated on Wed Oct  3 20:56:02 2018 by
+  Generated on Fri May 17 11:30:12 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.16 (ruby-2.6.0).
+  0.9.19 (ruby-2.7.0).
 </div>
 
 

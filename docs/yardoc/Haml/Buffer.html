@@ -674,7 +674,6 @@ See <span class='object_link'><a href="Engine.html#options_for_buffer-instance_m
       <pre class="lines">
 
 
-91
 92
 93
 94
@@ -685,10 +684,11 @@ See <span class='object_link'><a href="Engine.html#options_for_buffer-instance_m
 99
 100
 101
-102</pre>
+102
+103</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/buffer.rb', line 91</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/buffer.rb', line 92</span>
 
 def initialize(upper = nil, options = {})
   @active     = true
@@ -759,12 +759,12 @@ end</pre>
       <pre class="lines">
 
 
-38
 39
-40</pre>
+40
+41</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/buffer.rb', line 38</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/buffer.rb', line 39</span>
 
 def active=(value)
   @active = value
@@ -815,12 +815,12 @@ end</pre>
       <pre class="lines">
 
 
-15
 16
-17</pre>
+17
+18</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/buffer.rb', line 15</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/buffer.rb', line 16</span>
 
 def buffer
   @buffer
@@ -871,12 +871,12 @@ and the position at which it’s beginning the capture if there is one.</p>
       <pre class="lines">
 
 
-34
 35
-36</pre>
+36
+37</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/buffer.rb', line 34</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/buffer.rb', line 35</span>
 
 def capture_position
   @capture_position
@@ -933,12 +933,12 @@ end</pre>
       <pre class="lines">
 
 
-21
 22
-23</pre>
+23
+24</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/buffer.rb', line 21</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/buffer.rb', line 22</span>
 
 def options
   @options
@@ -990,12 +990,12 @@ It’s <code>nil</code> at the top level (see <span class='object_link'><a href=
       <pre class="lines">
 
 
-28
 29
-30</pre>
+30
+31</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/buffer.rb', line 28</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/buffer.rb', line 29</span>
 
 def upper
   @upper
@@ -1052,12 +1052,12 @@ even if it’s a subtemplate of this buffer’s template.</p>
       <pre class="lines">
 
 
-71
 72
-73</pre>
+73
+74</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/buffer.rb', line 71</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/buffer.rb', line 72</span>
 
 def active?
   @active
@@ -1112,12 +1112,12 @@ or decrease the document’s indentation</p>
       <pre class="lines">
 
 
-128
 129
-130</pre>
+130
+131</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/buffer.rb', line 128</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/buffer.rb', line 129</span>
 
 def adjust_tabs(tab_change)
   @real_tabs += tab_change
@@ -1142,7 +1142,6 @@ end</pre>
       <pre class="lines">
 
 
-132
 133
 134
 135
@@ -1152,10 +1151,11 @@ end</pre>
 139
 140
 141
-142</pre>
+142
+143</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/buffer.rb', line 132</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/buffer.rb', line 133</span>
 
 def attributes(class_id, obj_ref, *attributes_hashes)
   attributes = class_id
@@ -1215,12 +1215,12 @@ end</pre>
       <pre class="lines">
 
 
-51
 52
-53</pre>
+53
+54</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/buffer.rb', line 51</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/buffer.rb', line 52</span>
 
 def html4?
   @options[:format] == :html4
@@ -1272,12 +1272,12 @@ end</pre>
       <pre class="lines">
 
 
-56
 57
-58</pre>
+58
+59</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/buffer.rb', line 56</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/buffer.rb', line 57</span>
 
 def html5?
   @options[:format] == :html5
@@ -1329,12 +1329,12 @@ end</pre>
       <pre class="lines">
 
 
-46
 47
-48</pre>
+48
+49</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/buffer.rb', line 46</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/buffer.rb', line 47</span>
 
 def html?
   html4? or html5?
@@ -1420,7 +1420,6 @@ or decrease the document’s indentation</p>
       <pre class="lines">
 
 
-111
 112
 113
 114
@@ -1431,10 +1430,11 @@ or decrease the document’s indentation</p>
 119
 120
 121
-122</pre>
+122
+123</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/buffer.rb', line 111</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/buffer.rb', line 112</span>
 
 def push_text(text, tab_change, dont_tab_up)
   if @tabulation &gt; 0
@@ -1479,17 +1479,17 @@ Doesn’t do anything if we’re at the beginning of a capture_haml block.</p>
       <pre class="lines">
 
 
-146
 147
 148
 149
 150
 151
 152
-153</pre>
+153
+154</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/buffer.rb', line 146</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/buffer.rb', line 147</span>
 
 def rstrip!
   if capture_position.nil?
@@ -1546,12 +1546,12 @@ end</pre>
       <pre class="lines">
 
 
-76
 77
-78</pre>
+78
+79</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/buffer.rb', line 76</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/buffer.rb', line 77</span>
 
 def tabulation
   @real_tabs + @tabulation
@@ -1605,13 +1605,13 @@ end</pre>
       <pre class="lines">
 
 
-83
 84
 85
-86</pre>
+86
+87</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/buffer.rb', line 83</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/buffer.rb', line 84</span>
 
 def tabulation=(val)
   val = val - @real_tabs
@@ -1666,12 +1666,12 @@ as opposed to a nested partial</p>
       <pre class="lines">
 
 
-62
 63
-64</pre>
+64
+65</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/buffer.rb', line 62</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/buffer.rb', line 63</span>
 
 def toplevel?
   upper.nil?
@@ -1723,12 +1723,12 @@ end</pre>
       <pre class="lines">
 
 
-41
 42
-43</pre>
+43
+44</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/buffer.rb', line 41</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/buffer.rb', line 42</span>
 
 def xhtml?
   not html?
@@ -1743,9 +1743,9 @@ end</pre>
 </div>
 
       <div id="footer">
-  Generated on Wed Oct  3 20:56:02 2018 by
+  Generated on Fri May 17 11:30:11 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.16 (ruby-2.6.0).
+  0.9.19 (ruby-2.7.0).
 </div>
 
 

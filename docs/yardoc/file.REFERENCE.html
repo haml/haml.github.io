@@ -187,6 +187,11 @@ Haml::Options.defaults:</p>
 <pre class="code ruby"><code class="ruby">Haml::Options.defaults[:format] = :html5
 </code></pre>
 
+<p>In sinatra specifically, you can set them in global config with:
+<code>ruby
+set :haml, { escape_html: true }
+</code></p>
+
 <p>Finally, you can also set them by passing an options hash to
 <span class='object_link'><a href="Haml/Engine.html#initialize-instance_method" title="Haml::Engine#initialize (method)">Haml::Engine#initialize</a></span>. For the complete list of available options, please
 see <span class='object_link'><a href="Haml/Options.html" title="Haml::Options (class)">Haml::Options</a></span>.</p>
@@ -1309,8 +1314,8 @@ For example:</p>
 &lt;/div&gt;
 </code></pre>
 
-<p>Note that <code>#{}</code> interpolation within filters is HTML-escaped if you specify
-<span class='object_link'><a href="Haml/Options.html#escape_html-instance_method" title="Haml::Options#escape_html (method)"><code>:escape_html</code></a></span> option.</p>
+<p>Note that <code>#{}</code> interpolation within filters is HTML-escaped if you specify true to
+<span class='object_link'><a href="Haml/Options.html#escape_filter_interpolations-instance_method" title="Haml::Options#escape_filter_interpolations (method)"><code>:escape_filter_interpolations</code></a></span> option.</p>
 
 <p>The functionality of some filters such as Markdown can be provided by many
 different libraries. Usually you don’t have to worry about this - you can just
@@ -1541,9 +1546,9 @@ useful things. The helpers are all documented in the <span class='object_link'><
 </div></div>
 
       <div id="footer">
-  Generated on Wed Oct  3 20:56:01 2018 by
+  Generated on Fri May 17 11:30:09 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.16 (ruby-2.6.0).
+  0.9.19 (ruby-2.7.0).
 </div>
 
 

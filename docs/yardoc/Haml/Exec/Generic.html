@@ -410,13 +410,13 @@
       <pre class="lines">
 
 
-12
 13
 14
-15</pre>
+15
+16</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/exec.rb', line 12</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/exec.rb', line 13</span>
 
 def initialize(args)
   @args = args
@@ -514,7 +514,6 @@ Can be <code>:red</code>, <code>:green</code>, or <code>:yellow</code>.</p>
       <pre class="lines">
 
 
-154
 155
 156
 157
@@ -522,10 +521,11 @@ Can be <code>:red</code>, <code>:green</code>, or <code>:yellow</code>.</p>
 159
 160
 161
-162</pre>
+162
+163</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/exec.rb', line 154</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/exec.rb', line 155</span>
 
 def color(color, str)
   raise &quot;[BUG] Unrecognized color #{color}&quot; unless COLORS[color]
@@ -603,16 +603,16 @@ on which an exception was raised.</p>
       <pre class="lines">
 
 
-60
 61
 62
 63
 64
 65
-66</pre>
+66
+67</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/exec.rb', line 60</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/exec.rb', line 61</span>
 
 def get_line(exception)
   # SyntaxErrors have weird line reporting
@@ -659,17 +659,17 @@ This does not handle exceptions or exit the program.</p>
       <pre class="lines">
 
 
-39
 40
 41
 42
 43
 44
 45
-46</pre>
+46
+47</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/exec.rb', line 39</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/exec.rb', line 40</span>
 
 def parse
   @opts = OptionParser.new(&amp;method(:set_opts))
@@ -717,7 +717,6 @@ Calls <code>Kernel#exit</code> at the end, so it never returns.</p>
       <pre class="lines">
 
 
-21
 22
 23
 24
@@ -729,10 +728,11 @@ Calls <code>Kernel#exit</code> at the end, so it never returns.</p>
 30
 31
 32
-33</pre>
+33
+34</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/exec.rb', line 21</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/exec.rb', line 22</span>
 
 def parse!
   begin
@@ -782,7 +782,6 @@ so they can run their respective programs.</p>
       <pre class="lines">
 
 
-109
 110
 111
 112
@@ -794,10 +793,11 @@ so they can run their respective programs.</p>
 118
 119
 120
-121</pre>
+121
+122</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/exec.rb', line 109</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/exec.rb', line 110</span>
 
 def process_result
   input, output = @options[:input], @options[:output]
@@ -861,13 +861,13 @@ end</pre>
       <pre class="lines">
 
 
-140
 141
 142
-143</pre>
+143
+144</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/exec.rb', line 140</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/exec.rb', line 141</span>
 
 def puts(*args)
   return if @options[:for_engine][:quiet]
@@ -940,13 +940,13 @@ Can be <code>:red</code>, <code>:green</code>, or <code>:yellow</code>.</p>
       <pre class="lines">
 
 
-132
 133
 134
-135</pre>
+135
+136</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/exec.rb', line 132</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/exec.rb', line 133</span>
 
 def puts_action(name, color, arg)
   return if @options[:for_engine][:quiet]
@@ -1001,7 +1001,6 @@ so they can add their own options.</p>
       <pre class="lines">
 
 
-75
 76
 77
 78
@@ -1027,10 +1026,11 @@ so they can add their own options.</p>
 98
 99
 100
-101</pre>
+101
+102</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/exec.rb', line 75</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/exec.rb', line 76</span>
 
 def set_opts(opts)
   opts.on(&#39;-s&#39;, &#39;--stdin&#39;, :NONE, &#39;Read input from standard input instead of an input file&#39;) do
@@ -1106,12 +1106,12 @@ end</pre>
       <pre class="lines">
 
 
-49
 50
-51</pre>
+51
+52</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/exec.rb', line 49</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/exec.rb', line 50</span>
 
 def to_s
   @opts.to_s
@@ -1126,9 +1126,9 @@ end</pre>
 </div>
 
       <div id="footer">
-  Generated on Wed Oct  3 20:56:01 2018 by
+  Generated on Fri May 17 11:30:11 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.16 (ruby-2.6.0).
+  0.9.19 (ruby-2.7.0).
 </div>
 
 

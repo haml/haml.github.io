@@ -244,12 +244,12 @@ you could refer to this specific action:</p>
       <pre class="lines">
 
 
-35
 36
-37</pre>
+37
+38</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/helpers/action_view_extensions.rb', line 35</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/helpers/action_view_extensions.rb', line 36</span>
 
 def page_class
   &quot;#{controller.controller_name} #{controller.action_name}&quot;
@@ -312,16 +312,16 @@ This is useful for wrapping blocks of code that concatenate HTML en masse.</p>
       <pre class="lines">
 
 
-48
 49
 50
 51
 52
 53
-54</pre>
+54
+55</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/helpers/action_view_extensions.rb', line 48</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/helpers/action_view_extensions.rb', line 49</span>
 
 def with_raw_haml_concat
   old = instance_variable_defined?(:@_haml_concat_raw) ? @_haml_concat_raw : false
@@ -340,9 +340,9 @@ end</pre>
 </div>
 
       <div id="footer">
-  Generated on Wed Oct  3 20:56:01 2018 by
+  Generated on Fri May 17 11:30:11 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.16 (ruby-2.6.0).
+  0.9.19 (ruby-2.7.0).
 </div>
 
 
