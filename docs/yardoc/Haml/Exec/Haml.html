@@ -688,19 +688,15 @@ end</pre>
 341
 342
 343
-344
-345
-346</pre>
+344</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/haml/exec.rb', line 340</span>
 
 def validate_ruby(code)
-  begin
-    eval(&quot;BEGIN {return nil}; #{code}&quot;, binding, @options[:filename] || &quot;&quot;)
-  rescue ::SyntaxError # Not to be confused with Haml::SyntaxError
-    $!
-  end
+  eval(&quot;BEGIN {return nil}; #{code}&quot;, binding, @options[:filename] || &quot;&quot;)
+rescue ::SyntaxError # Not to be confused with Haml::SyntaxError
+  $!
 end</pre>
     </td>
   </tr>
@@ -712,7 +708,7 @@ end</pre>
 </div>
 
       <div id="footer">
-  Generated on Fri May 17 11:30:11 2019 by
+  Generated on Sat May 25 11:15:26 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.19 (ruby-2.7.0).
 </div>

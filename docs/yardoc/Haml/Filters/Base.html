@@ -219,7 +219,7 @@ if it’s desired.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#render-instance_method" title="#render (instance method)">#<strong>render</strong>(text)  &#x21d2; String </a>
+      <a href="#render-instance_method" title="#render (instance method)">#<strong>render</strong>(_text)  &#x21d2; String </a>
     
 
     
@@ -242,7 +242,7 @@ if it’s desired.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#render_with_options-instance_method" title="#render_with_options (instance method)">#<strong>render_with_options</strong>(text, options)  &#x21d2; String </a>
+      <a href="#render_with_options-instance_method" title="#render_with_options (instance method)">#<strong>render_with_options</strong>(text, _options)  &#x21d2; String </a>
     
 
     
@@ -552,7 +552,7 @@ end</pre>
       <div class="method_details ">
   <h3 class="signature " id="render-instance_method">
   
-    #<strong>render</strong>(text)  &#x21d2; <tt>String</tt> 
+    #<strong>render</strong>(_text)  &#x21d2; <tt>String</tt> 
   
 
   
@@ -639,7 +639,7 @@ If <span class='object_link'><a href="#compile-instance_method" title="Haml::Fil
     <td>
       <pre class="code"><span class="info file"># File 'lib/haml/filters.rb', line 123</span>
 
-def render(text)
+def render(_text)
   raise Error.new(&quot;#{self.inspect}#render not defined!&quot;)
 end</pre>
     </td>
@@ -650,7 +650,7 @@ end</pre>
       <div class="method_details ">
   <h3 class="signature " id="render_with_options-instance_method">
   
-    #<strong>render_with_options</strong>(text, options)  &#x21d2; <tt>String</tt> 
+    #<strong>render_with_options</strong>(text, _options)  &#x21d2; <tt>String</tt> 
   
 
   
@@ -740,7 +740,7 @@ It’s only safe to rely on options made available in <span class='object_link'>
     <td>
       <pre class="code"><span class="info file"># File 'lib/haml/filters.rb', line 134</span>
 
-def render_with_options(text, options)
+def render_with_options(text, _options)
   render(text)
 end</pre>
     </td>
@@ -753,7 +753,7 @@ end</pre>
 </div>
 
       <div id="footer">
-  Generated on Fri May 17 11:30:10 2019 by
+  Generated on Sat May 25 11:15:25 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.19 (ruby-2.7.0).
 </div>
