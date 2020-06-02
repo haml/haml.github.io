@@ -10,11 +10,11 @@
   
 </title>
 
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
 
-  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" />
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
   pathId = "Haml::Helpers::ActionViewExtensions";
   relpath = '../../';
 </script>
@@ -120,7 +120,7 @@ if ActionView is installed.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#page_class-instance_method" title="#page_class (instance method)">#<strong>page_class</strong>  </a>
+      <a href="#page_class-instance_method" title="#page_class (instance method)">#<strong>page_class</strong>  &#x21d2; String </a>
     
 
     
@@ -136,7 +136,7 @@ if ActionView is installed.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
+    <span class="summary_desc"><div class='inline'><p>Returns a value for the “class” attribute unique to this controller/action pair.</p>
 </div></span>
   
 </li>
@@ -177,7 +177,7 @@ if ActionView is installed.</p>
       <div class="method_details first">
   <h3 class="signature first" id="page_class-instance_method">
   
-    #<strong>page_class</strong>  
+    #<strong>page_class</strong>  &#x21d2; <tt>String</tt> 
   
 
   
@@ -187,7 +187,58 @@ if ActionView is installed.</p>
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns a value for the “class” attribute
+unique to this controller/action pair.
+This can be used to target styles specifically at this action or controller.
+For example, if the current action were <code>EntryController#show</code>,</p>
+
+<pre class="code ruby"><code class="ruby">%div{:class =&gt; page_class} My Div
+</code></pre>
+
+<p>would become</p>
+
+<pre class="code ruby"><code class="ruby">&lt;div class="entry show"&gt;My Div&lt;/div&gt;
+</code></pre>
+
+<p>Then, in a stylesheet (shown here as <a href="http://sass-lang.com">Sass</a>),
+you could refer to this specific action:</p>
+
+<pre class="code ruby"><code class="ruby">.entry.show
+  font-weight: bold
+</code></pre>
+
+<p>or to all actions in the entry controller:</p>
+
+<pre class="code ruby"><code class="ruby">.entry
+  color: #00f
+</code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The class name for the current page</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
@@ -289,9 +340,9 @@ end</pre>
 </div>
 
       <div id="footer">
-  Generated on Tue Nov 12 20:38:19 2019 by
+  Generated on Tue Jun  2 09:24:09 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.20 (ruby-2.7.0).
+  0.9.25 (ruby-2.8.0).
 </div>
 
 
