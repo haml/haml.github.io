@@ -318,29 +318,6 @@ and helps reduce the amount of processing done within <code>instance_eval</code>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#attributes-instance_method" title="#attributes (instance method)">#<strong>attributes</strong>(class_id, obj_ref, *attributes_hashes)  </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
       <a href="#html4%3F-instance_method" title="#html4? (instance method)">#<strong>html4?</strong>  &#x21d2; Boolean </a>
     
 
@@ -1128,52 +1105,6 @@ end</pre>
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="attributes-instance_method">
-  
-    #<strong>attributes</strong>(class_id, obj_ref, *attributes_hashes)  
-  
-
-  
-
-  
-</h3><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-133
-134
-135
-136
-137
-138
-139
-140
-141
-142
-143</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/buffer.rb', line 133</span>
-
-def attributes(class_id, obj_ref, *attributes_hashes)
-  attributes = class_id
-  attributes_hashes.each do |old|
-    result = {}
-    old.each { |k, v| result[k.to_s] = v }
-    AttributeBuilder.merge_attributes!(attributes, result)
-  end
-  AttributeBuilder.merge_attributes!(attributes, parse_object_ref(obj_ref)) if obj_ref
-  AttributeBuilder.build_attributes(
-    html?, @options[:attr_wrapper], @options[:escape_attrs], @options[:hyphenate_data_attrs], attributes)
-end</pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
   <h3 class="signature " id="html4?-instance_method">
   
     #<strong>html4?</strong>  &#x21d2; <tt>Boolean</tt> 
@@ -1479,17 +1410,17 @@ Doesn’t do anything if we’re at the beginning of a capture_haml block.</p>
       <pre class="lines">
 
 
-147
-148
-149
-150
-151
-152
-153
-154</pre>
+135
+136
+137
+138
+139
+140
+141
+142</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/buffer.rb', line 147</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/buffer.rb', line 135</span>
 
 def rstrip!
   if capture_position.nil?
@@ -1743,9 +1674,9 @@ end</pre>
 </div>
 
       <div id="footer">
-  Generated on Tue Jun  2 09:24:10 2020 by
+  Generated on Wed Mar  9 00:15:22 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.25 (ruby-2.8.0).
+  0.9.27 (ruby-3.1.1).
 </div>
 
 

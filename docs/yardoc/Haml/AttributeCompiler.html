@@ -118,38 +118,6 @@
 
   
     <h2>
-      Class Method Summary
-      <small><a href="#" class="summary_toggle">collapse</a></small>
-    </h2>
-
-    <ul class="summary">
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#runtime_build-class_method" title="runtime_build (class method)">.<strong>runtime_build</strong>(attributes, object_ref, dynamic_attributes)  &#x21d2; String </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>Returns a script to render attributes on runtime.</p>
-</div></span>
-  
-</li>
-
-      
-    </ul>
-  
-    <h2>
       Instance Method Summary
       <small><a href="#" class="summary_toggle">collapse</a></small>
     </h2>
@@ -250,15 +218,15 @@
       <pre class="lines">
 
 
-33
-34
-35
-36
-37
-38</pre>
+13
+14
+15
+16
+17
+18</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/attribute_compiler.rb', line 33</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/attribute_compiler.rb', line 13</span>
 
 def initialize(options)
   @is_html = [:html4, :html5].include?(options[:format])
@@ -273,106 +241,6 @@ end</pre>
   
 </div>
 
-
-  <div id="class_method_details" class="method_details_list">
-    <h2>Class Method Details</h2>
-
-    
-      <div class="method_details first">
-  <h3 class="signature first" id="runtime_build-class_method">
-  
-    .<strong>runtime_build</strong>(attributes, object_ref, dynamic_attributes)  &#x21d2; <tt>String</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <p>Returns a script to render attributes on runtime.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>attributes</span>
-      
-      
-        <span class='type'>(<tt>Hash</tt>)</span>
-      
-      
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>object_ref</span>
-      
-      
-        <span class='type'>(<tt>String</tt>, <tt>:nil</tt>)</span>
-      
-      
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>dynamic_attributes</span>
-      
-      
-        <span class='type'>(<tt>DynamicAttributes</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><p>Attributes rendering code</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-28
-29
-30</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/attribute_compiler.rb', line 28</span>
-
-def self.runtime_build(attributes, object_ref, dynamic_attributes)
-  &quot;_hamlout.attributes(#{Haml::Util.inspect_obj(attributes)}, #{object_ref},#{dynamic_attributes.to_literal})&quot;
-end</pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-  </div>
 
   <div id="instance_method_details" class="method_details_list">
     <h2>Instance Method Details</h2>
@@ -425,7 +293,7 @@ end</pre>
         <span class='name'>dynamic_attributes</span>
       
       
-        <span class='type'>(<tt>DynamicAttributes</tt>)</span>
+        <span class='type'>(<tt><span class='object_link'><a href="Parser/DynamicAttributes.html" title="Haml::Parser::DynamicAttributes (class)">Haml::Parser::DynamicAttributes</a></span></tt>)</span>
       
       
       
@@ -457,36 +325,36 @@ end</pre>
       <pre class="lines">
 
 
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63</pre>
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/attribute_compiler.rb', line 46</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/attribute_compiler.rb', line 26</span>
 
 def compile(attributes, object_ref, dynamic_attributes)
   if object_ref != :nil || !AttributeParser.available?
-    return [:dynamic, AttributeCompiler.runtime_build(attributes, object_ref, dynamic_attributes)]
+    return [:dynamic, compile_runtime_build(attributes, object_ref, dynamic_attributes)]
   end
 
   parsed_hashes = [dynamic_attributes.new, dynamic_attributes.old].compact.map do |attribute_hash|
     unless (hash = AttributeParser.parse(attribute_hash))
-      return [:dynamic, AttributeCompiler.runtime_build(attributes, object_ref, dynamic_attributes)]
+      return [:dynamic, compile_runtime_build(attributes, object_ref, dynamic_attributes)]
     end
     hash
   end
@@ -507,9 +375,9 @@ end</pre>
 </div>
 
       <div id="footer">
-  Generated on Tue Jun  2 09:24:11 2020 by
+  Generated on Wed Mar  9 00:15:22 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.25 (ruby-2.8.0).
+  0.9.27 (ruby-3.1.1).
 </div>
 
 

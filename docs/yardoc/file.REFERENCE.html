@@ -177,15 +177,20 @@ output.</p>
 <p>In Rails, options can be set by setting the <span class='object_link'><a href="Haml/Template.html#options-instance_method" title="Haml::Template#options (method)">Haml::Template.options</a></span>
 hash in an initializer:</p>
 
-<pre class="code ruby"><code class="ruby"># config/initializers/haml.rb
-Haml::Template.options[:format] = :html5
-</code></pre>
+<p>```ruby
+# config/initializers/haml.rb
+Haml::Template.options[:format] = :html5</p>
+
+<h1 id="avoid-escaping-attributes-which-are-already-escaped">Avoid escaping attributes which are already escaped</h1>
+<p>Haml::Template.options[:escape_attrs] = :once
+```</p>
 
 <p>Outside Rails, you can set them by configuring them globally in
 Haml::Options.defaults:</p>
 
-<pre class="code ruby"><code class="ruby">Haml::Options.defaults[:format] = :html5
-</code></pre>
+<p><code>ruby
+Haml::Options.defaults[:format] = :html5
+</code></p>
 
 <p>In sinatra specifically, you can set them in global config with:
 <code>ruby
@@ -310,16 +315,20 @@ defined. For example:</p>
 </code></pre>
 
 <p>Attribute hashes can also be stretched out over multiple lines to accommodate
-many attributes. However, newlines may only be placed immediately after commas.
-For example:</p>
+many attributes.</p>
 
-<pre class="code ruby"><code class="ruby">%script{:type =&gt; "text/javascript",
-        :src  =&gt; "javascripts/script_#{2 + 7}"}
+<pre class="code ruby"><code class="ruby">%script{
+  "type": text/javascript",
+  "src": javascripts/script_#{2 + 7}",
+  "data": {
+    "controller": "reporter",
+  },
+}
 </code></pre>
 
 <p>is compiled to:</p>
 
-<pre class="code ruby"><code class="ruby">&lt;script src='javascripts/script_9' type='text/javascript'&gt;&lt;/script&gt;
+<pre class="code ruby"><code class="ruby">&lt;script src='javascripts/script_9' type='text/javascript' data-controller='reporter'&gt;&lt;/script&gt;
 </code></pre>
 
 <h4 id="class-and-id-attributes"><code>:class</code> and <code>:id</code> Attributes</h4>
@@ -641,6 +650,26 @@ a class and/or id using <code>.</code> or <code>#</code>, a div is automatically
   &lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
+
+<h4 id="class-name-merging-and-ordering">Class Name Merging and Ordering</h4>
+
+<p>Class names are ordered in the following way:</p>
+
+<p>1) Tag identifiers in order (aka, “.alert.me” =&gt; “alert me”)
+2) Classes appearing in HTML-style attributes
+3) Classes appearing in Hash-style attributes</p>
+
+<p>For instance, this is a complicated and unintuitive test case illustrating the ordering</p>
+
+<pre class="code ruby"><code class="ruby">.foo.moo{:class =&gt; ['bar', 'alpha']}(class='baz')
+</code></pre>
+
+<p>The resulting HTML would be as follows:</p>
+
+<pre class="code ruby"><code class="ruby">&lt;div class='foo moo baz bar alpha'&gt;&lt;/div&gt;
+</code></pre>
+
+<p><em>Versions of Haml prior to 5.0 would alphabetically sort class names.</em></p>
 
 <h3 id="empty-void-tags-">Empty (void) Tags: <code>/</code></h3>
 
@@ -1546,9 +1575,9 @@ useful things. The helpers are all documented in the <span class='object_link'><
 </div></div>
 
       <div id="footer">
-  Generated on Tue Jun  2 09:24:07 2020 by
+  Generated on Wed Mar  9 00:15:22 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.25 (ruby-2.8.0).
+  0.9.27 (ruby-3.1.1).
 </div>
 
 

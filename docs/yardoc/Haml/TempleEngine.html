@@ -215,7 +215,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#precompiled_with_ambles-instance_method" title="#precompiled_with_ambles (instance method)">#<strong>precompiled_with_ambles</strong>(local_names, after_preamble: &#39;&#39;)  &#x21d2; String </a>
+      <a href="#precompiled_with_ambles-instance_method" title="#precompiled_with_ambles (instance method)">#<strong>precompiled_with_ambles</strong>(local_names, after_preamble: &#39;&#39;, before_postamble: &#39;&#39;)  &#x21d2; String </a>
     
 
     
@@ -423,7 +423,7 @@ alias_method :precompiled_method_return_value_without_haml_xss, :precompiled_met
       <div class="method_details ">
   <h3 class="signature " id="precompiled_with_ambles-instance_method">
   
-    #<strong>precompiled_with_ambles</strong>(local_names, after_preamble: &#39;&#39;)  &#x21d2; <tt>String</tt> 
+    #<strong>precompiled_with_ambles</strong>(local_names, after_preamble: &#39;&#39;, before_postamble: &#39;&#39;)  &#x21d2; <tt>String</tt> 
   
 
   
@@ -476,12 +476,13 @@ alias_method :precompiled_method_return_value_without_haml_xss, :precompiled_met
 80
 81
 82
-83</pre>
+83
+84</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/haml/temple_engine.rb', line 68</span>
 
-def precompiled_with_ambles(local_names, after_preamble: &#39;&#39;)
+def precompiled_with_ambles(local_names, after_preamble: &#39;&#39;, before_postamble: &#39;&#39;)
   preamble = &lt;&lt;END.tr(&quot;\n&quot;, &#39;;&#39;)
 begin
 extend Haml::Helpers
@@ -490,6 +491,7 @@ _erbout = _hamlout.buffer
 #{after_preamble}
 END
   postamble = &lt;&lt;END.tr(&quot;\n&quot;, &#39;;&#39;)
+#{before_postamble}
 #{precompiled_method_return_value}
 ensure
 @haml_buffer = @haml_buffer.upper if @haml_buffer
@@ -537,9 +539,9 @@ end</pre>
 </div>
 
       <div id="footer">
-  Generated on Tue Jun  2 09:24:11 2020 by
+  Generated on Wed Mar  9 00:15:22 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.25 (ruby-2.8.0).
+  0.9.27 (ruby-3.1.1).
 </div>
 
 

@@ -60,15 +60,23 @@
       <div id="content"><div id='filecontents'><h1 id="haml">Haml</h1>
 
 <p><a href="http://rubygems.org/gems/haml"><img src="https://badge.fury.io/rb/haml.svg" alt="Gem Version" /></a>
-<a href="http://travis-ci.org/haml/haml"><img src="https://travis-ci.org/haml/haml.svg?branch=master" alt="Build Status" /></a>
+<a href="http://travis-ci.org/haml/haml"><img src="https://travis-ci.org/haml/haml.svg?branch=main" alt="Build Status" /></a>
 <a href="https://codeclimate.com/github/haml/haml"><img src="https://codeclimate.com/github/haml/haml/badges/gpa.svg" alt="Code Climate" /></a>
-<a href="https://coveralls.io/r/haml/haml"><img src="http://img.shields.io/coveralls/haml/haml.svg" alt="Coverage Status" /></a>
 <a href="http://inch-ci.org/github/haml/haml"><img src="http://inch-ci.org/github/haml/haml.png" alt="Inline docs" /></a></p>
 
 <p>Haml is a templating engine for HTML. It’s designed to make it both easier and
 more pleasant to write HTML documents, by eliminating redundancy, reflecting the
 underlying structure that the document represents, and providing an elegant syntax
 that’s both powerful and easy to understand.</p>
+
+<h3 id="supported-versions">Supported Versions</h3>
+
+<ul>
+  <li>Ruby 2.6+</li>
+  <li>Rails 5.1+</li>
+</ul>
+
+<p>Other versions may likely work, but we don’t test against them.</p>
 
 <h2 id="basic-usage">Basic Usage</h2>
 
@@ -88,7 +96,7 @@ first step is to install the gem:</p>
 <pre class="code language-sh"><code class="language-sh">haml --help
 </code></pre>
 
-<p>To use Haml programatically, check out the <a href="http://haml.info/docs/yardoc/">YARD documentation</a>.</p>
+<p>To use Haml programmatically, check out the <a href="http://haml.info/docs/yardoc/">YARD documentation</a>.</p>
 
 <h2 id="using-haml-with-rails">Using Haml with Rails</h2>
 
@@ -207,37 +215,36 @@ on a specific area:</p>
 <pre class="code language-sh"><code class="language-sh">ruby -Itest test/helper_test.rb -n test_buffer_access
 </code></pre>
 
-<p>Haml currently supports Ruby 2.0.0 and higher, so please make sure your changes run on 2.0+.</p>
+<p>Haml currently supports Ruby 2.7.0 and higher, so please make sure your changes run on 2.7+.</p>
 
 <h2 id="team">Team</h2>
 
 <h3 id="current-maintainers">Current Maintainers</h3>
 
 <ul>
-  <li><a href="https://github.com/amatsuda">Akira Matsuda</a></li>
-  <li><a href="https://github.com/mattwildig">Matt Wildig</a></li>
-  <li><a href="https://github.com/teeparham">Tee Parham</a></li>
+  <li><a href="https://github.com/hcatlin">Hampton Catlin</a></li>
   <li><a href="https://github.com/k0kubun">Takashi Kokubun</a></li>
+  <li><a href="https://github.com/amatsuda">Akira Matsuda</a></li>
 </ul>
 
 <h3 id="alumni">Alumni</h3>
 
 <p>Haml was created by <a href="http://hamptoncatlin.com">Hampton Catlin</a>, the author of
-the original implementation. Hampton is no longer involved in day-to-day coding,
-but still consults on language issues.</p>
+the original implementation.</p>
 
-<p><a href="http://nex-3.com">Natalie Weizenbaum</a> was for many years the primary developer
+<p><a href="https://github.com/nex3">Natalie Weizenbaum</a> was for many years the primary developer
 and architect of the “modern” Ruby implementation of Haml.</p>
 
-<p><a href="http://github.com/norman">Norman Clarke</a> was the primary maintainer of Haml from 2012 to 2016.</p>
+<p>This project’s been around for many years, and we have many amazing people who kept the project 
+alive! as former maintainers like:</p>
+
+<p><a href="http://github.com/norman">Norman Clarke</a>
+<a href="https://github.com/mattwildig">Matt Wildig</a>
+<a href="https://github.com/teeparham">Tee Parham</a></p>
 
 <h2 id="license">License</h2>
 
-<p>Some of Natalie’s work on Haml was supported by Unspace Interactive.</p>
-
-<p>Beyond that, the implementation is licensed under the MIT License.</p>
-
-<p>Copyright (c) 2006-2019 Hampton Catlin, Natalie Weizenbaum and the Haml team</p>
+<p>Copyright (c) 2006-2021 Hampton Catlin, Natalie Weizenbaum and the Haml team</p>
 
 <p>Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the “Software”), to deal in
@@ -258,9 +265,9 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
 </div></div>
 
       <div id="footer">
-  Generated on Tue Jun  2 09:24:07 2020 by
+  Generated on Wed Mar  9 00:15:22 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.25 (ruby-2.8.0).
+  0.9.27 (ruby-3.1.1).
 </div>
 
 

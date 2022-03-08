@@ -225,6 +225,8 @@ disposal from within the template.</p>
     
 
     
+      (also: #escape_once_without_haml_xss)
+    
   </span>
   
   
@@ -385,6 +387,8 @@ disposal from within the template.</p>
       <a href="#html_escape-instance_method" title="#html_escape (instance method)">#<strong>html_escape</strong>(text)  &#x21d2; String </a>
     
 
+    
+      (also: #html_escape_without_haml_xss)
     
   </span>
   
@@ -802,12 +806,12 @@ end</pre>
       <pre class="lines">
 
 
-640
-641
-642</pre>
+646
+647
+648</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/helpers.rb', line 640</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/helpers.rb', line 646</span>
 
 def block_is_haml?(block)
   eval(&#39;!!defined?(_hamlout)&#39;, block.binding)
@@ -961,6 +965,10 @@ end</pre>
   
 
   
+    <span class="aliases">Also known as:
+    <span class="names"><span id='escape_once_without_haml_xss-instance_method'>escape_once_without_haml_xss</span></span>
+    </span>
+  
 
   
 </h3><div class="docstring">
@@ -1016,13 +1024,13 @@ that is already part of an escaped entity.</p>
       <pre class="lines">
 
 
-620
-621
-622
-623</pre>
+623
+624
+625
+626</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/helpers.rb', line 620</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/helpers.rb', line 623</span>
 
 def escape_once(text)
   text = text.to_s
@@ -1845,6 +1853,10 @@ end</pre>
   
 
   
+    <span class="aliases">Also known as:
+    <span class="names"><span id='html_escape_without_haml_xss-instance_method'>html_escape_without_haml_xss</span></span>
+    </span>
+  
 
   
 </h3><div class="docstring">
@@ -1912,7 +1924,7 @@ this won’t escape text declared as “safe”.</p>
       <pre class="code"><span class="info file"># File 'lib/haml/helpers.rb', line 609</span>
 
 def html_escape(text)
-  ERB::Util.html_escape(text)
+  CGI.escapeHTML(text.to_s)
 end</pre>
     </td>
   </tr>
@@ -2022,12 +2034,12 @@ where it will always return false.</p>
       <pre class="lines">
 
 
-632
-633
-634</pre>
+638
+639
+640</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/helpers.rb', line 632</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/helpers.rb', line 638</span>
 
 def is_haml?
   !@haml_buffer.nil? &amp;&amp; @haml_buffer.active?
@@ -2986,9 +2998,9 @@ end</pre>
 </div>
 
       <div id="footer">
-  Generated on Tue Jun  2 09:24:09 2020 by
+  Generated on Wed Mar  9 00:15:22 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.25 (ruby-2.8.0).
+  0.9.27 (ruby-3.1.1).
 </div>
 
 
