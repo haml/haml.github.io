@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
-  Class: Haml::TempleEngine
+  Class: Haml::Ambles
   
     &mdash; Haml Documentation
   
@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="../css/common.css" type="text/css" />
 
 <script type="text/javascript">
-  pathId = "Haml::TempleEngine";
+  pathId = "Haml::Ambles";
   relpath = '../';
 </script>
 
@@ -36,10 +36,10 @@
       <div id="header">
         <div id="menu">
   
-    <a href="../_index.html">Index (T)</a> &raquo;
+    <a href="../_index.html">Index (A)</a> &raquo;
     <span class='title'><span class='object_link'><a href="../Haml.html" title="Haml (module)">Haml</a></span></span>
      &raquo; 
-    <span class="title">TempleEngine</span>
+    <span class="title">Ambles</span>
   
 </div>
 
@@ -59,7 +59,7 @@
         <div class="clear"></div>
       </div>
 
-      <div id="content"><h1>Class: Haml::TempleEngine
+      <div id="content"><h1>Class: Haml::Ambles
   
   
   
@@ -69,16 +69,14 @@
   <dl>
     <dt>Inherits:</dt>
     <dd>
-      <span class="inheritName"><span class='object_link'><a href="Engine.html" title="Haml::Engine (class)">Engine</a></span></span>
+      <span class="inheritName">Temple::Filter</span>
       
         <ul class="fullTree">
           <li>Object</li>
           
-            <li class="next">Temple::Engine</li>
+            <li class="next">Temple::Filter</li>
           
-            <li class="next"><span class='object_link'><a href="Engine.html" title="Haml::Engine (class)">Engine</a></span></li>
-          
-            <li class="next">Haml::TempleEngine</li>
+            <li class="next">Haml::Ambles</li>
           
         </ul>
         <a href="#" class="inheritanceTree">show all</a>
@@ -98,23 +96,12 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/haml/engine.rb</dd>
+    <dd>lib/haml/ambles.rb</dd>
   </dl>
   
 </div>
 
-<h2>Overview</h2><div class="docstring">
-  <div class="discussion">
-    <p>For backward compatibility of Tilt integration. TODO: We should deprecate this
-and let Tilt have a native support of Haml 6. At least it generates warnings now.</p>
 
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div>
 
 
 
@@ -132,7 +119,7 @@ and let Tilt have a native support of Haml 6. At least it generates warnings now
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#compile-instance_method" title="#compile (instance method)">#<strong>compile</strong>(template)  </a>
+      <a href="#call-instance_method" title="#call (instance method)">#<strong>call</strong>(ast)  </a>
     
 
     
@@ -155,13 +142,15 @@ and let Tilt have a native support of Haml 6. At least it generates warnings now
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#precompiled_with_ambles-instance_method" title="#precompiled_with_ambles (instance method)">#<strong>precompiled_with_ambles</strong>(_local_names, after_preamble:)  </a>
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>  &#x21d2; Ambles </a>
     
 
     
   </span>
   
   
+    <span class="note title constructor">constructor</span>
+  
   
   
   
@@ -169,7 +158,7 @@ and let Tilt have a native support of Haml 6. At least it generates warnings now
   
 
   
-    <span class="summary_desc"><div class='inline'>
+    <span class="summary_desc"><div class='inline'><p>A new instance of Ambles.</p>
 </div></span>
   
 </li>
@@ -179,52 +168,64 @@ and let Tilt have a native support of Haml 6. At least it generates warnings now
   
 
 
+  <div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
   
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
   
+    #<strong>initialize</strong>  &#x21d2; <tt><span class='object_link'><a href="" title="Haml::Ambles (class)">Ambles</a></span></tt> 
   
+
   
+
   
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns a new instance of Ambles.</p>
+
+
+  </div>
+</div>
+<div class="tags">
   
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+6
+7
+8
+9
+10</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/haml/ambles.rb', line 6</span>
+
+def initialize(*)
+  super
+  @preamble = options[:preamble]
+  @postamble = options[:postamble]
+end</pre>
+    </td>
+  </tr>
+</table>
+</div>
   
+</div>
+
 
   <div id="instance_method_details" class="method_details_list">
     <h2>Instance Method Details</h2>
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="compile-instance_method">
+  <h3 class="signature first" id="call-instance_method">
   
-    #<strong>compile</strong>(template)  
-  
-
-  
-
-  
-</h3><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-45
-46
-47</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/engine.rb', line 45</span>
-
-def compile(template)
-  @precompiled = call(template)
-end</pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="precompiled_with_ambles-instance_method">
-  
-    #<strong>precompiled_with_ambles</strong>(_local_names, after_preamble:)  
+    #<strong>call</strong>(ast)  
   
 
   
@@ -236,15 +237,23 @@ end</pre>
       <pre class="lines">
 
 
-49
-50
-51</pre>
+12
+13
+14
+15
+16
+17
+18</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/engine.rb', line 49</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/ambles.rb', line 12</span>
 
-def precompiled_with_ambles(_local_names, after_preamble:)
-  &quot;#{after_preamble.tr(&quot;\n&quot;, &#39;;&#39;)}#{@precompiled}&quot;.dup
+def call(ast)
+  ret = [:multi]
+  ret &lt;&lt; [:static, @preamble] if @preamble
+  ret &lt;&lt; ast
+  ret &lt;&lt; [:static, @postamble] if @postamble
+  ret
 end</pre>
     </td>
   </tr>

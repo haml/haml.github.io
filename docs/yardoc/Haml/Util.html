@@ -81,7 +81,7 @@
   
   <dl>
     <dt>Included in:</dt>
-    <dd><span class='object_link'><a href="Buffer.html" title="Haml::Buffer (class)">Buffer</a></span>, <span class='object_link'><a href="Compiler.html" title="Haml::Compiler (class)">Compiler</a></span>, <span class='object_link'><a href="Engine.html" title="Haml::Engine (class)">Engine</a></span>, <span class='object_link'><a href="Parser.html" title="Haml::Parser (class)">Parser</a></span>, <span class='object_link'><a href="" title="Haml::Util (module)">Util</a></span></dd>
+    <dd><span class='object_link'><a href="Parser.html" title="Haml::Parser (class)">Parser</a></span>, <span class='object_link'><a href="" title="Haml::Util (module)">Util</a></span></dd>
   </dl>
   
 
@@ -89,7 +89,7 @@
   <dl>
     <dt>Defined in:</dt>
     <dd>lib/haml/util.rb<span class="defines">,<br />
-  lib/haml/template.rb</span>
+  ext/haml/haml.c</span>
 </dd>
   </dl>
   
@@ -112,6 +112,61 @@
 
 
 
+  
+    <h2>
+      Class Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#escape_html-class_method" title="escape_html (class method)">.<strong>escape_html</strong>(html)  </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#escape_html_safe-class_method" title="escape_html_safe (class method)">.<strong>escape_html_safe</strong>(html)  </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>TODO: Remove unescape_interpolation’s workaround and get rid of <code>respond_to?</code>.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
   
     <h2>
       Instance Method Summary
@@ -238,29 +293,6 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#html_safe-instance_method" title="#html_safe (instance method)">#<strong>html_safe</strong>(text)  &#x21d2; String<sup>?</sup> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>Returns the given text, marked as being HTML-safe.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
       <a href="#human_indentation-instance_method" title="#human_indentation (instance method)">#<strong>human_indentation</strong>(indentation)  &#x21d2; String </a>
     
 
@@ -377,6 +409,82 @@
   
 
 
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="escape_html-class_method">
+  
+    .<strong>escape_html</strong>(html)  
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+80
+81
+82</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'ext/haml/haml.c', line 80</span>
+
+def self.escape_html(html)
+  CGI.escapeHTML(html.to_s)
+end</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="escape_html_safe-class_method">
+  
+    .<strong>escape_html_safe</strong>(html)  
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>TODO: Remove unescape_interpolation’s workaround and get rid of <code>respond_to?</code>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+30
+31
+32</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/haml/util.rb', line 30</span>
+
+def self.escape_html_safe(html)
+  (html.respond_to?(:html_safe?) &amp;&amp; html.html_safe?) ? html : escape_html(html)
+end</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
 
   <div id="instance_method_details" class="method_details_list">
     <h2>Instance Method Details</h2>
@@ -499,9 +607,6 @@ and the rest of the string.
       <pre class="lines">
 
 
-168
-169
-170
 171
 172
 173
@@ -509,10 +614,13 @@ and the rest of the string.
 175
 176
 177
-178</pre>
+178
+179
+180
+181</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/util.rb', line 168</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/util.rb', line 171</span>
 
 def balance(scanner, start, finish, count = 0)
   str = &#39;&#39;.dup
@@ -631,9 +739,6 @@ Only yields if there is an encoding error</p>
       <pre class="lines">
 
 
-62
-63
-64
 65
 66
 67
@@ -656,10 +761,13 @@ Only yields if there is an encoding error</p>
 84
 85
 86
-87</pre>
+87
+88
+89
+90</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/util.rb', line 62</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/util.rb', line 65</span>
 
 def check_encoding(str)
   if str.valid_encoding?
@@ -819,19 +927,19 @@ Only yields if there is an encoding error</p>
       <pre class="lines">
 
 
-109
-110
-111
 112
 113
 114
 115
 116
 117
-118</pre>
+118
+119
+120
+121</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/util.rb', line 109</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/util.rb', line 112</span>
 
 def check_haml_encoding(str, &amp;block)
   str = str.dup if str.frozen?
@@ -886,12 +994,12 @@ end</pre>
       <pre class="lines">
 
 
-197
-198
-199</pre>
+200
+201
+202</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/util.rb', line 197</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/util.rb', line 200</span>
 
 def contains_interpolation?(str)
   /#[\{$@]/ === str
@@ -968,98 +1076,19 @@ and the text prior to that as the first (<code>scan[1]</code>).</p>
       <pre class="lines">
 
 
-147
-148
-149
 150
-151</pre>
+151
+152
+153
+154</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/util.rb', line 147</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/util.rb', line 150</span>
 
 def handle_interpolation(str)
   scan = StringScanner.new(str)
   yield scan while scan.scan(/(.*?)(\\*)#([\{@$])/)
   scan.rest
-end</pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="html_safe-instance_method">
-  
-    #<strong>html_safe</strong>(text)  &#x21d2; <tt>String</tt><sup>?</sup> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <p>Returns the given text, marked as being HTML-safe.
-With older versions of the Rails XSS-safety mechanism,
-this destructively modifies the HTML-safety of <code>text</code>.</p>
-
-<p>It only works if you are using ActiveSupport or the parameter <code>text</code>
-implements the #html_safe method.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>text</span>
-      
-      
-        <span class='type'>(<tt>String</tt>, <tt>nil</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>String</tt>, <tt>nil</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><p><code>text</code>, marked as HTML-safe</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-47
-48
-49
-50</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/util.rb', line 47</span>
-
-def html_safe(text)
-  return unless text
-  text.html_safe
 end</pre>
     </td>
   </tr>
@@ -1127,9 +1156,6 @@ end</pre>
       <pre class="lines">
 
 
-184
-185
-186
 187
 188
 189
@@ -1138,10 +1164,13 @@ end</pre>
 192
 193
 194
-195</pre>
+195
+196
+197
+198</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/util.rb', line 184</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/util.rb', line 187</span>
 
 def human_indentation(indentation)
   if !indentation.include?(?\t)
@@ -1187,7 +1216,7 @@ before being evaluated.</p>
         <span class='name'>obj</span>
       
       
-        <span class='type'>(<tt><span class='object_link'>Object</span></tt>)</span>
+        <span class='type'>(<tt>Object</tt>)</span>
       
       
       
@@ -1215,19 +1244,19 @@ before being evaluated.</p>
       <pre class="lines">
 
 
-126
-127
-128
 129
 130
 131
 132
 133
 134
-135</pre>
+135
+136
+137
+138</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/util.rb', line 126</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/util.rb', line 129</span>
 
 def inspect_obj(obj)
   case obj
@@ -1284,12 +1313,12 @@ Overridden in haml/template.rb if this is the case.</p>
       <pre class="lines">
 
 
-34
-35
-36</pre>
+51
+52
+53</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/util.rb', line 34</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/util.rb', line 51</span>
 
 def rails_xss_safe?
   false
@@ -1341,15 +1370,15 @@ end</pre>
       <pre class="lines">
 
 
-20
-21
-22
-23
-24
-25</pre>
+37
+38
+39
+40
+41
+42</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/util.rb', line 20</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/util.rb', line 37</span>
 
 def silence_warnings
   the_real_stderr, $stderr = $stderr, StringIO.new
@@ -1377,9 +1406,6 @@ end</pre>
       <pre class="lines">
 
 
-201
-202
-203
 204
 205
 206
@@ -1399,10 +1425,13 @@ end</pre>
 220
 221
 222
-223</pre>
+223
+224
+225
+226</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/util.rb', line 201</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/util.rb', line 204</span>
 
 def unescape_interpolation(str, escape_html = nil)
   res = &#39;&#39;.dup
@@ -1420,7 +1449,7 @@ def unescape_interpolation(str, escape_html = nil)
       end
       content = eval(&quot;\&quot;#{interpolated}\&quot;&quot;)
       content = &quot;#{char}#{content}&quot; if char == &#39;@&#39; || char == &#39;$&#39;
-      content = &quot;Haml::Helpers.html_escape((#{content}))&quot; if escape_html
+      content = &quot;Haml::Util.escape_html_safe((#{content}).to_s)&quot; if escape_html
 
       res &lt;&lt; &quot;\#{#{content}}&quot;
     end
@@ -1437,22 +1466,10 @@ end</pre>
 </div>
 
       <div id="footer">
-  Generated on Sun Sep 25 13:51:42 2022 by
+  Generated on Sun Sep 25 15:48:43 2022 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-3.2.0).
 </div>
-
-
-  <script type="text/javascript">
-  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-  </script>
-  <script type="text/javascript">
-  try {
-  var pageTracker = _gat._getTracker("UA-3592613-6");
-  pageTracker._trackPageview();
-  } catch(err) {}</script>
-
 
     </div>
   </body>

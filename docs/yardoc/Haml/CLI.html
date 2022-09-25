@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
-  Class: Haml::Generator
+  Class: Haml::CLI
   
     &mdash; Haml Documentation
   
@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="../css/common.css" type="text/css" />
 
 <script type="text/javascript">
-  pathId = "Haml::Generator";
+  pathId = "Haml::CLI";
   relpath = '../';
 </script>
 
@@ -36,10 +36,10 @@
       <div id="header">
         <div id="menu">
   
-    <a href="../_index.html">Index (G)</a> &raquo;
+    <a href="../_index.html">Index (C)</a> &raquo;
     <span class='title'><span class='object_link'><a href="../Haml.html" title="Haml (module)">Haml</a></span></span>
      &raquo; 
-    <span class="title">Generator</span>
+    <span class="title">CLI</span>
   
 </div>
 
@@ -59,7 +59,7 @@
         <div class="clear"></div>
       </div>
 
-      <div id="content"><h1>Class: Haml::Generator
+      <div id="content"><h1>Class: Haml::CLI
   
   
   
@@ -69,12 +69,14 @@
   <dl>
     <dt>Inherits:</dt>
     <dd>
-      <span class="inheritName"><span class='object_link'>Object</span></span>
+      <span class="inheritName">Thor</span>
       
         <ul class="fullTree">
-          <li><span class='object_link'>Object</span></li>
+          <li>Object</li>
           
-            <li class="next">Haml::Generator</li>
+            <li class="next">Thor</li>
+          
+            <li class="next">Haml::CLI</li>
           
         </ul>
         <a href="#" class="inheritanceTree">show all</a>
@@ -87,11 +89,6 @@
   
   
   
-  <dl>
-      <dt>Includes:</dt>
-      <dd>Temple::Mixins::CompiledDispatcher, Temple::Mixins::Options</dd>
-  </dl>
-  
   
 
   
@@ -99,23 +96,12 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/haml/generator.rb</dd>
+    <dd>lib/haml/cli.rb</dd>
   </dl>
   
 </div>
 
-<h2>Overview</h2><div class="docstring">
-  <div class="discussion">
-    <p>Ruby code generator, which is a limited version of Temple::Generator.
-Limit methods since Haml doesn’t need most of them.</p>
 
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div>
 
 
 
@@ -133,7 +119,7 @@ Limit methods since Haml doesn’t need most of them.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#call-instance_method" title="#call (instance method)">#<strong>call</strong>(exp)  </a>
+      <a href="#compile-instance_method" title="#compile (instance method)">#<strong>compile</strong>(file)  </a>
     
 
     
@@ -156,7 +142,7 @@ Limit methods since Haml doesn’t need most of them.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#on_code-instance_method" title="#on_code (instance method)">#<strong>on_code</strong>(exp)  </a>
+      <a href="#parse-instance_method" title="#parse (instance method)">#<strong>parse</strong>(file)  </a>
     
 
     
@@ -179,7 +165,7 @@ Limit methods since Haml doesn’t need most of them.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#on_dynamic-instance_method" title="#on_dynamic (instance method)">#<strong>on_dynamic</strong>(code)  </a>
+      <a href="#render-instance_method" title="#render (instance method)">#<strong>render</strong>(file)  </a>
     
 
     
@@ -202,7 +188,7 @@ Limit methods since Haml doesn’t need most of them.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#on_multi-instance_method" title="#on_multi (instance method)">#<strong>on_multi</strong>(*exp)  </a>
+      <a href="#temple-instance_method" title="#temple (instance method)">#<strong>temple</strong>(file)  </a>
     
 
     
@@ -225,30 +211,7 @@ Limit methods since Haml doesn’t need most of them.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#on_newline-instance_method" title="#on_newline (instance method)">#<strong>on_newline</strong>  </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#on_static-instance_method" title="#on_static (instance method)">#<strong>on_static</strong>(text)  </a>
+      <a href="#version-instance_method" title="#version (instance method)">#<strong>version</strong>  </a>
     
 
     
@@ -272,47 +235,66 @@ Limit methods since Haml doesn’t need most of them.</p>
   
 
 
+  <div id="method_missing_details" class="method_details_list">
+  <h2>Dynamic Method Handling</h2>
+  <p class="notice this">
+    This class handles dynamic methods through the <tt>method_missing</tt> method
+    
+  </p>
   
+    <div class="method_details first">
+  <h3 class="signature first" id="method_missing-instance_method">
   
+    #<strong>method_missing</strong>(*args)   <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Flexible default_task, compatible with haml’s CLI</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+113
+114
+115
+116</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/haml/cli.rb', line 113</span>
+
+def method_missing(*args)
+  return super(*args) if args.length &gt; 1
+  render(args.first.to_s)
+end</pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
 
   <div id="instance_method_details" class="method_details_list">
     <h2>Instance Method Details</h2>
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="call-instance_method">
+  <h3 class="signature first" id="compile-instance_method">
   
-    #<strong>call</strong>(exp)  
-  
-
-  
-
-  
-</h3><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-12
-13
-14</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/generator.rb', line 12</span>
-
-def call(exp)
-  compile(exp)
-end</pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="on_code-instance_method">
-  
-    #<strong>on_code</strong>(exp)  
+    #<strong>compile</strong>(file)  
   
 
   
@@ -324,105 +306,31 @@ end</pre>
       <pre class="lines">
 
 
-28
-29
-30</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/generator.rb', line 28</span>
-
-def on_code(exp)
-  exp
-end</pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="on_dynamic-instance_method">
-  
-    #<strong>on_dynamic</strong>(code)  
-  
-
-  
-
-  
-</h3><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
+23
 24
 25
-26</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/generator.rb', line 24</span>
-
-def on_dynamic(code)
-  concat(code)
-end</pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="on_multi-instance_method">
-  
-    #<strong>on_multi</strong>(*exp)  
-  
-
-  
-
-  
-</h3><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-16
-17
-18</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/generator.rb', line 16</span>
-
-def on_multi(*exp)
-  exp.map { |e| compile(e) }.join(&#39;; &#39;)
-end</pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="on_newline-instance_method">
-  
-    #<strong>on_newline</strong>  
-  
-
-  
-
-  
-</h3><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
+26
+27
+28
+29
+30
+31
 32
-33
-34</pre>
+33</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/generator.rb', line 32</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/cli.rb', line 23</span>
 
-def on_newline
-  &quot;\n&quot;
+def compile(file)
+  code = generate_code(file)
+  if options[:check]
+    if error = validate_ruby(code, file)
+      abort error.message.split(&quot;\n&quot;).first
+    end
+    puts &quot;Syntax OK&quot;
+    return
+  end
+  puts_code(code, color: options[:color])
 end</pre>
     </td>
   </tr>
@@ -430,9 +338,9 @@ end</pre>
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="on_static-instance_method">
+  <h3 class="signature " id="parse-instance_method">
   
-    #<strong>on_static</strong>(text)  
+    #<strong>parse</strong>(file)  
   
 
   
@@ -444,15 +352,109 @@ end</pre>
       <pre class="lines">
 
 
-20
-21
-22</pre>
+43
+44
+45</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/generator.rb', line 20</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/cli.rb', line 43</span>
 
-def on_static(text)
-  concat(options[:freeze_static] ? &quot;#{Util.inspect_obj(text)}.freeze&quot; : Util.inspect_obj(text))
+def parse(file)
+  pp_object(generate_ast(file), color: options[:color])
+end</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="render-instance_method">
+  
+    #<strong>render</strong>(file)  
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+13
+14
+15
+16
+17</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/haml/cli.rb', line 13</span>
+
+def render(file)
+  process_load_options
+  code = generate_code(file)
+  puts eval(code, binding, file)
+end</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="temple-instance_method">
+  
+    #<strong>temple</strong>(file)  
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+37
+38
+39</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/haml/cli.rb', line 37</span>
+
+def temple(file)
+  pp_object(generate_temple(file), color: options[:color])
+end</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="version-instance_method">
+  
+    #<strong>version</strong>  
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+48
+49
+50</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/haml/cli.rb', line 48</span>
+
+def version
+  puts Haml::VERSION
 end</pre>
     </td>
   </tr>
@@ -464,22 +466,10 @@ end</pre>
 </div>
 
       <div id="footer">
-  Generated on Sun Sep 25 13:51:43 2022 by
+  Generated on Sun Sep 25 15:48:43 2022 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-3.2.0).
 </div>
-
-
-  <script type="text/javascript">
-  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-  </script>
-  <script type="text/javascript">
-  try {
-  var pageTracker = _gat._getTracker("UA-3592613-6");
-  pageTracker._trackPageview();
-  } catch(err) {}</script>
-
 
     </div>
   </body>

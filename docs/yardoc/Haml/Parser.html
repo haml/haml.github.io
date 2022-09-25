@@ -69,10 +69,10 @@
   <dl>
     <dt>Inherits:</dt>
     <dd>
-      <span class="inheritName"><span class='object_link'>Object</span></span>
+      <span class="inheritName">Object</span>
       
         <ul class="fullTree">
-          <li><span class='object_link'>Object</span></li>
+          <li>Object</li>
           
             <li class="next">Haml::Parser</li>
           
@@ -110,7 +110,7 @@
     
   
     
-      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Parser/DynamicAttributes.html" title="Haml::Parser::DynamicAttributes (class)">DynamicAttributes</a></span>
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Parser/AttributeMerger_3DObject.new.html" title="Haml::Parser::AttributeMerger=Object.new (class)">AttributeMerger=Object.new</a></span>, <span class='object_link'><a href="Parser/DynamicAttributes.html" title="Haml::Parser::DynamicAttributes (class)">DynamicAttributes</a></span>
     
   
 </p>
@@ -246,7 +246,7 @@
   
   
   <h3 class="inherited">Methods included from <span class='object_link'><a href="Util.html" title="Haml::Util (module)">Util</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="Util.html#check_encoding-instance_method" title="Haml::Util#check_encoding (method)">#check_encoding</a></span>, <span class='object_link'><a href="Util.html#check_haml_encoding-instance_method" title="Haml::Util#check_haml_encoding (method)">#check_haml_encoding</a></span>, <span class='object_link'><a href="Util.html#contains_interpolation%3F-instance_method" title="Haml::Util#contains_interpolation? (method)">#contains_interpolation?</a></span>, <span class='object_link'><a href="Util.html#handle_interpolation-instance_method" title="Haml::Util#handle_interpolation (method)">#handle_interpolation</a></span>, <span class='object_link'><a href="Util.html#html_safe-instance_method" title="Haml::Util#html_safe (method)">#html_safe</a></span>, <span class='object_link'><a href="Util.html#human_indentation-instance_method" title="Haml::Util#human_indentation (method)">#human_indentation</a></span>, <span class='object_link'><a href="Util.html#inspect_obj-instance_method" title="Haml::Util#inspect_obj (method)">#inspect_obj</a></span>, <span class='object_link'><a href="Util.html#rails_xss_safe%3F-instance_method" title="Haml::Util#rails_xss_safe? (method)">#rails_xss_safe?</a></span>, <span class='object_link'><a href="Util.html#silence_warnings-instance_method" title="Haml::Util#silence_warnings (method)">#silence_warnings</a></span>, <span class='object_link'><a href="Util.html#unescape_interpolation-instance_method" title="Haml::Util#unescape_interpolation (method)">#unescape_interpolation</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="Util.html#check_encoding-instance_method" title="Haml::Util#check_encoding (method)">#check_encoding</a></span>, <span class='object_link'><a href="Util.html#check_haml_encoding-instance_method" title="Haml::Util#check_haml_encoding (method)">#check_haml_encoding</a></span>, <span class='object_link'><a href="Util.html#contains_interpolation%3F-instance_method" title="Haml::Util#contains_interpolation? (method)">#contains_interpolation?</a></span>, <span class='object_link'><a href="Util.html#escape_html-class_method" title="Haml::Util.escape_html (method)">escape_html</a></span>, <span class='object_link'><a href="Util.html#escape_html_safe-class_method" title="Haml::Util.escape_html_safe (method)">escape_html_safe</a></span>, <span class='object_link'><a href="Util.html#handle_interpolation-instance_method" title="Haml::Util#handle_interpolation (method)">#handle_interpolation</a></span>, <span class='object_link'><a href="Util.html#human_indentation-instance_method" title="Haml::Util#human_indentation (method)">#human_indentation</a></span>, <span class='object_link'><a href="Util.html#inspect_obj-instance_method" title="Haml::Util#inspect_obj (method)">#inspect_obj</a></span>, <span class='object_link'><a href="Util.html#rails_xss_safe%3F-instance_method" title="Haml::Util#rails_xss_safe? (method)">#rails_xss_safe?</a></span>, <span class='object_link'><a href="Util.html#silence_warnings-instance_method" title="Haml::Util#silence_warnings (method)">#silence_warnings</a></span>, <span class='object_link'><a href="Util.html#unescape_interpolation-instance_method" title="Haml::Util#unescape_interpolation (method)">#unescape_interpolation</a></span></p>
 <div id="constructor_details" class="method_details_list">
   <h2>Constructor Details</h2>
   
@@ -275,25 +275,33 @@
       <pre class="lines">
 
 
-97
-98
 99
 100
 101
 102
 103
-104</pre>
+104
+105
+106
+107
+108
+109
+110</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/parser.rb', line 97</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/parser.rb', line 99</span>
 
 def initialize(options)
-  @options = Options.wrap(options)
+  @options = ParserOptions.new(options)
   # Record the indent levels of &quot;if&quot; statements to validate the subsequent
   # elsif and else statements are indented at the appropriate level.
   @script_level_stack = []
   @template_index     = 0
   @template_tabs      = 0
+  # When used in Haml::Engine, which gives options[:generator] to every filter
+  # in the engine, including Haml::Parser, we don&#39;t want to throw exceptions.
+  # However, when Haml::Parser is used as a library, we want to throw exceptions.
+  @raise_error = !options.key?(:generator)
 end</pre>
     </td>
   </tr>
@@ -332,12 +340,12 @@ end</pre>
       <pre class="lines">
 
 
-10
-11
-12</pre>
+12
+13
+14</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/parser.rb', line 10</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/parser.rb', line 12</span>
 
 def root
   @root
@@ -369,12 +377,6 @@ end</pre>
       <pre class="lines">
 
 
-106
-107
-108
-109
-110
-111
 112
 113
 114
@@ -419,12 +421,27 @@ end</pre>
 153
 154
 155
-156</pre>
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/parser.rb', line 106</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/parser.rb', line 112</span>
 
 def call(template)
+  template = Haml::Util.check_haml_encoding(template) do |msg, line|
+    raise Haml::Error.new(msg, line)
+  end
+
   match = template.rstrip.scan(/(([ \t]+)?(.*?))(?:\Z|\r\n|\r|\n)/m)
   # discard the last match which is always blank
   match.pop
@@ -473,7 +490,8 @@ def call(template)
   @root
 rescue Haml::Error =&gt; e
   e.backtrace.unshift &quot;#{@options.filename}:#{(e.line ? e.line + 1 : @line.index + 1) + @options.line - 1}&quot;
-  raise
+  raise if @raise_error
+  error_with_lineno(e)
 end</pre>
     </td>
   </tr>
@@ -518,17 +536,6 @@ end</pre>
       <pre class="lines">
 
 
-158
-159
-160
-161
-162
-163
-164
-165
-166
-167
-168
 169
 170
 171
@@ -541,10 +548,21 @@ end</pre>
 178
 179
 180
-181</pre>
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/parser.rb', line 158</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/parser.rb', line 169</span>
 
 def compute_tabs(line)
   return 0 if line.text.empty? || !line.whitespace
@@ -580,22 +598,10 @@ end</pre>
 </div>
 
       <div id="footer">
-  Generated on Sun Sep 25 13:51:42 2022 by
+  Generated on Sun Sep 25 15:48:43 2022 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-3.2.0).
 </div>
-
-
-  <script type="text/javascript">
-  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-  </script>
-  <script type="text/javascript">
-  try {
-  var pageTracker = _gat._getTracker("UA-3592613-6");
-  pageTracker._trackPageview();
-  } catch(err) {}</script>
-
 
     </div>
   </body>

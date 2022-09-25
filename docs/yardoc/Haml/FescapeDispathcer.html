@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
-  Module: Haml::Exec
+  Module: Haml::FescapeDispathcer
   
     &mdash; Haml Documentation
   
@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="../css/common.css" type="text/css" />
 
 <script type="text/javascript">
-  pathId = "Haml::Exec";
+  pathId = "Haml::FescapeDispathcer";
   relpath = '../';
 </script>
 
@@ -36,10 +36,10 @@
       <div id="header">
         <div id="menu">
   
-    <a href="../_index.html">Index (E)</a> &raquo;
+    <a href="../_index.html">Index (F)</a> &raquo;
     <span class='title'><span class='object_link'><a href="../Haml.html" title="Haml (module)">Haml</a></span></span>
      &raquo; 
-    <span class="title">Exec</span>
+    <span class="title">FescapeDispathcer</span>
   
 </div>
 
@@ -59,7 +59,7 @@
         <div class="clear"></div>
       </div>
 
-      <div id="content"><h1>Module: Haml::Exec
+      <div id="content"><h1>Module: Haml::FescapeDispathcer
   
   
   
@@ -78,14 +78,14 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/haml/exec.rb</dd>
+    <dd>lib/haml/force_escapable.rb</dd>
   </dl>
   
 </div>
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>This module handles the various Haml executables (<code>haml</code> and <code>haml-convert</code>).</p>
+    <p>This module allows Temple::Filter to dispatch :fescape on <code>#compile</code>.</p>
 
 
   </div>
@@ -93,44 +93,92 @@
 <div class="tags">
   
 
-</div><h2>Defined Under Namespace</h2>
-<p class="children">
+</div>
+
+
+
+
+
+
   
+    <h2>
+      Instance Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
     
+      <a href="#on_fescape-instance_method" title="#on_fescape (instance method)">#<strong>on_fescape</strong>(flag, exp)  </a>
+    
+
+    
+  </span>
   
-    
-      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Exec/Generic.html" title="Haml::Exec::Generic (class)">Generic</a></span>, <span class='object_link'><a href="Exec/Haml.html" title="Haml::Exec::Haml (class)">Haml</a></span>
-    
   
-</p>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
 
 
 
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="on_fescape-instance_method">
+  
+    #<strong>on_fescape</strong>(flag, exp)  
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
 
 
+7
+8
+9</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/haml/force_escapable.rb', line 7</span>
 
-
-
+def on_fescape(flag, exp)
+  [:fescape, flag, compile(exp)]
+end</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
 
 </div>
 
       <div id="footer">
-  Generated on Sun Sep 25 13:51:42 2022 by
+  Generated on Sun Sep 25 15:48:43 2022 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-3.2.0).
 </div>
-
-
-  <script type="text/javascript">
-  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-  </script>
-  <script type="text/javascript">
-  try {
-  var pageTracker = _gat._getTracker("UA-3592613-6");
-  pageTracker._trackPageview();
-  } catch(err) {}</script>
-
 
     </div>
   </body>

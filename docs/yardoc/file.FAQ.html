@@ -100,11 +100,11 @@ the contents of whitespace-sensitive tags like <code>pre</code> and <code>textar
 can get screwed up.
 The solution is to replace the newlines inside these tags
 with HTML newline entities (<code>&amp;#x000A;</code>),
-which Haml does using the <span class='object_link'><a href="Haml/Helpers.html#preserve-instance_method" title="Haml::Helpers#preserve (method)">Haml::Helpers#preserve</a></span> and <span class='object_link'><a href="Haml/Helpers.html#find_and_preserve-instance_method" title="Haml::Helpers#find_and_preserve (method)">Haml::Helpers#find_and_preserve</a></span> helpers.</p>
+which Haml does using the <span class='object_link'><a href="Haml/Helpers.html#preserve-instance_method" title="Haml::Helpers#preserve (method)">Haml::Helpers#preserve</a></span> and Haml::Helpers#find_and_preserve helpers.</p>
 
 <p>Normally, Haml will do this for you automatically
 when you’re using a tag that needs it
-(this can be customized using the <span class='object_link'><a href="Haml/Options.html#preserve-instance_method" title="Haml::Options#preserve (method)"><code>:preserve</code></a></span> option).
+(this can be customized using the <code>:preserve</code> option).
 For example,</p>
 
 <pre class="code ruby"><code class="ruby">%p
@@ -120,7 +120,7 @@ Foo&amp;#x000A;Bar&lt;/textarea&gt;
 </code></pre>
 
 <p>However, if a helper is generating the tag,
-Haml can’t detect that and so you’ll have to call <span class='object_link'><a href="Haml/Helpers.html#find_and_preserve-instance_method" title="Haml::Helpers#find_and_preserve (method)">Haml::Helpers#find_and_preserve</a></span> yourself.
+Haml can’t detect that and so you’ll have to call Haml::Helpers#find_and_preserve yourself.
 You can also use <code>~</code>, which is the same as <code>=</code>
 except that it automatically runs <code>find_and_preserve</code> on its input.
 For example:</p>
@@ -222,22 +222,10 @@ or send an email to the <a href="http://groups.google.com/group/haml">mailing li
 </div></div>
 
       <div id="footer">
-  Generated on Sun Sep 25 13:51:42 2022 by
+  Generated on Sun Sep 25 15:48:42 2022 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-3.2.0).
 </div>
-
-
-  <script type="text/javascript">
-  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-  </script>
-  <script type="text/javascript">
-  try {
-  var pageTracker = _gat._getTracker("UA-3592613-6");
-  pageTracker._trackPageview();
-  } catch(err) {}</script>
-
 
     </div>
   </body>

@@ -72,7 +72,7 @@
       <span class="inheritName">StandardError</span>
       
         <ul class="fullTree">
-          <li><span class='object_link'>Object</span></li>
+          <li>Object</li>
           
             <li class="next">StandardError</li>
           
@@ -101,19 +101,9 @@
   
 </div>
 
-<h2>Overview</h2><div class="docstring">
-  <div class="discussion">
-    <p>An exception raised by Haml code.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><div id="subclasses">
+<div id="subclasses">
   <h2>Direct Known Subclasses</h2>
-  <p class="children"><span class='object_link'><a href="SyntaxError.html" title="Haml::SyntaxError (class)">SyntaxError</a></span></p>
+  <p class="children"><span class='object_link'><a href="FilterNotFound.html" title="Haml::FilterNotFound (class)">FilterNotFound</a></span>, <span class='object_link'><a href="InternalError.html" title="Haml::InternalError (class)">InternalError</a></span>, <span class='object_link'><a href="SyntaxError.html" title="Haml::SyntaxError (class)">SyntaxError</a></span></p>
 </div>
 
 
@@ -290,13 +280,13 @@
       <pre class="lines">
 
 
-52
-53
-54
-55</pre>
+49
+50
+51
+52</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/error.rb', line 52</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/error.rb', line 49</span>
 
 def initialize(message = nil, line = nil)
   super(message)
@@ -352,12 +342,12 @@ end</pre>
       <pre class="lines">
 
 
-48
-49
-50</pre>
+45
+46
+47</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/error.rb', line 48</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/error.rb', line 45</span>
 
 def line
   @line
@@ -389,13 +379,13 @@ end</pre>
       <pre class="lines">
 
 
-40
-41
-42
-43</pre>
+37
+38
+39
+40</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/error.rb', line 40</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/error.rb', line 37</span>
 
 def self.message(key, *args)
   string = MESSAGES[key] or raise &quot;[HAML BUG] No error messages for #{key}&quot;
@@ -411,22 +401,10 @@ end</pre>
 </div>
 
       <div id="footer">
-  Generated on Sun Sep 25 13:51:42 2022 by
+  Generated on Sun Sep 25 15:48:43 2022 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-3.2.0).
 </div>
-
-
-  <script type="text/javascript">
-  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-  </script>
-  <script type="text/javascript">
-  try {
-  var pageTracker = _gat._getTracker("UA-3592613-6");
-  pageTracker._trackPageview();
-  } catch(err) {}</script>
-
 
     </div>
   </body>

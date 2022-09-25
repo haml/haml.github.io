@@ -69,12 +69,12 @@
   <dl>
     <dt>Inherits:</dt>
     <dd>
-      <span class="inheritName">Temple::Filter</span>
+      <span class="inheritName">Temple::Filters::Escapable</span>
       
         <ul class="fullTree">
-          <li><span class='object_link'>Object</span></li>
+          <li>Object</li>
           
-            <li class="next">Temple::Filter</li>
+            <li class="next">Temple::Filters::Escapable</li>
           
             <li class="next">Haml::Escapable</li>
           
@@ -101,27 +101,10 @@
   
 </div>
 
-<h2>Overview</h2><div class="docstring">
-  <div class="discussion">
-    <p>Like Temple::Filters::Escapable, but with support for escaping by
-Haml::Herlpers.html_escape and Haml::Herlpers.escape_once.</p>
-
-
-  </div>
+<div id="subclasses">
+  <h2>Direct Known Subclasses</h2>
+  <p class="children"><span class='object_link'><a href="ForceEscapable.html" title="Haml::ForceEscapable (class)">ForceEscapable</a></span></p>
 </div>
-<div class="tags">
-  
-
-</div><h2>Defined Under Namespace</h2>
-<p class="children">
-  
-    
-  
-    
-      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Escapable/EscapeSafeBuffer.html" title="Haml::Escapable::EscapeSafeBuffer (class)">EscapeSafeBuffer</a></span>
-    
-  
-</p>
 
 
 
@@ -140,7 +123,7 @@ Haml::Herlpers.html_escape and Haml::Herlpers.escape_once.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>  &#x21d2; Escapable </a>
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(opts = {})  &#x21d2; Escapable </a>
     
 
     
@@ -162,75 +145,6 @@ Haml::Herlpers.html_escape and Haml::Herlpers.escape_once.</p>
 </li>
 
       
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#on_dynamic-instance_method" title="#on_dynamic (instance method)">#<strong>on_dynamic</strong>(value)  </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>The same as Haml::AttributeBuilder.build_attributes.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#on_escape-instance_method" title="#on_escape (instance method)">#<strong>on_escape</strong>(flag, exp)  </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#on_static-instance_method" title="#on_static (instance method)">#<strong>on_static</strong>(value)  </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>The same as Haml::AttributeBuilder.build_attributes.</p>
-</div></span>
-  
-</li>
-
-      
     </ul>
   
 
@@ -241,7 +155,7 @@ Haml::Herlpers.html_escape and Haml::Herlpers.escape_once.</p>
     <div class="method_details first">
   <h3 class="signature first" id="initialize-instance_method">
   
-    #<strong>initialize</strong>  &#x21d2; <tt><span class='object_link'><a href="" title="Haml::Escapable (class)">Escapable</a></span></tt> 
+    #<strong>initialize</strong>(opts = {})  &#x21d2; <tt><span class='object_link'><a href="" title="Haml::Escapable (class)">Escapable</a></span></tt> 
   
 
   
@@ -263,19 +177,21 @@ Haml::Herlpers.html_escape and Haml::Herlpers.escape_once.</p>
       <pre class="lines">
 
 
+6
+7
+8
+9
 10
-11
-12
-13
-14</pre>
+11</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/escapable.rb', line 10</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/escapable.rb', line 6</span>
 
-def initialize(*)
+def initialize(opts = {})
   super
-  @escape = false
-  @escape_safe_buffer = false
+  @escape_code = options[:escape_code] ||
+    &quot;::Haml::Util.escape_html#{options[:use_html_safe] ? &#39;_safe&#39; : &#39;&#39;}((%s))&quot;
+  @escaper = eval(&quot;proc {|v| #{@escape_code % &#39;v&#39;} }&quot;)
 end</pre>
     </td>
   </tr>
@@ -284,184 +200,14 @@ end</pre>
   
 </div>
 
-
-  <div id="instance_method_details" class="method_details_list">
-    <h2>Instance Method Details</h2>
-
-    
-      <div class="method_details first">
-  <h3 class="signature first" id="on_dynamic-instance_method">
-  
-    #<strong>on_dynamic</strong>(value)  
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <p>The same as Haml::AttributeBuilder.build_attributes</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/escapable.rb', line 39</span>
-
-def on_dynamic(value)
-  [:dynamic,
-   if @escape == :once
-     escape_once_code(value)
-   elsif @escape
-     escape_code(value)
-   else
-     &quot;(#{value}).to_s&quot;
-   end
-  ]
-end</pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="on_escape-instance_method">
-  
-    #<strong>on_escape</strong>(flag, exp)  
-  
-
-  
-
-  
-</h3><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-16
-17
-18
-19
-20
-21
-22
-23</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/escapable.rb', line 16</span>
-
-def on_escape(flag, exp)
-  old_escape, old_escape_safe_buffer = @escape, @escape_safe_buffer
-  @escape_safe_buffer = flag.is_a?(EscapeSafeBuffer)
-  @escape = @escape_safe_buffer ? flag.value : flag
-  compile(exp)
-ensure
-  @escape, @escape_safe_buffer = old_escape, old_escape_safe_buffer
-end</pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="on_static-instance_method">
-  
-    #<strong>on_static</strong>(value)  
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <p>The same as Haml::AttributeBuilder.build_attributes</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/escapable.rb', line 26</span>
-
-def on_static(value)
-  [:static,
-   if @escape == :once
-     escape_once(value)
-   elsif @escape
-     escape(value)
-   else
-     value
-   end
-  ]
-end</pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-  </div>
 
 </div>
 
       <div id="footer">
-  Generated on Sun Sep 25 13:51:43 2022 by
+  Generated on Sun Sep 25 15:48:43 2022 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-3.2.0).
 </div>
-
-
-  <script type="text/javascript">
-  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-  </script>
-  <script type="text/javascript">
-  try {
-  var pageTracker = _gat._getTracker("UA-3592613-6");
-  pageTracker._trackPageview();
-  } catch(err) {}</script>
-
 
     </div>
   </body>

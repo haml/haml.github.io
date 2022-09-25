@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
-  Module: Haml::TempleLineCounter
+  Module: Haml::StringSplitter
   
     &mdash; Haml Documentation
   
@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="../css/common.css" type="text/css" />
 
 <script type="text/javascript">
-  pathId = "Haml::TempleLineCounter";
+  pathId = "Haml::StringSplitter";
   relpath = '../';
 </script>
 
@@ -36,10 +36,10 @@
       <div id="header">
         <div id="menu">
   
-    <a href="../_index.html">Index (T)</a> &raquo;
+    <a href="../_index.html">Index (S)</a> &raquo;
     <span class='title'><span class='object_link'><a href="../Haml.html" title="Haml (module)">Haml</a></span></span>
      &raquo; 
-    <span class="title">TempleLineCounter</span>
+    <span class="title">StringSplitter</span>
   
 </div>
 
@@ -59,7 +59,7 @@
         <div class="clear"></div>
       </div>
 
-      <div id="content"><h1>Module: Haml::TempleLineCounter
+      <div id="content"><h1>Module: Haml::StringSplitter
   
   
   
@@ -78,32 +78,11 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/haml/temple_line_counter.rb</dd>
+    <dd>lib/haml/string_splitter.rb</dd>
   </dl>
   
 </div>
 
-<h2>Overview</h2><div class="docstring">
-  <div class="discussion">
-    <p>A module to count lines of expected code. This would be faster than actual code generation
-and counting newlines in it.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><h2>Defined Under Namespace</h2>
-<p class="children">
-  
-    
-  
-    
-      <strong class="classes">Classes:</strong> <span class='object_link'><a href="TempleLineCounter/UnexpectedExpression.html" title="Haml::TempleLineCounter::UnexpectedExpression (class)">UnexpectedExpression</a></span>
-    
-  
-</p>
 
 
 
@@ -122,7 +101,7 @@ and counting newlines in it.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#count_lines-class_method" title="count_lines (class method)">.<strong>count_lines</strong>(exp)  </a>
+      <a href="#compile-class_method" title="compile (class method)">.<strong>compile</strong>(code)  </a>
     
 
     
@@ -136,7 +115,7 @@ and counting newlines in it.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
+    <span class="summary_desc"><div class='inline'><p><code>code</code> param must be valid string literal.</p>
 </div></span>
   
 </li>
@@ -152,15 +131,25 @@ and counting newlines in it.</p>
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="count_lines-class_method">
+  <h3 class="signature first" id="compile-class_method">
   
-    .<strong>count_lines</strong>(exp)  
-  
-
+    .<strong>compile</strong>(code)  
   
 
   
-</h3><table class="source_code">
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p><code>code</code> param must be valid string literal</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
@@ -176,42 +165,20 @@ and counting newlines in it.</p>
 15
 16
 17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29</pre>
+18</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/temple_line_counter.rb', line 8</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/string_splitter.rb', line 8</span>
 
-def self.count_lines(exp)
-  type, *args = exp
-  case type
-  when :multi
-    args.map { |a| count_lines(a) }.reduce(:+) || 0
-  when :dynamic, :code
-    args.first.count(&quot;\n&quot;)
-  when :static
-    0 # It has not real newline &quot;\n&quot; but escaped &quot;\\n&quot;.
-  when :case
-    arg, *cases = args
-    arg.count(&quot;\n&quot;) + cases.map do |cond, e|
-      (cond == :else ? 0 : cond.count(&quot;\n&quot;)) + count_lines(e)
-    end.reduce(:+)
-  when :escape
-    count_lines(args[1])
-  when :newline
-    1
-  else
-    raise UnexpectedExpression.new(&quot;[HAML BUG] Unexpected Temple expression &#39;#{type}&#39; is given!&quot;)
+def self.compile(code)
+  unless Ripper.respond_to?(:lex) # truffleruby doesn&#39;t have Ripper.lex
+    return [[:dynamic, code]]
+  end
+
+  begin
+    Temple::Filters::StringSplitter.compile(code)
+  rescue Temple::FilterError =&gt; e
+    raise Haml::InternalError.new(e.message)
   end
 end</pre>
     </td>

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
-  Class: Haml::TempleEngine
+  Class: Haml::RubyExpression
   
     &mdash; Haml Documentation
   
@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="../css/common.css" type="text/css" />
 
 <script type="text/javascript">
-  pathId = "Haml::TempleEngine";
+  pathId = "Haml::RubyExpression";
   relpath = '../';
 </script>
 
@@ -36,10 +36,10 @@
       <div id="header">
         <div id="menu">
   
-    <a href="../_index.html">Index (T)</a> &raquo;
+    <a href="../_index.html">Index (R)</a> &raquo;
     <span class='title'><span class='object_link'><a href="../Haml.html" title="Haml (module)">Haml</a></span></span>
      &raquo; 
-    <span class="title">TempleEngine</span>
+    <span class="title">RubyExpression</span>
   
 </div>
 
@@ -59,7 +59,7 @@
         <div class="clear"></div>
       </div>
 
-      <div id="content"><h1>Class: Haml::TempleEngine
+      <div id="content"><h1>Class: Haml::RubyExpression
   
   
   
@@ -69,16 +69,14 @@
   <dl>
     <dt>Inherits:</dt>
     <dd>
-      <span class="inheritName"><span class='object_link'><a href="Engine.html" title="Haml::Engine (class)">Engine</a></span></span>
+      <span class="inheritName">Ripper</span>
       
         <ul class="fullTree">
           <li>Object</li>
           
-            <li class="next">Temple::Engine</li>
+            <li class="next">Ripper</li>
           
-            <li class="next"><span class='object_link'><a href="Engine.html" title="Haml::Engine (class)">Engine</a></span></li>
-          
-            <li class="next">Haml::TempleEngine</li>
+            <li class="next">Haml::RubyExpression</li>
           
         </ul>
         <a href="#" class="inheritanceTree">show all</a>
@@ -98,23 +96,22 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/haml/engine.rb</dd>
+    <dd>lib/haml/ruby_expression.rb</dd>
   </dl>
   
 </div>
 
-<h2>Overview</h2><div class="docstring">
-  <div class="discussion">
-    <p>For backward compatibility of Tilt integration. TODO: We should deprecate this
-and let Tilt have a native support of Haml 6. At least it generates warnings now.</p>
-
-
-  </div>
-</div>
-<div class="tags">
+<h2>Defined Under Namespace</h2>
+<p class="children">
   
+    
+  
+    
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="RubyExpression/ParseError.html" title="Haml::RubyExpression::ParseError (class)">ParseError</a></span>
+    
+  
+</p>
 
-</div>
 
 
 
@@ -123,7 +120,7 @@ and let Tilt have a native support of Haml 6. At least it generates warnings now
 
   
     <h2>
-      Instance Method Summary
+      Class Method Summary
       <small><a href="#" class="summary_toggle">collapse</a></small>
     </h2>
 
@@ -132,7 +129,7 @@ and let Tilt have a native support of Haml 6. At least it generates warnings now
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#compile-instance_method" title="#compile (instance method)">#<strong>compile</strong>(template)  </a>
+      <a href="#string_literal%3F-class_method" title="string_literal? (class method)">.<strong>string_literal?</strong>(code)  &#x21d2; Boolean </a>
     
 
     
@@ -155,7 +152,7 @@ and let Tilt have a native support of Haml 6. At least it generates warnings now
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#precompiled_with_ambles-instance_method" title="#precompiled_with_ambles (instance method)">#<strong>precompiled_with_ambles</strong>(_local_names, after_preamble:)  </a>
+      <a href="#syntax_error%3F-class_method" title="syntax_error? (class method)">.<strong>syntax_error?</strong>(code)  &#x21d2; Boolean </a>
     
 
     
@@ -180,41 +177,72 @@ and let Tilt have a native support of Haml 6. At least it generates warnings now
 
 
   
-  
-  
-  
-  
-  
-  
 
-  <div id="instance_method_details" class="method_details_list">
-    <h2>Instance Method Details</h2>
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="compile-instance_method">
+  <h3 class="signature first" id="string_literal?-class_method">
   
-    #<strong>compile</strong>(template)  
-  
-
+    .<strong>string_literal?</strong>(code)  &#x21d2; <tt>Boolean</tt> 
   
 
   
-</h3><table class="source_code">
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-45
-46
-47</pre>
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/engine.rb', line 45</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/ruby_expression.rb', line 15</span>
 
-def compile(template)
-  @precompiled = call(template)
+def self.string_literal?(code)
+  return false if syntax_error?(code)
+
+  type, instructions = Ripper.sexp(code)
+  return false if type != :program
+  return false if instructions.size &gt; 1
+
+  type, _ = instructions.first
+  type == :string_literal
 end</pre>
     </td>
   </tr>
@@ -222,29 +250,58 @@ end</pre>
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="precompiled_with_ambles-instance_method">
+  <h3 class="signature " id="syntax_error?-class_method">
   
-    #<strong>precompiled_with_ambles</strong>(_local_names, after_preamble:)  
-  
-
+    .<strong>syntax_error?</strong>(code)  &#x21d2; <tt>Boolean</tt> 
   
 
   
-</h3><table class="source_code">
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-49
-50
-51</pre>
+8
+9
+10
+11
+12
+13</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/engine.rb', line 49</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/ruby_expression.rb', line 8</span>
 
-def precompiled_with_ambles(_local_names, after_preamble:)
-  &quot;#{after_preamble.tr(&quot;\n&quot;, &#39;;&#39;)}#{@precompiled}&quot;.dup
+def self.syntax_error?(code)
+  self.new(code).parse
+  false
+rescue ParseError
+  true
 end</pre>
     </td>
   </tr>
