@@ -59,7 +59,36 @@
 
       <div id="content"><div id='filecontents'><h1 id="haml-changelog">Haml Changelog</h1>
 
-<h2 id="section">6.0.1</h2>
+<h2 id="section">6.0.4</h2>
+
+<p>Released on October 2, 2022
+(<a href="https://github.com/haml/haml/compare/v6.0.3...v6.0.4">diff</a>).</p>
+
+<ul>
+  <li>Fix a parse failure of <code>%</code> in attributes <a href="https://github.com/haml/haml/issues/1096">#1096</a></li>
+  <li>Add another fallback from C to Ruby for Wasm.</li>
+</ul>
+
+<h2 id="section-1">6.0.3</h2>
+
+<p>Released on September 28, 2022
+(<a href="https://github.com/haml/haml/compare/v6.0.2...v6.0.3">diff</a>).</p>
+
+<ul>
+  <li>For Wasm, fallback to Ruby when C extension is not available.</li>
+</ul>
+
+<h2 id="section-2">6.0.2</h2>
+
+<p>Released on September 28, 2022
+(<a href="https://github.com/haml/haml/compare/v6.0.1...v6.0.2">diff</a>).</p>
+
+<ul>
+  <li>Unescape HTML-safe arguments for <code>surround</code>, <code>succeed</code>, and <code>precede</code> on Rails
+<a href="https://github.com/haml/haml/issues/1088">#1088</a></li>
+</ul>
+
+<h2 id="section-3">6.0.1</h2>
 
 <p>Released on September 23, 2022
 (<a href="https://github.com/haml/haml/compare/v6.0.0...v6.0.1">diff</a>).</p>
@@ -69,7 +98,7 @@
   <li>Resurrect Haml 5’s <code>AttributeParser.available?</code> for syntax_tree-haml <a href="https://github.com/haml/haml/issues/1085">#1085</a></li>
 </ul>
 
-<h2 id="section-1">6.0.0</h2>
+<h2 id="section-4">6.0.0</h2>
 
 <p>Released on September 21, 2022
 (<a href="https://github.com/haml/haml/compare/v5.2.2...v6.0.0">diff</a>).</p>
@@ -80,13 +109,34 @@
       <li>Haml 6 is about 1.7x faster than Haml 5 in <a href="benchmark/slim/run-benchmarks.rb">this benchmark</a>.</li>
       <li>The parser is kept as is, but everything else is replaced.</li>
       <li>The <code>haml</code> CLI interface was also replaced.</li>
-      <li>All Haml helpers except for <code>preserve</code> are removed.</li>
+      <li>The interface of <code>Haml::Engine</code> is changed. <code>Haml::Template</code> is most likely what you need now.</li>
+      <li>Most Haml helpers are removed.
+        <ul>
+          <li>Rails:
+            <ul>
+              <li>Kept: <code>find_and_reserve</code>, <code>preserve</code>, <code>surround</code>, <code>precede</code>, <code>succeed</code>, <code>capture_haml</code></li>
+              <li>Removed: <code>block_is_haml?</code>, <code>flatten</code>, <code>haml_concat</code>, <code>haml_indent</code>, <code>haml_tag</code>, <code>haml_tag_if</code>, <code>html_attrs</code>,
+<code>html_escape</code>, <code>init_haml_helpers</code>, <code>is_haml?</code>, <code>list_of</code>, <code>non_haml</code>, <code>tab_down</code>, <code>tab_up</code>, <code>with_tabs</code></li>
+            </ul>
+          </li>
+          <li>Tilt:
+            <ul>
+              <li>Kept: <code>preserve</code></li>
+              <li>Removed: <code>block_is_haml?</code>, <code>capture_haml</code>, <code>escape_once</code>, <code>find_and_preserve</code>, <code>flatten</code>, <code>haml_concat</code>,
+<code>haml_indent</code>, <code>haml_tag</code>, <code>haml_tag_if</code>, <code>html_attrs</code>, <code>html_escape</code>, <code>init_haml_helpers</code>, <code>is_haml?</code>,
+<code>list_of</code>, <code>non_haml</code>, <code>precede</code>, <code>succeed</code>, <code>surround</code>, <code>tab_down</code>, <code>tab_up</code>, <code>with_tabs</code></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>Only the attributes in <a href="lib/haml/attribute_builder.rb"><code>Haml::AttributeBuilder::BOOLEAN_ATTRIBUTES</code></a>
+are handled as boolean attributes.</li>
       <li>Some legacy Rails integration is removed.</li>
     </ul>
   </li>
 </ul>
 
-<h2 id="section-2">5.2.2</h2>
+<h2 id="section-5">5.2.2</h2>
 
 <p>Released on July 27, 2021
 (<a href="https://github.com/haml/haml/compare/v5.2.1...v5.2.2">diff</a>).</p>
@@ -95,7 +145,7 @@
   <li>Support <code>config.action_view.annotate_rendered_view_with_filenames = true</code> of Rails 6.1</li>
 </ul>
 
-<h2 id="section-3">5.2.1</h2>
+<h2 id="section-6">5.2.1</h2>
 
 <p>Released on November 30, 2020
 (<a href="https://github.com/haml/haml/compare/v5.2.0...v5.2.1">diff</a>).</p>
@@ -104,7 +154,7 @@
   <li>Add in improved “multiline” support for attributes <a href="https://github.com/haml/haml/issues/1043">#1043</a></li>
 </ul>
 
-<h2 id="section-4">5.2</h2>
+<h2 id="section-7">5.2</h2>
 
 <p>Released on September 28, 2020
 (<a href="https://github.com/haml/haml/compare/v5.1.2...v5.2.0">diff</a>).</p>
@@ -115,7 +165,7 @@
   <li>Class names are no longer ordered alphabetically, and now follow a new specification as laid out in REFERENCE <a href="https://github.com/haml/haml/issues/306">#306</a></li>
 </ul>
 
-<h2 id="section-5">5.1.2</h2>
+<h2 id="section-8">5.1.2</h2>
 
 <p>Released on August 6, 2019
 (<a href="https://github.com/haml/haml/compare/v5.1.1...v5.1.2">diff</a>).</p>
@@ -124,7 +174,7 @@
   <li>Fix crash in some environments such as New Relic by unfreezing string literals for ParseNode#inspect. <a href="https://github.com/haml/haml/pull/1016">#1016</a> (thanks <a href="https://github.com/jalyna">Jalyna</a>)</li>
 </ul>
 
-<h2 id="section-6">5.1.1</h2>
+<h2 id="section-9">5.1.1</h2>
 
 <p>Released on May 25, 2019
 (<a href="https://github.com/haml/haml/compare/v5.1.0...v5.1.1">diff</a>).</p>
@@ -133,7 +183,7 @@
   <li>Fix NameError bug that happens on ruby 2.6.1-2.6.3 + haml 5.1.0 + rails &lt; 5.1 + erubi. (Akira Matsuda)</li>
 </ul>
 
-<h2 id="section-7">5.1.0</h2>
+<h2 id="section-10">5.1.0</h2>
 
 <p>Released on May 16, 2019
 (<a href="https://github.com/haml/haml/compare/v5.0.4...v5.1.0">diff</a>).</p>
@@ -148,7 +198,7 @@
   <li>Enable <code>frozen_string_literal</code> magic comment for all .rb files <a href="https://github.com/haml/haml/pull/967">#967</a> (thanks <a href="https://github.com/oniofchaos">Dillon Welch</a>)</li>
 </ul>
 
-<h2 id="section-8">5.0.4</h2>
+<h2 id="section-11">5.0.4</h2>
 
 <p>Released on October 13, 2017
 (<a href="https://github.com/haml/haml/compare/v5.0.3...v5.0.4">diff</a>).</p>
@@ -158,7 +208,7 @@
   <li>Ruby 2.5 support (it wasn’t working due to Ripper API change). (Akira Matsuda)</li>
 </ul>
 
-<h2 id="section-9">5.0.3</h2>
+<h2 id="section-12">5.0.3</h2>
 
 <p>Released on September 7, 2017
 (<a href="https://github.com/haml/haml/compare/v5.0.2...v5.0.3">diff</a>).</p>
@@ -168,7 +218,7 @@
   <li>Fix Erubi superclass mismatch error. <a href="https://github.com/haml/haml/pull/952">#952</a> (thanks <a href="https://github.com/RobinDaugherty">Robin Daugherty</a>)</li>
 </ul>
 
-<h2 id="section-10">5.0.2</h2>
+<h2 id="section-13">5.0.2</h2>
 
 <p>Released on August 1, 2017
 (<a href="https://github.com/haml/haml/compare/v5.0.1...v5.0.2">diff</a>).</p>
@@ -182,7 +232,7 @@
   <li>Fix inconsistent attribute sort order. (Takashi Kokubun)</li>
 </ul>
 
-<h2 id="section-11">5.0.1</h2>
+<h2 id="section-14">5.0.1</h2>
 
 <p>Released on May 3, 2017
 (<a href="https://github.com/haml/haml/compare/v5.0.0...v5.0.1">diff</a>).</p>
@@ -193,7 +243,7 @@
   <li>Use ActionView’s Erubi/Erubis handler for erb filter only on ActionView. <a href="https://github.com/haml/haml/pull/914">#914</a></li>
 </ul>
 
-<h2 id="section-12">5.0.0</h2>
+<h2 id="section-15">5.0.0</h2>
 
 <p>Released on April 26, 2017
 (<a href="https://github.com/haml/haml/compare/4.0.7...v5.0.0">diff</a>).</p>
@@ -258,7 +308,7 @@ for detailed info. (Matt Wildig)</li>
   <li>Don’t ignore unexpected exceptions on initializing <code>ActionView::OutputBuffer</code>. (Takashi Kokubun)</li>
 </ul>
 
-<h2 id="section-13">4.0.7</h2>
+<h2 id="section-16">4.0.7</h2>
 
 <p>Released on August 10, 2015
 (<a href="https://github.com/haml/haml/compare/4.0.6...4.0.7">diff</a>).</p>
@@ -267,7 +317,7 @@ for detailed info. (Matt Wildig)</li>
   <li>Significantly improve performance of regexp used to fix whitespace handling in textareas (thanks <a href="https://github.com/stanhu">Stan Hu</a>).</li>
 </ul>
 
-<h2 id="section-14">4.0.6</h2>
+<h2 id="section-17">4.0.6</h2>
 
 <p>Released on Dec 1, 2014 (<a href="https://github.com/haml/haml/compare/4.0.5...4.0.6">diff</a>).</p>
 
@@ -275,7 +325,7 @@ for detailed info. (Matt Wildig)</li>
   <li>Fix warning on Ruby 1.8.7 “regexp has invalid interval” (thanks <a href="https://github.com/elia">Elia Schito</a>).</li>
 </ul>
 
-<h2 id="section-15">4.0.5</h2>
+<h2 id="section-18">4.0.5</h2>
 
 <p>Released on Jan 7, 2014 (<a href="https://github.com/haml/haml/compare/4.0.4...4.0.5">diff</a>).</p>
 
@@ -287,7 +337,7 @@ when passed a block that returns nothing (thanks <a href="https://github.com/mmi
 Moise</a>).</li>
 </ul>
 
-<h2 id="section-16">4.0.4</h2>
+<h2 id="section-19">4.0.4</h2>
 
 <p>Released on November 5, 2013 (<a href="https://github.com/haml/haml/compare/4.0.3...4.0.4">diff</a>).</p>
 
@@ -300,7 +350,7 @@ Rails (thanks <a href="https://github.com/patrik">Patrik Metzmacher</a>).</li>
   <li>Minor test fix (thanks <a href="https://github.com/mmircea16">Mircea Moise</a>).</li>
 </ul>
 
-<h2 id="section-17">4.0.3</h2>
+<h2 id="section-20">4.0.3</h2>
 
 <p>Released May 21, 2013 (<a href="https://github.com/haml/haml/compare/4.0.2...4.0.3">diff</a>).</p>
 
@@ -314,7 +364,7 @@ Rails (thanks <a href="https://github.com/patrik">Patrik Metzmacher</a>).</li>
 (thanks <a href="https://github.com/shaneriley">Shane Riley</a>)</li>
 </ul>
 
-<h2 id="section-18">4.0.2</h2>
+<h2 id="section-21">4.0.2</h2>
 
 <p>Released April 5, 2013 (<a href="https://github.com/haml/haml/compare/4.0.1...4.0.2">diff</a>).</p>
 
@@ -327,7 +377,7 @@ Rails (thanks <a href="https://github.com/patrik">Patrik Metzmacher</a>).</li>
   <li>Correct/improve some documentation.</li>
 </ul>
 
-<h2 id="section-19">4.0.1</h2>
+<h2 id="section-22">4.0.1</h2>
 
 <p>Released March 21, 2013 (<a href="https://github.com/haml/haml/compare/4.0.0...4.0.1">diff</a>).</p>
 
@@ -345,7 +395,7 @@ Rails initializer from being overwritten</li>
 but without Rails itself. (thanks <a href="https://github.com/wedgex">Hunter Haydel</a>)</li>
 </ul>
 
-<h2 id="section-20">4.0.0</h2>
+<h2 id="section-23">4.0.0</h2>
 
 <ul>
   <li>
@@ -484,33 +534,33 @@ production, usually by moving it out of the assets gem group.</p>
   </li>
 </ul>
 
-<h2 id="section-21">3.2.0</h2>
+<h2 id="section-24">3.2.0</h2>
 
 <p>The Haml 3.2 series was released only as far as 3.2.0.rc.4, but then was
 renamed to Haml 4.0 when the project adopted semantic versioning.</p>
 
-<h2 id="section-22">3.1.8</h2>
+<h2 id="section-25">3.1.8</h2>
 
 <ul>
   <li>Fix for line numbers reported from exceptions in nested blocks
 (thanks to Grant Hutchins &amp; Sabrina Staedt).</li>
 </ul>
 
-<h2 id="section-23">3.1.7</h2>
+<h2 id="section-26">3.1.7</h2>
 
 <ul>
   <li>Fix for compatibility with Sass 3.2.x.
 (thanks <a href="https://github.com/totallymike">Michael Westbom</a>).</li>
 </ul>
 
-<h2 id="section-24">3.1.6</h2>
+<h2 id="section-27">3.1.6</h2>
 
 <ul>
   <li>In indented mode, don’t reindent buffers that contain preserved tags, and
 provide a better workaround for Rails 3.2.3’s textarea helpers.</li>
 </ul>
 
-<h2 id="section-25">3.1.5</h2>
+<h2 id="section-28">3.1.5</h2>
 
 <ul>
   <li>
@@ -523,20 +573,20 @@ provide a better workaround for Rails 3.2.3’s textarea helpers.</li>
   </li>
 </ul>
 
-<h2 id="section-26">3.1.4</h2>
+<h2 id="section-29">3.1.4</h2>
 
 <ul>
   <li>Fix the use of <code>FormBuilder#block</code> with a label in Haml.</li>
   <li>Fix indentation after a self-closing tag with dynamic attributes.</li>
 </ul>
 
-<h2 id="section-27">3.1.3</h2>
+<h2 id="section-30">3.1.3</h2>
 
 <ul>
   <li>Stop partial layouts from being displayed twice.</li>
 </ul>
 
-<h2 id="section-28">3.1.2</h2>
+<h2 id="section-31">3.1.2</h2>
 
 <ul>
   <li>
@@ -557,13 +607,13 @@ return the value of the block rather than the captured buffer.</p>
   </li>
 </ul>
 
-<h2 id="section-29">3.1.1</h2>
+<h2 id="section-32">3.1.1</h2>
 
 <ul>
   <li>Update the vendored Sass to version 3.1.0.</li>
 </ul>
 
-<h2 id="section-30">3.1.0</h2>
+<h2 id="section-33">3.1.0</h2>
 
 <ul>
   <li>
@@ -595,7 +645,7 @@ Existing Rails 2.0 installations will continue to work.</p>
   </li>
 </ul>
 
-<h2 id="section-31">3.0.25</h2>
+<h2 id="section-34">3.0.25</h2>
 
 <p><a href="http://github.com/nex3/haml/commit/3.0.25">Tagged on GitHub</a>.</p>
 
@@ -603,7 +653,7 @@ Existing Rails 2.0 installations will continue to work.</p>
   <li>HTML-to-Haml conversion now works within Ruby even if Hpricot is loaded before <code>haml/html</code>.</li>
 </ul>
 
-<h2 id="section-32">3.0.24</h2>
+<h2 id="section-35">3.0.24</h2>
 
 <p><a href="http://github.com/nex3/haml/commit/3.0.24">Tagged on GitHub</a>.</p>
 
@@ -618,7 +668,7 @@ but it doesn’t support the encoding APIs, so we treat it as 1.8 instead.</p>
   </li>
 </ul>
 
-<h2 id="section-33">3.0.23</h2>
+<h2 id="section-36">3.0.23</h2>
 
 <p><a href="http://github.com/nex3/haml/commit/3.0.23">Tagged on GitHub</a>.</p>
 
@@ -631,7 +681,7 @@ but it doesn’t support the encoding APIs, so we treat it as 1.8 instead.</p>
   </li>
 </ul>
 
-<h2 id="section-34">3.0.22</h2>
+<h2 id="section-37">3.0.22</h2>
 
 <p><a href="http://github.com/nex3/haml/commit/3.0.22">Tagged on GitHub</a>.</p>
 
@@ -648,7 +698,7 @@ and was causing trouble for Heroku users (thanks to <a href="http://railsjedi.co
   </li>
 </ul>
 
-<h2 id="section-35">3.0.21</h2>
+<h2 id="section-38">3.0.21</h2>
 
 <p><a href="http://github.com/nex3/haml/commit/3.0.21">Tagged on GitHub</a>.</p>
 
@@ -656,7 +706,7 @@ and was causing trouble for Heroku users (thanks to <a href="http://railsjedi.co
   <li>Fix the permissions errors for good.</li>
 </ul>
 
-<h2 id="section-36">3.0.20</h2>
+<h2 id="section-39">3.0.20</h2>
 
 <p><a href="http://github.com/nex3/haml/commit/3.0.20">Tagged on GitHub</a>.</p>
 
@@ -664,7 +714,7 @@ and was causing trouble for Heroku users (thanks to <a href="http://railsjedi.co
   <li>Fix some permissions errors.</li>
 </ul>
 
-<h2 id="section-37">3.0.19</h2>
+<h2 id="section-40">3.0.19</h2>
 
 <p><a href="http://github.com/nex3/haml/commit/3.0.19">Tagged on GitHub</a>.</p>
 
@@ -680,7 +730,7 @@ and was causing trouble for Heroku users (thanks to <a href="http://railsjedi.co
   </li>
 </ul>
 
-<h2 id="section-38">3.0.18</h2>
+<h2 id="section-41">3.0.18</h2>
 
 <p><a href="http://github.com/nex3/haml/commit/3.0.18">Tagged on GitHub</a>.</p>
 
@@ -704,7 +754,7 @@ and make <code>data-</code> attributes not work.</p>
   </li>
 </ul>
 
-<h2 id="section-39">3.0.17</h2>
+<h2 id="section-42">3.0.17</h2>
 
 <p><a href="http://github.com/nex3/haml/commit/3.0.17">Tagged on GitHub</a>.</p>
 
@@ -712,7 +762,7 @@ and make <code>data-</code> attributes not work.</p>
   <li>Understand that mingw counts as Windows.</li>
 </ul>
 
-<h2 id="section-40">3.0.16</h2>
+<h2 id="section-43">3.0.16</h2>
 
 <p><a href="http://github.com/nex3/haml/commit/3.0.16">Tagged on GitHub</a>.</p>
 
@@ -731,13 +781,13 @@ returns a string in a helper.</p>
   </li>
 </ul>
 
-<h2 id="section-41">3.0.15</h2>
+<h2 id="section-44">3.0.15</h2>
 
 <p><a href="http://github.com/nex3/haml/commit/3.0.15">Tagged on GitHub</a>.</p>
 
 <p>There were no changes made to Haml between versions 3.0.14 and 3.0.15.</p>
 
-<h2 id="section-42">3.0.14</h2>
+<h2 id="section-45">3.0.14</h2>
 
 <p><a href="http://github.com/nex3/haml/commit/3.0.14">Tagged on GitHub</a>.</p>
 
@@ -756,7 +806,7 @@ returns a string in a helper.</p>
   <li>Don’t use the <code>#returning</code> method, which Rails 3 no longer provides.</li>
 </ul>
 
-<h2 id="section-43">3.0.13</h2>
+<h2 id="section-46">3.0.13</h2>
 
 <p><a href="http://github.com/nex3/haml/commit/3.0.13">Tagged on GitHub</a>.</p>
 
@@ -771,7 +821,7 @@ Upgrade to Rails 3.0.0.beta4 if you haven’t already.</p>
   <li>Properly process frozen strings with encoding declarations.</li>
 </ul>
 
-<h2 id="section-44">3.0.12</h2>
+<h2 id="section-47">3.0.12</h2>
 
 <p><a href="http://github.com/nex3/haml/commit/3.0.12">Tagged on GitHub</a>.</p>
 
@@ -786,11 +836,11 @@ due to the inconsistent load order caused by certain combinations of gems.
 <p>Haml’s support for Rails 3.0.0.beta.3 has been deprecated.
 Haml 3.0.13 will only support 3.0.0.beta.4.</p>
 
-<h2 id="section-45">3.0.11</h2>
+<h2 id="section-48">3.0.11</h2>
 
 <p><a href="http://github.com/nex3/haml/commit/3.0.11">Tagged on GitHub</a>.</p>
 
-<h2 id="section-46">3.0.10</h2>
+<h2 id="section-49">3.0.10</h2>
 
 <p><a href="http://github.com/nex3/haml/commit/3.0.10">Tagged on GitHub</a>.</p>
 
@@ -806,14 +856,14 @@ used by <a href="http://code.google.com/p/appengine-jruby/"><code>appengine-jrub
   <li>Single-line comments are now handled properly by <code>html2haml</code>.</li>
 </ul>
 
-<h2 id="section-47">3.0.9</h2>
+<h2 id="section-50">3.0.9</h2>
 
 <p><a href="http://github.com/nex3/haml/commit/3.0.9">Tagged on GitHub</a>.</p>
 
 <p>There were no changes made to Haml between versions 3.0.8 and 3.0.9.
 A bug in Gemcutter caused the gem to be uploaded improperly.</p>
 
-<h2 id="section-48">3.0.8</h2>
+<h2 id="section-51">3.0.8</h2>
 
 <p><a href="http://github.com/nex3/haml/commit/3.0.8">Tagged on GitHub</a>.</p>
 
@@ -821,7 +871,7 @@ A bug in Gemcutter caused the gem to be uploaded improperly.</p>
   <li>Fix a bug with Rails versions prior to Rails 3.</li>
 </ul>
 
-<h2 id="section-49">3.0.7</h2>
+<h2 id="section-52">3.0.7</h2>
 
 <p><a href="http://github.com/nex3/haml/commit/3.0.7">Tagged on GitHub</a>.</p>
 
@@ -855,7 +905,7 @@ since it defaults to HTML5 as well.</li>
 use <code>= succeed</code> rather than <code>- succeed</code> (which doesn’t work).</li>
 </ul>
 
-<h2 id="section-50">3.0.6</h2>
+<h2 id="section-53">3.0.6</h2>
 
 <p><a href="http://github.com/nex3/haml/commit/3.0.6">Tagged on GitHub</a>.</p>
 
@@ -873,7 +923,7 @@ and anyone using it should upgrade to 2.3.7.</p>
 
 <p>Attempting to use Haml with Rails 2.3.6 will cause an error.</p>
 
-<h2 id="section-51">3.0.5</h2>
+<h2 id="section-54">3.0.5</h2>
 
 <p><a href="http://github.com/nex3/haml/commit/3.0.5">Tagged on GitHub</a>.</p>
 
@@ -887,13 +937,13 @@ bringing Haml up to full compatibility.</p>
 <p>Make sure the <code>#capture</code> helper in Rails 3
 doesn’t print its value directly to the template.</p>
 
-<h2 id="section-52">3.0.4</h2>
+<h2 id="section-55">3.0.4</h2>
 
 <p><a href="http://github.com/nex3/haml/commit/3.0.4">Tagged on GitHub</a>.</p>
 
 <p>There were no changes made to Haml between versions 3.0.3 and 3.0.4.</p>
 
-<h2 id="section-53">3.0.3</h2>
+<h2 id="section-56">3.0.3</h2>
 
 <p><a href="http://github.com/nex3/haml/commit/3.0.3">Tagged on GitHub</a>.</p>
 
@@ -903,13 +953,13 @@ doesn’t print its value directly to the template.</p>
 Sass will now raise an error if <code>Rails.root</code> is <code>nil</code> when Sass is loading.
 Previously, this would just cause the paths to be mis-set.</p>
 
-<h2 id="section-54">3.0.2</h2>
+<h2 id="section-57">3.0.2</h2>
 
 <p><a href="http://github.com/nex3/haml/commit/3.0.2">Tagged on GitHub</a>.</p>
 
 <p>There were no changes made to Haml between versions 3.0.1 and 3.0.2.</p>
 
-<h2 id="section-55">3.0.1</h2>
+<h2 id="section-58">3.0.1</h2>
 
 <p><a href="http://github.com/nex3/haml/commit/3.0.1">Tagged on GitHub</a>.</p>
 
@@ -928,7 +978,7 @@ It will not work in the next version of Haml.</p>
 <p>The <a href="file.HAML_REFERENCE.html#ugly-option" title="&lt;code&gt;:ugly&lt;/code&gt; option"><code>:ugly</code> option</a> is now on by default
 in the testing environment in Rails to help tests run faster.</p>
 
-<h2 id="section-56">3.0.0</h2>
+<h2 id="section-59">3.0.0</h2>
 
 <p><a href="http://github.com/nex3/haml/commit/3.0.0">Tagged on GitHub</a>.</p>
 
@@ -1259,7 +1309,7 @@ Thanks to <a href="http://alfmikula.blogspot.com/">Alf Mikula</a>.</p>
   </li>
 </ul>
 
-<h2 id="section-57">2.2.24</h2>
+<h2 id="section-60">2.2.24</h2>
 
 <p><a href="http://github.com/nex3/haml/commit/2.2.24">Tagged on GitHub</a>.</p>
 
@@ -1276,7 +1326,7 @@ that would cause its methods not to be loaded.</p>
   </li>
 </ul>
 
-<h2 id="section-58">2.2.23</h2>
+<h2 id="section-61">2.2.23</h2>
 
 <p><a href="http://github.com/nex3/haml/commit/2.2.23">Tagged on GitHub</a>.</p>
 
@@ -1293,7 +1343,7 @@ Thanks to <a href="http://github.com/flori">Florian Frank</a>.</p>
   </li>
 </ul>
 
-<h2 id="section-59">2.2.22</h2>
+<h2 id="section-62">2.2.22</h2>
 
 <p><a href="http://github.com/nex3/haml/commit/2.2.22">Tagged on GitHub</a>.</p>
 
@@ -1321,7 +1371,7 @@ This is <a href="http://github.com/rails/rails/commit/9de83050d3a4b260d4aeb5d09e
   </li>
 </ul>
 
-<h2 id="section-60">2.2.21</h2>
+<h2 id="section-63">2.2.21</h2>
 
 <p><a href="http://github.com/nex3/haml/commit/2.2.21">Tagged on GitHub</a>.</p>
 
@@ -1349,7 +1399,7 @@ which sets the indentation level for the duration of a block.</p>
   </li>
 </ul>
 
-<h2 id="section-61">2.2.20</h2>
+<h2 id="section-64">2.2.20</h2>
 
 <p><a href="http://github.com/nex3/haml/commit/2.2.20">Tagged on GitHub</a>.</p>
 
@@ -1372,7 +1422,7 @@ were improperly escaped under the Rails 3.0 beta.</p>
   </li>
 </ul>
 
-<h2 id="section-62">2.2.19</h2>
+<h2 id="section-65">2.2.19</h2>
 
 <p><a href="http://github.com/nex3/haml/commit/2.2.19">Tagged on GitHub</a>.</p>
 
@@ -1381,7 +1431,7 @@ were improperly escaped under the Rails 3.0 beta.</p>
 In particular, correctly override <code>safe_concat</code>.</li>
 </ul>
 
-<h2 id="section-63">2.2.18</h2>
+<h2 id="section-66">2.2.18</h2>
 
 <p><a href="http://github.com/nex3/haml/commit/2.2.18">Tagged on GitHub</a>.</p>
 
@@ -1408,7 +1458,7 @@ and allow multi-line expressions.</p>
   </li>
 </ul>
 
-<h2 id="section-64">2.2.17</h2>
+<h2 id="section-67">2.2.17</h2>
 
 <p><a href="http://github.com/nex3/haml/commit/2.2.17">Tagged on GitHub</a>.</p>
 
@@ -1422,7 +1472,7 @@ rather than raising errors.</p>
   </li>
 </ul>
 
-<h2 id="section-65">2.2.16</h2>
+<h2 id="section-68">2.2.16</h2>
 
 <p><a href="http://github.com/nex3/haml/commit/2.2.16">Tagged on GitHub</a>.</p>
 
@@ -1433,7 +1483,7 @@ These have all been renamed to <code>ActionView::Template::*</code>
 in Rails 3.0.</li>
 </ul>
 
-<h2 id="section-66">2.2.15</h2>
+<h2 id="section-69">2.2.15</h2>
 
 <p><a href="http://github.com/nex3/haml/commit/2.2.15">Tagged on GitHub</a>.</p>
 
@@ -1450,7 +1500,7 @@ bar</li>
   </li>
 </ul>
 
-<h2 id="section-67">2.2.14</h2>
+<h2 id="section-70">2.2.14</h2>
 
 <p><a href="http://github.com/nex3/haml/commit/2.2.14">Tagged on GitHub</a>.</p>
 
@@ -1468,7 +1518,7 @@ by using <code>!!! 5</code> as the doctype declaration.</p>
   </li>
 </ul>
 
-<h2 id="section-68">2.2.13</h2>
+<h2 id="section-71">2.2.13</h2>
 
 <p><a href="http://github.com/nex3/haml/commit/2.2.13">Tagged on GitHub</a>.</p>
 
@@ -1484,13 +1534,13 @@ that’s marked as having an ASCII encoding.</p>
   </li>
 </ul>
 
-<h2 id="section-69">2.2.12</h2>
+<h2 id="section-72">2.2.12</h2>
 
 <p><a href="http://github.com/nex3/haml/commit/2.2.12">Tagged on GitHub</a>.</p>
 
 <p>There were no changes made to Haml between versions 2.2.11 and 2.2.12.</p>
 
-<h2 id="section-70">2.2.11</h2>
+<h2 id="section-73">2.2.11</h2>
 
 <p><a href="http://github.com/nex3/haml/commit/2.2.11">Tagged on GitHub</a>.</p>
 
@@ -1526,7 +1576,7 @@ This changes makes Haml fully compatible with edge Rails as of this writing.</p>
   </li>
 </ul>
 
-<h2 id="section-71">2.2.10</h2>
+<h2 id="section-74">2.2.10</h2>
 
 <p><a href="http://github.com/nex3/haml/commit/2.2.10">Tagged on GitHub</a>.</p>
 
@@ -1552,7 +1602,7 @@ This makes Haml partials work with Rails’ XSS protection.</p>
   </li>
 </ul>
 
-<h2 id="section-72">2.2.9</h2>
+<h2 id="section-75">2.2.9</h2>
 
 <p><a href="http://github.com/nex3/haml/commit/2.2.9">Tagged on GitHub</a>.</p>
 
@@ -1602,7 +1652,7 @@ and will escape their input if it’s not HTML safe.</p>
   </li>
 </ul>
 
-<h2 id="section-73">2.2.8</h2>
+<h2 id="section-76">2.2.8</h2>
 
 <p><a href="http://github.com/nex3/haml/commit/2.2.8">Tagged on GitHub</a>.</p>
 
@@ -1611,7 +1661,7 @@ and will escape their input if it’s not HTML safe.</p>
 This is the same as <a href="http://groups.google.com/group/rubyonrails-security/browse_thread/thread/48ab3f4a2c16190f">the issue fixed in Rails</a> a bit ago.</li>
 </ul>
 
-<h2 id="section-74">2.2.7</h2>
+<h2 id="section-77">2.2.7</h2>
 
 <p><a href="http://github.com/nex3/haml/commit/2.2.7">Tagged on GitHub</a>.</p>
 
@@ -1639,7 +1689,7 @@ whitespace-nuked.</p>
   </li>
 </ul>
 
-<h2 id="section-75">2.2.6</h2>
+<h2 id="section-78">2.2.6</h2>
 
 <p><a href="http://github.com/nex3/haml/commit/2.2.6">Tagged on GitHub</a>.</p>
 
@@ -1662,7 +1712,7 @@ as apparently happens sometimes in TextMate
   </li>
 </ul>
 
-<h2 id="section-76">2.2.5</h2>
+<h2 id="section-79">2.2.5</h2>
 
 <p><a href="http://github.com/nex3/haml/commit/2.2.5">Tagged on GitHub</a>.</p>
 
@@ -1680,7 +1730,7 @@ as apparently happens sometimes in TextMate
   </li>
 </ul>
 
-<h2 id="section-77">2.2.4</h2>
+<h2 id="section-80">2.2.4</h2>
 
 <p><a href="http://github.com/nex3/haml/commit/2.2.4">Tagged on GitHub</a>.</p>
 
@@ -1703,14 +1753,14 @@ clobbered as soon as haml/template is loaded.</p>
   </li>
 </ul>
 
-<h2 id="section-78">2.2.3</h2>
+<h2 id="section-81">2.2.3</h2>
 
 <p><a href="http://github.com/nex3/haml/commit/2.2.3">Tagged on GitHub</a>.</p>
 
 <p>Haml 2.2.3 adds support for the JRuby bundling tools
 for Google AppEngine, thanks to <a href="http://github.com/ulbrich">Jan Ulbrich</a>.</p>
 
-<h2 id="section-79">2.2.2</h2>
+<h2 id="section-82">2.2.2</h2>
 
 <p><a href="http://github.com/nex3/haml/commit/2.2.2">Tagged on GitHub</a>.</p>
 
@@ -1725,13 +1775,13 @@ especially with the <a href="file.HAML_REFERENCE.html#htmlstyle_attributes_" tit
 Third, filters are no longer escaped when the <a href="file.HAML_REFERENCE.html#escape_html-option" title="&lt;code&gt;:escape_html&lt;/code&gt; option"><code>:escape_html</code> option</a>
 is enabled and <code>#{}</code> interpolation is used.</p>
 
-<h2 id="section-80">2.2.1</h2>
+<h2 id="section-83">2.2.1</h2>
 
 <p><a href="http://github.com/nex3/haml/commit/2.2.1">Tagged on GitHub</a>.</p>
 
 <p>Haml 2.2.1 is a minor bug-fix release.</p>
 
-<h2 id="section-81">2.2.0</h2>
+<h2 id="section-84">2.2.0</h2>
 
 <p><a href="http://github.com/nex3/haml/commit/2.2.0">Tagged on GitHub</a>.</p>
 
@@ -1952,7 +2002,7 @@ which is also excellent.</p>
 </div></div>
 
       <div id="footer">
-  Generated on Mon Oct  3 13:54:14 2022 by
+  Generated on Wed Oct  5 22:50:49 2022 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-3.2.0).
 </div>

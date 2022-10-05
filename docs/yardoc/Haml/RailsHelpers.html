@@ -286,12 +286,12 @@
       <pre class="lines">
 
 
-47
-48
-49</pre>
+49
+50
+51</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/rails_helpers.rb', line 47</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/rails_helpers.rb', line 49</span>
 
 def capture_haml(*args, &amp;block)
   capture(*args, &amp;block)
@@ -316,6 +316,7 @@ end</pre>
       <pre class="lines">
 
 
+12
 13
 14
 15
@@ -328,11 +329,10 @@ end</pre>
 22
 23
 24
-25
-26</pre>
+25</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/rails_helpers.rb', line 13</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/rails_helpers.rb', line 12</span>
 
 def find_and_preserve(input = nil, tags = DEFAULT_PRESERVE_TAGS, &amp;block)
   return find_and_preserve(capture_haml(&amp;block), input || tags) if block
@@ -370,13 +370,15 @@ end</pre>
 
 39
 40
-41</pre>
+41
+42</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/haml/rails_helpers.rb', line 39</span>
 
 def precede(str, &amp;block)
-  &quot;#{escape_once(str)}#{capture_haml(&amp;block).chomp}\n&quot;.html_safe
+  str = escape_once(str) unless str.html_safe?
+  &quot;#{str}#{capture_haml(&amp;block).chomp}\n&quot;.html_safe
 end</pre>
     </td>
   </tr>
@@ -398,13 +400,13 @@ end</pre>
       <pre class="lines">
 
 
+27
 28
 29
-30
-31</pre>
+30</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/rails_helpers.rb', line 28</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/rails_helpers.rb', line 27</span>
 
 def preserve(input = nil, &amp;block)
   return preserve(capture_haml(&amp;block)) if block
@@ -430,15 +432,17 @@ end</pre>
       <pre class="lines">
 
 
-43
 44
-45</pre>
+45
+46
+47</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/rails_helpers.rb', line 43</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/rails_helpers.rb', line 44</span>
 
 def succeed(str, &amp;block)
-  &quot;#{capture_haml(&amp;block).chomp}#{escape_once(str)}\n&quot;.html_safe
+  str = escape_once(str) unless str.html_safe?
+  &quot;#{capture_haml(&amp;block).chomp}#{str}\n&quot;.html_safe
 end</pre>
     </td>
   </tr>
@@ -460,6 +464,7 @@ end</pre>
       <pre class="lines">
 
 
+32
 33
 34
 35
@@ -467,12 +472,13 @@ end</pre>
 37</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/rails_helpers.rb', line 33</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/rails_helpers.rb', line 32</span>
 
 def surround(front, back = front, &amp;block)
   output = capture_haml(&amp;block)
-
-  &quot;#{escape_once(front)}#{output.chomp}#{escape_once(back)}\n&quot;.html_safe
+  front  = escape_once(front) unless front.html_safe?
+  back   = escape_once(back)  unless back.html_safe?
+  &quot;#{front}#{output.chomp}#{back}\n&quot;.html_safe
 end</pre>
     </td>
   </tr>
@@ -484,7 +490,7 @@ end</pre>
 </div>
 
       <div id="footer">
-  Generated on Mon Oct  3 13:54:15 2022 by
+  Generated on Wed Oct  5 22:50:49 2022 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-3.2.0).
 </div>

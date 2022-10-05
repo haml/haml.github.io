@@ -144,8 +144,8 @@ this, install the gem with RubyGems:</p>
 <pre class="code ruby"><code class="ruby">gem install haml
 </code></pre>
 
-<p>You can then use it by including the “haml” gem in Ruby code, and using
-<span class='object_link'><a href="Haml/Engine.html" title="Haml::Engine (class)">Haml::Engine</a></span> like so:</p>
+<p>You can then use it by including the <code>haml</code> gem in Ruby code, and using
+<span class='object_link'>Haml::Template</span> like so:</p>
 
 <pre class="code ruby"><code class="ruby">engine = Haml::Template.new { "%p Haml code!" }
 engine.render #=&gt; "&lt;p&gt;Haml code!&lt;/p&gt;\n"
@@ -393,6 +393,22 @@ both XHTML and HTML,</p>
 <p>or using <code>true</code> and <code>false</code>:</p>
 
 <pre class="code ruby"><code class="ruby">%input(selected=true)
+</code></pre>
+
+<p>This feature works only for attributes that are included in
+<a href="lib/haml/attribute_builder.rb"><code>Haml::AttributeBuilder::BOOLEAN_ATTRIBUTES</code></a>,
+as well as <code>data-</code> and <code>aria-</code> attributes.</p>
+
+<pre class="code ruby"><code class="ruby">%input{'data-hidden' =&gt; false}
+%input{'aria-hidden' =&gt; false}
+%input{'xyz-hidden' =&gt; false}
+</code></pre>
+
+<p>will render as:</p>
+
+<pre class="code ruby"><code class="ruby">&lt;input&gt;
+&lt;input&gt;
+&lt;input xyz-hidden='false'&gt;
 </code></pre>
 
 <!-- The title to the next section (Prefixed Attributes) has changed. This
@@ -1341,7 +1357,10 @@ default. This filter is implemented using Tilt.</p>
 
 <h3 id="custom-filters">Custom Filters</h3>
 
-<p>You can also define your own filters. See <span class='object_link'><a href="Haml/Filters.html" title="Haml::Filters (class)">Haml::Filters</a></span> for details.</p>
+<p>You can also define your own filters.
+<code>Haml::Filters::YourCustomFilter#compile</code> should return
+<a href="https://github.com/judofyr/temple/blob/master/EXPRESSIONS.md">a Temple expression</a>.
+See <span class='object_link'><a href="Haml/Filters.html" title="Haml::Filters (class)">Haml::Filters</a></span> for examples.</p>
 
 <h2 id="multiline">Multiline: <code>|</code></h2>
 
@@ -1410,7 +1429,7 @@ same effect.</p>
 </div></div>
 
       <div id="footer">
-  Generated on Mon Oct  3 13:54:14 2022 by
+  Generated on Wed Oct  5 22:50:49 2022 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-3.2.0).
 </div>

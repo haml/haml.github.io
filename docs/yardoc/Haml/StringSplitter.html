@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
-  Module: Haml::StringSplitter
+  Class: Haml::StringSplitter
   
     &mdash; Haml Documentation
   
@@ -59,12 +59,30 @@
         <div class="clear"></div>
       </div>
 
-      <div id="content"><h1>Module: Haml::StringSplitter
+      <div id="content"><h1>Class: Haml::StringSplitter
   
   
   
 </h1>
 <div class="box_info">
+  
+  <dl>
+    <dt>Inherits:</dt>
+    <dd>
+      <span class="inheritName">Temple::Filter</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">Temple::Filter</li>
+          
+            <li class="next">Haml::StringSplitter</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+    </dd>
+  </dl>
   
 
   
@@ -83,6 +101,26 @@
   
 </div>
 
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>Compile [:dynamic, “foo#bar”] to [:multi, [:static, ‘foo’], [:dynamic, ‘bar’]]</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><h2>Defined Under Namespace</h2>
+<p class="children">
+  
+    
+  
+    
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="StringSplitter/SyntaxChecker.html" title="Haml::StringSplitter::SyntaxChecker (class)">SyntaxChecker</a></span>
+    
+  
+</p>
 
 
 
@@ -123,8 +161,64 @@
       
     </ul>
   
+    <h2>
+      Instance Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#call-instance_method" title="#call (instance method)">#<strong>call</strong>(ast)  </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Do nothing if ripper is unavailable.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#on_dynamic-instance_method" title="#on_dynamic (instance method)">#<strong>on_dynamic</strong>(code)  </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
 
 
+  
 
   <div id="class_method_details" class="method_details_list">
     <h2>Class Method Details</h2>
@@ -155,31 +249,131 @@
       <pre class="lines">
 
 
-8
-9
-10
-11
-12
 13
 14
 15
 16
 17
-18</pre>
+18
+19
+20
+21
+22
+23</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/string_splitter.rb', line 8</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/string_splitter.rb', line 13</span>
 
-def self.compile(code)
-  unless Ripper.respond_to?(:lex) # truffleruby doesn&#39;t have Ripper.lex
-    return [[:dynamic, code]]
-  end
+def compile(code)
+  [].tap do |exps|
+    tokens = Ripper.lex(code.strip)
+    tokens.pop while tokens.last &amp;&amp; [:on_comment, :on_sp].include?(tokens.last[1])
 
-  begin
-    Temple::Filters::StringSplitter.compile(code)
-  rescue Temple::FilterError =&gt; e
-    raise Haml::InternalError.new(e.message)
+    if tokens.size &lt; 2
+      raise(Haml::InternalError, &quot;Expected token size &gt;= 2 but got: #{tokens.size}&quot;)
+    end
+    compile_tokens!(exps, tokens)
   end
+end</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="call-instance_method">
+  
+    #<strong>call</strong>(ast)  
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Do nothing if ripper is unavailable</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+135
+136
+137</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/haml/string_splitter.rb', line 135</span>
+
+def call(ast)
+  ast
+end</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="on_dynamic-instance_method">
+  
+    #<strong>on_dynamic</strong>(code)  
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/haml/string_splitter.rb', line 88</span>
+
+def on_dynamic(code)
+  return [:dynamic, code] unless string_literal?(code)
+  return [:dynamic, code] if code.include?(&quot;\n&quot;)
+
+  temple = [:multi]
+  StringSplitter.compile(code).each do |type, content|
+    case type
+    when :static
+      temple &lt;&lt; [:static, content]
+    when :dynamic
+      temple &lt;&lt; on_dynamic(content)
+    end
+  end
+  temple
 end</pre>
     </td>
   </tr>
@@ -191,7 +385,7 @@ end</pre>
 </div>
 
       <div id="footer">
-  Generated on Mon Oct  3 13:54:15 2022 by
+  Generated on Wed Oct  5 22:50:49 2022 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-3.2.0).
 </div>
