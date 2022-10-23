@@ -123,7 +123,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#escape_html-class_method" title="escape_html (class method)">.<strong>escape_html</strong>  </a>
+      <a href="#escape_html-class_method" title="escape_html (class method)">.<strong>escape_html</strong>(html)  </a>
     
 
     
@@ -417,7 +417,7 @@
       <div class="method_details first">
   <h3 class="signature first" id="escape_html-class_method">
   
-    .<strong>escape_html</strong>  
+    .<strong>escape_html</strong>(html)  
   
 
   
@@ -431,18 +431,14 @@
 
 80
 81
-82
-83
-84</pre>
+82</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'ext/haml/haml.c', line 80</span>
 
-static VALUE
-rb_escape_html(RB_UNUSED_VAR(VALUE self), VALUE value)
-{
-  return escape_html(to_s(value));
-}</pre>
+def self.escape_html(html)
+  CGI.escapeHTML(html.to_s)
+end</pre>
     </td>
   </tr>
 </table>
@@ -1470,7 +1466,7 @@ end</pre>
 </div>
 
       <div id="footer">
-  Generated on Fri Oct 14 22:30:52 2022 by
+  Generated on Mon Oct 24 00:05:06 2022 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-3.2.0).
 </div>

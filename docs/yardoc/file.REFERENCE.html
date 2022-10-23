@@ -151,6 +151,32 @@ this, install the gem with RubyGems:</p>
 engine.render #=&gt; "&lt;p&gt;Haml code!&lt;/p&gt;\n"
 </code></pre>
 
+<h3 id="options">Options</h3>
+
+<p>Haml understands various configuration options that affect its performance and
+output.</p>
+
+<p>In Rails, options can be set by using <code>Haml::RailsTemplate.set_options</code> in an initializer:</p>
+
+<p><code>ruby
+# config/initializers/haml.rb
+Haml::RailsTemplate.set_options(escape_html: false)
+</code></p>
+
+<p>Outside Rails, you can set them by configuring them globally in <code>Haml::Template.options</code>:</p>
+
+<p><code>ruby
+Haml::Template.options[:escape_html] = false
+</code></p>
+
+<p>In sinatra specifically, you can set them in global config with:
+<code>ruby
+set :haml, { escape_html: false }
+</code></p>
+
+<p>Finally, you can also set them by passing an options hash to <code>Haml::Engine.new</code> or <code>Haml::Template.new</code>.
+For the complete list of available options, please see <code>Haml::Engine</code>.</p>
+
 <h2 id="plain-text">Plain Text</h2>
 
 <p>A substantial portion of any HTML document is its content, which is plain old
@@ -1359,8 +1385,46 @@ default. This filter is implemented using Tilt.</p>
 
 <p>You can also define your own filters.
 <code>Haml::Filters::YourCustomFilter#compile</code> should return
-<a href="https://github.com/judofyr/temple/blob/master/EXPRESSIONS.md">a Temple expression</a>.
-See <span class='object_link'><a href="Haml/Filters.html" title="Haml::Filters (class)">Haml::Filters</a></span> for examples.</p>
+<a href="https://github.com/judofyr/temple/blob/master/EXPRESSIONS.md">a Temple expression</a>.</p>
+
+<p>The simplest example of a filter might be something like:</p>
+
+<p>```ruby
+class HelloFilter &lt; Haml::Filters::Base
+  def compile(_node)
+    [:static, “hello world”]
+  end
+end</p>
+
+<p>Haml::Filters.registered[:hello] ||= HelloFilter
+```</p>
+
+<p>A more complex complex example</p>
+
+<p>```ruby
+class BetterFilter &lt; Haml::Filters::Base
+  def compile(node)
+    temple = [:multi]
+    temple « [:static, “hello “]
+    temple « compile_text(node.value[:text])
+    temple « [:static, “ world”]
+    temple
+  end</p>
+
+<p>private
+  def compile_text(text)
+    if ::Haml::Util.contains_interpolation?(text)
+      [:dynamic, ::Haml::Util.unescape_interpolation(text)]
+    else
+      [:static, text]
+    end
+  end
+end</p>
+
+<p>Haml::Filters.registered[:better] ||= BetterFilter
+```</p>
+
+<p>See <span class='object_link'><a href="Haml/Filters.html" title="Haml::Filters (class)">Haml::Filters</a></span> for examples.</p>
 
 <h2 id="multiline">Multiline: <code>|</code></h2>
 
@@ -1429,7 +1493,7 @@ same effect.</p>
 </div></div>
 
       <div id="footer">
-  Generated on Fri Oct 14 22:30:52 2022 by
+  Generated on Mon Oct 24 00:05:06 2022 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-3.2.0).
 </div>

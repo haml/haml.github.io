@@ -103,7 +103,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#build-class_method" title="build (class method)">.<strong>build</strong>  </a>
+      <a href="#build-class_method" title="build (class method)">.<strong>build</strong>(escape_attrs, quote, format, boolean_attributes, object_ref, *hashes)  </a>
     
 
     
@@ -126,7 +126,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#build_aria-class_method" title="build_aria (class method)">.<strong>build_aria</strong>  </a>
+      <a href="#build_aria-class_method" title="build_aria (class method)">.<strong>build_aria</strong>(escape_attrs, quote, *hashes)  </a>
     
 
     
@@ -149,7 +149,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#build_class-class_method" title="build_class (class method)">.<strong>build_class</strong>  </a>
+      <a href="#build_class-class_method" title="build_class (class method)">.<strong>build_class</strong>(escape_attrs, *values)  </a>
     
 
     
@@ -172,7 +172,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#build_data-class_method" title="build_data (class method)">.<strong>build_data</strong>  </a>
+      <a href="#build_data-class_method" title="build_data (class method)">.<strong>build_data</strong>(escape_attrs, quote, *hashes)  </a>
     
 
     
@@ -195,7 +195,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#build_id-class_method" title="build_id (class method)">.<strong>build_id</strong>  </a>
+      <a href="#build_id-class_method" title="build_id (class method)">.<strong>build_id</strong>(escape_attrs, *values)  </a>
     
 
     
@@ -227,7 +227,7 @@
       <div class="method_details first">
   <h3 class="signature first" id="build-class_method">
   
-    .<strong>build</strong>  
+    .<strong>build</strong>(escape_attrs, quote, format, boolean_attributes, object_ref, *hashes)  
   
 
   
@@ -248,21 +248,45 @@
 499
 500
 501
-502</pre>
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'ext/haml/haml.c', line 493</span>
 
-static VALUE
-rb_haml_build(int argc, VALUE *argv, RB_UNUSED_VAR(VALUE self))
-{
-  VALUE array;
+def build(escape_attrs, quote, format, boolean_attributes, object_ref, *hashes)
+  hashes &lt;&lt; Haml::ObjectRef.parse(object_ref) if object_ref
+  buf  = []
+  hash = merge_all_attrs(hashes)
 
-  rb_check_arity(argc, 5, UNLIMITED_ARGUMENTS);
-  rb_scan_args(argc - 5, argv + 5, &quot;*&quot;, &amp;array);
-
-  return haml_build(argv[0], argv[1], argv[2], argv[3], argv[4], array);
-}</pre>
+  keys = hash.keys.sort!
+  keys.each do |key|
+    case key
+    when &#39;id&#39;.freeze
+      buf &lt;&lt; &quot; id=#{quote}#{build_id(escape_attrs, *hash[key])}#{quote}&quot;
+    when &#39;class&#39;.freeze
+      buf &lt;&lt; &quot; class=#{quote}#{build_class(escape_attrs, *hash[key])}#{quote}&quot;
+    when &#39;data&#39;.freeze
+      buf &lt;&lt; build_data(escape_attrs, quote, *hash[key])
+    when *boolean_attributes, /\Adata-/
+      build_boolean!(escape_attrs, quote, format, buf, key, hash[key])
+    else
+      buf &lt;&lt; &quot; #{key}=#{quote}#{escape_html(escape_attrs, hash[key].to_s)}#{quote}&quot;
+    end
+  end
+  buf.join
+end</pre>
     </td>
   </tr>
 </table>
@@ -271,7 +295,7 @@ rb_haml_build(int argc, VALUE *argv, RB_UNUSED_VAR(VALUE self))
       <div class="method_details ">
   <h3 class="signature " id="build_aria-class_method">
   
-    .<strong>build_aria</strong>  
+    .<strong>build_aria</strong>(escape_attrs, quote, *hashes)  
   
 
   
@@ -285,28 +309,14 @@ rb_haml_build(int argc, VALUE *argv, RB_UNUSED_VAR(VALUE self))
 
 471
 472
-473
-474
-475
-476
-477
-478
-479
-480</pre>
+473</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'ext/haml/haml.c', line 471</span>
 
-static VALUE
-rb_haml_build_aria(int argc, VALUE *argv, RB_UNUSED_VAR(VALUE self))
-{
-  VALUE array;
-
-  rb_check_arity(argc, 2, UNLIMITED_ARGUMENTS);
-  rb_scan_args(argc - 2, argv + 2, &quot;*&quot;, &amp;array);
-
-  return haml_build_data(argv[0], argv[1], array, str_aria);
-}</pre>
+def build_aria(escape_attrs, quote, *hashes)
+  build_data_attribute(:aria, escape_attrs, quote, *hashes)
+end</pre>
     </td>
   </tr>
 </table>
@@ -315,7 +325,7 @@ rb_haml_build_aria(int argc, VALUE *argv, RB_UNUSED_VAR(VALUE self))
       <div class="method_details ">
   <h3 class="signature " id="build_class-class_method">
   
-    .<strong>build_class</strong>  
+    .<strong>build_class</strong>(escape_attrs, *values)  
   
 
   
@@ -336,21 +346,59 @@ rb_haml_build_aria(int argc, VALUE *argv, RB_UNUSED_VAR(VALUE self))
 466
 467
 468
-469</pre>
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487
+488</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'ext/haml/haml.c', line 460</span>
 
-static VALUE
-rb_haml_build_class(int argc, VALUE *argv, RB_UNUSED_VAR(VALUE self))
-{
-  VALUE array;
+def build_class(escape_attrs, *values)
+  if values.size == 1
+    value = values.first
+    case
+    when value.is_a?(String)
+      # noop
+    when value.is_a?(Array)
+      value = value.flatten.select { |v| v }.map(&amp;:to_s).uniq.join(&#39; &#39;)
+    when value
+      value = value.to_s
+    else
+      return &#39;&#39;
+    end
+    return escape_html(escape_attrs, value)
+  end
 
-  rb_check_arity(argc, 1, UNLIMITED_ARGUMENTS);
-  rb_scan_args(argc - 1, argv + 1, &quot;*&quot;, &amp;array);
-
-  return haml_build_class(argv[0], array);
-}</pre>
+  classes = []
+  values.each do |value|
+    case
+    when value.is_a?(String)
+      classes += value.split(&#39; &#39;)
+    when value.is_a?(Array)
+      classes += value.select { |v| v }
+    when value
+      classes &lt;&lt; value.to_s
+    end
+  end
+  escape_html(escape_attrs, classes.map(&amp;:to_s).uniq.join(&#39; &#39;))
+end</pre>
     </td>
   </tr>
 </table>
@@ -359,7 +407,7 @@ rb_haml_build_class(int argc, VALUE *argv, RB_UNUSED_VAR(VALUE self))
       <div class="method_details ">
   <h3 class="signature " id="build_data-class_method">
   
-    .<strong>build_data</strong>  
+    .<strong>build_data</strong>(escape_attrs, quote, *hashes)  
   
 
   
@@ -373,28 +421,14 @@ rb_haml_build_class(int argc, VALUE *argv, RB_UNUSED_VAR(VALUE self))
 
 482
 483
-484
-485
-486
-487
-488
-489
-490
-491</pre>
+484</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'ext/haml/haml.c', line 482</span>
 
-static VALUE
-rb_haml_build_data(int argc, VALUE *argv, RB_UNUSED_VAR(VALUE self))
-{
-  VALUE array;
-
-  rb_check_arity(argc, 2, UNLIMITED_ARGUMENTS);
-  rb_scan_args(argc - 2, argv + 2, &quot;*&quot;, &amp;array);
-
-  return haml_build_data(argv[0], argv[1], array, str_data);
-}</pre>
+def build_data(escape_attrs, quote, *hashes)
+  build_data_attribute(:data, escape_attrs, quote, *hashes)
+end</pre>
     </td>
   </tr>
 </table>
@@ -403,7 +437,7 @@ rb_haml_build_data(int argc, VALUE *argv, RB_UNUSED_VAR(VALUE self))
       <div class="method_details ">
   <h3 class="signature " id="build_id-class_method">
   
-    .<strong>build_id</strong>  
+    .<strong>build_id</strong>(escape_attrs, *values)  
   
 
   
@@ -417,28 +451,14 @@ rb_haml_build_data(int argc, VALUE *argv, RB_UNUSED_VAR(VALUE self))
 
 449
 450
-451
-452
-453
-454
-455
-456
-457
-458</pre>
+451</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'ext/haml/haml.c', line 449</span>
 
-static VALUE
-rb_haml_build_id(int argc, VALUE *argv, RB_UNUSED_VAR(VALUE self))
-{
-  VALUE array;
-
-  rb_check_arity(argc, 1, UNLIMITED_ARGUMENTS);
-  rb_scan_args(argc - 1, argv + 1, &quot;*&quot;, &amp;array);
-
-  return haml_build_id(argv[0], array);
-}</pre>
+def build_id(escape_attrs, *values)
+  escape_html(escape_attrs, values.flatten.select { |v| v }.join(&#39;_&#39;))
+end</pre>
     </td>
   </tr>
 </table>
@@ -449,7 +469,7 @@ rb_haml_build_id(int argc, VALUE *argv, RB_UNUSED_VAR(VALUE self))
 </div>
 
       <div id="footer">
-  Generated on Fri Oct 14 22:30:52 2022 by
+  Generated on Mon Oct 24 00:05:06 2022 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-3.2.0).
 </div>
