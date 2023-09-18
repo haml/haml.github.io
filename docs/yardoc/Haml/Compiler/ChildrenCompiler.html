@@ -195,13 +195,15 @@
 
 7
 8
-9</pre>
+9
+10</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/haml/compiler/children_compiler.rb', line 7</span>
 
 def initialize
   @lineno = 1
+  @multi_flattener = Temple::Filters::MultiFlattener.new
 end</pre>
     </td>
   </tr>
@@ -230,7 +232,6 @@ end</pre>
       <pre class="lines">
 
 
-11
 12
 13
 14
@@ -243,24 +244,25 @@ end</pre>
 21
 22
 23
-24</pre>
+24
+25</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/compiler/children_compiler.rb', line 11</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/compiler/children_compiler.rb', line 12</span>
 
 def compile(node, &amp;block)
   temple = [:multi]
   return temple if node.children.empty?
 
-  temple &lt;&lt; :whitespace if prepend_whitespace?(node)
+  temple &lt;&lt; [:whitespace] if prepend_whitespace?(node)
   node.children.each do |n|
     rstrip_whitespace!(temple) if nuke_prev_whitespace?(n)
     insert_newlines!(temple, n)
     temple &lt;&lt; moving_lineno(n) { block.call(n) }
-    temple &lt;&lt; :whitespace if insert_whitespace?(n)
+    temple &lt;&lt; [:whitespace] if insert_whitespace?(n)
   end
   rstrip_whitespace!(temple) if nuke_inner_whitespace?(node)
-  confirm_whitespace(temple)
+  temple
 end</pre>
     </td>
   </tr>
@@ -272,9 +274,9 @@ end</pre>
 </div>
 
       <div id="footer">
-  Generated on Tue Dec 13 23:41:54 2022 by
+  Generated on Mon Sep 18 18:26:26 2023 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.28 (ruby-3.2.0).
+  0.9.34 (ruby-3.3.0).
 </div>
 
     </div>

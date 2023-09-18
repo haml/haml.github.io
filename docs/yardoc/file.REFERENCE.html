@@ -258,10 +258,10 @@ closing tags for any element.</p>
 
 <h3 id="attributes">Attributes: <code>{}</code> or <code>()</code></h3>
 
-<p>Brackets represent a Ruby hash that is used for specifying the attributes of an
+<p>Braces represent a Ruby hash that is used for specifying the attributes of an
 element. It is literally evaluated as a Ruby hash, so logic will work in it and
 local variables may be used. Quote characters within the attribute will be
-replaced by appropriate escape sequences. The hash is placed after the tag is
+replaced with appropriate escape sequences. The hash is placed after the tag is
 defined. For example:</p>
 
 <pre class="code ruby"><code class="ruby">%html{:xmlns =&gt; "http://www.w3.org/1999/xhtml", "xml:lang" =&gt; "en", :lang =&gt; "en"}
@@ -335,7 +335,7 @@ class="item empty"
 <h4 id="html-style-attributes-">HTML-style Attributes: <code>()</code></h4>
 
 <p>Haml also supports a terser, less Ruby-specific attribute syntax based on HTML’s
-attributes. These are used with parentheses instead of brackets, like so:</p>
+attributes. These are used with parentheses instead of braces, like so:</p>
 
 <pre class="code ruby"><code class="ruby">%html(xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en")
 </code></pre>
@@ -422,7 +422,7 @@ both XHTML and HTML,</p>
 </code></pre>
 
 <p>This feature works only for attributes that are included in
-<a href="lib/haml/attribute_builder.rb"><code>Haml::AttributeBuilder::BOOLEAN_ATTRIBUTES</code></a>,
+<a href="https://github.com/haml/haml/blob/main/lib/haml/attribute_builder.rb#L5"><code>Haml::AttributeBuilder::BOOLEAN_ATTRIBUTES</code></a>,
 as well as <code>data-</code> and <code>aria-</code> attributes.</p>
 
 <pre class="code ruby"><code class="ruby">%input{'data-hidden' =&gt; false}
@@ -441,20 +441,19 @@ as well as <code>data-</code> and <code>aria-</code> attributes.</p>
 <a> tag is so old links to here still work. -->
 <p><a id="html5_custom_data_attributes" style="border:0;"></a></p>
 
-<h4 id="prefixed-attributes">Prefixed Attributes</h4>
+<h4 id="data-attributes">Data Attributes</h4>
 
 <p>HTML5 allows for adding
 <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/elements.html#embedding-custom-non-visible-data-with-the-data-*-attributes">custom non-visible data attributes</a>
 to elements using attribute names beginning with <code>data-</code>. The
 <a href="http://www.w3.org/WAI/intro/aria">Accessible Rich Internet Applications</a>
-specification makes use of attributes beginning with <code>aria-</code>. There are also
-frameworks that use non-standard attributes with a common prefix.</p>
+specification makes use of attributes beginning with <code>aria-</code>.</p>
 
 <p>Haml can help generate collections of attributes that share a prefix like
-these. Any entry in an attribute hash that has a Hash as its value is expanded
-into a series of attributes, one for each key/value pair in the hash, with the
-attribute name formed by joining the “parent” key name to the key name with a
-hyphen.</p>
+these. Any entry in an <code>data</code> or <code>aria</code> attribute hash that has a Hash as its
+value is expanded into a series of attributes, one for each key/value pair in
+the hash, with the attribute name formed by joining the “parent” key name to
+the key name with a hyphen. This works only for <code>data</code> or <code>aria</code>.</p>
 
 <p>For example:</p>
 
@@ -466,7 +465,7 @@ hyphen.</p>
 <pre class="code ruby"><code class="ruby">&lt;a data-author-id='123' data-category='7' href='/posts'&gt;Posts By Author&lt;/a&gt;
 </code></pre>
 
-<p>Notice that the underscore in <code>author_id</code> was replaced by a hyphen. If you wish
+<p>Notice that the underscore in <code>author_id</code> was replaced with a hyphen. If you wish
 to suppress this behavior, you can set Haml’s
 <code>:hyphenate_data_attrs</code> option to <code>false</code>,
 and the output will be rendered as:</p>
@@ -1165,7 +1164,7 @@ most code but you may have errors with code like the following:</p>
 <pre class="code ruby"><code class="ruby">%span #{'{'}
 </code></pre>
 
-<p>This code will generate a syntax error, complaining about unbalanced brackets.
+<p>This code will generate a syntax error, complaining about unbalanced braces.
 In cases like this, the recommended workaround is output the code as a Ruby
 string to force Haml to parse the code with Ruby.</p>
 
@@ -1279,7 +1278,7 @@ uses to implement many of its filters:</p>
 <pre class="code ruby"><code class="ruby">Tilt.prefer Tilt::RedCarpetTemplate
 </code></pre>
 
-<p>See the <a href="https://github.com/rtomayko/tilt#fallback-mode">Tilt documentation</a> for
+<p>See the <a href="https://github.com/rtomayko/tilt">Tilt documentation</a> for
 more info.</p>
 
 <p>Haml comes with the following filters defined:</p>
@@ -1331,7 +1330,7 @@ implemented using Tilt.</p>
 
 <h3 id="maruku-filter"><code>:maruku</code></h3>
 
-<p>Parses the filtered text with <a href="https://github.com/nex3/maruku">Maruku</a>, which
+<p>Parses the filtered text with <a href="https://github.com/bhollis/maruku">Maruku</a>, which
 has some non-standard extensions to Markdown.</p>
 
 <p>As of Haml 4.0, this filter is defined in <a href="https://github.com/haml/haml-contrib">Haml
@@ -1354,11 +1353,8 @@ HTML escape code for newlines, to preserve nice-looking output. See also
 
 <h3 id="ruby-filter"><code>:ruby</code></h3>
 
-<p>Parses the filtered text with the normal Ruby interpreter. Creates an <code>IO</code>
-object named <code>haml_io</code>, anything written to it is output into the Haml document.
-Not available if the <code>:suppress_eval</code> option is
-set to true. The Ruby code is evaluated in the same context as the Haml
-template.</p>
+<p>Parses the filtered text with the normal Ruby interpreter.
+The Ruby code is evaluated in the same context as the Haml template.</p>
 
 <h3 id="sass-filter"><code>:sass</code></h3>
 
@@ -1399,7 +1395,7 @@ end</p>
 <p>Haml::Filters.registered[:hello] ||= HelloFilter
 ```</p>
 
-<p>A more complex complex example</p>
+<p>A more complex example:</p>
 
 <p>```ruby
 class BetterFilter &lt; Haml::Filters::Base
@@ -1473,7 +1469,7 @@ can be wrapped over multiple lines,
 as long as each line but the last ends in a comma
 (see <a href="#inserting_ruby">Inserting Ruby</a>).</p>
 
-<h2 id="whitespace-preservation">Whitespace Preservation</h2>
+<h2 id="whitespace_preservation">Whitespace Preservation</h2>
 
 <p>Sometimes you don’t want Haml to indent all your text.
 For example, tags like <code>pre</code> and <code>textarea</code> are whitespace-sensitive;
@@ -1493,9 +1489,9 @@ same effect.</p>
 </div></div>
 
       <div id="footer">
-  Generated on Tue Dec 13 23:41:53 2022 by
+  Generated on Mon Sep 18 18:26:25 2023 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.28 (ruby-3.2.0).
+  0.9.34 (ruby-3.3.0).
 </div>
 
     </div>

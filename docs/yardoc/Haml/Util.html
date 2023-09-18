@@ -471,12 +471,14 @@ end</pre>
 
 29
 30
-31</pre>
+31
+32</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/haml/util.rb', line 29</span>
 
 def self.escape_html_safe(html)
+  html = html.to_s
   (html.respond_to?(:html_safe?) &amp;&amp; html.html_safe?) ? html : escape_html(html)
 end</pre>
     </td>
@@ -607,7 +609,6 @@ and the rest of the string.
       <pre class="lines">
 
 
-170
 171
 172
 173
@@ -617,10 +618,11 @@ and the rest of the string.
 177
 178
 179
-180</pre>
+180
+181</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/util.rb', line 170</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/util.rb', line 171</span>
 
 def balance(scanner, start, finish, count = 0)
   str = &#39;&#39;.dup
@@ -739,7 +741,6 @@ Only yields if there is an encoding error</p>
       <pre class="lines">
 
 
-64
 65
 66
 67
@@ -764,10 +765,11 @@ Only yields if there is an encoding error</p>
 86
 87
 88
-89</pre>
+89
+90</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/util.rb', line 64</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/util.rb', line 65</span>
 
 def check_encoding(str)
   if str.valid_encoding?
@@ -927,7 +929,6 @@ Only yields if there is an encoding error</p>
       <pre class="lines">
 
 
-111
 112
 113
 114
@@ -936,10 +937,11 @@ Only yields if there is an encoding error</p>
 117
 118
 119
-120</pre>
+120
+121</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/util.rb', line 111</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/util.rb', line 112</span>
 
 def check_haml_encoding(str, &amp;block)
   str = str.dup if str.frozen?
@@ -994,12 +996,12 @@ end</pre>
       <pre class="lines">
 
 
-199
 200
-201</pre>
+201
+202</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/util.rb', line 199</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/util.rb', line 200</span>
 
 def contains_interpolation?(str)
   /#[\{$@]/ === str
@@ -1076,14 +1078,14 @@ and the text prior to that as the first (<code>scan[1]</code>).</p>
       <pre class="lines">
 
 
-149
 150
 151
 152
-153</pre>
+153
+154</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/util.rb', line 149</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/util.rb', line 150</span>
 
 def handle_interpolation(str)
   scan = StringScanner.new(str)
@@ -1156,7 +1158,6 @@ end</pre>
       <pre class="lines">
 
 
-186
 187
 188
 189
@@ -1167,10 +1168,11 @@ end</pre>
 194
 195
 196
-197</pre>
+197
+198</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/util.rb', line 186</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/util.rb', line 187</span>
 
 def human_indentation(indentation)
   if !indentation.include?(?\t)
@@ -1244,7 +1246,6 @@ before being evaluated.</p>
       <pre class="lines">
 
 
-128
 129
 130
 131
@@ -1253,10 +1254,11 @@ before being evaluated.</p>
 134
 135
 136
-137</pre>
+137
+138</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/util.rb', line 128</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/util.rb', line 129</span>
 
 def inspect_obj(obj)
   case obj
@@ -1313,12 +1315,12 @@ Overridden in haml/template.rb if this is the case.</p>
       <pre class="lines">
 
 
-50
 51
-52</pre>
+52
+53</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/util.rb', line 50</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/util.rb', line 51</span>
 
 def rails_xss_safe?
   false
@@ -1370,15 +1372,15 @@ end</pre>
       <pre class="lines">
 
 
-36
 37
 38
 39
 40
-41</pre>
+41
+42</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/util.rb', line 36</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/util.rb', line 37</span>
 
 def silence_warnings
   the_real_stderr, $stderr = $stderr, StringIO.new
@@ -1406,7 +1408,6 @@ end</pre>
       <pre class="lines">
 
 
-203
 204
 205
 206
@@ -1428,10 +1429,11 @@ end</pre>
 222
 223
 224
-225</pre>
+225
+226</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/util.rb', line 203</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/util.rb', line 204</span>
 
 def unescape_interpolation(str, escape_html = nil)
   res = &#39;&#39;.dup
@@ -1466,9 +1468,9 @@ end</pre>
 </div>
 
       <div id="footer">
-  Generated on Tue Dec 13 23:41:53 2022 by
+  Generated on Mon Sep 18 18:26:25 2023 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.28 (ruby-3.2.0).
+  0.9.34 (ruby-3.3.0).
 </div>
 
     </div>

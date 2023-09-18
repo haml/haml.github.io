@@ -335,7 +335,12 @@ end</pre>
 41
 42
 43
-44</pre>
+44
+45
+46
+47
+48
+49</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/haml/rails_template.rb', line 26</span>
@@ -343,6 +348,11 @@ end</pre>
 def call(template, source = nil)
   source ||= template.source
   options = RailsTemplate.options
+
+  # Make the filename available in parser etc.
+  if template.respond_to?(:identifier)
+    options = options.merge(filename: template.identifier)
+  end
 
   # https://github.com/haml/haml/blob/4.0.7/lib/haml/template/plugin.rb#L19-L20
   # https://github.com/haml/haml/blob/4.0.7/lib/haml/options.rb#L228
@@ -402,12 +412,12 @@ end</pre>
       <pre class="lines">
 
 
-46
-47
-48</pre>
+51
+52
+53</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/rails_template.rb', line 46</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/rails_template.rb', line 51</span>
 
 def supports_streaming?
   RailsTemplate.options[:streaming]
@@ -422,9 +432,9 @@ end</pre>
 </div>
 
       <div id="footer">
-  Generated on Tue Dec 13 23:41:54 2022 by
+  Generated on Mon Sep 18 18:26:25 2023 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.28 (ruby-3.2.0).
+  0.9.34 (ruby-3.3.0).
 </div>
 
     </div>

@@ -220,7 +220,11 @@
 8
 9
 10
-11</pre>
+11
+12
+13
+14
+15</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/haml/filters/tilt_base.rb', line 7</span>
@@ -228,7 +232,11 @@
 def self.render(name, source, indent_width: 0)
   text = ::Tilt[&quot;t.#{name}&quot;].new { source }.render
   return text if indent_width == 0
-  text.gsub!(/^/, &#39; &#39; * indent_width)
+  if text.frozen?
+    text.gsub(/^/, &#39; &#39; * indent_width)
+  else
+    text.gsub!(/^/, &#39; &#39; * indent_width)
+  end
 end</pre>
     </td>
   </tr>
@@ -279,13 +287,13 @@ end</pre>
       <pre class="lines">
 
 
-13
-14
-15
-16</pre>
+17
+18
+19
+20</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/haml/filters/tilt_base.rb', line 13</span>
+      <pre class="code"><span class="info file"># File 'lib/haml/filters/tilt_base.rb', line 17</span>
 
 def explicit_require?(needed_registration)
   Gem::Version.new(Tilt::VERSION) &gt;= Gem::Version.new(&#39;2.0.0&#39;) &amp;&amp;
@@ -301,9 +309,9 @@ end</pre>
 </div>
 
       <div id="footer">
-  Generated on Tue Dec 13 23:41:54 2022 by
+  Generated on Mon Sep 18 18:26:25 2023 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.28 (ruby-3.2.0).
+  0.9.34 (ruby-3.3.0).
 </div>
 
     </div>

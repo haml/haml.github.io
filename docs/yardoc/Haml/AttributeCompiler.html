@@ -259,7 +259,7 @@ def compile(node)
   end
   [node.value[:dynamic_attributes].new, node.value[:dynamic_attributes].old].compact.each do |attribute_str|
     hash = AttributeParser.parse(attribute_str)
-    return runtime_compile(node) unless hash
+    return runtime_compile(node) if hash.nil? || hash.any? { |_key, value| value.empty? }
     hashes &lt;&lt; hash
   end
   static_compile(node.value[:attributes], hashes)
@@ -274,9 +274,9 @@ end</pre>
 </div>
 
       <div id="footer">
-  Generated on Tue Dec 13 23:41:54 2022 by
+  Generated on Mon Sep 18 18:26:25 2023 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.28 (ruby-3.2.0).
+  0.9.34 (ruby-3.3.0).
 </div>
 
     </div>
