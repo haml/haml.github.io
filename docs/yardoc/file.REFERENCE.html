@@ -1385,29 +1385,27 @@ default. This filter is implemented using Tilt.</p>
 
 <p>The simplest example of a filter might be something like:</p>
 
-<p>```ruby
-class HelloFilter &lt; Haml::Filters::Base
+<pre class="code ruby"><code class="ruby">class HelloFilter &lt; Haml::Filters::Base
   def compile(_node)
-    [:static, “hello world”]
+    [:static, "hello world"]
   end
-end</p>
+end
 
-<p>Haml::Filters.registered[:hello] ||= HelloFilter
-```</p>
+Haml::Filters.registered[:hello] ||= HelloFilter
+</code></pre>
 
 <p>A more complex example:</p>
 
-<p>```ruby
-class BetterFilter &lt; Haml::Filters::Base
+<pre class="code ruby"><code class="ruby">class BetterFilter &lt; Haml::Filters::Base
   def compile(node)
     temple = [:multi]
-    temple « [:static, “hello “]
-    temple « compile_text(node.value[:text])
-    temple « [:static, “ world”]
+    temple &lt;&lt; [:static, "hello "]
+    temple &lt;&lt; compile_text(node.value[:text])
+    temple &lt;&lt; [:static, " world"]
     temple
-  end</p>
+  end
 
-<p>private
+  private
   def compile_text(text)
     if ::Haml::Util.contains_interpolation?(text)
       [:dynamic, ::Haml::Util.unescape_interpolation(text)]
@@ -1415,10 +1413,10 @@ class BetterFilter &lt; Haml::Filters::Base
       [:static, text]
     end
   end
-end</p>
+end
 
-<p>Haml::Filters.registered[:better] ||= BetterFilter
-```</p>
+Haml::Filters.registered[:better] ||= BetterFilter
+</code></pre>
 
 <p>See <span class='object_link'><a href="Haml/Filters.html" title="Haml::Filters (class)">Haml::Filters</a></span> for examples.</p>
 
@@ -1489,7 +1487,7 @@ same effect.</p>
 </div></div>
 
       <div id="footer">
-  Generated on Mon Sep 18 18:26:25 2023 by
+  Generated on Wed Oct  4 05:29:48 2023 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.34 (ruby-3.3.0).
 </div>
