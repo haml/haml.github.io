@@ -1484,10 +1484,29 @@ automatically, and so should be passed through
 same effect.</p>
 
 <p>Blocks of literal text can be preserved using the <a href="#preserve-filter"><code>:preserve</code> filter</a>.</p>
+
+<h2 id="turbo">Turbo</h2>
+
+<p>For people using Turbo-rails need to either:
+*  follow the naming convention with the html format (ie. ensure any <code>.haml</code> files end <code>.html.haml</code>), or
+*  add a monkey patch as follows:</p>
+
+<p>```rb
+# config/initializers/haml.rb
+require “haml/rails_template”</p>
+
+<p>module Haml
+  class RailsTemplate
+    def default_format
+      :html
+    end
+  end
+end
+```</p>
 </div></div>
 
       <div id="footer">
-  Generated on Wed Oct  4 19:25:44 2023 by
+  Generated on Wed Dec 13 22:12:06 2023 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.34 (ruby-3.3.0).
 </div>
